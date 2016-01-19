@@ -67,6 +67,21 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		FD76BC5C1C4E46B400E9BBEB /* Chinese.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC361C4E46B400E9BBEB /* Chinese.cpp */; };
+		FD76BC5D1C4E46B400E9BBEB /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC391C4E46B400E9BBEB /* common.cpp */; };
+		FD76BC5E1C4E46B400E9BBEB /* FrameAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC3B1C4E46B400E9BBEB /* FrameAnim.cpp */; };
+		FD76BC5F1C4E46B400E9BBEB /* GameJoyStick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC3E1C4E46B400E9BBEB /* GameJoyStick.cpp */; };
+		FD76BC601C4E46B400E9BBEB /* JigsawPuzzle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC401C4E46B400E9BBEB /* JigsawPuzzle.cpp */; };
+		FD76BC611C4E46B400E9BBEB /* GameTouchNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC421C4E46B400E9BBEB /* GameTouchNode.cpp */; };
+		FD76BC621C4E46B400E9BBEB /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC441C4E46B400E9BBEB /* ImageButton.cpp */; };
+		FD76BC631C4E46B400E9BBEB /* TiledMapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC461C4E46B400E9BBEB /* TiledMapLoader.cpp */; };
+		FD76BC641C4E46B400E9BBEB /* TouchSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC481C4E46B400E9BBEB /* TouchSprite.cpp */; };
+		FD76BC651C4E46B400E9BBEB /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC4C1C4E46B400E9BBEB /* SceneManager.cpp */; };
+		FD76BC661C4E46B400E9BBEB /* DLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC511C4E46B400E9BBEB /* DLog.cpp */; };
+		FD76BC671C4E46B400E9BBEB /* ComboEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC541C4E46B400E9BBEB /* ComboEffect.cpp */; };
+		FD76BC691C4E46B400E9BBEB /* JniSms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC5A1C4E46B400E9BBEB /* JniSms.cpp */; };
+		FD76BC6C1C4E482E00E9BBEB /* BasicLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC6A1C4E482E00E9BBEB /* BasicLayer.cpp */; };
+		FD76BC701C4E490B00E9BBEB /* LayerMainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD76BC6E1C4E490B00E9BBEB /* LayerMainMenu.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +174,37 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		FD76BC361C4E46B400E9BBEB /* Chinese.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chinese.cpp; sourceTree = "<group>"; };
+		FD76BC371C4E46B400E9BBEB /* Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chinese.h; sourceTree = "<group>"; };
+		FD76BC381C4E46B400E9BBEB /* CocosHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosHead.h; sourceTree = "<group>"; };
+		FD76BC391C4E46B400E9BBEB /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		FD76BC3A1C4E46B400E9BBEB /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		FD76BC3B1C4E46B400E9BBEB /* FrameAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameAnim.cpp; sourceTree = "<group>"; };
+		FD76BC3C1C4E46B400E9BBEB /* FrameAnim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAnim.h; sourceTree = "<group>"; };
+		FD76BC3E1C4E46B400E9BBEB /* GameJoyStick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameJoyStick.cpp; sourceTree = "<group>"; };
+		FD76BC3F1C4E46B400E9BBEB /* GameJoyStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameJoyStick.h; sourceTree = "<group>"; };
+		FD76BC401C4E46B400E9BBEB /* JigsawPuzzle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigsawPuzzle.cpp; sourceTree = "<group>"; };
+		FD76BC411C4E46B400E9BBEB /* JigsawPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigsawPuzzle.h; sourceTree = "<group>"; };
+		FD76BC421C4E46B400E9BBEB /* GameTouchNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameTouchNode.cpp; sourceTree = "<group>"; };
+		FD76BC431C4E46B400E9BBEB /* GameTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTouchNode.h; sourceTree = "<group>"; };
+		FD76BC441C4E46B400E9BBEB /* ImageButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageButton.cpp; sourceTree = "<group>"; };
+		FD76BC451C4E46B400E9BBEB /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageButton.h; sourceTree = "<group>"; };
+		FD76BC461C4E46B400E9BBEB /* TiledMapLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TiledMapLoader.cpp; sourceTree = "<group>"; };
+		FD76BC471C4E46B400E9BBEB /* TiledMapLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiledMapLoader.h; sourceTree = "<group>"; };
+		FD76BC481C4E46B400E9BBEB /* TouchSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSprite.cpp; sourceTree = "<group>"; };
+		FD76BC491C4E46B400E9BBEB /* TouchSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSprite.h; sourceTree = "<group>"; };
+		FD76BC4C1C4E46B400E9BBEB /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		FD76BC4D1C4E46B400E9BBEB /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		FD76BC511C4E46B400E9BBEB /* DLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DLog.cpp; sourceTree = "<group>"; };
+		FD76BC521C4E46B400E9BBEB /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
+		FD76BC541C4E46B400E9BBEB /* ComboEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComboEffect.cpp; sourceTree = "<group>"; };
+		FD76BC551C4E46B400E9BBEB /* ComboEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboEffect.h; sourceTree = "<group>"; };
+		FD76BC5A1C4E46B400E9BBEB /* JniSms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JniSms.cpp; sourceTree = "<group>"; };
+		FD76BC5B1C4E46B400E9BBEB /* JniSms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JniSms.h; sourceTree = "<group>"; };
+		FD76BC6A1C4E482E00E9BBEB /* BasicLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicLayer.cpp; sourceTree = "<group>"; };
+		FD76BC6B1C4E482E00E9BBEB /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
+		FD76BC6E1C4E490B00E9BBEB /* LayerMainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerMainMenu.cpp; sourceTree = "<group>"; };
+		FD76BC6F1C4E490B00E9BBEB /* LayerMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerMainMenu.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +335,10 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FD76BC351C4E46B400E9BBEB /* Framework */,
+				FD76BC4A1C4E46B400E9BBEB /* Manager */,
+				FD76BC4E1C4E46B400E9BBEB /* Scene */,
+				FD76BC4F1C4E46B400E9BBEB /* System */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -344,6 +394,121 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		FD76BC351C4E46B400E9BBEB /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC6A1C4E482E00E9BBEB /* BasicLayer.cpp */,
+				FD76BC6B1C4E482E00E9BBEB /* BasicLayer.h */,
+				FD76BC361C4E46B400E9BBEB /* Chinese.cpp */,
+				FD76BC371C4E46B400E9BBEB /* Chinese.h */,
+				FD76BC381C4E46B400E9BBEB /* CocosHead.h */,
+				FD76BC391C4E46B400E9BBEB /* common.cpp */,
+				FD76BC3A1C4E46B400E9BBEB /* common.h */,
+				FD76BC3B1C4E46B400E9BBEB /* FrameAnim.cpp */,
+				FD76BC3C1C4E46B400E9BBEB /* FrameAnim.h */,
+				FD76BC3D1C4E46B400E9BBEB /* GameComponents */,
+				FD76BC421C4E46B400E9BBEB /* GameTouchNode.cpp */,
+				FD76BC431C4E46B400E9BBEB /* GameTouchNode.h */,
+				FD76BC441C4E46B400E9BBEB /* ImageButton.cpp */,
+				FD76BC451C4E46B400E9BBEB /* ImageButton.h */,
+				FD76BC461C4E46B400E9BBEB /* TiledMapLoader.cpp */,
+				FD76BC471C4E46B400E9BBEB /* TiledMapLoader.h */,
+				FD76BC481C4E46B400E9BBEB /* TouchSprite.cpp */,
+				FD76BC491C4E46B400E9BBEB /* TouchSprite.h */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		FD76BC3D1C4E46B400E9BBEB /* GameComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC3E1C4E46B400E9BBEB /* GameJoyStick.cpp */,
+				FD76BC3F1C4E46B400E9BBEB /* GameJoyStick.h */,
+				FD76BC401C4E46B400E9BBEB /* JigsawPuzzle.cpp */,
+				FD76BC411C4E46B400E9BBEB /* JigsawPuzzle.h */,
+			);
+			path = GameComponents;
+			sourceTree = "<group>";
+		};
+		FD76BC4A1C4E46B400E9BBEB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC4B1C4E46B400E9BBEB /* Scene */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FD76BC4B1C4E46B400E9BBEB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC4C1C4E46B400E9BBEB /* SceneManager.cpp */,
+				FD76BC4D1C4E46B400E9BBEB /* SceneManager.h */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		FD76BC4E1C4E46B400E9BBEB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC6D1C4E490B00E9BBEB /* MainMenu */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		FD76BC4F1C4E46B400E9BBEB /* System */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC501C4E46B400E9BBEB /* Debug */,
+				FD76BC531C4E46B400E9BBEB /* Effects */,
+				FD76BC561C4E46B400E9BBEB /* Music */,
+				FD76BC591C4E46B400E9BBEB /* Sms */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		FD76BC501C4E46B400E9BBEB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC511C4E46B400E9BBEB /* DLog.cpp */,
+				FD76BC521C4E46B400E9BBEB /* DLog.h */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		FD76BC531C4E46B400E9BBEB /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC541C4E46B400E9BBEB /* ComboEffect.cpp */,
+				FD76BC551C4E46B400E9BBEB /* ComboEffect.h */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		FD76BC561C4E46B400E9BBEB /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		FD76BC591C4E46B400E9BBEB /* Sms */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC5A1C4E46B400E9BBEB /* JniSms.cpp */,
+				FD76BC5B1C4E46B400E9BBEB /* JniSms.h */,
+			);
+			path = Sms;
+			sourceTree = "<group>";
+		};
+		FD76BC6D1C4E490B00E9BBEB /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BC6E1C4E490B00E9BBEB /* LayerMainMenu.cpp */,
+				FD76BC6F1C4E490B00E9BBEB /* LayerMainMenu.h */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -491,11 +656,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD76BC5F1C4E46B400E9BBEB /* GameJoyStick.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				FD76BC5D1C4E46B400E9BBEB /* common.cpp in Sources */,
+				FD76BC671C4E46B400E9BBEB /* ComboEffect.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				FD76BC601C4E46B400E9BBEB /* JigsawPuzzle.cpp in Sources */,
+				FD76BC701C4E490B00E9BBEB /* LayerMainMenu.cpp in Sources */,
+				FD76BC611C4E46B400E9BBEB /* GameTouchNode.cpp in Sources */,
+				FD76BC641C4E46B400E9BBEB /* TouchSprite.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				FD76BC631C4E46B400E9BBEB /* TiledMapLoader.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				FD76BC5E1C4E46B400E9BBEB /* FrameAnim.cpp in Sources */,
+				FD76BC6C1C4E482E00E9BBEB /* BasicLayer.cpp in Sources */,
+				FD76BC691C4E46B400E9BBEB /* JniSms.cpp in Sources */,
+				FD76BC5C1C4E46B400E9BBEB /* Chinese.cpp in Sources */,
+				FD76BC621C4E46B400E9BBEB /* ImageButton.cpp in Sources */,
+				FD76BC651C4E46B400E9BBEB /* SceneManager.cpp in Sources */,
+				FD76BC661C4E46B400E9BBEB /* DLog.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

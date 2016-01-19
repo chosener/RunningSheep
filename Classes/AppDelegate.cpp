@@ -1,6 +1,9 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
+#include "Manager/Scene/SceneManager.h"
+#include "Scene/MainMenu/LayerMainMenu.h"
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -47,7 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = LayerMainMenu::createScene();
 
     // run
     director->runWithScene(scene);

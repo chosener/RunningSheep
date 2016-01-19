@@ -1,4 +1,4 @@
-#include "./common.h"
+#include "common.h"
 
 
 float getDegreeByVec(const Vec2& pos)

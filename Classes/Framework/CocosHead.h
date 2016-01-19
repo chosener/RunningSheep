@@ -23,7 +23,6 @@ USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace cocos2d::ui;
 using namespace cocos2d::extension;
-using namespace CocosDenshion;
 using namespace cocostudio;
 
 #endif

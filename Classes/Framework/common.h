@@ -26,7 +26,7 @@ float getRadianByVec(const Vec2& pos);
 void callLater(Node* target, float delay, const std::function<void()> &func);
 #define performWithDelay callLater 
 
-
+#if 0
 template<class T>
 void randomVector(Vector<T>& set, int count)
 {
@@ -35,6 +35,7 @@ void randomVector(Vector<T>& set, int count)
 		int index0 = random() % count;
 		int index1 = random() % count;
 		set.swap(index0, index1);
+
 	}
 }
 
@@ -51,5 +52,6 @@ void random_vector(std::vector<T>& set, int count)
 		set.at(index1) = t;
 	}
 }
+#endif
 
 #endif

@@ -1,8 +1,7 @@
 #ifndef __GAME_JOY_STICK_H__
 #define __GAME_JOY_STICK_H__
 
-#include "cocos2d.h"
-USING_NS_CC;
+#include "CocosHead.h"
 
 enum {
 	U_DIR = 0,
