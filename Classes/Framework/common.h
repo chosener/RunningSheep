@@ -15,6 +15,7 @@
 #define DISPLAY_RIGHT (DISPLAY_WIDTH)
 #define DISPLAY_TOP (DISPLAY_HEIGHT)
 #define DISPLAY_BOTTOM (0)
+
 #define ADD_SPRITE_FRAMES(plist, png) (SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist, png))
 
 #define EVENT_DISPATCHER (Director::getInstance()->getEventDispatcher())

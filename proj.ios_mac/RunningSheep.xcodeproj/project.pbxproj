@@ -85,6 +85,9 @@
 		D65820031C54C2C40021C03A /* JniSms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FF21C54C2C40021C03A /* JniSms.cpp */; };
 		D65820081C54C2D50021C03A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D65820061C54C2D40021C03A /* fonts */; };
 		D65820091C54C2D50021C03A /* res in Resources */ = {isa = PBXBuildFile; fileRef = D65820071C54C2D50021C03A /* res */; };
+		D658200B1C54F5060021C03A /* images in Resources */ = {isa = PBXBuildFile; fileRef = D658200A1C54F5060021C03A /* images */; };
+		D658200F1C54FFCC0021C03A /* LayerStart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D658200D1C54FFCC0021C03A /* LayerStart.cpp */; };
+		D65820141C55087F0021C03A /* LayerGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D65820121C55087F0021C03A /* LayerGame.cpp */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -316,6 +319,12 @@
 		D6581FF31C54C2C40021C03A /* JniSms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JniSms.h; sourceTree = "<group>"; };
 		D65820061C54C2D40021C03A /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		D65820071C54C2D50021C03A /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		D658200A1C54F5060021C03A /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		D658200D1C54FFCC0021C03A /* LayerStart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerStart.cpp; sourceTree = "<group>"; };
+		D658200E1C54FFCC0021C03A /* LayerStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerStart.h; sourceTree = "<group>"; };
+		D65820101C5501DE0021C03A /* GameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHeader.h; sourceTree = "<group>"; };
+		D65820121C55087F0021C03A /* LayerGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerGame.cpp; sourceTree = "<group>"; };
+		D65820131C55087F0021C03A /* LayerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerGame.h; sourceTree = "<group>"; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -509,6 +518,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D658200A1C54F5060021C03A /* images */,
 				D65820061C54C2D40021C03A /* fonts */,
 				D65820071C54C2D50021C03A /* res */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
@@ -538,6 +548,7 @@
 				D6581FDC1C54C2C40021C03A /* TiledMapLoader.h */,
 				D6581FDD1C54C2C40021C03A /* TouchSprite.cpp */,
 				D6581FDE1C54C2C40021C03A /* TouchSprite.h */,
+				D65820101C5501DE0021C03A /* GameHeader.h */,
 			);
 			name = Framework;
 			path = ../Classes/Framework;
@@ -575,6 +586,8 @@
 		D6581FE31C54C2C40021C03A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D65820111C55087F0021C03A /* Game */,
+				D658200C1C54FFCC0021C03A /* Start */,
 				D6581FE41C54C2C40021C03A /* MainMenu */,
 			);
 			name = Scene;
@@ -636,6 +649,24 @@
 				D6581FF31C54C2C40021C03A /* JniSms.h */,
 			);
 			path = Sms;
+			sourceTree = "<group>";
+		};
+		D658200C1C54FFCC0021C03A /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				D658200D1C54FFCC0021C03A /* LayerStart.cpp */,
+				D658200E1C54FFCC0021C03A /* LayerStart.h */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		D65820111C55087F0021C03A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D65820121C55087F0021C03A /* LayerGame.cpp */,
+				D65820131C55087F0021C03A /* LayerGame.h */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +845,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				D65820081C54C2D50021C03A /* fonts in Resources */,
+				D658200B1C54F5060021C03A /* images in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
@@ -857,6 +889,7 @@
 				D65820001C54C2C40021C03A /* DLog.cpp in Sources */,
 				D65820011C54C2C40021C03A /* ComboEffect.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				D65820141C55087F0021C03A /* LayerGame.cpp in Sources */,
 				D6581FF61C54C2C40021C03A /* common.cpp in Sources */,
 				D6581FFE1C54C2C40021C03A /* SceneManager.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -864,6 +897,7 @@
 				D6581FF41C54C2C40021C03A /* BasicLayer.cpp in Sources */,
 				D6581FFB1C54C2C40021C03A /* ImageButton.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
+				D658200F1C54FFCC0021C03A /* LayerStart.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

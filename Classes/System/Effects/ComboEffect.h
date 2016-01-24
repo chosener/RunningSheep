@@ -4,4 +4,5 @@
 using namespace cocos2d;
 
 void showComboEffect(int size,Node* node);
+
 #endif

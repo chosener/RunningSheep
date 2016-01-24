@@ -34,7 +34,8 @@ static int register_all_packages()
     return 0; //flag for packages manager
 }
 
-bool AppDelegate::applicationDidFinishLaunching() {
+bool AppDelegate::applicationDidFinishLaunching()
+{
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
@@ -43,6 +44,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+    glview->setDesignResolutionSize(1280,720,ResolutionPolicy::SHOW_ALL);
+    
     // turn on display FPS
     director->setDisplayStats(true);
 
@@ -52,10 +55,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = LayerMainMenu::createScene();
+    //auto scene = LayerMainMenu::createScene();
 
     // run
-    director->runWithScene(scene);
+    //director->runWithScene(scene);
+    SceneManager::getInstance()->changeScene(SceneManager::en_GameScene);
 
     return true;
 }

@@ -316,7 +316,16 @@
   jni/../../cocos2d/cocos/./deprecated/CCDouble.h \
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
-  jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h
+  jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
+  jni/../../Classes/Manager/Scene/../../Framework/GameHeader.h \
+  jni/../../Classes/Manager/Scene/../../Framework/common.h \
+  jni/../../Classes/Manager/Scene/../../Framework/ImageButton.h \
+  jni/../../Classes/Manager/Scene/../../Framework/GameTouchNode.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../System/Debug/DLog.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/LayerStart.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/MainMenu/LayerMainMenu.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Game/LayerGame.h
 
 jni/../../Classes/Manager/Scene/SceneManager.h:
 
@@ -951,3 +960,21 @@ jni/../../cocos2d/cocos/./deprecated/CCBool.h:
 jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/GameHeader.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/common.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/ImageButton.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/GameTouchNode.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../System/Debug/DLog.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/LayerStart.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/../../Framework/BasicLayer.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/MainMenu/LayerMainMenu.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Game/LayerGame.h:

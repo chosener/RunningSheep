@@ -320,7 +320,14 @@
   jni/../../Classes/Manager/Scene/../../Framework/CocosHead.h \
   /Users/dongsai/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/iostream \
   jni/../../Classes/Scene/MainMenu/LayerMainMenu.h \
-  jni/../../Classes/Scene/MainMenu/../../Framework/BasicLayer.h
+  jni/../../Classes/Scene/MainMenu/../../Framework/GameHeader.h \
+  jni/../../Classes/Manager/Scene/../../Framework/common.h \
+  jni/../../Classes/Manager/Scene/../../Framework/ImageButton.h \
+  jni/../../Classes/Manager/Scene/../../Framework/GameTouchNode.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../System/Debug/DLog.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/LayerStart.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
+  jni/../../Classes/Manager/Scene/../../Framework/../Scene/Game/LayerGame.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -964,4 +971,18 @@ jni/../../Classes/Manager/Scene/../../Framework/CocosHead.h:
 
 jni/../../Classes/Scene/MainMenu/LayerMainMenu.h:
 
-jni/../../Classes/Scene/MainMenu/../../Framework/BasicLayer.h:
+jni/../../Classes/Scene/MainMenu/../../Framework/GameHeader.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/common.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/ImageButton.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/GameTouchNode.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../System/Debug/DLog.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/LayerStart.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Start/../../Framework/BasicLayer.h:
+
+jni/../../Classes/Manager/Scene/../../Framework/../Scene/Game/LayerGame.h:

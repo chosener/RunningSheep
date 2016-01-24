@@ -26,6 +26,7 @@ public:
     enum EnumSceneType
     {
         en_GameLogo,                /*Logo界面*/
+        en_GameStart,
         en_GameMainMenu,            /*主菜单界面*/
         en_Loading,                 /*Loading*/
         en_GameScene,                     /* 关卡场景 */
