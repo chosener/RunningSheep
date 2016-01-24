@@ -16,6 +16,7 @@ AppDelegate::~AppDelegate()
 
 //if you want a different context,just modify the value of glContextAttrs
 //it will takes effect on all platforms
+/*
 void AppDelegate::initGLContextAttrs()
 {
     //set OpenGL context attributions,now can only set six attributions:
@@ -24,6 +25,7 @@ void AppDelegate::initGLContextAttrs()
 
     GLView::setGLContextAttrs(glContextAttrs);
 }
+ */
 
 // If you want to use packages manager to install more packages, 
 // don't modify or remove this function
@@ -37,7 +39,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("My Game");
+        glview = GLView::create("My Game");
         director->setOpenGLView(glview);
     }
 

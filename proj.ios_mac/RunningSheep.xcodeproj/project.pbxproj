@@ -68,6 +68,23 @@
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
+		D6581FF41C54C2C40021C03A /* BasicLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FC91C54C2C40021C03A /* BasicLayer.cpp */; };
+		D6581FF61C54C2C40021C03A /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FCE1C54C2C40021C03A /* common.cpp */; };
+		D6581FF71C54C2C40021C03A /* FrameAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FD01C54C2C40021C03A /* FrameAnim.cpp */; };
+		D6581FF81C54C2C40021C03A /* GameJoyStick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FD31C54C2C40021C03A /* GameJoyStick.cpp */; };
+		D6581FF91C54C2C40021C03A /* JigsawPuzzle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FD51C54C2C40021C03A /* JigsawPuzzle.cpp */; };
+		D6581FFA1C54C2C40021C03A /* GameTouchNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FD71C54C2C40021C03A /* GameTouchNode.cpp */; };
+		D6581FFB1C54C2C40021C03A /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FD91C54C2C40021C03A /* ImageButton.cpp */; };
+		D6581FFC1C54C2C40021C03A /* TiledMapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FDB1C54C2C40021C03A /* TiledMapLoader.cpp */; };
+		D6581FFD1C54C2C40021C03A /* TouchSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FDD1C54C2C40021C03A /* TouchSprite.cpp */; };
+		D6581FFE1C54C2C40021C03A /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FE11C54C2C40021C03A /* SceneManager.cpp */; };
+		D6581FFF1C54C2C40021C03A /* LayerMainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FE51C54C2C40021C03A /* LayerMainMenu.cpp */; };
+		D65820001C54C2C40021C03A /* DLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FE91C54C2C40021C03A /* DLog.cpp */; };
+		D65820011C54C2C40021C03A /* ComboEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FEC1C54C2C40021C03A /* ComboEffect.cpp */; };
+		D65820021C54C2C40021C03A /* AudioManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FEF1C54C2C40021C03A /* AudioManager.cpp */; };
+		D65820031C54C2C40021C03A /* JniSms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6581FF21C54C2C40021C03A /* JniSms.cpp */; };
+		D65820081C54C2D50021C03A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D65820061C54C2D40021C03A /* fonts */; };
+		D65820091C54C2D50021C03A /* res in Resources */ = {isa = PBXBuildFile; fileRef = D65820071C54C2D50021C03A /* res */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,20 +124,6 @@
 			remoteGlobalIDString = A03F2ED617814268006731B9;
 			remoteInfo = "CocosDenshion Mac";
 		};
-		1AC6FB02180E9839004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A03F31FD1781479B006731B9;
-			remoteInfo = "jsbindings Mac";
-		};
-		1AC6FB04180E9839004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1A6FB53017854BC300CDF010;
-			remoteInfo = "luabindings Mac";
-		};
 		1AC6FB06180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
@@ -155,20 +158,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = A07A4FB4178387730073F6A7;
 			remoteInfo = "CocosDenshion iOS";
-		};
-		1AC6FB10180E9839004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A07A5030178387750073F6A7;
-			remoteInfo = "jsbindings iOS";
-		};
-		1AC6FB12180E9839004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1A119791178526AA00D62A44;
-			remoteInfo = "luabindings iOS";
 		};
 		1AC6FB15180E9959004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -294,6 +283,39 @@
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D6581FC91C54C2C40021C03A /* BasicLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicLayer.cpp; sourceTree = "<group>"; };
+		D6581FCA1C54C2C40021C03A /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
+		D6581FCD1C54C2C40021C03A /* CocosHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosHead.h; sourceTree = "<group>"; };
+		D6581FCE1C54C2C40021C03A /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		D6581FCF1C54C2C40021C03A /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		D6581FD01C54C2C40021C03A /* FrameAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameAnim.cpp; sourceTree = "<group>"; };
+		D6581FD11C54C2C40021C03A /* FrameAnim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAnim.h; sourceTree = "<group>"; };
+		D6581FD31C54C2C40021C03A /* GameJoyStick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameJoyStick.cpp; sourceTree = "<group>"; };
+		D6581FD41C54C2C40021C03A /* GameJoyStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameJoyStick.h; sourceTree = "<group>"; };
+		D6581FD51C54C2C40021C03A /* JigsawPuzzle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigsawPuzzle.cpp; sourceTree = "<group>"; };
+		D6581FD61C54C2C40021C03A /* JigsawPuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigsawPuzzle.h; sourceTree = "<group>"; };
+		D6581FD71C54C2C40021C03A /* GameTouchNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameTouchNode.cpp; sourceTree = "<group>"; };
+		D6581FD81C54C2C40021C03A /* GameTouchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTouchNode.h; sourceTree = "<group>"; };
+		D6581FD91C54C2C40021C03A /* ImageButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageButton.cpp; sourceTree = "<group>"; };
+		D6581FDA1C54C2C40021C03A /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageButton.h; sourceTree = "<group>"; };
+		D6581FDB1C54C2C40021C03A /* TiledMapLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TiledMapLoader.cpp; sourceTree = "<group>"; };
+		D6581FDC1C54C2C40021C03A /* TiledMapLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiledMapLoader.h; sourceTree = "<group>"; };
+		D6581FDD1C54C2C40021C03A /* TouchSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSprite.cpp; sourceTree = "<group>"; };
+		D6581FDE1C54C2C40021C03A /* TouchSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSprite.h; sourceTree = "<group>"; };
+		D6581FE11C54C2C40021C03A /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		D6581FE21C54C2C40021C03A /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		D6581FE51C54C2C40021C03A /* LayerMainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerMainMenu.cpp; sourceTree = "<group>"; };
+		D6581FE61C54C2C40021C03A /* LayerMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerMainMenu.h; sourceTree = "<group>"; };
+		D6581FE91C54C2C40021C03A /* DLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DLog.cpp; sourceTree = "<group>"; };
+		D6581FEA1C54C2C40021C03A /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
+		D6581FEC1C54C2C40021C03A /* ComboEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComboEffect.cpp; sourceTree = "<group>"; };
+		D6581FED1C54C2C40021C03A /* ComboEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboEffect.h; sourceTree = "<group>"; };
+		D6581FEF1C54C2C40021C03A /* AudioManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioManager.cpp; sourceTree = "<group>"; };
+		D6581FF01C54C2C40021C03A /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		D6581FF21C54C2C40021C03A /* JniSms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JniSms.cpp; sourceTree = "<group>"; };
+		D6581FF31C54C2C40021C03A /* JniSms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JniSms.h; sourceTree = "<group>"; };
+		D65820061C54C2D40021C03A /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		D65820071C54C2D50021C03A /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -364,6 +386,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D6581FC81C54C2C40021C03A /* Framework */,
+				D6581FDF1C54C2C40021C03A /* Manager */,
+				D6581FE31C54C2C40021C03A /* Scene */,
+				D6581FE71C54C2C40021C03A /* System */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
@@ -390,15 +416,11 @@
 				1AC6FAFD180E9839004C840B /* libchipmunk Mac.a */,
 				1AC6FAFF180E9839004C840B /* libbox2d Mac.a */,
 				1AC6FB01180E9839004C840B /* libCocosDenshion Mac.a */,
-				1AC6FB03180E9839004C840B /* libjsbindings Mac.a */,
-				1AC6FB05180E9839004C840B /* libluabindings Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */,
 				1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */,
 				1AC6FB0B180E9839004C840B /* libchipmunk iOS.a */,
 				1AC6FB0D180E9839004C840B /* libbox2d iOS.a */,
 				1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */,
-				1AC6FB11180E9839004C840B /* libjsbindings iOS.a */,
-				1AC6FB13180E9839004C840B /* libluabindings iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -487,12 +509,133 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D65820061C54C2D40021C03A /* fonts */,
+				D65820071C54C2D50021C03A /* res */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		D6581FC81C54C2C40021C03A /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FC91C54C2C40021C03A /* BasicLayer.cpp */,
+				D6581FCA1C54C2C40021C03A /* BasicLayer.h */,
+				D6581FCD1C54C2C40021C03A /* CocosHead.h */,
+				D6581FCE1C54C2C40021C03A /* common.cpp */,
+				D6581FCF1C54C2C40021C03A /* common.h */,
+				D6581FD01C54C2C40021C03A /* FrameAnim.cpp */,
+				D6581FD11C54C2C40021C03A /* FrameAnim.h */,
+				D6581FD21C54C2C40021C03A /* GameComponents */,
+				D6581FD71C54C2C40021C03A /* GameTouchNode.cpp */,
+				D6581FD81C54C2C40021C03A /* GameTouchNode.h */,
+				D6581FD91C54C2C40021C03A /* ImageButton.cpp */,
+				D6581FDA1C54C2C40021C03A /* ImageButton.h */,
+				D6581FDB1C54C2C40021C03A /* TiledMapLoader.cpp */,
+				D6581FDC1C54C2C40021C03A /* TiledMapLoader.h */,
+				D6581FDD1C54C2C40021C03A /* TouchSprite.cpp */,
+				D6581FDE1C54C2C40021C03A /* TouchSprite.h */,
+			);
+			name = Framework;
+			path = ../Classes/Framework;
+			sourceTree = "<group>";
+		};
+		D6581FD21C54C2C40021C03A /* GameComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FD31C54C2C40021C03A /* GameJoyStick.cpp */,
+				D6581FD41C54C2C40021C03A /* GameJoyStick.h */,
+				D6581FD51C54C2C40021C03A /* JigsawPuzzle.cpp */,
+				D6581FD61C54C2C40021C03A /* JigsawPuzzle.h */,
+			);
+			path = GameComponents;
+			sourceTree = "<group>";
+		};
+		D6581FDF1C54C2C40021C03A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE01C54C2C40021C03A /* Scene */,
+			);
+			name = Manager;
+			path = ../Classes/Manager;
+			sourceTree = "<group>";
+		};
+		D6581FE01C54C2C40021C03A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE11C54C2C40021C03A /* SceneManager.cpp */,
+				D6581FE21C54C2C40021C03A /* SceneManager.h */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D6581FE31C54C2C40021C03A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE41C54C2C40021C03A /* MainMenu */,
+			);
+			name = Scene;
+			path = ../Classes/Scene;
+			sourceTree = "<group>";
+		};
+		D6581FE41C54C2C40021C03A /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE51C54C2C40021C03A /* LayerMainMenu.cpp */,
+				D6581FE61C54C2C40021C03A /* LayerMainMenu.h */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		D6581FE71C54C2C40021C03A /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE81C54C2C40021C03A /* Debug */,
+				D6581FEB1C54C2C40021C03A /* Effects */,
+				D6581FEE1C54C2C40021C03A /* Music */,
+				D6581FF11C54C2C40021C03A /* Sms */,
+			);
+			name = System;
+			path = ../Classes/System;
+			sourceTree = "<group>";
+		};
+		D6581FE81C54C2C40021C03A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FE91C54C2C40021C03A /* DLog.cpp */,
+				D6581FEA1C54C2C40021C03A /* DLog.h */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		D6581FEB1C54C2C40021C03A /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FEC1C54C2C40021C03A /* ComboEffect.cpp */,
+				D6581FED1C54C2C40021C03A /* ComboEffect.h */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		D6581FEE1C54C2C40021C03A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FEF1C54C2C40021C03A /* AudioManager.cpp */,
+				D6581FF01C54C2C40021C03A /* AudioManager.h */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		D6581FF11C54C2C40021C03A /* Sms */ = {
+			isa = PBXGroup;
+			children = (
+				D6581FF21C54C2C40021C03A /* JniSms.cpp */,
+				D6581FF31C54C2C40021C03A /* JniSms.h */,
+			);
+			path = Sms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,20 +760,6 @@
 			remoteRef = 1AC6FB00180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AC6FB03180E9839004C840B /* libjsbindings Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsbindings Mac.a";
-			remoteRef = 1AC6FB02180E9839004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB05180E9839004C840B /* libluabindings Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libluabindings Mac.a";
-			remoteRef = 1AC6FB04180E9839004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -666,20 +795,6 @@
 			remoteRef = 1AC6FB0E180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AC6FB11180E9839004C840B /* libjsbindings iOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsbindings iOS.a";
-			remoteRef = 1AC6FB10180E9839004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB13180E9839004C840B /* libluabindings iOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libluabindings iOS.a";
-			remoteRef = 1AC6FB12180E9839004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -698,12 +813,14 @@
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				D65820081C54C2D50021C03A /* fonts in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				D65820091C54C2D50021C03A /* res in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
@@ -727,10 +844,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6581FFC1C54C2C40021C03A /* TiledMapLoader.cpp in Sources */,
+				D6581FFA1C54C2C40021C03A /* GameTouchNode.cpp in Sources */,
+				D6581FF81C54C2C40021C03A /* GameJoyStick.cpp in Sources */,
+				D6581FF71C54C2C40021C03A /* FrameAnim.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				D65820021C54C2C40021C03A /* AudioManager.cpp in Sources */,
+				D6581FF91C54C2C40021C03A /* JigsawPuzzle.cpp in Sources */,
+				D65820031C54C2C40021C03A /* JniSms.cpp in Sources */,
+				D6581FFF1C54C2C40021C03A /* LayerMainMenu.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				D65820001C54C2C40021C03A /* DLog.cpp in Sources */,
+				D65820011C54C2C40021C03A /* ComboEffect.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				D6581FF61C54C2C40021C03A /* common.cpp in Sources */,
+				D6581FFE1C54C2C40021C03A /* SceneManager.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				D6581FFD1C54C2C40021C03A /* TouchSprite.cpp in Sources */,
+				D6581FF41C54C2C40021C03A /* BasicLayer.cpp in Sources */,
+				D6581FFB1C54C2C40021C03A /* ImageButton.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

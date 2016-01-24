@@ -11,8 +11,33 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Framework/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Framework/GameComponents/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Scene/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/MainMenu/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Debug/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Effects/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Music/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Sms/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
