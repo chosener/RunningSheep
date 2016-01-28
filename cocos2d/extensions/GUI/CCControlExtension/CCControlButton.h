@@ -32,8 +32,13 @@
 
 #include "CCControl.h"
 #include "CCInvocation.h"
+<<<<<<< HEAD
 #include "base/CCMap.h"
 #include "ui/UIScale9Sprite.h"
+=======
+#include "CCScale9Sprite.h"
+#include "base/CCMap.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -51,6 +56,7 @@ NS_CC_EXT_BEGIN
  */
 
 /** @class ControlButton Button control for Cocos2D. */
+<<<<<<< HEAD
 class CC_EX_DLL ControlButton : public Control
 {        
 public:
@@ -64,6 +70,21 @@ public:
     virtual void setEnabled(bool enabled) override;
     virtual void setSelected(bool enabled) override;
     virtual void setHighlighted(bool enabled) override;
+=======
+class ControlButton : public Control
+{        
+public:
+    static ControlButton* create();
+    static ControlButton* create(Scale9Sprite* sprite);
+    static ControlButton* create(Node* label, Scale9Sprite* backgroundSprite);
+    static ControlButton* create(const std::string& title, const std::string& fontName, float fontSize);
+
+    virtual void needsLayout(void);
+
+    virtual void setEnabled(bool enabled);
+    virtual void setSelected(bool enabled);
+    virtual void setHighlighted(bool enabled);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     bool isPushed() const { return _isPushed; }
 
@@ -148,7 +169,11 @@ public:
      * @param state The state that uses the background sprite. Possible values are
      * described in "CCControlState".
      */
+<<<<<<< HEAD
     virtual cocos2d::ui::Scale9Sprite* getBackgroundSpriteForState(State state);
+=======
+    virtual Scale9Sprite* getBackgroundSpriteForState(State state);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the background sprite to use for the specified button state.
@@ -157,7 +182,11 @@ public:
      * @param state The state that uses the specified image. The values are described
      * in "CCControlState".
      */
+<<<<<<< HEAD
     virtual void setBackgroundSpriteForState(cocos2d::ui::Scale9Sprite* sprite, State state);
+=======
+    virtual void setBackgroundSpriteForState(Scale9Sprite* sprite, State state);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the background spriteFrame to use for the specified button state.
@@ -202,8 +231,13 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~ControlButton();
     
     virtual bool init() override;
+<<<<<<< HEAD
     virtual bool initWithLabelAndBackgroundSprite(Node* label, cocos2d::ui::Scale9Sprite* backgroundSprite);
     virtual bool initWithBackgroundSprite(cocos2d::ui::Scale9Sprite* sprite);
+=======
+    virtual bool initWithLabelAndBackgroundSprite(Node* label, Scale9Sprite* backgroundSprite);
+    virtual bool initWithBackgroundSprite(Scale9Sprite* sprite);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool initWithTitleAndFontNameAndFontSize(const std::string& title, const std::string& fontName, float fontSize);
     
 protected:
@@ -221,7 +255,11 @@ protected:
     CC_SYNTHESIZE_RETAIN(Node*, _titleLabel, TitleLabel);
 
     /** The current background sprite. */
+<<<<<<< HEAD
     CC_SYNTHESIZE_RETAIN(cocos2d::ui::Scale9Sprite*, _backgroundSprite, BackgroundSprite);
+=======
+    CC_SYNTHESIZE_RETAIN(Scale9Sprite*, _backgroundSprite, BackgroundSprite);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /** The prefered size of the button, if label is larger it will be expanded. */
     CC_PROPERTY_PASS_BY_REF(Size, _preferredSize, PreferredSize);
@@ -237,7 +275,11 @@ protected:
     std::unordered_map<int, Color3B> _titleColorDispatchTable;
 
     Map<int, Node*> _titleLabelDispatchTable;
+<<<<<<< HEAD
     Map<int, cocos2d::ui::Scale9Sprite*> _backgroundSpriteDispatchTable;
+=======
+    Map<int, Scale9Sprite*> _backgroundSpriteDispatchTable;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /* Define the button margin for Top/Bottom edge */
     CC_SYNTHESIZE_READONLY(int, _marginV, VerticalMargin);

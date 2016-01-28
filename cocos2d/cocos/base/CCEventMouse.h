@@ -27,7 +27,10 @@
 #define __cocos2d_libs__CCMouseEvent__
 
 #include "base/CCEvent.h"
+<<<<<<< HEAD
 #include "math/CCGeometry.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define MOUSE_BUTTON_LEFT       0
 #define MOUSE_BUTTON_RIGHT      1
@@ -38,6 +41,7 @@
 #define MOUSE_BUTTON_7          6
 #define MOUSE_BUTTON_8          7
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -54,6 +58,15 @@ public:
     /**
     * MouseEventType Different types of MouseEvent.
     * @js NA
+=======
+NS_CC_BEGIN
+
+class EventMouse : public Event
+{
+public:
+    /**
+    * Different types of MouseEvent
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     */
     enum class MouseEventType
     {
@@ -64,6 +77,7 @@ public:
         MOUSE_SCROLL,
     };
 
+<<<<<<< HEAD
     /** Constructor.
      *
      * @param mouseEventCode A given mouse event type.
@@ -173,6 +187,21 @@ public:
     Vec2 getStartLocationInView() const;
 
 
+=======
+    EventMouse(MouseEventType mouseEventCode);
+
+    /** Set mouse scroll data */
+    inline void setScrollData(float scrollX, float scrollY) { _scrollX = scrollX; _scrollY = scrollY; };
+    inline float getScrollX() { return _scrollX; };
+    inline float getScrollY() { return _scrollY; };
+
+    inline void setCursorPosition(float x, float y) { _x = x; _y = y; };
+    inline void setMouseButton(int button) { _mouseButton = button; };
+    inline int getMouseButton() { return _mouseButton; };
+    inline float getCursorX() { return _x; };
+    inline float getCursorY() { return _y; };
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 private:
     MouseEventType _mouseEventType;
     int _mouseButton;
@@ -181,17 +210,23 @@ private:
     float _scrollX;
     float _scrollY;
 
+<<<<<<< HEAD
     bool _startPointCaptured;
     Vec2 _startPoint;
     Vec2 _point;
     Vec2 _prevPoint;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     friend class EventListenerMouse;
 };
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCMouseEvent__) */

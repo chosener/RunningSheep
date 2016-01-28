@@ -89,7 +89,11 @@ ControlSlider* ControlSlider::create(const char* bgFile, const char* progressFil
 
 ControlSlider* ControlSlider::create(Sprite * backgroundSprite, Sprite* pogressSprite, Sprite* thumbSprite)
 {
+<<<<<<< HEAD
     ControlSlider *pRet = new (std::nothrow) ControlSlider();
+=======
+    ControlSlider *pRet = new ControlSlider();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     pRet->initWithSprites(backgroundSprite, pogressSprite, thumbSprite);
     pRet->autorelease();
     return pRet;
@@ -98,7 +102,11 @@ ControlSlider* ControlSlider::create(Sprite * backgroundSprite, Sprite* pogressS
 ControlSlider* ControlSlider::create(Sprite * backgroundSprite, Sprite* pogressSprite, Sprite* thumbSprite,
         Sprite* selectedThumbSprite)
 {
+<<<<<<< HEAD
     ControlSlider *pRet = new (std::nothrow) ControlSlider();
+=======
+    ControlSlider *pRet = new ControlSlider();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     pRet->initWithSprites(backgroundSprite, pogressSprite, thumbSprite, selectedThumbSprite);
     pRet->autorelease();
     return pRet;
@@ -136,11 +144,16 @@ bool ControlSlider::initWithSprites(Sprite * backgroundSprite, Sprite* progressS
         
         // Add the slider background
         _backgroundSprite->setAnchorPoint(Vec2(0.5f, 0.5f));
+<<<<<<< HEAD
         _backgroundSprite->setPosition(this->getContentSize().width / 2, this->getContentSize().height / 2);
+=======
+        _backgroundSprite->setPosition(Vec2(this->getContentSize().width / 2, this->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         addChild(_backgroundSprite);
 
         // Add the progress bar
         _progressSprite->setAnchorPoint(Vec2(0.0f, 0.5f));
+<<<<<<< HEAD
         _progressSprite->setPosition(0.0f, this->getContentSize().height / 2);
         addChild(_progressSprite);
 
@@ -149,6 +162,16 @@ bool ControlSlider::initWithSprites(Sprite * backgroundSprite, Sprite* progressS
         addChild(_thumbSprite);
         
         _selectedThumbSprite->setPosition(0.0f, this->getContentSize().height / 2);
+=======
+        _progressSprite->setPosition(Vec2(0.0f, this->getContentSize().height / 2));
+        addChild(_progressSprite);
+
+        // Add the slider thumb  
+        _thumbSprite->setPosition(Vec2(0.0f, this->getContentSize().height / 2));
+        addChild(_thumbSprite);
+        
+        _selectedThumbSprite->setPosition(Vec2(0.0f, this->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _selectedThumbSprite->setVisible(false);
         addChild(_selectedThumbSprite);
 

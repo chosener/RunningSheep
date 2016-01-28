@@ -1,5 +1,10 @@
 /****************************************************************************
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies Inc.
+=======
+ Copyright (c) 2014 cocos2d-x.org
+ Copyright (c) 2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -25,7 +30,11 @@
 #ifndef __cocos2d_libs__CCController__
 #define __cocos2d_libs__CCController__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -37,6 +46,7 @@ class EventListenerController;
 class EventController;
 class EventDispatcher;
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -52,6 +62,12 @@ class Controller
 public:
     /** 
      * Controllers' standard  key
+=======
+class Controller
+{
+public:
+    /** Controllers' standard  key
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * Controller receives only standard key which contained within enum Key by default.
      */
     enum Key
@@ -90,6 +106,7 @@ public:
         KEY_MAX
     };
 
+<<<<<<< HEAD
     /**
      * @struct KeyStatus
      * 
@@ -104,11 +121,18 @@ public:
          * If isAnalog is true, the key value might be a float from -1 to 1. 
          * If isAnalog is false, the key value would be contain one number: 0 or 1.
          */
+=======
+    typedef struct _keyStatus
+    {
+        bool isPressed;
+        float value;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         bool isAnalog;
     }KeyStatus;
     
     static const int TAG_UNSET = -1;
 
+<<<<<<< HEAD
     /**
      * Gets all Controller objects.
      */
@@ -173,6 +197,42 @@ public:
      */
     void setTag(int tag) { _controllerTag = tag;}
 
+=======
+    static const std::vector<Controller*>& getAllController(){ return s_allController;}
+    /** Gets a controller with its tag
+     * @param tag   An identifier to find the controller.
+     */
+    static Controller* getControllerByTag(int tag);
+    /** To start discovering new controllers
+     * @warning The API only work on the IOS platform.Empty implementation on Android
+     */
+    static void startDiscoveryController();
+    /** End the discovery process
+     * @warning The API only work on the IOS platform.Empty implementation on Android
+     */
+    static void stopDiscoveryController();
+
+    const std::string& getDeviceName() const { return _deviceName;}
+    int getDeviceId() const { return _deviceId;}
+
+    bool isConnected() const;
+
+    const KeyStatus& getKeyStatus(int keyCode);
+    
+    /** Activate receives key event from external key. e.g. back,menu.
+     * Controller receives only standard key which contained within enum Key by default.
+     * @warning The API only work on the android platform for support diversified game controller.
+     *
+     * @param externalKeyCode  external key code
+     * @param receive  true if external key event on this controller should be receive, false otherwise.
+     */
+    void receiveExternalKeyEvent(int externalKeyCode,bool receive);
+
+    /** Changes the tag that is used to identify the controller easily.
+     * @param tag   A integer that identifies the controller.
+     */
+    void setTag(int tag) { _controllerTag = tag;}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Returns a tag that is used to identify the controller easily.
      *
@@ -213,8 +273,11 @@ private:
     friend class EventListenerController;
 };
 
+<<<<<<< HEAD
 // end group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

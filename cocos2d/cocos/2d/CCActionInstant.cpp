@@ -28,6 +28,10 @@
 #include "2d/CCActionInstant.h"
 #include "2d/CCNode.h"
 #include "2d/CCSprite.h"
+<<<<<<< HEAD
+=======
+#include "base/CCScriptSupport.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -61,7 +65,11 @@ void ActionInstant::update(float time) {
 
 Show* Show::create() 
 {
+<<<<<<< HEAD
     Show* ret = new (std::nothrow) Show();
+=======
+    Show* ret = new Show();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret) {
         ret->autorelease();
@@ -82,10 +90,17 @@ ActionInstant* Show::reverse() const
 
 Show * Show::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) Show();
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new Show();
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -93,7 +108,11 @@ Show * Show::clone() const
 //
 Hide * Hide::create() 
 {
+<<<<<<< HEAD
     Hide *ret = new (std::nothrow) Hide();
+=======
+    Hide *ret = new Hide();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret) {
         ret->autorelease();
@@ -114,10 +133,17 @@ ActionInstant *Hide::reverse() const
 
 Hide * Hide::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) Hide();
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new Hide();
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -125,7 +151,11 @@ Hide * Hide::clone() const
 //
 ToggleVisibility * ToggleVisibility::create()
 {
+<<<<<<< HEAD
     ToggleVisibility *ret = new (std::nothrow) ToggleVisibility();
+=======
+    ToggleVisibility *ret = new ToggleVisibility();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret)
     {
@@ -143,15 +173,26 @@ void ToggleVisibility::update(float time)
 
 ToggleVisibility * ToggleVisibility::reverse() const
 {
+<<<<<<< HEAD
     return ToggleVisibility::create();
+=======
+	return ToggleVisibility::create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ToggleVisibility * ToggleVisibility::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) ToggleVisibility();
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new ToggleVisibility();
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -159,6 +200,7 @@ ToggleVisibility * ToggleVisibility::clone() const
 //
 RemoveSelf * RemoveSelf::create(bool isNeedCleanUp /*= true*/) 
 {
+<<<<<<< HEAD
     RemoveSelf *ret = new (std::nothrow) RemoveSelf();
 
     if (ret && ret->init(isNeedCleanUp)) {
@@ -176,20 +218,51 @@ bool RemoveSelf::init(bool isNeedCleanUp) {
 void RemoveSelf::update(float time) {
     CC_UNUSED_PARAM(time);
     _target->removeFromParentAndCleanup(_isNeedCleanUp);
+=======
+	RemoveSelf *ret = new RemoveSelf();
+
+	if (ret && ret->init(isNeedCleanUp)) {
+		ret->autorelease();
+	}
+
+	return ret;
+}
+
+bool RemoveSelf::init(bool isNeedCleanUp) {
+	_isNeedCleanUp = isNeedCleanUp;
+	return true;
+}
+
+void RemoveSelf::update(float time) {
+	CC_UNUSED_PARAM(time);
+	_target->removeFromParentAndCleanup(_isNeedCleanUp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 RemoveSelf *RemoveSelf::reverse() const
 {
+<<<<<<< HEAD
     return RemoveSelf::create(_isNeedCleanUp);
+=======
+	return RemoveSelf::create(_isNeedCleanUp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 RemoveSelf * RemoveSelf::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) RemoveSelf();
     a->init(_isNeedCleanUp);
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new RemoveSelf();
+	a->init(_isNeedCleanUp);
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -198,7 +271,11 @@ RemoveSelf * RemoveSelf::clone() const
 
 FlipX *FlipX::create(bool x)
 {
+<<<<<<< HEAD
     FlipX *ret = new (std::nothrow) FlipX();
+=======
+    FlipX *ret = new FlipX();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithFlipX(x)) {
         ret->autorelease();
@@ -226,11 +303,19 @@ FlipX* FlipX::reverse() const
 
 FlipX * FlipX::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) FlipX();
     a->initWithFlipX(_flipX);
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new FlipX();
+	a->initWithFlipX(_flipX);
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 //
 // FlipY
@@ -238,7 +323,11 @@ FlipX * FlipX::clone() const
 
 FlipY * FlipY::create(bool y)
 {
+<<<<<<< HEAD
     FlipY *ret = new (std::nothrow) FlipY();
+=======
+    FlipY *ret = new FlipY();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithFlipY(y)) {
         ret->autorelease();
@@ -266,11 +355,19 @@ FlipY* FlipY::reverse() const
 
 FlipY * FlipY::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) FlipY();
     a->initWithFlipY(_flipY);
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new FlipY();
+	a->initWithFlipY(_flipY);
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -279,7 +376,11 @@ FlipY * FlipY::clone() const
 
 Place* Place::create(const Vec2& pos)
 {
+<<<<<<< HEAD
     Place *ret = new (std::nothrow) Place();
+=======
+    Place *ret = new Place();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithPosition(pos)) {
         ret->autorelease();
@@ -297,17 +398,30 @@ bool Place::initWithPosition(const Vec2& pos) {
 
 Place * Place::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) Place();
     a->initWithPosition(_position);
     a->autorelease();
     return a;
+=======
+	// no copy constructor
+	auto a = new Place();
+	a->initWithPosition(_position);
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Place * Place::reverse() const
 {
+<<<<<<< HEAD
     // no reverse, just clone
     return this->clone();
+=======
+	// no reverse, just clone
+	return this->clone();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Place::update(float time) {
@@ -321,7 +435,11 @@ void Place::update(float time) {
 
 CallFunc * CallFunc::create(const std::function<void()> &func)
 {
+<<<<<<< HEAD
     CallFunc *ret = new (std::nothrow) CallFunc();
+=======
+    CallFunc *ret = new CallFunc();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithFunction(func) ) {
         ret->autorelease();
@@ -334,7 +452,11 @@ CallFunc * CallFunc::create(const std::function<void()> &func)
 
 CallFunc * CallFunc::create(Ref* selectorTarget, SEL_CallFunc selector) 
 {
+<<<<<<< HEAD
     CallFunc *ret = new (std::nothrow) CallFunc();
+=======
+    CallFunc *ret = new CallFunc();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithTarget(selectorTarget)) {
         ret->_callFunc = selector;
@@ -348,7 +470,11 @@ CallFunc * CallFunc::create(Ref* selectorTarget, SEL_CallFunc selector)
 
 bool CallFunc::initWithFunction(const std::function<void()> &func)
 {
+<<<<<<< HEAD
     _function = func;
+=======
+	_function = func;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return true;
 }
 
@@ -375,7 +501,11 @@ CallFunc::~CallFunc()
 CallFunc * CallFunc::clone() const
     {
     // no copy constructor
+<<<<<<< HEAD
     auto a = new (std::nothrow) CallFunc();
+=======
+    auto a = new CallFunc();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if( _selectorTarget) {
         a->initWithTarget(_selectorTarget);
         a->_callFunc = _callFunc;
@@ -390,8 +520,13 @@ CallFunc * CallFunc::clone() const
 
 CallFunc * CallFunc::reverse() const
 {
+<<<<<<< HEAD
     // no reverse here, just return a clone
     return this->clone();
+=======
+	// no reverse here, just return a clone
+	return this->clone();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void CallFunc::update(float time) {
@@ -413,7 +548,11 @@ void CallFunc::execute() {
 
 CallFuncN * CallFuncN::create(const std::function<void(Node*)> &func)
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) CallFuncN();
+=======
+    auto ret = new CallFuncN();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithFunction(func) ) {
         ret->autorelease();
@@ -424,10 +563,17 @@ CallFuncN * CallFuncN::create(const std::function<void(Node*)> &func)
     return nullptr;
 }
 
+<<<<<<< HEAD
 // FIXME: deprecated
 CallFuncN * CallFuncN::create(Ref* selectorTarget, SEL_CallFuncN selector)
 {
     CallFuncN *ret = new (std::nothrow) CallFuncN();
+=======
+// XXX deprecated
+CallFuncN * CallFuncN::create(Ref* selectorTarget, SEL_CallFuncN selector)
+{
+    CallFuncN *ret = new CallFuncN();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret && ret->initWithTarget(selectorTarget, selector))
     {
@@ -466,8 +612,13 @@ bool CallFuncN::initWithTarget(Ref* selectorTarget, SEL_CallFuncN selector)
 
 CallFuncN * CallFuncN::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new (std::nothrow) CallFuncN();
+=======
+	// no copy constructor
+	auto a = new CallFuncN();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if( _selectorTarget) {
         a->initWithTarget(_selectorTarget, _callFuncN);
@@ -476,8 +627,13 @@ CallFuncN * CallFuncN::clone() const
         a->initWithFunction(_functionN);
     }
 
+<<<<<<< HEAD
     a->autorelease();
     return a;
+=======
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -519,16 +675,26 @@ void __CCCallFuncND::execute()
 
 __CCCallFuncND * __CCCallFuncND::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new __CCCallFuncND();
+=======
+	// no copy constructor
+	auto a = new __CCCallFuncND();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if( _selectorTarget)
     {
         a->initWithTarget(_selectorTarget, _callFuncND, _data);
     }
     
+<<<<<<< HEAD
     a->autorelease();
     return a;
+=======
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //
@@ -580,16 +746,26 @@ bool __CCCallFuncO::initWithTarget(Ref* selectorTarget, SEL_CallFuncO selector, 
 
 __CCCallFuncO * __CCCallFuncO::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor
     auto a = new __CCCallFuncO();
+=======
+	// no copy constructor
+	auto a = new __CCCallFuncO();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if( _selectorTarget)
     {
         a->initWithTarget(_selectorTarget, _callFuncO, _object);
     }
     
+<<<<<<< HEAD
     a->autorelease();
     return a;
+=======
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Ref* __CCCallFuncO::getObject() const

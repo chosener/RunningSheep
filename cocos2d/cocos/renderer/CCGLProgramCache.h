@@ -33,15 +33,26 @@ THE SOFTWARE.
 
 #include "base/CCRef.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup support
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class GLProgram;
 
+<<<<<<< HEAD
+=======
+/**
+ * @addtogroup shaders
+ * @{
+ */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /** GLProgramCache
  Singleton that stores manages GLProgram objects (shaders)
  @since v2.0
@@ -50,12 +61,18 @@ class CC_DLL GLProgramCache : public Ref
 {
 public:
     /**
+<<<<<<< HEAD
     Constructor.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js ctor
      */
     GLProgramCache();
     /**
+<<<<<<< HEAD
     Destructor.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -92,6 +109,7 @@ public:
     CC_DEPRECATED_ATTRIBUTE void addProgram(GLProgram* program, const std::string &key) { addGLProgram(program, key); }
 
 private:
+<<<<<<< HEAD
     /**
     @{
         Init and load predefined shaders.
@@ -113,4 +131,18 @@ NS_CC_END
 // end of shaders group
 /// @}
 
+=======
+    bool init();
+    void loadDefaultGLProgram(GLProgram *program, int type);
+
+//    Dictionary* _programs;
+    std::unordered_map<std::string, GLProgram*> _programs;
+};
+
+// end of shaders group
+/// @}
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCGLPROGRAMCACHE_H__ */

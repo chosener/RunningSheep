@@ -23,25 +23,43 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 #include "2d/CCGrid.h"
 
 #include "base/ccMacros.h"
 #include "base/ccUtils.h"
 #include "2d/CCNode.h"
 #include "2d/CCGrabber.h"
+=======
+
+#include "base/ccMacros.h"
+#include "base/CCDirector.h"
+#include "2d/CCGrabber.h"
+#include "base/ccUtils.h"
+#include "2d/CCGrid.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "renderer/CCGLProgram.h"
 #include "renderer/CCGLProgramCache.h"
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCRenderer.h"
+<<<<<<< HEAD
 #include "renderer/CCTexture2D.h"
 #include "platform/CCGL.h"
+=======
+#include "CCGL.h"
+#include "math/TransformUtils.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 // implementation of GridBase
 
 GridBase* GridBase::create(const Size& gridSize)
 {
+<<<<<<< HEAD
     GridBase *pGridBase = new (std::nothrow) GridBase();
+=======
+    GridBase *pGridBase = new GridBase();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (pGridBase)
     {
@@ -60,7 +78,11 @@ GridBase* GridBase::create(const Size& gridSize)
 
 GridBase* GridBase::create(const Size& gridSize, Texture2D *texture, bool flipped)
 {
+<<<<<<< HEAD
     GridBase *pGridBase = new (std::nothrow) GridBase();
+=======
+    GridBase *pGridBase = new GridBase();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (pGridBase)
     {
@@ -93,7 +115,11 @@ bool GridBase::initWithSize(const Size& gridSize, Texture2D *texture, bool flipp
     _step.x = texSize.width / _gridSize.width;
     _step.y = texSize.height / _gridSize.height;
 
+<<<<<<< HEAD
     _grabber = new (std::nothrow) Grabber();
+=======
+    _grabber = new Grabber();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (_grabber)
     {
         _grabber->grab(_texture);
@@ -129,7 +155,11 @@ bool GridBase::initWithSize(const Size& gridSize)
         return false;
     }
 
+<<<<<<< HEAD
     Texture2D *texture = new (std::nothrow) Texture2D();
+=======
+    Texture2D *texture = new Texture2D();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     texture->initWithData(data, dataLen,  format, POTWide, POTHigh, s);
 
     free(data);
@@ -151,7 +181,11 @@ GridBase::~GridBase(void)
 {
     CCLOGINFO("deallocing GridBase: %p", this);
 
+<<<<<<< HEAD
     //TODO: ? why 2.0 comments this line:        setActive(false);
+=======
+//TODO: ? why 2.0 comments this line        setActive(false);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_SAFE_RELEASE(_texture);
     CC_SAFE_RELEASE(_grabber);
 }
@@ -220,7 +254,11 @@ void GridBase::afterDraw(cocos2d::Node *target)
 //        Vec2 offset = target->getAnchorPointInPoints();
 //
 //        //
+<<<<<<< HEAD
 //        // FIXME: Camera should be applied in the AnchorPoint
+=======
+//        // XXX: Camera should be applied in the AnchorPoint
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 //        //
 //        kmGLTranslatef(offset.x, offset.y, 0);
 //        target->getCamera()->locate();
@@ -230,11 +268,17 @@ void GridBase::afterDraw(cocos2d::Node *target)
     GL::bindTexture2D(_texture->getName());
 
     // restore projection for default FBO .fixed bug #543 #544
+<<<<<<< HEAD
     //TODO:         Director::getInstance()->setProjection(Director::getInstance()->getProjection());
     //TODO:         Director::getInstance()->applyOrientation();
     beforeBlit();
     blit();
     afterBlit();
+=======
+//TODO:         Director::getInstance()->setProjection(Director::getInstance()->getProjection());
+//TODO:         Director::getInstance()->applyOrientation();
+    blit();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void GridBase::blit(void)
@@ -256,7 +300,11 @@ void GridBase::calculateVertexPoints(void)
 
 Grid3D* Grid3D::create(const Size& gridSize, Texture2D *texture, bool flipped)
 {
+<<<<<<< HEAD
     Grid3D *ret= new (std::nothrow) Grid3D();
+=======
+    Grid3D *ret= new Grid3D();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret)
     {
@@ -276,7 +324,11 @@ Grid3D* Grid3D::create(const Size& gridSize, Texture2D *texture, bool flipped)
 
 Grid3D* Grid3D::create(const Size& gridSize)
 {
+<<<<<<< HEAD
     Grid3D *ret= new (std::nothrow) Grid3D();
+=======
+    Grid3D *ret= new Grid3D();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret)
     {
@@ -296,11 +348,18 @@ Grid3D* Grid3D::create(const Size& gridSize)
 
 
 Grid3D::Grid3D()
+<<<<<<< HEAD
 : _texCoordinates(nullptr)
 , _vertices(nullptr)
 , _originalVertices(nullptr)
 , _indices(nullptr)
 , _needDepthTestForBlit(false)
+=======
+    : _texCoordinates(nullptr)
+    , _vertices(nullptr)
+    , _originalVertices(nullptr)
+    , _indices(nullptr)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 
 }
@@ -313,6 +372,7 @@ Grid3D::~Grid3D(void)
     CC_SAFE_FREE(_originalVertices);
 }
 
+<<<<<<< HEAD
 void Grid3D::beforeBlit()
 {
     if(_needDepthTestForBlit)
@@ -340,6 +400,8 @@ void Grid3D::afterBlit()
     }
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Grid3D::blit(void)
 {
     int n = _gridSize.width * _gridSize.height;
@@ -351,7 +413,25 @@ void Grid3D::blit(void)
     //
     // Attributes
     //
+<<<<<<< HEAD
 
+=======
+#ifdef EMSCRIPTEN
+    // Size calculations from calculateVertexPoints().
+    unsigned int numOfPoints = (_gridSize.width+1) * (_gridSize.height+1);
+
+    // position
+    setGLBufferData(_vertices, numOfPoints * sizeof(Vec3), 0);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    // texCoords
+    setGLBufferData(_texCoordinates, numOfPoints * sizeof(Vec2), 1);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+    setGLIndexData(_indices, n * 12, 0);
+    glDrawElements(GL_TRIANGLES, (GLsizei) n*6, GL_UNSIGNED_SHORT, 0);
+#else
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // position
     glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, 0, _vertices);
 
@@ -359,6 +439,11 @@ void Grid3D::blit(void)
     glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, 0, _texCoordinates);
 
     glDrawElements(GL_TRIANGLES, (GLsizei) n*6, GL_UNSIGNED_SHORT, _indices);
+<<<<<<< HEAD
+=======
+#endif // EMSCRIPTEN
+    CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,n*6);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Grid3D::calculateVertexPoints(void)
@@ -501,7 +586,11 @@ TiledGrid3D::~TiledGrid3D(void)
 
 TiledGrid3D* TiledGrid3D::create(const Size& gridSize, Texture2D *texture, bool flipped)
 {
+<<<<<<< HEAD
     TiledGrid3D *ret= new (std::nothrow) TiledGrid3D();
+=======
+    TiledGrid3D *ret= new TiledGrid3D();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret)
     {
@@ -521,7 +610,11 @@ TiledGrid3D* TiledGrid3D::create(const Size& gridSize, Texture2D *texture, bool 
 
 TiledGrid3D* TiledGrid3D::create(const Size& gridSize)
 {
+<<<<<<< HEAD
     TiledGrid3D *ret= new (std::nothrow) TiledGrid3D();
+=======
+    TiledGrid3D *ret= new TiledGrid3D();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (ret)
     {
@@ -551,7 +644,24 @@ void TiledGrid3D::blit(void)
     // Attributes
     //
     GL::enableVertexAttribs( GL::VERTEX_ATTRIB_FLAG_POSITION | GL::VERTEX_ATTRIB_FLAG_TEX_COORD );
+<<<<<<< HEAD
 
+=======
+#ifdef EMSCRIPTEN
+    int numQuads = _gridSize.width * _gridSize.height;
+
+    // position
+    setGLBufferData(_vertices, (numQuads*4*sizeof(Vec3)), 0);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    // texCoords
+    setGLBufferData(_texCoordinates, (numQuads*4*sizeof(Vec2)), 1);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+    setGLIndexData(_indices, n * 12, 0);
+    glDrawElements(GL_TRIANGLES, (GLsizei) n*6, GL_UNSIGNED_SHORT, 0);
+#else
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // position
     glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, 0, _vertices);
 
@@ -559,6 +669,11 @@ void TiledGrid3D::blit(void)
     glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, 0, _texCoordinates);
 
     glDrawElements(GL_TRIANGLES, (GLsizei)n*6, GL_UNSIGNED_SHORT, _indices);
+<<<<<<< HEAD
+=======
+#endif // EMSCRIPTEN
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,n*6);
 }

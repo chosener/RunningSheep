@@ -245,6 +245,7 @@ string PluginJniHelper::jstring2string(jstring jstr)
     return ret;
 }
 
+<<<<<<< HEAD
 std::map<std::string, std::string> PluginJniHelper::JSONObject2Map(jobject json)
 {
 	std::map<std::string, std::string> stdmap;
@@ -282,6 +283,8 @@ std::map<std::string, std::string> PluginJniHelper::JSONObject2Map(jobject json)
 	return stdmap;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 bool PluginJniHelper::setClassLoaderFrom(jobject nativeactivityinstance) {
     PluginJniMethodInfo _getclassloaderMethod;
     if (!PluginJniHelper::getMethodInfo_DefaultClassLoader(_getclassloaderMethod,

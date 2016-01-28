@@ -129,7 +129,11 @@ ControlSwitchSprite* ControlSwitchSprite::create(Sprite *maskSprite,
                                             Label* onLabel,
                                             Label* offLabel)
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) ControlSwitchSprite();
+=======
+    auto ret = new ControlSwitchSprite();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ret->initWithMaskSprite(maskSprite, onSprite, offSprite, thumbSprite, onLabel, offLabel);
     ret->autorelease();
     return ret;
@@ -218,6 +222,7 @@ void ControlSwitchSprite::updateTweenAction(float value, const std::string& key)
 
 void ControlSwitchSprite::needsLayout()
 {
+<<<<<<< HEAD
     _onSprite->setPosition(_onSprite->getContentSize().width / 2 + _sliderXPosition,
         _onSprite->getContentSize().height / 2);
     _offSprite->setPosition(_onSprite->getContentSize().width + _offSprite->getContentSize().width / 2 + _sliderXPosition,
@@ -227,18 +232,39 @@ void ControlSwitchSprite::needsLayout()
 
     _clipperStencil->setPosition(_maskTexture->getContentSize().width/2,
                                     _maskTexture->getContentSize().height / 2);
+=======
+    _onSprite->setPosition(Vec2(_onSprite->getContentSize().width / 2 + _sliderXPosition,
+        _onSprite->getContentSize().height / 2));
+    _offSprite->setPosition(Vec2(_onSprite->getContentSize().width + _offSprite->getContentSize().width / 2 + _sliderXPosition, 
+        _offSprite->getContentSize().height / 2));
+    _thumbSprite->setPosition(Vec2(_onSprite->getContentSize().width + _sliderXPosition,
+        _maskTexture->getContentSize().height / 2));
+
+    _clipperStencil->setPosition(Vec2(_maskTexture->getContentSize().width/2,
+                                    _maskTexture->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (_onLabel)
     {
         _onLabel->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+<<<<<<< HEAD
         _onLabel->setPosition(_onSprite->getPosition().x - _thumbSprite->getContentSize().width / 6,
             _onSprite->getContentSize().height / 2);
+=======
+        _onLabel->setPosition(Vec2(_onSprite->getPosition().x - _thumbSprite->getContentSize().width / 6,
+            _onSprite->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     if (_offLabel)
     {
         _offLabel->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+<<<<<<< HEAD
         _offLabel->setPosition(_offSprite->getPosition().x + _thumbSprite->getContentSize().width / 6,
             _offSprite->getContentSize().height / 2);
+=======
+        _offLabel->setPosition(Vec2(_offSprite->getPosition().x + _thumbSprite->getContentSize().width / 6,
+            _offSprite->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     setFlippedY(true);
@@ -296,7 +322,11 @@ bool ControlSwitch::initWithMaskSprite(Sprite *maskSprite, Sprite * onSprite, Sp
 
 ControlSwitch* ControlSwitch::create(Sprite *maskSprite, Sprite * onSprite, Sprite * offSprite, Sprite * thumbSprite)
 {
+<<<<<<< HEAD
     ControlSwitch* pRet = new (std::nothrow) ControlSwitch();
+=======
+    ControlSwitch* pRet = new ControlSwitch();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pRet && pRet->initWithMaskSprite(maskSprite, onSprite, offSprite, thumbSprite, nullptr, nullptr))
     {
         pRet->autorelease();
@@ -326,7 +356,11 @@ bool ControlSwitch::initWithMaskSprite(Sprite *maskSprite, Sprite * onSprite, Sp
                                         onLabel,
                                         offLabel);
         _switchSprite->retain();
+<<<<<<< HEAD
         _switchSprite->setPosition(_switchSprite->getContentSize().width / 2, _switchSprite->getContentSize().height / 2);
+=======
+        _switchSprite->setPosition(Vec2(_switchSprite->getContentSize().width / 2, _switchSprite->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         addChild(_switchSprite);
         
         ignoreAnchorPointForPosition(false);
@@ -339,7 +373,11 @@ bool ControlSwitch::initWithMaskSprite(Sprite *maskSprite, Sprite * onSprite, Sp
 
 ControlSwitch* ControlSwitch::create(Sprite *maskSprite, Sprite * onSprite, Sprite * offSprite, Sprite * thumbSprite, Label* onLabel, Label* offLabel)
 {
+<<<<<<< HEAD
     ControlSwitch* pRet = new (std::nothrow) ControlSwitch();
+=======
+    ControlSwitch* pRet = new ControlSwitch();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pRet && pRet->initWithMaskSprite(maskSprite, onSprite, offSprite, thumbSprite, onLabel, offLabel))
     {
         pRet->autorelease();

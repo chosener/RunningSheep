@@ -25,17 +25,24 @@
 #ifndef __cocos2d_libs__CCValue__
 #define __cocos2d_libs__CCValue__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccMacros.h"
 #include <string>
 #include <vector>
 #include <unordered_map>
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class Value;
@@ -44,6 +51,7 @@ typedef std::vector<Value> ValueVector;
 typedef std::unordered_map<std::string, Value> ValueMap;
 typedef std::unordered_map<int, Value> ValueMapIntKey;
 
+<<<<<<< HEAD
 CC_DLL extern const ValueVector ValueVectorNull;
 CC_DLL extern const ValueMap ValueMapNull;
 CC_DLL extern const ValueMapIntKey ValueMapIntKeyNull;
@@ -212,6 +220,101 @@ public:
 
     /** Gets the description of the class. */
     std::string getDescription() const;
+=======
+extern const ValueVector ValueVectorNull;
+extern const ValueMap ValueMapNull;
+extern const ValueMapIntKey ValueMapIntKeyNull;
+
+class Value
+{
+public:
+    static const Value Null;
+
+    Value();
+    explicit Value(unsigned char v);
+    explicit Value(int v);
+    explicit Value(float v);
+    explicit Value(double v);
+    explicit Value(bool v);
+    explicit Value(const char* v);
+    explicit Value(const std::string& v);
+
+    explicit Value(const ValueVector& v);
+    explicit Value(ValueVector&& v);
+
+    explicit Value(const ValueMap& v);
+        explicit Value(ValueMap&& v);
+
+    explicit Value(const ValueMapIntKey& v);
+    explicit Value(ValueMapIntKey&& v);
+
+    Value(const Value& other);
+    Value(Value&& other);
+    ~Value();
+
+    // assignment operator
+    Value& operator= (const Value& other);
+    Value& operator= (Value&& other);
+
+    Value& operator= (unsigned char v);
+    Value& operator= (int v);
+    Value& operator= (float v);
+    Value& operator= (double v);
+    Value& operator= (bool v);
+    Value& operator= (const char* v);
+    Value& operator= (const std::string& v);
+
+    Value& operator= (const ValueVector& v);
+    Value& operator= (ValueVector&& v);
+
+    Value& operator= (const ValueMap& v);
+        Value& operator= (ValueMap&& v);
+
+    Value& operator= (const ValueMapIntKey& v);
+    Value& operator= (ValueMapIntKey&& v);
+
+    // equal operator
+    bool operator!= (const Value& v);
+    bool operator!= (const Value& v) const;
+    bool operator== (const Value& v);
+    bool operator== (const Value& v) const;
+
+    unsigned char asByte() const;
+    int asInt() const;
+    float asFloat() const;
+    double asDouble() const;
+    bool asBool() const;
+    std::string asString() const;
+
+    ValueVector& asValueVector();
+    const ValueVector& asValueVector() const;
+
+    ValueMap& asValueMap();
+    const ValueMap& asValueMap() const;
+
+    ValueMapIntKey& asIntKeyMap();
+    const ValueMapIntKey& asIntKeyMap() const;
+
+    inline bool isNull() const { return _type == Type::NONE; }
+
+    enum class Type
+    {
+        NONE = 0,
+        BYTE,
+        INTEGER,
+        FLOAT,
+        DOUBLE,
+        BOOLEAN,
+        STRING,
+        VECTOR,
+        MAP,
+        INT_KEY_MAP
+    };
+
+    inline Type getType() const { return _type; };
+
+    std::string getDescription();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
     void clear();
@@ -234,8 +337,11 @@ private:
     Type _type;
 };
 
+<<<<<<< HEAD
 /** @} */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 

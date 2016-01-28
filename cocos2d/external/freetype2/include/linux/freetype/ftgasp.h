@@ -62,12 +62,20 @@
    *     It is up to the client to decide what to do.
    *
    *   FT_GASP_DO_GRIDFIT ::
+<<<<<<< HEAD
    *     Grid-fitting and hinting should be performed at the specified ppem.
+=======
+   *     Grid-fitting and hinting should be performed at the specified ppem. 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *     This *really* means TrueType bytecode interpretation.  If this bit
    *     is not set, no hinting gets applied.
    *
    *   FT_GASP_DO_GRAY ::
+<<<<<<< HEAD
    *     Anti-aliased rendering should be performed at the specified ppem.
+=======
+   *     Anti-aliased rendering should be performed at the specified ppem. 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *     If not set, do monochrome rendering.
    *
    *   FT_GASP_SYMMETRIC_SMOOTHING ::
@@ -120,8 +128,12 @@
   FT_Get_Gasp( FT_Face  face,
                FT_UInt  ppem );
 
+<<<<<<< HEAD
   /* */
 
+=======
+/* */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* _FT_GASP_H_ */
 

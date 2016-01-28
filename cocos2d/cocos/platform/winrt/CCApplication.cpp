@@ -22,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 #include "platform/CCPlatformConfig.h"
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
 #include "platform/winrt/CCGLViewImpl-winrt.h"
@@ -30,6 +31,13 @@ using namespace Windows::Foundation;
 
 #else
 #include "platform/wp8/CCGLViewImpl-wp8.h"
+=======
+#include "CCApplication.h"
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
+#include "platform/winrt/CCGLView.h"
+#else
+#include "platform/wp8/CCGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 #include "base/CCDirector.h"
 #include <algorithm>
@@ -57,8 +65,12 @@ Application * Application::sm_pSharedApplication = 0;
 // sharedApplication pointer
 Application * s_pSharedApplication = 0;
 
+<<<<<<< HEAD
 Application::Application() :
 m_openURLDelegate(nullptr)
+=======
+Application::Application()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     m_nAnimationInterval.QuadPart = 0;
     CC_ASSERT(! sm_pSharedApplication);
@@ -79,7 +91,11 @@ int Application::run()
         return 0;
     }
 
+<<<<<<< HEAD
 	GLViewImpl::sharedOpenGLView()->Run();
+=======
+	GLView::sharedOpenGLView()->Run();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	return 0;
 }
 
@@ -101,6 +117,7 @@ Application* Application::getInstance()
 
 const char * Application::getCurrentLanguageCode()
 {
+<<<<<<< HEAD
 	static std::string code = "en";
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
@@ -127,6 +144,21 @@ const char * Application::getCurrentLanguageCode()
 
 
 #endif
+=======
+	static std::string code = "";
+
+    wchar_t localeName[LOCALE_NAME_MAX_LENGTH] = {0};
+    if (GetUserDefaultLocaleName(localeName, LOCALE_NAME_MAX_LENGTH))
+    {
+        wchar_t* primary = wcstok(localeName, L"-");
+        code = CCUnicodeToUtf8(primary);
+    }
+    else
+    {
+        code = "en";
+    }
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return code.c_str();
 }
 
@@ -134,6 +166,7 @@ const char * Application::getCurrentLanguageCode()
 LanguageType Application::getCurrentLanguage()
 {
     LanguageType ret = LanguageType::ENGLISH;
+<<<<<<< HEAD
     
     const char* code = getCurrentLanguageCode();
     
@@ -209,6 +242,60 @@ LanguageType Application::getCurrentLanguage()
     {
         ret = LanguageType::BULGARIAN;
     }
+=======
+
+    const char* code = getCurrentLanguageCode();
+
+    if (strcmp(code, "zh") == 0)
+    {
+        ret = LanguageType::CHINESE;
+    }
+    else if (strcmp(code, "ja") == 0)
+    {
+        ret = LanguageType::JAPANESE;
+    }
+    else if (strcmp(code, "fr") == 0)
+    {
+        ret = LanguageType::FRENCH;
+    }
+    else if (strcmp(code, "it") == 0)
+    {
+        ret = LanguageType::ITALIAN;
+    }
+    else if (strcmp(code, "de") == 0)
+    {
+        ret = LanguageType::GERMAN;
+    }
+    else if (strcmp(code, "es") == 0)
+    {
+        ret = LanguageType::SPANISH;
+    }
+    else if (strcmp(code, "nl") == 0)
+    {
+        ret = LanguageType::DUTCH;
+    }
+    else if (strcmp(code, "ru") == 0)
+    {
+        ret = LanguageType::RUSSIAN;
+    }
+    else if (strcmp(code, "hu") == 0)
+    {
+        ret = LanguageType::HUNGARIAN;
+    }
+    else if (strcmp(code, "pt") == 0)
+    {
+        ret = LanguageType::PORTUGUESE;
+    }
+    else if (strcmp(code, "ko") == 0)
+    {
+        ret = LanguageType::KOREAN;
+    }
+    else if (strcmp(code, "ar") == 0)
+    {
+        ret = LanguageType::ARABIC;
+    } 
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return ret;
 }
 
@@ -217,6 +304,7 @@ Application::Platform  Application::getTargetPlatform()
     return Platform::OS_WP8;
 }
 
+<<<<<<< HEAD
 bool Application::openURL(const std::string &url)
 {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
@@ -239,6 +327,8 @@ bool Application::openURL(const std::string &url)
 #endif
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Application::setResourceRootPath(const std::string& rootResDir)
 {
     m_resourceRootPath = rootResDir;

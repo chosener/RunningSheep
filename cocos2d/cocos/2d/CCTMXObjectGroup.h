@@ -35,13 +35,22 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
+=======
+ * @addtogroup tilemap_parallax_nodes
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
 /** @brief TMXObjectGroup represents the TMX object group.
+<<<<<<< HEAD
  * @since v0.99.0
  */
+=======
+@since v0.99.0
+*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL TMXObjectGroup : public Ref
 {
 public:
@@ -54,6 +63,7 @@ public:
      * @lua NA
      */
     virtual ~TMXObjectGroup();
+<<<<<<< HEAD
     
     /** Get the group name. 
      *
@@ -73,19 +83,33 @@ public:
      * @return Return the value for the specific property name.
      * @js NA
      */
+=======
+
+    inline const std::string& getGroupName(){ return _groupName; }
+    inline void setGroupName(const std::string& groupName){ _groupName = groupName; }
+
+    /** return the value for the specific property name */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Value getProperty(const std::string& propertyName) const;
     
     CC_DEPRECATED_ATTRIBUTE Value propertyNamed(const std::string& propertyName) const { return getProperty(propertyName); };
 
+<<<<<<< HEAD
     /** Return the dictionary for the specific object name.
      * It will return the 1st object found on the array for the given name.
      *
      * @return Return the dictionary for the specific object name.
      */
+=======
+    /** return the dictionary for the specific object name.
+    It will return the 1st object found on the array for the given name.
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ValueMap getObject(const std::string& objectName) const;
     
     CC_DEPRECATED_ATTRIBUTE ValueMap objectNamed(const std::string& objectName) const { return getObject(objectName); };
     
+<<<<<<< HEAD
     /** Gets the offset position of child objects. 
      *
      * @return The offset position of child objects.
@@ -109,10 +133,24 @@ public:
      *
      * @param properties The list of properties.
      */
+=======
+    /** Gets the offset position of child objects */
+    inline const Vec2& getPositionOffset() const { return _positionOffset; };
+    
+    /** Sets the offset position of child objects */
+    inline void setPositionOffset(const Vec2& offset) { _positionOffset = offset; };
+    
+    /** Gets the list of properties stored in a dictionary */
+    inline const ValueMap& getProperties() const { return _properties; };
+    inline ValueMap& getProperties() { return _properties; };
+    
+    /** Sets the list of properties */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setProperties(const ValueMap& properties) {
         _properties = properties;
     };
     
+<<<<<<< HEAD
     /** Gets the array of the objects. 
      *
      * @return The array of the objects.
@@ -124,6 +162,13 @@ public:
      *
      * @param objects The array of the objects.
      */
+=======
+    /** Gets the array of the objects */
+    inline const ValueVector& getObjects() const { return _objects; };
+    inline ValueVector& getObjects() { return _objects; };
+    
+    /** Sets the array of the objects */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setObjects(const ValueVector& objects) {
         _objects = objects;
     };
@@ -140,7 +185,11 @@ protected:
 };
 
 // end of tilemap_parallax_nodes group
+<<<<<<< HEAD
 /** @} */
+=======
+/// @}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

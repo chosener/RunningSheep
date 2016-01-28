@@ -27,6 +27,11 @@
 #define __SCRIPT_SUPPORT_H__
 
 #include "base/ccConfig.h"
+<<<<<<< HEAD
+=======
+#if CC_ENABLE_SCRIPT_BINDING
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCCommon.h"
 #include "base/CCTouch.h"
 #include "base/CCEventTouch.h"
@@ -35,6 +40,7 @@
 #include <string>
 #include <list>
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -42,6 +48,8 @@
 
 #if CC_ENABLE_SCRIPT_BINDING
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef struct lua_State lua_State;
 
 NS_CC_BEGIN
@@ -58,6 +66,7 @@ enum ccScriptType {
     kScriptTypeJavascript
 };
 
+<<<<<<< HEAD
 /**
  * This classes is wrapped to store the handler corresponding to the Lua function pointer and assign the handler a unique id
  * @js NA
@@ -90,10 +99,23 @@ public:
      * @lua NA
      * @js NA
      */
+=======
+class ScriptHandlerEntry : public Ref
+{
+public:
+    static ScriptHandlerEntry* create(int handler);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    virtual ~ScriptHandlerEntry();
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int getHandler(void) {
         return _handler;
     }
     
+<<<<<<< HEAD
     /**
      * Get the unique id corresponding to the handler.
      *
@@ -101,6 +123,8 @@ public:
      * @lua NA
      * @js NA
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int getEntryId(void) {
         return _entryId;
     }
@@ -119,6 +143,7 @@ protected:
 };
 
 /**
+<<<<<<< HEAD
  * The SchedulerScriptHandlerEntry is used to store the handler corresponding to the Lua function pointer and assign the handler a unique id like ScriptHandlerEntry.
  * Meanwhile,create a timer that named TimerScriptHandler to execute the Lua function corresponding to the handler in the interval time if the SchedulerScriptHandlerEntry object isn't paused.
  * @js NA
@@ -133,33 +158,56 @@ public:
      * @param interval the interval to execute the Lua function. If the value is 0, then the lua function will be scheduled every frame.
      * @param paused if paused is true, then the timer won't be started until it is resumed.
      * @return a SchedulerScriptHandlerEntry object.
+=======
+ * @addtogroup script_support
+ * @{
+ */
+
+class SchedulerScriptHandlerEntry : public ScriptHandlerEntry
+{
+public:
+    // nHandler return by tolua_ref_function(), called from LuaCocos2d.cpp
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     static SchedulerScriptHandlerEntry* create(int handler, float interval, bool paused);
+<<<<<<< HEAD
     
     /**
      * Destructor of SchedulerScriptHandlerEntry.
+=======
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~SchedulerScriptHandlerEntry();
+<<<<<<< HEAD
     
     /**
      * Get the pointer of TimerScriptHandler object.
      *
      * @return the pointer of TimerScriptHandler object.
+=======
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     TimerScriptHandler* getTimer(void) {
         return _timer;
     }
+<<<<<<< HEAD
     
     /**
      * Get the flag whether paused or not.
      *
      * @return the flag whether paused or not.
+=======
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -167,7 +215,10 @@ public:
         return _paused;
     }
     /**
+<<<<<<< HEAD
      * Set the markedForDeletion flag true.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -175,9 +226,12 @@ public:
         _markedForDeletion = true;
     }
     /**
+<<<<<<< HEAD
      * Get the flag whether markedForDeletion or not.
      *
      * @return the flag whether markedForDeletion or not.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -201,6 +255,7 @@ private:
 };
 
 
+<<<<<<< HEAD
 /**
  * @cond
  * @js NA
@@ -221,6 +276,40 @@ public:
         return _priority;
     }
 
+=======
+
+class TouchScriptHandlerEntry : public ScriptHandlerEntry
+{
+public:
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static TouchScriptHandlerEntry* create(int handler, bool isMultiTouches, int priority, bool swallowsTouches);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    virtual ~TouchScriptHandlerEntry();
+    /**
+     * @js NA
+     * @lua NA
+     */
+    bool isMultiTouches(void) {
+        return _isMultiTouches;
+    }
+    /**
+     * @js NA
+     * @lua NA
+     */
+    int getPriority(void) {
+        return _priority;
+    }
+    /**
+     * @js NA
+     * @lua NA
+     */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool getSwallowsTouches(void) {
         return _swallowsTouches;
     }
@@ -240,12 +329,15 @@ private:
     bool    _swallowsTouches;
 };
 
+<<<<<<< HEAD
 /**
  * @endcond
  * @js NA
  */
 
 /** ScriptEventType enum*/
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 enum ScriptEventType
 {
     kNodeEvent = 0,
@@ -258,6 +350,7 @@ enum ScriptEventType
     kAccelerometerEvent,
     kControlEvent,
     kCommonEvent,
+<<<<<<< HEAD
     kComponentEvent,
     kRestartGame
 };
@@ -287,6 +380,20 @@ struct BasicScriptData
     /**
      * Constructor of BasicScriptData.
      *
+=======
+    kComponentEvent
+};
+
+struct BasicScriptData
+{
+    // nativeobject:to get handler for lua or to get jsobject for js
+    void* nativeObject;
+    // value: a pointer to a object that already defined
+    void* value;
+    
+    // Constructor
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -296,6 +403,7 @@ struct BasicScriptData
     }
 };
 
+<<<<<<< HEAD
 /**
  * For Lua, the SchedulerScriptData is used to find the Lua function pointer by the handler, then call the Lua function by push the elapse into the Lua stack as a parameter when scheduler update event is triggered.
  * @js NA
@@ -315,13 +423,24 @@ struct SchedulerScriptData
      * @js NA
      * @lua NA
      */
+=======
+struct SchedulerScriptData
+{
+    // lua use
+    int handler;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     float elapse;
     // js use
     void* node;
     
+<<<<<<< HEAD
     /**
      * Construtor of SchedulerScriptData.
      *
+=======
+    // Constructor
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -333,6 +452,7 @@ struct SchedulerScriptData
     }
 };
 
+<<<<<<< HEAD
 /**
  * For Lua, the TouchesScriptData is used to find the Lua function pointer by the nativeObject, then call the Lua function by push touches data and actionType into the Lua stack as the parameters when the touches event is triggered.
  * @js NA
@@ -373,6 +493,19 @@ struct TouchesScriptData
      *
      * @lua NA
      * @js NA
+=======
+struct TouchesScriptData
+{
+    EventTouch::EventCode actionType;
+    void* nativeObject;
+    const std::vector<Touch*>& touches;
+    Event* event;
+    
+    // Constructor
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     TouchesScriptData(EventTouch::EventCode inActionType, void* inNativeObject, const std::vector<Touch*>& inTouches, Event* evt)
     : actionType(inActionType),
@@ -383,6 +516,7 @@ struct TouchesScriptData
     }
 };
 
+<<<<<<< HEAD
 /**
  * For Lua, the TouchScriptData is used to find the Lua function pointer by the nativeObject, then call the Lua function by push touch data and actionType convered to string type into the Lua stack as the parameters when the touch event is triggered.
  * @js NA
@@ -423,6 +557,19 @@ struct TouchScriptData
      *
      * @lua NA
      * @js NA
+=======
+struct TouchScriptData
+{
+    EventTouch::EventCode actionType;
+    void* nativeObject;
+    Touch* touch;
+    Event* event;
+    
+    // Constructor
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     TouchScriptData(EventTouch::EventCode inActionType, void* inNativeObject, Touch* inTouch, Event* evt)
     : actionType(inActionType),
@@ -433,6 +580,7 @@ struct TouchScriptData
     }
 };
 
+<<<<<<< HEAD
 
 /**
  * For Lua, the KeypadScriptData is used to find the Lua function pointer by the nativeObject, then call the Lua function by push the actionType convered to string type into the Lua stack as the parameters when the Keypad event is triggered.
@@ -460,6 +608,17 @@ struct KeypadScriptData
      *
      * @lua NA
      * @js NA
+=======
+struct KeypadScriptData
+{
+    EventKeyboard::KeyCode actionType;
+    void* nativeObject;
+    
+    // Constructor
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     KeypadScriptData(EventKeyboard::KeyCode inActionType,void* inNativeObject)
     : actionType(inActionType),nativeObject(inNativeObject)
@@ -467,6 +626,7 @@ struct KeypadScriptData
     }
 };
 
+<<<<<<< HEAD
 
 /**
  * For Lua, the CommonScriptData is used to find the Lua function pointer by the handler, then call the Lua function by push the eventName, eventSource(if it not nullptr), eventSourceClassName(if it is nullptr or "", and the eventSource is not nullptr,would give the default string "cc.Ref") into the Lua stack as the parameter when the common event such as is triggered.
@@ -508,6 +668,20 @@ struct CommonScriptData
      *
      * @lua NA
      * @js NA
+=======
+struct CommonScriptData
+{
+    // Now this struct is only used in LuaBinding.
+    int handler;
+    char eventName[64];
+    Ref* eventSource;
+    char eventSourceClassName[64];
+    
+    // Constructor
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CommonScriptData(int inHandler,const char* inName, Ref* inSource = nullptr,const char* inClassName = nullptr)
     : handler(inHandler),
@@ -526,6 +700,7 @@ struct CommonScriptData
     }
 };
 
+<<<<<<< HEAD
 /**
  * The ScriptEvent wrapper the different script data corresponding to the ScriptEventType in to the unified struct.
  * when the corresponding event is triggered, we could call the `sendEvent` of ScriptEngineProtocol to handle the event.
@@ -553,6 +728,17 @@ struct ScriptEvent
      *
      * @lua NA
      * @js NA
+=======
+struct ScriptEvent
+{
+    ScriptEventType type;
+    void* data;
+    
+    // Constructor
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ScriptEvent(ScriptEventType inType,void* inData)
     : type(inType),
@@ -561,6 +747,7 @@ struct ScriptEvent
     }
 };
 
+<<<<<<< HEAD
 /** 
  * Don't make ScriptEngineProtocol inherits from Object since setScriptEngine is invoked only once in AppDelegate.cpp,
  * It will affect the lifecycle of ScriptEngine instance, the autorelease pool will be destroyed before destructing ScriptEngine.
@@ -577,10 +764,19 @@ public:
      * @lua NA
      * @js NA
      */
+=======
+// Don't make ScriptEngineProtocol inherits from Object since setScriptEngine is invoked only once in AppDelegate.cpp,
+// It will affect the lifecycle of ScriptCore instance, the autorelease pool will be destroyed before destructing ScriptCore.
+// So a crash will appear on Win32 if you click the close button.
+class CC_DLL ScriptEngineProtocol
+{
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ScriptEngineProtocol()
     {};
     
     /**
+<<<<<<< HEAD
      * Destructor of ScriptEngineProtocol.
      *
      * @lua NA
@@ -620,10 +816,39 @@ public:
      * @see reallocateScriptHandler of LuaEngine.
      * @lua NA
      * @js NA
+=======
+     * @js NA
+     * @lua NA
+     */
+    virtual ~ScriptEngineProtocol() {};
+    
+    /** Get script type 
+     * @js NA
+     * @lua NA
+     */
+    virtual ccScriptType getScriptType() { return kScriptTypeNone; };
+
+    /** Remove script object. 
+     * @js NA
+     * @lua NA
+     */
+    virtual void removeScriptObjectByObject(Ref* obj) = 0;
+    
+    /** Remove script function handler, only LuaEngine class need to implement this function. 
+     * @js NA
+     * @lua NA
+     */
+    virtual void removeScriptHandler(int handler) {};
+    
+    /** Reallocate script function handler, only LuaEngine class need to implement this function. 
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual int reallocateScriptHandler(int handler) { return 0;}
     
     /**
+<<<<<<< HEAD
      * Execute script code contained in the given string.
      *
      * @param codes holding the valid script code that should be executed.
@@ -631,20 +856,36 @@ public:
      * @return other if the string is executed wrongly.
      * @lua NA
      * @js NA
+=======
+     @brief Execute script code contained in the given string.
+     @param codes holding the valid script code that should be executed.
+     @return 0 if the string is executed correctly.
+     @return other if the string is executed wrongly.
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual int executeString(const char* codes) = 0;
     
     /**
+<<<<<<< HEAD
      * Execute a script file.
      * 
      * @param filename String object holding the filename of the script file that is to be executed.
      * @return 0 if it happen the error or it hasn't return value, otherwise it return the value by calling the lua function.
      * @lua NA
      * @js NA
+=======
+     @brief Execute a script file.
+     @param filename String object holding the filename of the script file that is to be executed
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual int executeScriptFile(const char* filename) = 0;
     
     /**
+<<<<<<< HEAD
      * Execute a scripted global function.
      * The function should not take any parameters and should return an integer.
      *
@@ -691,11 +932,39 @@ public:
     virtual bool isCalledFromScript() { return false; };
     
     /** ConfigType enum. */
+=======
+     @brief Execute a scripted global function.
+     @brief The function should not take any parameters and should return an integer.
+     @param functionName String object holding the name of the function, in the global script environment, that is to be executed.
+     @return The integer value returned from the script function.
+     * @js NA
+     * @lua NA
+     */
+    virtual int executeGlobalFunction(const char* functionName) = 0;
+    
+    /**when trigger a script event ,call this func,add params needed into ScriptEvent object.nativeObject is object triggering the event, can be nullptr in lua
+     * @js NA
+     * @lua NA
+     */
+    virtual int sendEvent(ScriptEvent* evt) = 0;
+    
+    /** called by CCAssert to allow scripting engine to handle failed assertions
+     * @return true if the assert was handled by the script engine, false otherwise.
+     * @js NA
+     * @lua NA
+     */
+    virtual bool handleAssert(const char *msg) = 0;
+    
+    virtual void setCalledFromScript(bool callFromScript) { CC_UNUSED_PARAM(callFromScript); };
+    virtual bool isCalledFromScript() { return false; };
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class ConfigType
     {
         NONE,
         COCOSTUDIO
     };
+<<<<<<< HEAD
     /** 
      * Parse configuration file.
      * 
@@ -705,19 +974,29 @@ public:
      * @lua NA
      * @js NA
      */
+=======
+    /** Parse configuration file */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool parseConfig(ConfigType type, const std::string& str) = 0;
 };
 
 class Node;
 /**
+<<<<<<< HEAD
  * ScriptEngineManager is a singleton which manager an object instance of ScriptEngineProtocl, such as LuaEngine.
  *
  * @since v0.99.5-x-0.8.5
  * @js NA
+=======
+ ScriptEngineManager is a singleton which holds an object instance of ScriptEngineProtocl
+ It helps cocos2d-x and the user code to find back LuaEngine object
+ @since v0.99.5-x-0.8.5
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL ScriptEngineManager
 {
 public:
+<<<<<<< HEAD
     /** 
      * Constructor of ScriptEngineManager.
      *
@@ -732,11 +1011,22 @@ public:
      *
      * @lua NA
      * @js NA
+=======
+    /**
+     * @js NA
+     * @lua NA
+     */
+    ~ScriptEngineManager(void);
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ScriptEngineProtocol* getScriptEngine(void) {
         return _scriptEngine;
     }
     /**
+<<<<<<< HEAD
      * Set the ScriptEngineProtocol object should be managered.
      *
      * @param scriptEngine should be managered.
@@ -806,6 +1096,50 @@ public:
      *
      * @lua NA
      * @js NA
+=======
+     * @js NA
+     * @lua NA
+     */
+    void setScriptEngine(ScriptEngineProtocol *scriptEngine);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    void removeScriptEngine(void);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static ScriptEngineManager* getInstance();
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void destroyInstance();
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static bool sendNodeEventToJS(Node* node, int action);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static bool sendNodeEventToJSExtended(Node* node, int action);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void sendNodeEventToLua(Node* node, int action);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    CC_DEPRECATED_ATTRIBUTE static ScriptEngineManager* sharedManager() { return ScriptEngineManager::getInstance(); };
+    /**
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE static void purgeSharedManager() { ScriptEngineManager::destroyInstance(); };
     
@@ -818,6 +1152,7 @@ private:
     ScriptEngineProtocol *_scriptEngine;
 };
 
+<<<<<<< HEAD
 NS_CC_END
 
 
@@ -827,4 +1162,13 @@ NS_CC_END
 // end group
 /// @}
 
+=======
+// end of script_support group
+/// @}
+
+NS_CC_END
+
+#endif // #if CC_ENABLE_SCRIPT_BINDING
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __SCRIPT_SUPPORT_H__

@@ -1,6 +1,7 @@
 
 
 #include "ButtonReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIButton.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIButton.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -38,7 +46,11 @@ namespace cocostudio
     
     static ButtonReader* instanceButtonReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(ButtonReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(ButtonReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     ButtonReader::ButtonReader()
     {
@@ -54,7 +66,11 @@ namespace cocostudio
     {
         if (!instanceButtonReader)
         {
+<<<<<<< HEAD
             instanceButtonReader = new (std::nothrow) ButtonReader();
+=======
+            instanceButtonReader = new ButtonReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceButtonReader;
     }
@@ -64,11 +80,14 @@ namespace cocostudio
         CC_SAFE_DELETE(instanceButtonReader);
     }
     
+<<<<<<< HEAD
     void ButtonReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceButtonReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void ButtonReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         WidgetReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -85,6 +104,10 @@ namespace cocostudio
         for (int i = 0; i < cocoNode->GetChildNum(); ++i) {
             std::string key = stChildArray[i].GetName(cocoLoader);
             std::string value = stChildArray[i].GetValue(cocoLoader);
+<<<<<<< HEAD
+=======
+//            CCLOG("Button: key = %s, value = %d", key.c_str(), i);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
             //read all basic properties of widget
             CC_BASIC_PROPERTY_BINARY_READER
@@ -237,11 +260,16 @@ namespace cocostudio
         button->setTitleFontSize(DICTOOL->getIntValue_json(options, P_FontSize,14));
         
 
+<<<<<<< HEAD
         button->setTitleFontName(DICTOOL->getStringValue_json(options, P_FontName, ""));
+=======
+        button->setTitleFontName(DICTOOL->getStringValue_json(options, P_FontName,"微软雅黑"));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }    
     
     Offset<Table> ButtonReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData, flatbuffers::FlatBufferBuilder *builder)
@@ -958,4 +986,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

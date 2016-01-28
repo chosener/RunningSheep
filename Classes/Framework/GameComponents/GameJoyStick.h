@@ -1,7 +1,11 @@
 #ifndef __GAME_JOY_STICK_H__
 #define __GAME_JOY_STICK_H__
 
+<<<<<<< HEAD
 #include "CocosHead.h"
+=======
+#include "../CocosHead.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 enum {
 	U_DIR = 0,

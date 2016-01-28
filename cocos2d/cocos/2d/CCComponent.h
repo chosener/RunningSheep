@@ -1,5 +1,9 @@
 /****************************************************************************
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -25,8 +29,11 @@ THE SOFTWARE.
 #ifndef __CC_FRAMEWORK_COMPONENT_H__
 #define __CC_FRAMEWORK_COMPONENT_H__
 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCRef.h"
 #include "base/CCScriptSupport.h"
 #include <string>
@@ -82,5 +89,8 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif  // __FUNDATION__CCCOMPONENT_H__

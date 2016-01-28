@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 if(WINDOWS AND BUILD_SHARED_LIBS)
   ADD_DEFINITIONS (-D_USEGUIDLL)
@@ -26,17 +27,30 @@ set(COCOS_UI_SRC
   ui/UIButton.cpp
   ui/UICheckBox.cpp
   ui/UIDeprecated.cpp
+=======
+set(COCOS_UI_SRC
+  ui/CCProtectedNode.cpp
+  ui/CocosGUI.cpp
+  ui/UIButton.cpp
+  ui/UICheckBox.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   ui/UIHBox.cpp
   ui/UIHelper.cpp
   ui/UIImageView.cpp
   ui/UILayout.cpp
+<<<<<<< HEAD
   ui/UILayoutManager.cpp
   ui/UILayoutParameter.cpp
+=======
+  ui/UILayoutParameter.cpp
+  ui/UILayoutManager.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   ui/UIListView.cpp
   ui/UILoadingBar.cpp
   ui/UIPageView.cpp
   ui/UIRelativeBox.cpp
   ui/UIRichText.cpp
+<<<<<<< HEAD
   ui/UIScale9Sprite.cpp
   ui/UIScrollView.cpp
   ui/UISlider.cpp
@@ -52,3 +66,16 @@ set(COCOS_UI_SRC
   ${COCOS_UI_SPECIFIC_SRC}
 
 )
+=======
+  ui/UIScrollView.cpp
+  ui/UISlider.cpp
+  ui/UITextAtlas.cpp
+  ui/UITextBMFont.cpp
+  ui/UIText.cpp
+  ui/UITextField.cpp
+  ui/UIVBox.cpp
+  ui/UIWidget.cpp
+  ui/UIDeprecated.cpp
+)
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

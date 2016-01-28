@@ -41,7 +41,10 @@ THE SOFTWARE.
 #include "WidgetReader/ListViewReader/ListViewReader.h"
 #include "cocostudio/CocoLoader.h"
 #include "ui/CocosGUI.h"
+<<<<<<< HEAD
 #include "tinyxml2.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace cocos2d;
 using namespace cocos2d::ui;
@@ -92,7 +95,11 @@ GUIReader* GUIReader::getInstance()
 {
     if (!sharedReader)
     {
+<<<<<<< HEAD
         sharedReader = new (std::nothrow) GUIReader();
+=======
+        sharedReader = new GUIReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     return sharedReader;
 }
@@ -178,6 +185,7 @@ void GUIReader::registerTypeAndCallBack(const std::string& classType,
     }
 }
 
+<<<<<<< HEAD
 void GUIReader::registerTypeAndCallBack(const std::string& classType,
                                         ObjectFactory::InstanceFunc ins,
                                         Ref *object,
@@ -199,6 +207,8 @@ void GUIReader::registerTypeAndCallBack(const std::string& classType,
     }
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 Widget* GUIReader::widgetFromJsonFile(const char *fileName)
 {
@@ -222,18 +232,30 @@ Widget* GUIReader::widgetFromJsonFile(const char *fileName)
         int versionInteger = getVersionInteger(fileVersion);
         if (versionInteger < 250)
         {
+<<<<<<< HEAD
             pReader = new (std::nothrow) WidgetPropertiesReader0250();
+=======
+            pReader = new WidgetPropertiesReader0250();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             widget = pReader->createWidget(jsonDict, m_strFilePath.c_str(), fileName);
         }
         else
         {
+<<<<<<< HEAD
             pReader = new (std::nothrow) WidgetPropertiesReader0300();
+=======
+            pReader = new WidgetPropertiesReader0300();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             widget = pReader->createWidget(jsonDict, m_strFilePath.c_str(), fileName);
         }
     }
     else
     {
+<<<<<<< HEAD
         pReader = new (std::nothrow) WidgetPropertiesReader0250();
+=======
+        pReader = new WidgetPropertiesReader0250();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         widget = pReader->createWidget(jsonDict, m_strFilePath.c_str(), fileName);
     }
     
@@ -355,11 +377,19 @@ WidgetReaderProtocol* WidgetPropertiesReader::createWidgetReaderProtocol(const s
     
     return dynamic_cast<WidgetReaderProtocol*>(object);
 }
+<<<<<<< HEAD
 
+=======
+    
+   
+
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Widget* GUIReader::widgetFromBinaryFile(const char *fileName)
 {
     std::string jsonpath;
     rapidjson::Document jsonDict;
+<<<<<<< HEAD
     jsonpath = fileName;
 //    jsonpath = CCFileUtils::getInstance()->fullPathForFilename(fileName);
     size_t pos = jsonpath.find_last_of('/');
@@ -368,14 +398,29 @@ Widget* GUIReader::widgetFromBinaryFile(const char *fileName)
     auto fileData = FileUtils::getInstance()->getDataFromFile(fullPath);
     auto fileDataBytes = fileData.getBytes();
     auto fileDataSize = fileData.getSize();
+=======
+    jsonpath = CCFileUtils::getInstance()->fullPathForFilename(fileName);
+    size_t pos = jsonpath.find_last_of('/');
+    m_strFilePath = jsonpath.substr(0,pos+1);
+    ssize_t nSize = 0;
+    std::string fullPath = FileUtils::getInstance()->fullPathForFilename(fileName);
+    unsigned char* pBuffer = FileUtils::getInstance()->getFileData(fullPath, "rb", &nSize);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     const char* fileVersion = "";
     ui::Widget* widget = nullptr;
 
+<<<<<<< HEAD
     if (fileDataBytes != nullptr && fileDataSize > 0)
     {
         CocoLoader	tCocoLoader;
         if(true == tCocoLoader.ReadCocoBinBuff((char*)fileDataBytes))
+=======
+    if (pBuffer != nullptr && nSize > 0)
+    {
+        CocoLoader	tCocoLoader;
+        if(true == tCocoLoader.ReadCocoBinBuff((char*)pBuffer))
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
             stExpCocoNode*	tpRootCocoNode = tCocoLoader.GetRootCocoNode();
             
@@ -400,18 +445,30 @@ Widget* GUIReader::widgetFromBinaryFile(const char *fileName)
                     if (versionInteger < 250)
                     {
                         CCASSERT(0, "You current studio doesn't support binary format, please upgrade to the latest version!");
+<<<<<<< HEAD
                         pReader = new (std::nothrow) WidgetPropertiesReader0250();
+=======
+                        pReader = new WidgetPropertiesReader0250();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                         widget = pReader->createWidgetFromBinary(&tCocoLoader, tpRootCocoNode, fileName);
                     }
                     else
                     {
+<<<<<<< HEAD
                         pReader = new (std::nothrow) WidgetPropertiesReader0300();
+=======
+                        pReader = new WidgetPropertiesReader0300();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                         widget = pReader->createWidgetFromBinary(&tCocoLoader, tpRootCocoNode, fileName);
                     }
                 }
                 else
                 {
+<<<<<<< HEAD
                     pReader = new (std::nothrow) WidgetPropertiesReader0250();
+=======
+                    pReader = new WidgetPropertiesReader0250();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     widget = pReader->createWidgetFromBinary(&tCocoLoader, tpRootCocoNode, fileName);
                 }
                 
@@ -421,6 +478,11 @@ Widget* GUIReader::widgetFromBinaryFile(const char *fileName)
         }
     }
     
+<<<<<<< HEAD
+=======
+    CC_SAFE_DELETE_ARRAY(pBuffer);
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return widget;
    
 }
@@ -800,7 +862,11 @@ void WidgetPropertiesReader0250::setPropsForCheckBoxFromJsonDictionary(Widget*wi
     {
         checkBox->loadTextures(backGroundFileName_tp, backGroundSelectedFileName_tp, frontCrossFileName_tp,backGroundDisabledFileName_tp,frontCrossDisabledFileName_tp);
     }
+<<<<<<< HEAD
     checkBox->setSelected(DICTOOL->getBooleanValue_json(options, "selectedState"));
+=======
+    checkBox->setSelectedState(DICTOOL->getBooleanValue_json(options, "selectedState"));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     setColorPropsForWidgetFromJsonDictionary(widget,options);
 }
 
@@ -1096,7 +1162,11 @@ void WidgetPropertiesReader0250::setPropsForTextFieldFromJsonDictionary(Widget*w
     {
         textField->setPlaceHolder(DICTOOL->getStringValue_json(options, "placeHolder"));
     }
+<<<<<<< HEAD
     textField->setString(DICTOOL->getStringValue_json(options, "text"));
+=======
+    textField->setText(DICTOOL->getStringValue_json(options, "text"));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool fs = DICTOOL->checkObjectExist_json(options, "fontSize");
     if (fs)
     {
@@ -1412,7 +1482,11 @@ Widget* WidgetPropertiesReader0300::widgetFromBinary(CocoLoader* cocoLoader,  st
                             }
                             else
                             {
+<<<<<<< HEAD
                                 if (dynamic_cast<Layout*>(widget))
+=======
+                                if (!dynamic_cast<Layout*>(widget))
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                                 {
                                     if (child->getPositionType() == ui::Widget::PositionType::PERCENT)
                                     {
@@ -1504,7 +1578,11 @@ Widget* WidgetPropertiesReader0300::widgetFromJsonDictionary(const rapidjson::Va
                 }
                 else
                 {
+<<<<<<< HEAD
                     if (dynamic_cast<Layout*>(widget))
+=======
+                    if (!dynamic_cast<Layout*>(widget))
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     {
                         if (child->getPositionType() == ui::Widget::PositionType::PERCENT)
                         {
@@ -1531,11 +1609,19 @@ void WidgetPropertiesReader0300::setPropsForAllCustomWidgetFromJsonDictionary(co
 {
     GUIReader* guiReader = GUIReader::getInstance();
     
+<<<<<<< HEAD
     std::map<std::string, Ref*> *object_map = guiReader->getParseObjectMap();
     Ref* object = (*object_map)[classType];
     
     std::map<std::string, SEL_ParseEvent> *selector_map = guiReader->getParseCallBackMap();
     SEL_ParseEvent selector = (*selector_map)[classType];
+=======
+    std::map<std::string, Ref*> object_map = GUIReader::getInstance()->getParseObjectMap();
+    Ref* object = object_map[classType];
+    
+    std::map<std::string, SEL_ParseEvent> selector_map = guiReader->getParseCallBackMap();
+    SEL_ParseEvent selector = selector_map[classType];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (object && selector)
     {

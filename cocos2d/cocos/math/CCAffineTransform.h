@@ -26,11 +26,16 @@ THE SOFTWARE.
 #ifndef __MATH_CCAFFINETRANSFORM_H__
 #define __MATH_CCAFFINETRANSFORM_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "math/CCGeometry.h"
 #include "math/CCMath.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -50,12 +55,18 @@ NS_CC_BEGIN
  0   0    1
  */
 struct CC_DLL AffineTransform {
+=======
+NS_CC_BEGIN
+
+struct AffineTransform {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     float a, b, c, d;
     float tx, ty;
 
     static const AffineTransform IDENTITY;
 };
 
+<<<<<<< HEAD
 /**@}*/
 
 /**Make affine transform.*/
@@ -108,12 +119,40 @@ CC_DLL bool AffineTransformEqualToTransform(const AffineTransform& t1, const Aff
 CC_DLL AffineTransform AffineTransformInvert(const AffineTransform& t);
 /**Concat Mat4, return t1 * t2.*/
 CC_DLL Mat4 TransformConcat(const Mat4& t1, const Mat4& t2);
+=======
+CC_DLL AffineTransform __CCAffineTransformMake(float a, float b, float c, float d, float tx, float ty);
+#define AffineTransformMake __CCAffineTransformMake
+
+CC_DLL Vec2 __CCPointApplyAffineTransform(const Vec2& point, const AffineTransform& t);
+#define PointApplyAffineTransform __CCPointApplyAffineTransform
+
+CC_DLL Size __CCSizeApplyAffineTransform(const Size& size, const AffineTransform& t);
+#define SizeApplyAffineTransform __CCSizeApplyAffineTransform
+
+CC_DLL AffineTransform AffineTransformMakeIdentity();
+CC_DLL Rect RectApplyAffineTransform(const Rect& rect, const AffineTransform& anAffineTransform);
+
+CC_DLL Rect RectApplyTransform(const Rect& rect, const Mat4& transform);
+CC_DLL Vec2 PointApplyTransform(const Vec2& point, const Mat4& transform);
+
+CC_DLL AffineTransform AffineTransformTranslate(const AffineTransform& t, float tx, float ty);
+CC_DLL AffineTransform AffineTransformRotate(const AffineTransform& aTransform, float anAngle);
+CC_DLL AffineTransform AffineTransformScale(const AffineTransform& t, float sx, float sy);
+CC_DLL AffineTransform AffineTransformConcat(const AffineTransform& t1, const AffineTransform& t2);
+CC_DLL bool AffineTransformEqualToTransform(const AffineTransform& t1, const AffineTransform& t2);
+CC_DLL AffineTransform AffineTransformInvert(const AffineTransform& t);
+
+Mat4 TransformConcat(const Mat4& t1, const Mat4& t2);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 extern CC_DLL const AffineTransform AffineTransformIdentity;
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base transform
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __MATH_CCAFFINETRANSFORM_H__

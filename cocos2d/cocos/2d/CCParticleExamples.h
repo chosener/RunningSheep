@@ -32,6 +32,7 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
  * @{
  */
@@ -53,6 +54,17 @@ public:
      * @return An autoreleased ParticleFire object.
      * @js NA
      */
+=======
+ * @addtogroup particle_nodes
+ * @{
+ */
+
+//! @brief A fire particle system
+class CC_DLL ParticleFire : public ParticleSystemQuad
+{
+public:
+    static ParticleFire* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleFire* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -66,13 +78,18 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~ParticleFire(){}
 
+<<<<<<< HEAD
     bool init() override { return initWithTotalParticles(250); }
+=======
+    bool init(){ return initWithTotalParticles(250); }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool initWithTotalParticles(int numberOfParticles) override;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleFire);
 };
 
+<<<<<<< HEAD
 /** @class ParticleFireworks
  * @brief A fireworks particle system.
  */
@@ -90,6 +107,13 @@ public:
      * @return An autoreleased ParticleFireworks object.
      * @js NA
      */
+=======
+//! @brief A fireworks particle system
+class CC_DLL ParticleFireworks : public ParticleSystemQuad
+{
+public:
+    static ParticleFireworks* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleFireworks* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -111,6 +135,7 @@ private:
 
 };
 
+<<<<<<< HEAD
 /** @class ParticleSun
  * @brief A sun particle system.
  */
@@ -128,6 +153,13 @@ public:
      * @return An autoreleased ParticleSun object.
      * @js NA
      */
+=======
+//! @brief A sun particle system
+class CC_DLL ParticleSun : public ParticleSystemQuad
+{
+public:
+    static ParticleSun* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleSun* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -149,6 +181,7 @@ private:
 
 };
 
+<<<<<<< HEAD
 /** @class ParticleGalaxy
  * @brief A galaxy particle system.
  */
@@ -166,6 +199,13 @@ public:
      * @return An autoreleased ParticleGalaxy object.
      * @js NA
      */
+=======
+//! @brief A galaxy particle system
+class CC_DLL ParticleGalaxy : public ParticleSystemQuad
+{
+public:
+    static ParticleGalaxy* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleGalaxy* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -187,6 +227,7 @@ private:
 
 };
 
+<<<<<<< HEAD
 /** @class ParticleFlower
  * @brief A flower particle system.
  */
@@ -204,6 +245,13 @@ public:
      * @return An autoreleased ParticleFlower object.
      * @js NA
      */
+=======
+//! @brief A flower particle system
+class CC_DLL ParticleFlower : public ParticleSystemQuad
+{
+public:
+    static ParticleFlower* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleFlower* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -224,6 +272,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleFlower);
 };
 
+<<<<<<< HEAD
 /** @class ParticleMeteor
  * @brief A meteor particle system.
  */
@@ -241,6 +290,13 @@ public:
      * @return An autoreleased ParticleMeteor object.
      * @js NA
      */
+=======
+//! @brief A meteor particle system
+class CC_DLL ParticleMeteor : public ParticleSystemQuad
+{
+public:
+    static ParticleMeteor * create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleMeteor* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -261,6 +317,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleMeteor);
 };
 
+<<<<<<< HEAD
 /** @class ParticleSpiral
  * @brief An spiral particle system.
  */
@@ -278,6 +335,13 @@ public:
      * @return An autoreleased ParticleSpiral object.
      * @js NA
      */
+=======
+//! @brief An spiral particle system
+class CC_DLL ParticleSpiral : public ParticleSystemQuad
+{
+public:
+    static ParticleSpiral* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleSpiral* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -299,6 +363,7 @@ private:
 
 };
 
+<<<<<<< HEAD
 /** @class ParticleExplosion
  * @brief An explosion particle system.
  */
@@ -316,6 +381,13 @@ public:
      * @return An autoreleased ParticleExplosion object.
      * @js NA
      */
+=======
+//! @brief An explosion particle system
+class CC_DLL ParticleExplosion : public ParticleSystemQuad
+{
+public:
+    static ParticleExplosion* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleExplosion* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -336,6 +408,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleExplosion);
 };
 
+<<<<<<< HEAD
 /** @class ParticleSmoke
  * @brief An smoke particle system.
  */
@@ -353,6 +426,13 @@ public:
      * @return An autoreleased ParticleSmoke object.
      * @js NA
      */
+=======
+//! @brief An smoke particle system
+class CC_DLL ParticleSmoke : public ParticleSystemQuad
+{
+public:
+    static ParticleSmoke* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleSmoke* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -373,6 +453,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleSmoke);
 };
 
+<<<<<<< HEAD
 /** @class ParticleSnow
  * @brief An snow particle system.
  */
@@ -390,6 +471,13 @@ public:
      * @return An autoreleased ParticleSnow object.
      * @js NA
      */
+=======
+//! @brief An snow particle system
+class CC_DLL ParticleSnow : public ParticleSystemQuad
+{
+public:
+    static ParticleSnow* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleSnow* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -410,6 +498,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleSnow);
 };
 
+<<<<<<< HEAD
 /** @class ParticleRain
  * @brief A rain particle system.
  */
@@ -427,6 +516,13 @@ public:
      * @return An autoreleased ParticleRain object.
      * @js NA
      */
+=======
+//! @brief A rain particle system
+class CC_DLL ParticleRain : public ParticleSystemQuad
+{
+public:
+    static ParticleRain* create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleRain* createWithTotalParticles(int numberOfParticles);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -447,7 +543,11 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleRain);
 };
 
+<<<<<<< HEAD
 // end of _2d group
+=======
+// end of particle_nodes group
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

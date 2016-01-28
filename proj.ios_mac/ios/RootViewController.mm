@@ -25,7 +25,11 @@
 
 #import "RootViewController.h"
 #import "cocos2d.h"
+<<<<<<< HEAD
 #import "platform/ios/CCEAGLView-ios.h"
+=======
+#import "CCEAGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 @implementation RootViewController
 
@@ -72,7 +76,11 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 
+<<<<<<< HEAD
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+=======
+    cocos2d::GLView *glview = cocos2d::Director::getInstance()->getOpenGLView();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (glview)
     {

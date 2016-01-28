@@ -1,6 +1,7 @@
 
 
 #include "SliderReader.h"
+<<<<<<< HEAD
 
 #include "ui/UISlider.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UISlider.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -27,7 +35,11 @@ namespace cocostudio
     
     static SliderReader* instanceSliderReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(SliderReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(SliderReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     SliderReader::SliderReader()
     {
@@ -43,16 +55,23 @@ namespace cocostudio
     {
         if (!instanceSliderReader)
         {
+<<<<<<< HEAD
             instanceSliderReader = new (std::nothrow) SliderReader();
+=======
+            instanceSliderReader = new SliderReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceSliderReader;
     }
     
+<<<<<<< HEAD
     void SliderReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceSliderReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void SliderReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode* cocoNode)
     {
         this->beginSetBasicProperties(widget);
@@ -197,6 +216,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> SliderReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -828,4 +848,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

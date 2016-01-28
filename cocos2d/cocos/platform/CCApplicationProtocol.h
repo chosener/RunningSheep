@@ -26,14 +26,22 @@ THE SOFTWARE.
 #ifndef __CC_APPLICATION_PROTOCOL_H__
 #define __CC_APPLICATION_PROTOCOL_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCScriptSupport.h"
 #include "base/CCAutoreleasePool.h"
 
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup core
+=======
+ * @addtogroup platform
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
@@ -41,6 +49,7 @@ class CC_DLL ApplicationProtocol
 {
 public:
 
+<<<<<<< HEAD
     /** Since WINDOWS and ANDROID are defined as macros, we could not just use these keywords in enumeration(Platform).
      *  Therefore, 'OS_' prefix is added to avoid conflicts with the definitions of system macros.
      */
@@ -58,6 +67,24 @@ public:
         OS_TIZEN,/** Tizen */
         OS_WINRT,/** Winrt */
         OS_WP8/** WP8 */
+=======
+    // Since WINDOWS and ANDROID are defined as macros, we could not just use these keywords in enumeration(Platform).
+    // Therefore, 'OS_' prefix is added to avoid conflicts with the definitions of system macros.
+    enum class Platform
+    {
+        OS_WINDOWS,
+        OS_LINUX,
+        OS_MAC,
+        OS_ANDROID,
+        OS_IPHONE,
+        OS_IPAD,
+        OS_BLACKBERRY,
+        OS_NACL,
+        OS_EMSCRIPTEN,
+        OS_TIZEN,
+        OS_WINRT,
+        OS_WP8
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     };
 
     /**
@@ -68,41 +95,65 @@ public:
 #if CC_ENABLE_SCRIPT_BINDING
         ScriptEngineManager::destroyInstance();
 #endif
+<<<<<<< HEAD
         /** clean auto release pool. */
+=======
+        // clean auto release pool
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         PoolManager::destroyInstance();
     }
 
     /**
+<<<<<<< HEAD
     * @brief    Implement Director and Scene init code here.
     * @return true    Initialize success, app continue.
     * @return false   Initialize failed, app terminate.
+=======
+    @brief    Implement Director and Scene init code here.
+    @return true    Initialize success, app continue.
+    @return false   Initialize failed, app terminate.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @js NA
     * @lua NA
     */
     virtual bool applicationDidFinishLaunching() = 0;
 
     /**
+<<<<<<< HEAD
     * @brief  This function will be called when the application enters background.
+=======
+    @brief  This function will be called when the application enters background.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @js NA
     * @lua NA
     */
     virtual void applicationDidEnterBackground() = 0;
 
     /**
+<<<<<<< HEAD
     * @brief  This function will be called when the application enters foreground.
+=======
+    @brief  This function will be called when the application enters foreground.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @js NA
     * @lua NA
     */
     virtual void applicationWillEnterForeground() = 0;
 
     /**
+<<<<<<< HEAD
     * @brief    Callback by Director for limit FPS.
     * @param interval The time, expressed in seconds, between current frame and next.
+=======
+    @brief    Callback by Director for limit FPS.
+    @param interval The time, expressed in seconds, between current frame and next.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @js NA
     * @lua NA
     */
     virtual void setAnimationInterval(double interval) = 0;
 
+<<<<<<< HEAD
     /** Subclass override the function to set OpenGL context attribution instead of use default value.
     * And now can only set six attributions:redBits,greenBits,blueBits,alphaBits,depthBits,stencilBits.
     * Default value are(5,6,5,0,16,0), usually use as follows:
@@ -116,25 +167,40 @@ public:
     /**
     @brief Get current language config.
     @return Current language config.
+=======
+    /**
+    @brief Get current language config
+    @return Current language config
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @js NA
     * @lua NA
     */
     virtual LanguageType getCurrentLanguage() = 0;
     
     /**
+<<<<<<< HEAD
      @brief Get current language iso 639-1 code.
      @return Current language iso 639-1 code.
+=======
+     @brief Get current language iso 639-1 code
+     @return Current language iso 639-1 code
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual const char * getCurrentLanguageCode() = 0;
     
     /**
+<<<<<<< HEAD
      @brief Get target platform.
+=======
+     @brief Get target platform
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual Platform getTargetPlatform() = 0;
+<<<<<<< HEAD
     
     /**
      @brief Open url in default browser.
@@ -148,6 +214,12 @@ public:
 
 // end of platform group
 /** @} */
+=======
+};
+
+// end of platform group
+/// @}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

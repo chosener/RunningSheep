@@ -25,8 +25,14 @@ THE SOFTWARE.
 #ifndef __TRIGGEROBJ_H__
 #define __TRIGGEROBJ_H__
 
+<<<<<<< HEAD
 #include "CocoStudio.h"
 #include "base/CCVector.h"
+=======
+#include "cocos2d.h"
+#include "CocoStudio.h"
+#include <vector>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d {
 class EventListenerCustom;
@@ -34,7 +40,11 @@ class EventListenerCustom;
 
 namespace cocostudio {
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL BaseTriggerCondition : public cocos2d::Ref
+=======
+class BaseTriggerCondition : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 protected:
     BaseTriggerCondition(void);
@@ -47,7 +57,11 @@ public:
     virtual void removeAll();
 };
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL BaseTriggerAction : public cocos2d::Ref
+=======
+class BaseTriggerAction : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 protected:
     BaseTriggerAction(void);
@@ -61,7 +75,11 @@ public:
 };
 
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL TriggerObj : public cocos2d::Ref
+=======
+class TriggerObj : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     TriggerObj(void);

@@ -26,6 +26,7 @@ THE SOFTWARE.
 #ifndef __MISC_NODE_CCPROGRESS_TIMER_H__
 #define __MISC_NODE_CCPROGRESS_TIMER_H__
 
+<<<<<<< HEAD
 #include "renderer/CCCustomCommand.h"
 #include "2d/CCNode.h"
 
@@ -35,10 +36,23 @@ class Sprite;
 
 /**
  * @addtogroup _2d
+=======
+#include "2d/CCSprite.h"
+#include "renderer/CCCustomCommand.h"
+#ifdef EMSCRIPTEN
+#include "CCGLBufferedNode.h"
+#endif // EMSCRIPTEN
+
+NS_CC_BEGIN
+
+/**
+ * @addtogroup misc_nodes
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
 /**
+<<<<<<< HEAD
   * @brief ProgressTimer is a subclass of Node.
   * It renders the inner sprite according to the percentage.
   * The progress can be Radial, Horizontal or vertical.
@@ -116,10 +130,57 @@ public:
      *
      * @param value If value is false it will clockwise,if is true it will Anti-clockwise.
      */
+=======
+ @brief ProgressTimer is a subclass of Node.
+ It renders the inner sprite according to the percentage.
+ The progress can be Radial, Horizontal or vertical.
+ @since v0.99.1
+ */
+class CC_DLL ProgressTimer : public Node
+#ifdef EMSCRIPTEN
+, public GLBufferedNode
+#endif // EMSCRIPTEN
+{
+public:
+    /** Types of progress
+     @since v0.99.1
+     */
+    enum class Type
+    {
+        /// Radial Counter-Clockwise
+        RADIAL,
+        /// Bar
+        BAR,
+    };
+    
+    /** Creates a progress timer with the sprite as the shape the timer goes through */
+    static ProgressTimer* create(Sprite* sp);
+
+    /** Change the percentage to change progress. */
+    inline Type getType() const { return _type; }
+
+    /** Percentages are from 0 to 100 */
+    inline float getPercentage() const {return _percentage; }
+
+    /** The image to show the progress percentage, retain */
+    inline Sprite* getSprite() const { return _sprite; }
+
+    void setPercentage(float percentage);
+    void setSprite(Sprite *sprite);
+    void setType(Type type);
+    /**
+     * @js setReverseDirection
+     * @lua setReverseDirection
+     */
+    void setReverseProgress(bool reverse);
+
+    inline bool isReverseDirection() { return _reverseDirection; };
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setReverseDirection(bool value) { _reverseDirection = value; };
 
     /**
      *    Midpoint is used to modify the progress start position.
+<<<<<<< HEAD
      *    If you're using radials type then the midpoint changes the center point.
      *    If you're using bar type the the midpoint changes the bar growth.
      *        it expands from the center but clamps to the sprites edge so:
@@ -150,6 +211,28 @@ public:
      *
      * @return A barChangeRate.
      */
+=======
+     *    If you're using radials type then the midpoint changes the center point
+     *    If you're using bar type the the midpoint changes the bar growth
+     *        it expands from the center but clamps to the sprites edge so:
+     *        you want a left to right then set the midpoint all the way to Vec2(0,y)
+     *        you want a right to left then set the midpoint all the way to Vec2(1,y)
+     *        you want a bottom to top then set the midpoint all the way to Vec2(x,0)
+     *        you want a top to bottom then set the midpoint all the way to Vec2(x,1)
+     */
+    void setMidpoint(const Vec2& point);
+    /** Returns the Midpoint */
+    Vec2 getMidpoint() const;
+
+    /**
+     *    This allows the bar type to move the component at a specific rate
+     *    Set the component to 0 to make sure it stays at 100%.
+     *    For example you want a left to right bar but not have the height stay 100%
+     *    Set the rate to be Vec2(0,1); and set the midpoint to = Vec2(0,.5f);
+     */
+    inline void setBarChangeRate(const Vec2& barChangeRate ) { _barChangeRate = barChangeRate; }
+    /** Returns the BarChangeRate */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline Vec2 getBarChangeRate() const { return _barChangeRate; }
 
     // Overrides

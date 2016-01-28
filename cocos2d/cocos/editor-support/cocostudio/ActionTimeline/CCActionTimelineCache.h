@@ -25,6 +25,7 @@ THE SOFTWARE.
 #ifndef __CCTIMELINE_ACTION_CACHE_H__
 #define __CCTIMELINE_ACTION_CACHE_H__
 
+<<<<<<< HEAD
 #include <unordered_map>
 #include "base/CCMap.h"
 
@@ -48,6 +49,11 @@ namespace flatbuffers
     struct InnerActionFrame;
     struct EasingData;
 }
+=======
+#include "cocos2d.h"
+#include "cocostudio/DictionaryHelper.h"
+#include "CCTimelineMacro.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_TIMELINE_BEGIN
 
@@ -55,10 +61,16 @@ class ActionTimeline;
 class Timeline;
 class Frame;
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL ActionTimelineCache
 {
 public:    
     
+=======
+class ActionTimelineCache
+{
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** Gets the singleton */
     static ActionTimelineCache* getInstance();
 
@@ -71,6 +83,7 @@ public:
 
     /** Remove action with filename, and also remove other resource relate with this file */
     void removeAction(const std::string& fileName);
+<<<<<<< HEAD
     
     static ActionTimeline* createAction(const std::string& fileName);
 
@@ -85,6 +98,14 @@ public:
     
     ActionTimeline* createActionWithFlatBuffersForSimulator(const std::string& fileName);
     
+=======
+
+    /** Clone a action with the specified name from the container. */
+    ActionTimeline* createAction(const std::string& fileName);
+
+    ActionTimeline* loadAnimationActionWithFile(const std::string& fileName);
+    ActionTimeline* loadAnimationActionWithContent(const std::string&fileName, const std::string& content);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 protected:
 
     Timeline* loadTimeline(const rapidjson::Value& json);
@@ -101,6 +122,7 @@ protected:
     Frame* loadTextureFrame     (const rapidjson::Value& json);
     Frame* loadEventFrame       (const rapidjson::Value& json);
     Frame* loadZOrderFrame      (const rapidjson::Value& json);
+<<<<<<< HEAD
     
     
     Timeline* loadTimelineWithFlatBuffers(const flatbuffers::TimeLine* flatbuffers);
@@ -118,6 +140,8 @@ protected:
     Frame* loadInnerActionFrameWithFlatBuffers  (const flatbuffers::InnerActionFrame* flatbuffers);
     
     void loadEasingDataWithFlatBuffers(Frame* frame, const flatbuffers::EasingData* flatbuffers);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 protected:
 

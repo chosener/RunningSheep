@@ -25,6 +25,7 @@
 #ifndef __TestCpp__ListViewReader__
 #define __TestCpp__ListViewReader__
 
+<<<<<<< HEAD
 #include "cocostudio/WidgetReader/ScrollViewReader/ScrollViewReader.h"
 #include "cocostudio/CocosStudioExport.h"
 
@@ -35,10 +36,22 @@ namespace cocostudio
         DECLARE_CLASS_NODE_READER_INFO
         
     public:
+=======
+#include "../ScrollViewReader/ScrollViewReader.h"
+
+namespace cocostudio
+{
+    class ListViewReader : public ScrollViewReader
+    {
+    public:
+        DECLARE_CLASS_WIDGET_READER_INFO
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         ListViewReader();
         virtual ~ListViewReader();
         
         static ListViewReader* getInstance();
+<<<<<<< HEAD
         /** @deprecated Use method destroyInstance() instead */
         CC_DEPRECATED_ATTRIBUTE static void purge();
         static void destroyInstance();
@@ -52,6 +65,12 @@ namespace cocostudio
         
         int getResourceType(std::string key);
         
+=======
+        static void purge();
+        
+        virtual void setPropsFromJsonDictionary(cocos2d::ui::Widget* widget, const rapidjson::Value& options);
+        virtual void setPropsFromBinary(cocos2d::ui::Widget* widget, CocoLoader* cocoLoader,  stExpCocoNode*	pCocoNode) ;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     };
 }
 

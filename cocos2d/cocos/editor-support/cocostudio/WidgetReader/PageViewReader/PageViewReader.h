@@ -25,6 +25,7 @@
 #ifndef __TestCpp__PageViewReader__
 #define __TestCpp__PageViewReader__
 
+<<<<<<< HEAD
 #include "cocostudio/WidgetReader/LayoutReader/LayoutReader.h"
 #include "cocostudio/CocosStudioExport.h"
 
@@ -35,10 +36,22 @@ namespace cocostudio
         DECLARE_CLASS_NODE_READER_INFO
         
     public:
+=======
+#include "../LayoutReader/LayoutReader.h"
+
+namespace cocostudio
+{
+    class PageViewReader : public LayoutReader
+    {
+    public:
+        DECLARE_CLASS_WIDGET_READER_INFO
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         PageViewReader();
         virtual ~PageViewReader();
         
         static PageViewReader* getInstance();
+<<<<<<< HEAD
         /** @deprecated Use method destroyInstance() instead */
         CC_DEPRECATED_ATTRIBUTE static void purge();
         static void destroyInstance();
@@ -52,6 +65,13 @@ namespace cocostudio
         
         int getResourceType(std::string key);
         
+=======
+        static void purge();
+        
+        virtual void setPropsFromJsonDictionary(cocos2d::ui::Widget* widget, const rapidjson::Value& options);
+        virtual void setPropsFromBinary(cocos2d::ui::Widget* widget, CocoLoader* cocoLoader,  stExpCocoNode* cocoNode) ;
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     };
 }
 

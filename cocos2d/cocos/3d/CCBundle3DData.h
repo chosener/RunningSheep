@@ -28,17 +28,24 @@
 #include "base/CCRef.h"
 #include "base/ccTypes.h"
 #include "math/CCMath.h"
+<<<<<<< HEAD
 #include "3d/CCAABB.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <vector>
 #include <map>
  
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 /**mesh vertex attribute
 * @js NA
 * @lua NA
 */
+=======
+/**mesh vertex attribute*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct MeshVertexAttrib
 {
     //attribute size
@@ -51,6 +58,7 @@ struct MeshVertexAttrib
     int attribSizeBytes;
 };
 
+<<<<<<< HEAD
 
 /** model node data, since 3.3
 * @js NA
@@ -149,11 +157,20 @@ struct MeshData
     std::vector<IndexArray> subMeshIndices;
     std::vector<std::string> subMeshIds; //subMesh Names (since 3.3)
     std::vector<AABB> subMeshAABB;
+=======
+/**mesh data*/
+struct MeshData
+{
+    std::vector<float> vertex;
+    int vertexSizeInFloat;
+    std::vector<unsigned short> indices;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int numIndex;
     std::vector<MeshVertexAttrib> attribs;
     int attribCount;
 
 public:
+<<<<<<< HEAD
     /**
      * Get per vertex size
      * @return return the sum of each vertex's all attribute size.
@@ -176,6 +193,12 @@ public:
         vertex.clear();
         subMeshIndices.clear();
         subMeshAABB.clear();
+=======
+    void resetData()
+    {
+        vertex.clear();
+        indices.clear();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         attribs.clear();
         vertexSizeInFloat = 0;
         numIndex = 0;
@@ -193,6 +216,7 @@ public:
     }
 };
 
+<<<<<<< HEAD
 /** mesh datas 
 * @js NA
 * @lua NA
@@ -219,6 +243,9 @@ struct MeshDatas
 * @js NA
 * @lua NA
 */
+=======
+/**skin data*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct SkinData
 {
     std::vector<std::string> skinBoneNames; //skin bones affect skin
@@ -243,22 +270,46 @@ struct SkinData
 
     void addSkinBoneNames(const std::string& name)
     {
+<<<<<<< HEAD
         auto it = std::find(skinBoneNames.begin(), skinBoneNames.end(), name);
         if (it == skinBoneNames.end())
             skinBoneNames.push_back(name);
+=======
+        for (auto iter : skinBoneNames)
+        {
+            if ((iter) == name)
+                return;
+        }
+        
+        skinBoneNames.push_back(name);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     void addNodeBoneNames(const std::string& name)
     {
+<<<<<<< HEAD
         auto it = std::find(nodeBoneNames.begin(), nodeBoneNames.end(), name);
         if (it == nodeBoneNames.end())
             nodeBoneNames.push_back(name);
+=======
+        for (auto iter : nodeBoneNames)
+        {
+            if ((iter) == name)
+                return;
+        }
+        
+        nodeBoneNames.push_back(name);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     int getSkinBoneNameIndex(const std::string& name)const
     {
         int i = 0;
+<<<<<<< HEAD
         for (const auto& iter : skinBoneNames)
+=======
+        for (auto iter : skinBoneNames)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
             if ((iter) == name)
                 return i;
@@ -270,13 +321,21 @@ struct SkinData
     int getBoneNameIndex(const std::string& name)const
     {
         int i = 0;
+<<<<<<< HEAD
         for (const auto& iter : skinBoneNames)
+=======
+        for (auto iter : skinBoneNames)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
             if ((iter) == name)
                 return i;
             i++;
         }
+<<<<<<< HEAD
         for(const auto& iter : nodeBoneNames)
+=======
+        for(auto iter : nodeBoneNames)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
             if (iter == name)
                 return i;
@@ -287,6 +346,7 @@ struct SkinData
 
 };
 
+<<<<<<< HEAD
 /**material data, 
 * @js NA
 * @lua NA
@@ -365,6 +425,15 @@ struct MaterialDatas
 * @js NA
 * @lua NA
 */
+=======
+/**material data*/
+struct MaterialData
+{
+    std::string texturePath;
+};
+
+/**animation data*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct Animation3DData
 {
 public:
@@ -372,6 +441,10 @@ public:
     {
         Vec3Key()
         : _time(0)
+<<<<<<< HEAD
+=======
+        , _key(Vec3::ZERO)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
         }
         
@@ -417,6 +490,7 @@ public:
     }
     
     Animation3DData(const Animation3DData& other)
+<<<<<<< HEAD
     : _translationKeys(other._translationKeys)
     , _rotationKeys(other._rotationKeys)
     , _scaleKeys(other._scaleKeys)
@@ -425,6 +499,16 @@ public:
     }
     
     void resetData()
+=======
+    : _totalTime(other._totalTime)
+    , _translationKeys(other._translationKeys)
+    , _rotationKeys(other._rotationKeys)
+    , _scaleKeys(other._scaleKeys)
+    {
+    }
+    
+    void clear()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         _totalTime = 0;
         _translationKeys.clear();
@@ -433,10 +517,14 @@ public:
     }
 };
 
+<<<<<<< HEAD
 /**reference data
 * @js NA
 * @lua NA
 */
+=======
+/**reference data*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct Reference
 {
 public:

@@ -24,6 +24,10 @@
  ****************************************************************************/
 
 #include "base/CCEventListenerKeyboard.h"
+<<<<<<< HEAD
+=======
+#include "base/CCEventKeyboard.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccMacros.h"
 
 NS_CC_BEGIN
@@ -43,7 +47,11 @@ bool EventListenerKeyboard::checkAvailable()
 
 EventListenerKeyboard* EventListenerKeyboard::create()
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) EventListenerKeyboard();
+=======
+    auto ret = new EventListenerKeyboard();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -57,7 +65,11 @@ EventListenerKeyboard* EventListenerKeyboard::create()
 
 EventListenerKeyboard* EventListenerKeyboard::clone()
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) EventListenerKeyboard();
+=======
+    auto ret = new EventListenerKeyboard();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();

@@ -67,12 +67,63 @@ float crossProduct2Vector(const Vec2& A, const Vec2& B, const Vec2& C, const Vec
     return (D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y);
 }
 
+<<<<<<< HEAD
+=======
+Vec2::Vec2()
+    : x(0.0f), y(0.0f)
+{
+}
+
+Vec2::Vec2(float xx, float yy)
+    : x(xx), y(yy)
+{
+}
+
+Vec2::Vec2(const float* array)
+{
+    set(array);
+}
+
+Vec2::Vec2(const Vec2& p1, const Vec2& p2)
+{
+    set(p1, p2);
+}
+
+Vec2::Vec2(const Vec2& copy)
+{
+    set(copy);
+}
+
+Vec2::~Vec2()
+{
+}
+
+bool Vec2::isZero() const
+{
+    return x == 0.0f && y == 0.0f;
+}
+
+bool Vec2::isOne() const
+{
+    return x == 1.0f && y == 1.0f;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 float Vec2::angle(const Vec2& v1, const Vec2& v2)
 {
     float dz = v1.x * v2.y - v1.y * v2.x;
     return atan2f(fabsf(dz) + MATH_FLOAT_SMALL, dot(v1, v2));
 }
 
+<<<<<<< HEAD
+=======
+void Vec2::add(const Vec2& v)
+{
+    x += v.x;
+    y += v.y;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec2::add(const Vec2& v1, const Vec2& v2, Vec2* dst)
 {
     GP_ASSERT(dst);
@@ -126,6 +177,21 @@ float Vec2::distance(const Vec2& v) const
     return sqrt(dx * dx + dy * dy);
 }
 
+<<<<<<< HEAD
+=======
+float Vec2::distanceSquared(const Vec2& v) const
+{
+    float dx = v.x - x;
+    float dy = v.y - y;
+    return (dx * dx + dy * dy);
+}
+
+float Vec2::dot(const Vec2& v) const
+{
+    return (x * v.x + y * v.y);
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 float Vec2::dot(const Vec2& v1, const Vec2& v2)
 {
     return (v1.x * v2.x + v1.y * v2.y);
@@ -136,6 +202,20 @@ float Vec2::length() const
     return sqrt(x * x + y * y);
 }
 
+<<<<<<< HEAD
+=======
+float Vec2::lengthSquared() const
+{
+    return (x * x + y * y);
+}
+
+void Vec2::negate()
+{
+    x = -x;
+    y = -y;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec2::normalize()
 {
     float n = x * x + y * y;
@@ -160,6 +240,21 @@ Vec2 Vec2::getNormalized() const
     return v;
 }
 
+<<<<<<< HEAD
+=======
+void Vec2::scale(float scalar)
+{
+    x *= scalar;
+    y *= scalar;
+}
+
+void Vec2::scale(const Vec2& scale)
+{
+    x *= scale.x;
+    y *= scale.y;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec2::rotate(const Vec2& point, float angle)
 {
     double sinAngle = sin(angle);
@@ -181,6 +276,15 @@ void Vec2::rotate(const Vec2& point, float angle)
     }
 }
 
+<<<<<<< HEAD
+=======
+void Vec2::set(float xx, float yy)
+{
+    this->x = xx;
+    this->y = yy;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec2::set(const float* array)
 {
     GP_ASSERT(array);
@@ -189,6 +293,27 @@ void Vec2::set(const float* array)
     y = array[1];
 }
 
+<<<<<<< HEAD
+=======
+void Vec2::set(const Vec2& v)
+{
+    this->x = v.x;
+    this->y = v.y;
+}
+
+void Vec2::set(const Vec2& p1, const Vec2& p2)
+{
+     x = p2.x - p1.x;
+     y = p2.y - p1.y;
+}
+
+void Vec2::subtract(const Vec2& v)
+{
+    x -= v.x;
+    y -= v.y;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec2::subtract(const Vec2& v1, const Vec2& v2, Vec2* dst)
 {
     GP_ASSERT(dst);
@@ -197,6 +322,23 @@ void Vec2::subtract(const Vec2& v1, const Vec2& v2, Vec2* dst)
     dst->y = v1.y - v2.y;
 }
 
+<<<<<<< HEAD
+=======
+void Vec2::smooth(const Vec2& target, float elapsedTime, float responseTime)
+{
+    if (elapsedTime > 0)
+    {
+        *this += (target - *this) * (elapsedTime / (elapsedTime + responseTime));
+    }
+}
+
+void Vec2::setPoint(float xx, float yy)
+{
+    this->x = xx;
+    this->y = yy;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 bool Vec2::equals(const Vec2& target) const
 {
     return (fabs(this->x - target.x) < FLT_EPSILON)
@@ -331,6 +473,7 @@ Vec2 Vec2::getIntersectPoint(const Vec2& A, const Vec2& B, const Vec2& C, const 
     return Vec2::ZERO;
 }
 
+<<<<<<< HEAD
 const Vec2 Vec2::ZERO(0.0f, 0.0f);
 const Vec2 Vec2::ONE(1.0f, 1.0f);
 const Vec2 Vec2::UNIT_X(1.0f, 0.0f);
@@ -344,5 +487,20 @@ const Vec2 Vec2::ANCHOR_MIDDLE_RIGHT(1.0f, 0.5f);
 const Vec2 Vec2::ANCHOR_MIDDLE_LEFT(0.0f, 0.5f);
 const Vec2 Vec2::ANCHOR_MIDDLE_TOP(0.5f, 1.0f);
 const Vec2 Vec2::ANCHOR_MIDDLE_BOTTOM(0.5f, 0.0f);
+=======
+const Vec2 Vec2::ZERO = Vec2(0.0f, 0.0f);
+const Vec2 Vec2::ONE = Vec2(1.0f, 1.0f);
+const Vec2 Vec2::UNIT_X = Vec2(1.0f, 0.0f);
+const Vec2 Vec2::UNIT_Y = Vec2(0.0f, 1.0f);
+const Vec2 Vec2::ANCHOR_MIDDLE = Vec2(0.5f, 0.5f);
+const Vec2 Vec2::ANCHOR_BOTTOM_LEFT = Vec2(0.0f, 0.0f);
+const Vec2 Vec2::ANCHOR_TOP_LEFT = Vec2(0.0f, 1.0f);
+const Vec2 Vec2::ANCHOR_BOTTOM_RIGHT = Vec2(1.0f, 0.0f);
+const Vec2 Vec2::ANCHOR_TOP_RIGHT = Vec2(1.0f, 1.0f);
+const Vec2 Vec2::ANCHOR_MIDDLE_RIGHT = Vec2(1.0f, 0.5f);
+const Vec2 Vec2::ANCHOR_MIDDLE_LEFT = Vec2(0.0f, 0.5f);
+const Vec2 Vec2::ANCHOR_MIDDLE_TOP = Vec2(0.5f, 1.0f);
+const Vec2 Vec2::ANCHOR_MIDDLE_BOTTOM = Vec2(0.5f, 0.0f);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_MATH_END

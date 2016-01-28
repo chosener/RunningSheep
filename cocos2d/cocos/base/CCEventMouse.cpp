@@ -24,7 +24,10 @@
  ****************************************************************************/
 
 #include "base/CCEventMouse.h"
+<<<<<<< HEAD
 #include "base/CCDirector.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -36,6 +39,7 @@ EventMouse::EventMouse(MouseEventType mouseEventCode)
 , _y(0.0f)
 , _scrollX(0.0f)
 , _scrollY(0.0f)
+<<<<<<< HEAD
 , _startPointCaptured(false)
 {
 };
@@ -81,4 +85,9 @@ Vec2 EventMouse::getDelta() const
 {     
     return getLocation() - getPreviousLocation();
 }
+=======
+{
+};
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END

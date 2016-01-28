@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType module error offsets (specification).                       */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 2001-2005, 2010, 2013 by                                     */
+=======
+/*  Copyright 2001, 2002, 2003, 2004, 2005, 2010 by                        */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -18,6 +22,7 @@
 
   /*************************************************************************/
   /*                                                                       */
+<<<<<<< HEAD
   /* This file is used to define the FreeType module error codes.          */
   /*                                                                       */
   /* If the macro FT_CONFIG_OPTION_USE_MODULE_ERRORS in `ftoption.h' is    */
@@ -69,6 +74,19 @@
   /*   FT_ERROR_MODULE( errcode )                                          */
   /*     Get base error and module error code, respectively.               */
   /*                                                                       */
+=======
+  /* This file is used to define the FreeType module error offsets.        */
+  /*                                                                       */
+  /* The lower byte gives the error code, the higher byte gives the        */
+  /* module.  The base module has error offset 0.  For example, the error  */
+  /* `FT_Err_Invalid_File_Format' has value 0x003, the error               */
+  /* `TT_Err_Invalid_File_Format' has value 0x1103, the error              */
+  /* `T1_Err_Invalid_File_Format' has value 0x1203, etc.                   */
+  /*                                                                       */
+  /* Undefine the macro FT_CONFIG_OPTION_USE_MODULE_ERRORS in ftoption.h   */
+  /* to make the higher byte always zero (disabling the module error       */
+  /* mechanism).                                                           */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* It can also be used to create a module error message table easily     */
   /* with something like                                                   */
@@ -88,6 +106,12 @@
   /*     #include FT_MODULE_ERRORS_H                                       */
   /*   }                                                                   */
   /*                                                                       */
+<<<<<<< HEAD
+=======
+  /* To use such a table, all errors must be ANDed with 0xFF00 to remove   */
+  /* the error code.                                                       */
+  /*                                                                       */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
 
 
@@ -161,7 +185,10 @@
   FT_MODERRDEF( Type1,    0x1300, "Type 1 module" )
   FT_MODERRDEF( Type42,   0x1400, "Type 42 module" )
   FT_MODERRDEF( Winfonts, 0x1500, "Windows FON/FNT module" )
+<<<<<<< HEAD
   FT_MODERRDEF( GXvalid,  0x1600, "GX validation module" )
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #ifdef FT_MODERR_END_LIST

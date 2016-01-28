@@ -36,7 +36,10 @@
 
 #include "2d/CCSprite.h"
 #include "../../ExtensionMacros.h"
+<<<<<<< HEAD
 #include "extensions/ExtensionExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -63,7 +66,11 @@ typedef struct
  */
 
 //helper class to store Color3B's in mutable arrays
+<<<<<<< HEAD
 class CC_EX_DLL Color3bObject : public Ref
+=======
+class Color3bObject : public Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     Color3B value;
@@ -74,7 +81,11 @@ public:
     Color3bObject(Color3B s_value):value(s_value){}
 };
 
+<<<<<<< HEAD
 class CC_EX_DLL ControlUtils
+=======
+class ControlUtils
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**

@@ -24,14 +24,20 @@ THE SOFTWARE.
 
 #include "ui/UIHelper.h"
 #include "ui/UIWidget.h"
+<<<<<<< HEAD
 #include "ui/UILayoutComponent.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 namespace ui {
 
+<<<<<<< HEAD
 static bool _activeLayout = true;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Widget* Helper::seekWidgetByTag(Widget* root, int tag)
 {
     if (!root)
@@ -111,6 +117,7 @@ Widget* Helper::seekActionWidgetByActionTag(Widget* root, int tag)
 	}
 	return nullptr;
 }
+<<<<<<< HEAD
     
 std::string Helper::getSubStringOfUTF8String(const std::string& str, std::string::size_type start, std::string::size_type length)
 {
@@ -191,6 +198,9 @@ Rect Helper::restrictCapInsetRect(const cocos2d::Rect &capInsets, const Size& te
     }
     return Rect(x, y, width, height);
 }
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END

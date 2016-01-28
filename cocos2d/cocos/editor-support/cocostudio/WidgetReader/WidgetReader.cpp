@@ -1,6 +1,7 @@
 
 
 #include "WidgetReader.h"
+<<<<<<< HEAD
 
 #include "cocostudio/CocoLoader.h"
 #include "ui/UIButton.h"
@@ -17,12 +18,23 @@ USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
 /**/
+=======
+#include "cocostudio/CocoLoader.h"
+#include "ui/UIButton.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 
 namespace cocostudio
 {
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const char* P_IgnoreSize = "ignoreSize";
     const char* P_SizeType = "sizeType";
     const char* P_PositionType = "positionType";
@@ -68,6 +80,7 @@ namespace cocostudio
     const char* P_ResourceType = "resourceType";
     const char* P_Path = "path";
 
+<<<<<<< HEAD
     const char* P_Layout_PositionPercentXEnabled = "PositionPercentXEnabled";
     const char* P_Layout_PositionPercentYEnabled = "PositionPercentYEnabled";
     const char* P_Layout_PercentWidthEnable = "PercentWidthEnabled";
@@ -90,16 +103,31 @@ namespace cocostudio
     static WidgetReader* instanceWidgetReader = nullptr;
     
     IMPLEMENT_CLASS_NODE_READER_INFO(WidgetReader)
+=======
+    
+    static WidgetReader* instanceWidgetReader = nullptr;
+    
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(WidgetReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     WidgetReader::WidgetReader()
     :_sizePercentX(0.0f),
     _sizePercentY(0.0f),
+<<<<<<< HEAD
     _positionPercentX(0.0f),
     _positionPercentY(0.0f),
     _width(0.0f),
     _height(0.0f),
     _opacity(255),
     _isAdaptScreen(false)
+=======
+    _isAdaptScreen(false),
+    _width(0.0f),
+    _height(0.0f),
+    _positionPercentX(0.0f),
+    _positionPercentY(0.0f),
+    _opacity(255)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         valueToInt = [=](const std::string& str) -> int{
             return atoi(str.c_str());
@@ -129,7 +157,11 @@ namespace cocostudio
     {
         if (!instanceWidgetReader)
         {
+<<<<<<< HEAD
             instanceWidgetReader = new (std::nothrow) WidgetReader();
+=======
+            instanceWidgetReader = new WidgetReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceWidgetReader;
     }
@@ -139,11 +171,14 @@ namespace cocostudio
         CC_SAFE_DELETE(instanceWidgetReader);
     }
     
+<<<<<<< HEAD
     void WidgetReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceWidgetReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void WidgetReader::setPropsFromJsonDictionary(Widget *widget, const rapidjson::Value &options)
     {        
    
@@ -385,6 +420,7 @@ namespace cocostudio
         }
         
         this->endSetBasicProperties(widget);
+<<<<<<< HEAD
     }        
     
     Offset<Table> WidgetReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData, flatbuffers::FlatBufferBuilder *builder)
@@ -945,6 +981,8 @@ namespace cocostudio
             }
         }
         return imageFileName_tp;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
 }

@@ -24,6 +24,11 @@
 
 #include "3d/CCAnimation3D.h"
 #include "3d/CCBundle3D.h"
+<<<<<<< HEAD
+=======
+
+#include "base/ccMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCFileUtils.h"
 
 NS_CC_BEGIN
@@ -36,19 +41,34 @@ Animation3D* Animation3D::create(const std::string& fileName, const std::string&
     if (animation != nullptr)
         return animation;
     
+<<<<<<< HEAD
     animation = new (std::nothrow) Animation3D();
     if(animation->initWithFile(fileName, animationName))
     {
+=======
+    //load animation here
+    animation = new Animation3D();
+    auto bundle = Bundle3D::getInstance();
+    Animation3DData animationdata;
+    if (bundle->load(fullPath) && bundle->loadAnimationData(animationName, &animationdata) && animation->init(animationdata))
+    {
+        Animation3DCache::getInstance()->addAnimation(key, animation);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         animation->autorelease();
     }
     else
     {
         CC_SAFE_DELETE(animation);
+<<<<<<< HEAD
+=======
+        animation = nullptr;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     return animation;
 }
 
+<<<<<<< HEAD
 bool Animation3D::initWithFile(const std::string& filename, const std::string& animationName)
 {
     std::string fullPath = FileUtils::getInstance()->fullPathForFilename(filename);
@@ -69,6 +89,8 @@ bool Animation3D::initWithFile(const std::string& filename, const std::string& a
     return false;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Animation3D::Curve* Animation3D::getBoneCurveByName(const std::string& name) const
 {
     auto it = _boneCurves.find(name);
@@ -114,7 +136,11 @@ bool Animation3D::init(const Animation3DData &data)
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
+<<<<<<< HEAD
             curve = new (std::nothrow) Curve();
+=======
+            curve = new Curve();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _boneCurves[iter.first] = curve;
         }
         
@@ -138,7 +164,11 @@ bool Animation3D::init(const Animation3DData &data)
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
+<<<<<<< HEAD
             curve = new (std::nothrow) Curve();
+=======
+            curve = new Curve();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _boneCurves[iter.first] = curve;
         }
         
@@ -163,7 +193,11 @@ bool Animation3D::init(const Animation3DData &data)
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
+<<<<<<< HEAD
             curve = new (std::nothrow) Curve();
+=======
+            curve = new Curve();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _boneCurves[iter.first] = curve;
         }
         
@@ -191,7 +225,11 @@ Animation3DCache* Animation3DCache::_cacheInstance = nullptr;
 Animation3DCache* Animation3DCache::getInstance()
 {
     if (_cacheInstance == nullptr)
+<<<<<<< HEAD
         _cacheInstance = new (std::nothrow) Animation3DCache();
+=======
+        _cacheInstance = new Animation3DCache();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     return _cacheInstance;
 }

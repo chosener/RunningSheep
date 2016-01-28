@@ -1,5 +1,9 @@
 /****************************************************************************
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies Inc.
+=======
+ Copyright (c) 2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  http://www.cocos2d-x.org
 
@@ -29,15 +33,19 @@
 
 #include "ui/UIWidget.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup ui
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 namespace experimental{
     namespace ui{
 
+<<<<<<< HEAD
         /**
          * @class VideoPlayer
          * @brief Displays a video file.
@@ -52,6 +60,11 @@ namespace experimental{
             /**
              * Videoplayer play event type.
              */
+=======
+        class VideoPlayer : public cocos2d::ui::Widget
+        {
+        public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             enum class EventType
             {
                 PLAYING = 0,
@@ -59,6 +72,7 @@ namespace experimental{
                 STOPPED,
                 COMPLETED
             };
+<<<<<<< HEAD
 
             /**
              * A callback which will be called after specific VideoPlayer event happens.
@@ -171,12 +185,46 @@ namespace experimental{
              */
             virtual void onPlayEvent(int event);
             virtual void setVisible(bool visible) override;
+=======
+            typedef std::function<void(Ref*,VideoPlayer::EventType)> ccVideoPlayerCallback;
+
+            CREATE_FUNC(VideoPlayer);
+
+            //Sets local file[support assets' file on android] as a video source for VideoPlayer
+            virtual void setFileName(const std::string& videoPath);
+            virtual const std::string& getFileName() const { return _videoURL;}
+
+            //Sets network link as a video source for VideoPlayer 
+            virtual void setURL(const std::string& _videoURL);
+            virtual const std::string& getURL() const { return _videoURL;}
+
+            virtual void play();
+            virtual void pause();
+            virtual void resume();
+            virtual void stop();
+
+            virtual void seekTo(float sec);
+            virtual bool isPlaying() const;
+
+            virtual void setVisible(bool visible) override;
+
+            virtual void setKeepAspectRatioEnabled(bool enable);
+            virtual bool isKeepAspectRatioEnabled()const { return _keepAspectRatioEnabled;}
+
+            virtual void setFullScreenEnabled(bool enabled);
+            virtual bool isFullScreenEnabled()const;
+
+            virtual void addEventListener(const VideoPlayer::ccVideoPlayerCallback& callback);
+
+            virtual void onPlayEvent(int event);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             virtual void draw(Renderer *renderer, const Mat4& transform, uint32_t flags) override;
 
         protected:
             virtual cocos2d::ui::Widget* createCloneInstance() override;
             virtual void copySpecialProperties(Widget* model) override;
             
+<<<<<<< HEAD
         CC_CONSTRUCTOR_ACCESS:
             VideoPlayer();
             virtual ~VideoPlayer();
@@ -184,6 +232,14 @@ namespace experimental{
         protected:
 #if CC_VIDEOPLAYER_DEBUG_DRAW
             DrawNode *_debugDrawNode;
+=======
+            VideoPlayer();
+            virtual ~VideoPlayer();
+
+#if CC_VIDEOPLAYER_DEBUG_DRAW
+            CustomCommand _customDebugDrawCommand;
+            void VideoPlayer::drawDebugData();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
             enum class Source
@@ -209,7 +265,11 @@ namespace experimental{
 }
 
 NS_CC_END
+<<<<<<< HEAD
 // end group
 /// @}
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 #endif

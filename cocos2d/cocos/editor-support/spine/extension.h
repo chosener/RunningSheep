@@ -32,8 +32,13 @@
 #define SPINE_EXTENSION_H_
 
 /* All allocation uses these. */
+<<<<<<< HEAD
 #define MALLOC(TYPE,COUNT) ((TYPE*)_malloc(sizeof(TYPE) * COUNT, __FILE__, __LINE__))
 #define CALLOC(TYPE,COUNT) ((TYPE*)_calloc(COUNT, sizeof(TYPE), __FILE__, __LINE__))
+=======
+#define MALLOC(TYPE,COUNT) ((TYPE*)_malloc(sizeof(TYPE) * COUNT))
+#define CALLOC(TYPE,COUNT) ((TYPE*)_calloc(COUNT, sizeof(TYPE)))
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define NEW(TYPE) CALLOC(TYPE,1)
 
 /* Gets the direct super class. Type safe. */
@@ -55,6 +60,7 @@
 #define FREE(VALUE) _free((void*)VALUE)
 
 /* Allocates a new char[], assigns it to TO, and copies FROM to it. Can be used on const types. */
+<<<<<<< HEAD
 #define MALLOC_STR(TO,FROM) strcpy(CONST_CAST(char*, TO) = (char*)MALLOC(char, strlen(FROM) + 1), FROM)
 
 #define PI 3.1415926535897932385f
@@ -75,12 +81,21 @@
 #define SIN(A) (float)sin(A)
 #define SQRT(A) (float)sqrt(A)
 #define ACOS(A) (float)acos(A)
+=======
+#define MALLOC_STR(TO,FROM) strcpy(CONST_CAST(char*, TO) = (char*)malloc(strlen(FROM) + 1), FROM)
+
+#ifdef __STDC_VERSION__
+#define FMOD(A,B) fmodf(A, B)
+#else
+#define FMOD(A,B) (float)fmod(A, B)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <spine/Skeleton.h>
+<<<<<<< HEAD
 #include <spine/Animation.h>
 #include <spine/Atlas.h>
 #include <spine/AttachmentLoader.h>
@@ -89,6 +104,13 @@
 #include <spine/SkinnedMeshAttachment.h>
 #include <spine/BoundingBoxAttachment.h>
 #include <spine/AnimationState.h>
+=======
+#include <spine/RegionAttachment.h>
+#include <spine/BoundingBoxAttachment.h>
+#include <spine/Animation.h>
+#include <spine/Atlas.h>
+#include <spine/AttachmentLoader.h>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifdef __cplusplus
 extern "C" {
@@ -112,18 +134,27 @@ char* _spUtil_readFile (const char* path, int* length);
  * Internal API available for extension:
  */
 
+<<<<<<< HEAD
 void* _malloc (size_t size, const char* file, int line);
 void* _calloc (size_t num, size_t size, const char* file, int line);
 void _free (void* ptr);
 
 void _setMalloc (void* (*_malloc) (size_t size));
 void _setDebugMalloc (void* (*_malloc) (size_t size, const char* file, int line));
+=======
+void* _malloc (size_t size);
+void* _calloc (size_t num, size_t size);
+void _free (void* ptr);
+
+void _setMalloc (void* (*_malloc) (size_t size));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void _setFree (void (*_free) (void* ptr));
 
 char* _readFile (const char* path, int* length);
 
 /**/
 
+<<<<<<< HEAD
 typedef struct _spAnimationState {
 	spAnimationState super;
 	spEvent** events;
@@ -150,6 +181,11 @@ void _spAttachmentLoader_init (spAttachmentLoader* self, /**/
 void (*dispose) (spAttachmentLoader* self), /**/
 		spAttachment* (*newAttachment) (spAttachmentLoader* self, spSkin* skin, spAttachmentType type, const char* name,
 				const char* path));
+=======
+void _spAttachmentLoader_init (spAttachmentLoader* self, /**/
+void (*dispose) (spAttachmentLoader* self), /**/
+spAttachment* (*newAttachment) (spAttachmentLoader* self, spSkin* skin, spAttachmentType type, const char* name));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void _spAttachmentLoader_deinit (spAttachmentLoader* self);
 void _spAttachmentLoader_setError (spAttachmentLoader* self, const char* error1, const char* error2);
 void _spAttachmentLoader_setUnknownTypeError (spAttachmentLoader* self, spAttachmentType type);
@@ -177,7 +213,11 @@ void _spAttachment_deinit (spAttachment* self);
 void _spTimeline_init (spTimeline* self, spTimelineType type, /**/
 void (*dispose) (spTimeline* self), /**/
 		void (*apply) (const spTimeline* self, spSkeleton* skeleton, float lastTime, float time, spEvent** firedEvents,
+<<<<<<< HEAD
 				int* eventsCount, float alpha));
+=======
+				int* eventCount, float alpha));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void _spTimeline_deinit (spTimeline* self);
 
 #ifdef SPINE_SHORT_NAMES
@@ -187,10 +227,17 @@ void _spTimeline_deinit (spTimeline* self);
 
 /**/
 
+<<<<<<< HEAD
 void _spCurveTimeline_init (spCurveTimeline* self, spTimelineType type, int framesCount, /**/
 void (*dispose) (spTimeline* self), /**/
 		void (*apply) (const spTimeline* self, spSkeleton* skeleton, float lastTime, float time, spEvent** firedEvents,
 				int* eventsCount, float alpha));
+=======
+void _spCurveTimeline_init (spCurveTimeline* self, spTimelineType type, int frameCount, /**/
+void (*dispose) (spTimeline* self), /**/
+		void (*apply) (const spTimeline* self, spSkeleton* skeleton, float lastTime, float time, spEvent** firedEvents,
+				int* eventCount, float alpha));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void _spCurveTimeline_deinit (spCurveTimeline* self);
 
 #ifdef SPINE_SHORT_NAMES

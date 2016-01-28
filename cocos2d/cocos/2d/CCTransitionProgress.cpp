@@ -30,6 +30,10 @@ THE SOFTWARE.
 #include "base/CCDirector.h"
 #include "2d/CCRenderTexture.h"
 #include "2d/CCProgressTimer.h"
+<<<<<<< HEAD
+=======
+#include "2d/CCLayer.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCActionInstant.h"
 #include "2d/CCActionProgressTimer.h"
 
@@ -49,7 +53,11 @@ TransitionProgress::TransitionProgress()
 
 TransitionProgress* TransitionProgress::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgress* newScene = new (std::nothrow) TransitionProgress();
+=======
+    TransitionProgress* newScene = new TransitionProgress();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -71,9 +79,15 @@ void TransitionProgress::onEnter()
     Size size = Director::getInstance()->getWinSize();
 
     // create the second render texture for outScene
+<<<<<<< HEAD
     RenderTexture *texture = RenderTexture::create((int)size.width, (int)size.height,Texture2D::PixelFormat::RGBA8888,GL_DEPTH24_STENCIL8);
     texture->getSprite()->setAnchorPoint(Vec2(0.5f,0.5f));
     texture->setPosition(size.width/2, size.height/2);
+=======
+    RenderTexture *texture = RenderTexture::create((int)size.width, (int)size.height);
+    texture->getSprite()->setAnchorPoint(Vec2(0.5f,0.5f));
+    texture->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     texture->setAnchorPoint(Vec2(0.5f,0.5f));
 
     // render outScene to its texturebuffer
@@ -144,7 +158,11 @@ ProgressTimer* TransitionProgressRadialCCW::progressTimerNodeWithRenderTexture(R
     //    Return the radial type that we want to use
     node->setReverseDirection(false);
     node->setPercentage(100);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
     
     return node;
@@ -152,7 +170,11 @@ ProgressTimer* TransitionProgressRadialCCW::progressTimerNodeWithRenderTexture(R
 
 TransitionProgressRadialCCW* TransitionProgressRadialCCW::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressRadialCCW* newScene = new (std::nothrow) TransitionProgressRadialCCW();
+=======
+    TransitionProgressRadialCCW* newScene = new TransitionProgressRadialCCW();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -165,7 +187,11 @@ TransitionProgressRadialCCW* TransitionProgressRadialCCW::create(float t, Scene*
 // TransitionProgressRadialCW
 TransitionProgressRadialCW* TransitionProgressRadialCW::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressRadialCW* newScene = new (std::nothrow) TransitionProgressRadialCW();
+=======
+    TransitionProgressRadialCW* newScene = new TransitionProgressRadialCW();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -188,7 +214,11 @@ ProgressTimer* TransitionProgressRadialCW::progressTimerNodeWithRenderTexture(Re
     //    Return the radial type that we want to use
     node->setReverseDirection(true);
     node->setPercentage(100);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
     
     return node;
@@ -197,7 +227,11 @@ ProgressTimer* TransitionProgressRadialCW::progressTimerNodeWithRenderTexture(Re
 // TransitionProgressHorizontal
 TransitionProgressHorizontal* TransitionProgressHorizontal::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressHorizontal* newScene = new (std::nothrow) TransitionProgressHorizontal();
+=======
+    TransitionProgressHorizontal* newScene = new TransitionProgressHorizontal();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -221,7 +255,11 @@ ProgressTimer* TransitionProgressHorizontal::progressTimerNodeWithRenderTexture(
     node->setBarChangeRate(Vec2(1,0));
     
     node->setPercentage(100);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
 
     return node;
@@ -230,7 +268,11 @@ ProgressTimer* TransitionProgressHorizontal::progressTimerNodeWithRenderTexture(
 // TransitionProgressVertical
 TransitionProgressVertical* TransitionProgressVertical::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressVertical* newScene = new (std::nothrow) TransitionProgressVertical();
+=======
+    TransitionProgressVertical* newScene = new TransitionProgressVertical();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -254,7 +296,11 @@ ProgressTimer* TransitionProgressVertical::progressTimerNodeWithRenderTexture(Re
     node->setBarChangeRate(Vec2(0,1));
     
     node->setPercentage(100);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
     
     return node;
@@ -264,7 +310,11 @@ ProgressTimer* TransitionProgressVertical::progressTimerNodeWithRenderTexture(Re
 // TransitionProgressInOut
 TransitionProgressInOut* TransitionProgressInOut::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressInOut* newScene = new (std::nothrow) TransitionProgressInOut();
+=======
+    TransitionProgressInOut* newScene = new TransitionProgressInOut();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -300,7 +350,11 @@ ProgressTimer* TransitionProgressInOut::progressTimerNodeWithRenderTexture(Rende
     node->setBarChangeRate(Vec2(1, 1));
     
     node->setPercentage(0);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
     
     return node;
@@ -310,7 +364,11 @@ ProgressTimer* TransitionProgressInOut::progressTimerNodeWithRenderTexture(Rende
 // TransitionProgressOutIn
 TransitionProgressOutIn* TransitionProgressOutIn::create(float t, Scene* scene)
 {
+<<<<<<< HEAD
     TransitionProgressOutIn* newScene = new (std::nothrow) TransitionProgressOutIn();
+=======
+    TransitionProgressOutIn* newScene = new TransitionProgressOutIn();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(newScene && newScene->initWithDuration(t, scene))
     {
         newScene->autorelease();
@@ -334,10 +392,18 @@ ProgressTimer* TransitionProgressOutIn::progressTimerNodeWithRenderTexture(Rende
     node->setBarChangeRate(Vec2(1, 1));
     
     node->setPercentage(100);
+<<<<<<< HEAD
     node->setPosition(size.width/2, size.height/2);
+=======
+    node->setPosition(Vec2(size.width/2, size.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     node->setAnchorPoint(Vec2(0.5f,0.5f));
     
     return node;
 }
 
 NS_CC_END
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

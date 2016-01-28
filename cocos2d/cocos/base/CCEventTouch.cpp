@@ -23,7 +23,10 @@
  ****************************************************************************/
 
 #include "base/CCEventTouch.h"
+<<<<<<< HEAD
 #include "base/CCTouch.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 

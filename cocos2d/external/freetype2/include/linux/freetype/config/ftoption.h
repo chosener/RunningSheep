@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    User-selectable configuration macros (specification only).           */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2014 by                                                 */
+=======
+/*  Copyright 1996-2011 by                                                 */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -38,9 +42,15 @@ FT_BEGIN_HEADER
   /*    library from a single source directory.                            */
   /*                                                                       */
   /*  - You can put a copy of this file in your build directory, more      */
+<<<<<<< HEAD
   /*    precisely in `$BUILD/config/ftoption.h', where `$BUILD' is the     */
   /*    name of a directory that is included _before_ the FreeType include */
   /*    path during compilation.                                           */
+=======
+  /*    precisely in `$BUILD/freetype/config/ftoption.h', where `$BUILD'   */
+  /*    is the name of a directory that is included _before_ the FreeType  */
+  /*    include path during compilation.                                   */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    The default FreeType Makefiles and Jamfiles use the build          */
   /*    directory `builds/<system>' by default, but you can easily change  */
@@ -51,7 +61,11 @@ FT_BEGIN_HEADER
   /*    locate this file during the build.  For example,                   */
   /*                                                                       */
   /*      #define FT_CONFIG_OPTIONS_H  <myftoptions.h>                     */
+<<<<<<< HEAD
   /*      #include <config/ftheader.h>                                     */
+=======
+  /*      #include <freetype/config/ftheader.h>                            */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    will use `$BUILD/myftoptions.h' instead of this file for macro     */
   /*    definitions.                                                       */
@@ -59,9 +73,15 @@ FT_BEGIN_HEADER
   /*    Note also that you can similarly pre-define the macro              */
   /*    FT_CONFIG_MODULES_H used to locate the file listing of the modules */
   /*    that are statically linked to the library at compile time.  By     */
+<<<<<<< HEAD
   /*    default, this file is <config/ftmodule.h>.                         */
   /*                                                                       */
   /* We highly recommend using the third method whenever possible.         */
+=======
+  /*    default, this file is <freetype/config/ftmodule.h>.                */
+  /*                                                                       */
+  /*  We highly recommend using the third method whenever possible.        */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*************************************************************************/
 
@@ -216,6 +236,7 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
+<<<<<<< HEAD
   /* PNG bitmap support.                                                   */
   /*                                                                       */
   /*   FreeType now handles loading color bitmap glyphs in the PNG format. */
@@ -243,6 +264,8 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* DLL export compilation                                                */
   /*                                                                       */
   /*   When compiling FreeType as a DLL, some systems/compilers need a     */
@@ -541,7 +564,11 @@ FT_BEGIN_HEADER
   /* does not contain any glyph name though.                               */
   /*                                                                       */
   /* Accessing SFNT names is done through the functions declared in        */
+<<<<<<< HEAD
   /* `ftsnames.h'.                                                         */
+=======
+  /* `freetype/ftsnames.h'.                                                */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
 #define TT_CONFIG_OPTION_SFNT_NAMES
 
@@ -587,6 +614,7 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
+<<<<<<< HEAD
   /* Define TT_CONFIG_OPTION_SUBPIXEL_HINTING if you want to compile       */
   /* EXPERIMENTAL subpixel hinting support into the TrueType driver.  This */
   /* replaces the native TrueType hinting mechanism when anything but      */
@@ -609,6 +637,8 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* If you define TT_CONFIG_OPTION_UNPATENTED_HINTING, a special version  */
   /* of the TrueType bytecode interpreter is used that doesn't implement   */
   /* any of the patented opcodes and algorithms.  The patents related to   */
@@ -718,7 +748,11 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
+<<<<<<< HEAD
   /* T1_MAX_DICT_DEPTH is the maximum depth of nest dictionaries and       */
+=======
+  /* T1_MAX_DICT_DEPTH is the maximal depth of nest dictionaries and       */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* arrays in the Type 1 stream (see t1load.c).  A minimum of 4 is        */
   /* required.                                                             */
   /*                                                                       */
@@ -765,6 +799,7 @@ FT_BEGIN_HEADER
   /*************************************************************************/
   /*************************************************************************/
   /****                                                                 ****/
+<<<<<<< HEAD
   /****         C F F   D R I V E R    C O N F I G U R A T I O N        ****/
   /****                                                                 ****/
   /*************************************************************************/
@@ -808,6 +843,8 @@ FT_BEGIN_HEADER
   /*************************************************************************/
   /*************************************************************************/
   /****                                                                 ****/
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /****    A U T O F I T   M O D U L E    C O N F I G U R A T I O N     ****/
   /****                                                                 ****/
   /*************************************************************************/
@@ -844,10 +881,44 @@ FT_BEGIN_HEADER
 
 
   /*
+<<<<<<< HEAD
    * This macro is obsolete.  Support has been removed in FreeType
    * version 2.5.
    */
 /* #define FT_CONFIG_OPTION_OLD_INTERNALS */
+=======
+   * Define this variable if you want to keep the layout of internal
+   * structures that was used prior to FreeType 2.2.  This also compiles in
+   * a few obsolete functions to avoid linking problems on typical Unix
+   * distributions.
+   *
+   * For embedded systems or building a new distribution from scratch, it
+   * is recommended to disable the macro since it reduces the library's code
+   * size and activates a few memory-saving optimizations as well.
+   */
+#define FT_CONFIG_OPTION_OLD_INTERNALS
+
+
+  /*
+   *  To detect legacy cache-lookup call from a rogue client (<= 2.1.7),
+   *  we restrict the number of charmaps in a font.  The current API of
+   *  FTC_CMapCache_Lookup() takes cmap_index & charcode, but old API
+   *  takes charcode only.  To determine the passed value is for cmap_index
+   *  or charcode, the possible cmap_index is restricted not to exceed
+   *  the minimum possible charcode by a rogue client.  It is also very
+   *  unlikely that a rogue client is interested in Unicode values 0 to 15.
+   *
+   *  NOTE: The original threshold was 4 deduced from popular number of
+   *        cmap subtables in UCS-4 TrueType fonts, but now it is not
+   *        irregular for OpenType fonts to have more than 4 subtables,
+   *        because variation selector subtables are available for Apple
+   *        and Microsoft platforms.
+   */
+
+#ifdef FT_CONFIG_OPTION_OLD_INTERNALS
+#define FT_MAX_CHARMAP_CACHEABLE 15
+#endif
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
   /*
@@ -861,6 +932,7 @@ FT_BEGIN_HEADER
 #define  TT_USE_BYTECODE_INTERPRETER
 #endif
 
+<<<<<<< HEAD
 
   /*
    * Check CFF darkening parameters.  The checks are the same as in function
@@ -890,6 +962,8 @@ FT_BEGIN_HEADER
 #error "Invalid CFF darkening parameters!"
 #endif
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 

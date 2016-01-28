@@ -29,6 +29,7 @@
 #include <vector>
 #include <stack>
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
 #include "renderer/CCRenderCommand.h"
 #include "renderer/CCGLProgram.h"
@@ -38,12 +39,21 @@
  * @addtogroup support
  * @{
  */
+=======
+#include "base/CCPlatformMacros.h"
+#include "renderer/CCRenderCommand.h"
+#include "renderer/CCGLProgram.h"
+#include "CCGL.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 class EventListenerCustom;
 class QuadCommand;
+<<<<<<< HEAD
 class TrianglesCommand;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class MeshCommand;
 
 /** Class that knows how to sort `RenderCommand` objects.
@@ -52,6 +62,7 @@ class MeshCommand;
  are the ones that have `z < 0` and `z > 0`.
 */
 class RenderQueue {
+<<<<<<< HEAD
 public:
     /**
     RenderCommand will be divided into Queue Groups.
@@ -109,6 +120,22 @@ protected:
 };
 
 //the struct is not used outside.
+=======
+
+public:
+    void push_back(RenderCommand* command);
+    ssize_t size() const;
+    void sort();
+    RenderCommand* operator[](ssize_t index) const;
+    void clear();
+
+protected:
+    std::vector<RenderCommand*> _queueNegZ;
+    std::vector<RenderCommand*> _queue0;
+    std::vector<RenderCommand*> _queuePosZ;
+};
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct RenderStackElement
 {
     int renderQueueID;
@@ -121,6 +148,7 @@ class GroupCommandManager;
 
 Whenever possible prefer to use `QuadCommand` objects since the renderer will automatically batch them.
  */
+<<<<<<< HEAD
 class CC_DLL Renderer
 {
 public:
@@ -138,6 +166,18 @@ public:
     ~Renderer();
 
     //TODO: manage GLView inside Render itself
+=======
+class Renderer
+{
+public:
+    static const int VBO_SIZE = 65536 / 6;
+    static const int BATCH_QUADCOMMAND_RESEVER_SIZE = 64;
+
+    Renderer();
+    ~Renderer();
+
+    //TODO manage GLView inside Render itself
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void initGLView();
 
     /** Adds a `RenderComamnd` into the renderer */
@@ -161,11 +201,14 @@ public:
     /** Cleans all `RenderCommand`s in the queue */
     void clean();
 
+<<<<<<< HEAD
     /** Clear GL buffer and screen */
     void clear();
 
     /** set color for clear screen */
     void setClearColor(const Color4F& clearColor);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /* returns the number of drawn batches in the last frame */
     ssize_t getDrawnBatches() const { return _drawnBatches; }
     /* RenderCommands (except) QuadCommand should update this value */
@@ -174,6 +217,7 @@ public:
     ssize_t getDrawnVertices() const { return _drawnVertices; }
     /* RenderCommands (except) QuadCommand should update this value */
     void addDrawnVertices(ssize_t number) { _drawnVertices += number; };
+<<<<<<< HEAD
     /* clear draw stats */
     void clearDrawStats() { _drawnBatches = _drawnVertices = 0; }
 
@@ -185,6 +229,9 @@ public:
     void setDepthTest(bool enable);
     
     //This will not be used outside.
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline GroupCommandManager* getGroupCommandManager() const { return _groupCommandManager; };
 
     /** returns whether or not a rectangle is visible or not */
@@ -192,12 +239,20 @@ public:
 
 protected:
 
+<<<<<<< HEAD
+=======
+    void setupIndices();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     //Setup VBO or VAO based on OpenGL extensions
     void setupBuffer();
     void setupVBOAndVAO();
     void setupVBO();
     void mapBuffers();
+<<<<<<< HEAD
     void drawBatchedTriangles();
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void drawBatchedQuads();
 
     //Draw the previews queued quads and flush previous context
@@ -206,6 +261,7 @@ protected:
     void flush2D();
     
     void flush3D();
+<<<<<<< HEAD
 
     void flushQuads();
     void flushTriangles();
@@ -218,6 +274,12 @@ protected:
 
     /* clear color set outside be used in setGLDefaultValues() */
     Color4F _clearColor;
+=======
+    
+    void visitRenderQueue(const RenderQueue& queue);
+
+    void convertToWorldCoordinates(V3F_C4B_T2F_Quad* quads, ssize_t quantity, const Mat4& modelView);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     std::stack<int> _commandGroupStack;
     
@@ -226,6 +288,7 @@ protected:
     uint32_t _lastMaterialID;
 
     MeshCommand*              _lastBatchedMeshCommand;
+<<<<<<< HEAD
     std::vector<TrianglesCommand*> _batchedCommands;
     std::vector<QuadCommand*> _batchQuadCommands;
 
@@ -244,6 +307,16 @@ protected:
     GLuint _quadVAO;
     GLuint _quadbuffersVBO[2]; //0: vertex  1: indices
     int _numberQuads;
+=======
+    std::vector<QuadCommand*> _batchedQuadCommands;
+
+    V3F_C4B_T2F_Quad _quads[VBO_SIZE];
+    GLushort _indices[6 * VBO_SIZE];
+    GLuint _quadVAO;
+    GLuint _buffersVBO[2]; //0: vertex  1: indices
+
+    int _numQuads;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     bool _glViewAssigned;
 
@@ -253,8 +326,11 @@ protected:
     //the flag for checking whether renderer is rendering
     bool _isRendering;
     
+<<<<<<< HEAD
     bool _isDepthTestFor2D;
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GroupCommandManager* _groupCommandManager;
     
 #if CC_ENABLE_CACHE_TEXTURE_DATA
@@ -264,8 +340,11 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //__CC_RENDERER_H_

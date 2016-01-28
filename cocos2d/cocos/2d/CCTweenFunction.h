@@ -1,5 +1,9 @@
 /****************************************************************************
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -25,9 +29,15 @@ THE SOFTWARE.
 #ifndef __CCTWEENFUNCTION_H__
 #define __CCTWEENFUNCTION_H__
 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
 
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+#include "base/ccMacros.h"
+#include <math.h>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -84,6 +94,7 @@ namespace tweenfunc {
     
     
     //tween functions for CCActionEase
+<<<<<<< HEAD
     /**
      * @param time in seconds.
      */
@@ -291,9 +302,71 @@ namespace tweenfunc {
      * @param time in seconds.
      */
     float CC_DLL customEase(float time, float *easingParam);
+=======
+    float easeIn(float time, float rate);
+    float easeOut(float time, float rate);
+    float easeInOut(float time, float rate);
+    
+    float bezieratFunction( float a, float b, float c, float d, float t );
+    
+    float quadraticIn(float time);
+    float quadraticOut(float time);
+    float quadraticInOut(float time);
+    
+    
+    float tweenTo(float time, TweenType type, float *easingParam);
+    
+    float linear(float time);
+    
+    
+    float sineEaseIn(float time);
+    float sineEaseOut(float time);
+    float sineEaseInOut(float time);
+    
+    float quadEaseIn(float time);
+    float quadEaseOut(float time);
+    float quadEaseInOut(float time);
+    
+    float cubicEaseIn(float time);
+    float cubicEaseOut(float time);
+    float cubicEaseInOut(float time);
+    
+    float quartEaseIn(float time);
+    float quartEaseOut(float time);
+    float quartEaseInOut(float time);
+    
+    float quintEaseIn(float time);
+    float quintEaseOut(float time);
+    float quintEaseInOut(float time);
+    
+    float expoEaseIn(float time);
+    float expoEaseOut(float time);
+    float expoEaseInOut(float time);
+    
+    float circEaseIn(float time);
+    float circEaseOut(float time);
+    float circEaseInOut(float time);
+    
+    float elasticEaseIn(float time, float period);
+    float elasticEaseOut(float time, float period);
+    float elasticEaseInOut(float time, float period);
+    
+    float backEaseIn(float time);
+    float backEaseOut(float time);
+    float backEaseInOut(float time);
+    
+    float bounceEaseIn(float time);
+    float bounceEaseOut(float time);
+    float bounceEaseInOut(float time);
+    
+    float customEase(float time, float *easingParam);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /*__CCTWEENFUNCTION_H__*/

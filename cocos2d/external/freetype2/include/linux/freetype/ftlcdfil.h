@@ -5,7 +5,11 @@
 /*    FreeType API for color filtering of subpixel bitmap glyphs           */
 /*    (specification).                                                     */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 2006-2008, 2010, 2013, 2014 by                               */
+=======
+/*  Copyright 2006, 2007, 2008, 2010 by                                    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -45,14 +49,21 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   The @FT_Library_SetLcdFilter API can be used to specify a low-pass
+<<<<<<< HEAD
    *   filter, which is then applied to LCD-optimized bitmaps generated
    *   through @FT_Render_Glyph.  This is useful to reduce color fringes
    *   that would occur with unfiltered rendering.
+=======
+   *   filter which is then applied to LCD-optimized bitmaps generated
+   *   through @FT_Render_Glyph.  This is useful to reduce color fringes
+   *   which would occur with unfiltered rendering.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    *   Note that no filter is active by default, and that this function is
    *   *not* implemented in default builds of the library.  You need to
    *   #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING in your `ftoption.h' file
    *   in order to activate it.
+<<<<<<< HEAD
    *
    *   FreeType generates alpha coverage maps, which are linear by nature.
    *   For instance, the value 0x80 in bitmap representation means that
@@ -91,6 +102,8 @@ FT_BEGIN_HEADER
    *   where `a' has value 0x30 and `b' value 0x20.  The weights in filter
    *   may have a sum larger than 0x100, which increases coloration slightly
    *   but also improves contrast.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    */
 
 

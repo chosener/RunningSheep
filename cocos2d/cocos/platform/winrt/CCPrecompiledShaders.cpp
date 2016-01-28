@@ -135,6 +135,7 @@ void CCPrecompiledShaders::loadPrecompiledPrograms()
 #endif
 }
 
+<<<<<<< HEAD
 void CCPrecompiledShaders::addPrecompiledProgram(const char* key, const unsigned char* program, int programLength)
 {
     std::string id = key;
@@ -154,6 +155,8 @@ void CCPrecompiledShaders::addPrecompiledProgram(const char* key, const unsigned
     p->length = programLength;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 bool CCPrecompiledShaders::loadProgram(GLuint program, const GLchar* vShaderByteArray, const GLchar* fShaderByteArray)
 {
     std::string id = computeHash(vShaderByteArray, fShaderByteArray);
@@ -192,7 +195,11 @@ bool CCPrecompiledShaders::addProgram(GLuint program, const std::string& id)
     return true;
 }
 
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) && defined(WP8_SHADER_COMPILER)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void CCPrecompiledShaders::savePrecompiledPrograms(Windows::Storage::StorageFolder^ folder)
 {

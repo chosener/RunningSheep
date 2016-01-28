@@ -1,6 +1,10 @@
 /****************************************************************************
  Copyright (c) 2013      Zynga Inc.
+<<<<<<< HEAD
  Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+ Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -26,9 +30,13 @@
 #ifndef _CCFontCharMap_h_
 #define _CCFontCharMap_h_
 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
 
 #include "2d/CCFont.h"
+=======
+#include "CCFont.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -63,8 +71,11 @@ private:
 
 };
 
+<<<<<<< HEAD
 /// @endcond
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(_CCFontCharMap_h_) */

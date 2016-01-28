@@ -34,13 +34,20 @@ THE SOFTWARE.
  * To create sprite frames and texture atlas, use this tool:
  * http://zwoptex.zwopple.com/
  */
+<<<<<<< HEAD
 #include <set>
 #include <string>
 #include "2d/CCSpriteFrame.h"
+=======
+
+#include "2d/CCSpriteFrame.h"
+#include "renderer/CCTexture2D.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCRef.h"
 #include "base/CCValue.h"
 #include "base/CCMap.h"
 
+<<<<<<< HEAD
 NS_CC_BEGIN
 
 class Sprite;
@@ -56,10 +63,28 @@ class Texture2D;
  It saves in a cache the sprite frames.
  @since v0.9
  @js cc.spriteFrameCache
+=======
+#include <set>
+#include <string>
+
+NS_CC_BEGIN
+
+class Sprite;
+
+/**
+ * @addtogroup sprite_nodes
+ * @{
+ */
+
+/** @brief Singleton that handles the loading of the sprite frames.
+ It saves in a cache the sprite frames.
+ @since v0.9
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL SpriteFrameCache : public Ref
 {
 public:
+<<<<<<< HEAD
     /** Returns the shared instance of the Sprite Frame cache.
      *
      * @return The instance of the Sprite Frame Cache.
@@ -83,10 +108,31 @@ public:
     CC_DEPRECATED_ATTRIBUTE static void purgeSharedSpriteFrameCache() { return SpriteFrameCache::destroyInstance(); }
 
     /** Destructor.
+=======
+    /** Returns the shared instance of the Sprite Frame cache */
+    static SpriteFrameCache* getInstance();
+
+    /** @deprecated Use getInstance() instead */
+    CC_DEPRECATED_ATTRIBUTE static SpriteFrameCache* sharedSpriteFrameCache() { return SpriteFrameCache::getInstance(); }
+
+    /** Destroys the cache. It releases all the Sprite Frames and the retained instance. */
+    static void destroyInstance();
+
+    /** @deprecated Use destroyInstance() instead  */
+    CC_DEPRECATED_ATTRIBUTE static void purgeSharedSpriteFrameCache() { return SpriteFrameCache::destroyInstance(); }
+
+protected:
+    // MARMALADE: Made this protected not private, as deriving from this class is pretty useful
+    SpriteFrameCache(){}
+
+public:
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~SpriteFrameCache();
+<<<<<<< HEAD
     
     /** Initialize method.
      *
@@ -101,6 +147,16 @@ public:
      * @lua addSpriteFrames
      *
      * @param plist Plist file name.
+=======
+    bool init();
+
+public:
+    /** Adds multiple Sprite Frames from a plist file.
+     * A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png
+     * If you want to use another texture, you should use the addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName) method.
+     * @js addSpriteFrames
+     * @lua addSpriteFrames
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void addSpriteFramesWithFile(const std::string& plist);
 
@@ -108,15 +164,19 @@ public:
      @since v0.99.5
      * @js addSpriteFrames
      * @lua addSpriteFrames
+<<<<<<< HEAD
      *
      * @param plist Plist file name.
      * @param textureFileName Texture file name.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName);
 
     /** Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. 
      * @js addSpriteFrames
      * @lua addSpriteFrames
+<<<<<<< HEAD
      *
      * @param plist Plist file name.
      * @param texture Texture pointer.
@@ -149,6 +209,16 @@ public:
     */
     bool isSpriteFramesWithFileLoaded(const std::string& plist) const;
 
+=======
+     */
+    void addSpriteFramesWithFile(const std::string&plist, Texture2D *texture);
+
+    /** Adds an sprite frame with a given name.
+     If the name already exists, then the contents of the old name will be replaced with the new one.
+     */
+    void addSpriteFrame(SpriteFrame *frame, const std::string& frameName);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** Purges the dictionary of loaded sprite frames.
      * Call this method if you receive the "Memory Warning".
      * In the short term: it will free some resources preventing your app from being killed.
@@ -160,6 +230,7 @@ public:
     /** Removes unused sprite frames.
      * Sprite Frames that have a retain count of 1 will be deleted.
      * It is convenient to call this method after when starting a new Scene.
+<<<<<<< HEAD
 	 * @js NA
      */
     void removeUnusedSpriteFrames();
@@ -168,12 +239,19 @@ public:
      *
      * @param name The name of the sprite frame that needs to removed.
      */
+=======
+     */
+    void removeUnusedSpriteFrames();
+
+    /** Deletes an sprite frame from the sprite frame cache. */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void removeSpriteFrameByName(const std::string& name);
 
     /** Removes multiple Sprite Frames from a plist file.
     * Sprite Frames stored in this file will be removed.
     * It is convenient to call this method when a specific texture needs to be removed.
     * @since v0.99.5
+<<<<<<< HEAD
     *
     * @param plist The name of the plist that needs to removed.
     */
@@ -193,6 +271,14 @@ public:
      * @since v0.995.
      *
      * @param texture The texture that needs to removed.
+=======
+    */
+    void removeSpriteFramesFromFile(const std::string& plist);
+
+    /** Removes all Sprite Frames associated with the specified textures.
+     * It is convenient to call this method when a specific texture needs to be removed.
+     * @since v0.995.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void removeSpriteFramesFromTexture(Texture2D* texture);
 
@@ -201,19 +287,26 @@ public:
      You should retain the returned copy if you are going to use it.
      * @js getSpriteFrame
      * @lua getSpriteFrame
+<<<<<<< HEAD
      *
      * @param name A certain sprite frame name.
      * @return The sprite frame.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     SpriteFrame* getSpriteFrameByName(const std::string& name);
 
     /** @deprecated use getSpriteFrameByName() instead */
     CC_DEPRECATED_ATTRIBUTE SpriteFrame* spriteFrameByName(const std::string&name) { return getSpriteFrameByName(name); }
 
+<<<<<<< HEAD
 protected:
     // MARMALADE: Made this protected not private, as deriving from this class is pretty useful
     SpriteFrameCache(){}
 
+=======
+private:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /*Adds multiple Sprite Frames with a dictionary. The texture will be associated with the created sprite frames.
      */
     void addSpriteFramesWithDictionary(ValueMap& dictionary, Texture2D *texture);
@@ -223,13 +316,21 @@ protected:
     */
     void removeSpriteFramesFromDictionary(ValueMap& dictionary);
 
+<<<<<<< HEAD
 
+=======
+protected:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Map<std::string, SpriteFrame*> _spriteFrames;
     ValueMap _spriteFramesAliases;
     std::set<std::string>*  _loadedFileNames;
 };
 
+<<<<<<< HEAD
 // end of _2d group
+=======
+// end of sprite_nodes group
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

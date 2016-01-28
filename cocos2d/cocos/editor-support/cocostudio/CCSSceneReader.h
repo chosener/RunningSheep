@@ -26,12 +26,20 @@ THE SOFTWARE.
 #define __CCSSCENEREADER_H__
 
 #include "cocostudio/DictionaryHelper.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio {
 
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL SceneReader
+=======
+class SceneReader
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -65,11 +73,17 @@ public:
     void setTarget(const std::function<void(cocos2d::Ref* obj, void* doc)>& selector);
     cocos2d::Node* getNodeByTag(int nTag);
     inline AttachComponentType getAttachComponentType(){return _attachComponent;}
+<<<<<<< HEAD
 CC_CONSTRUCTOR_ACCESS:
     SceneReader(void);
     virtual ~SceneReader(void);
     
 private:
+=======
+private:
+    SceneReader(void);
+    virtual ~SceneReader(void);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string getComponentClassName(const std::string& name);
 
     cocos2d::Component* createComponent(const std::string classname);

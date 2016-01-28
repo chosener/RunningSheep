@@ -32,7 +32,10 @@
 
 #include "CCControlUtils.h"
 #include "2d/CCLayer.h"
+<<<<<<< HEAD
 #include "extensions/ExtensionExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -62,11 +65,19 @@ class Invocation;
  *
  * To use the Control you have to subclass it.
  */
+<<<<<<< HEAD
 class CC_EX_DLL Control : public Layer
 {
 public:
     /** Kinds of possible events for the control objects. */
     enum class CC_EX_DLL EventType
+=======
+class Control : public Layer
+{
+public:
+    /** Kinds of possible events for the control objects. */
+    enum class EventType
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         TOUCH_DOWN           = 1 << 0,    // A touch-down event in the control.
         DRAG_INSIDE          = 1 << 1,    // An event where a finger is dragged inside the bounds of the control.
@@ -155,10 +166,17 @@ public:
      */
     virtual Vec2 getTouchLocation(Touch* touch);
 
+<<<<<<< HEAD
     virtual bool onTouchBegan(Touch *touch, Event *event) override { return false; };
     virtual void onTouchMoved(Touch *touch, Event *event) override {};
     virtual void onTouchEnded(Touch *touch, Event *event) override {};
     virtual void onTouchCancelled(Touch *touch, Event *event) override {};
+=======
+    virtual bool onTouchBegan(Touch *touch, Event *event) { return false; };
+    virtual void onTouchMoved(Touch *touch, Event *event) {};
+    virtual void onTouchEnded(Touch *touch, Event *event) {};
+    virtual void onTouchCancelled(Touch *touch, Event *event) {};
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**
      * Returns a boolean value that indicates whether a touch is inside the bounds
@@ -267,7 +285,11 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(Control);
 };
 
+<<<<<<< HEAD
 CC_EX_DLL Control::EventType operator|(Control::EventType a, Control::EventType b);
+=======
+Control::EventType operator|(Control::EventType a, Control::EventType b);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 // end of GUI group
 /// @}

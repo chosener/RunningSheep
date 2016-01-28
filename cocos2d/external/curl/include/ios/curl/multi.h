@@ -7,7 +7,11 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
+<<<<<<< HEAD
  * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.
+=======
+ * Copyright (C) 1998 - 2007, Daniel Stenberg, <daniel@haxx.se>, et al.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -64,8 +68,11 @@ typedef enum {
   CURLM_INTERNAL_ERROR,  /* this is a libcurl bug */
   CURLM_BAD_SOCKET,      /* the passed in socket argument did not match */
   CURLM_UNKNOWN_OPTION,  /* curl_multi_setopt() with unsupported option */
+<<<<<<< HEAD
   CURLM_ADDED_ALREADY,   /* an easy handle already added to a multi handle was
                             attempted to get added - again */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   CURLM_LAST
 } CURLMcode;
 
@@ -91,6 +98,7 @@ struct CURLMsg {
 };
 typedef struct CURLMsg CURLMsg;
 
+<<<<<<< HEAD
 /* Based on poll(2) structure and values.
  * We don't use pollfd and POLL* constants explicitly
  * to cover platforms without poll(). */
@@ -104,6 +112,8 @@ struct curl_waitfd {
   short revents; /* not supported yet */
 };
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*
  * Name:    curl_multi_init()
  *
@@ -148,6 +158,7 @@ CURL_EXTERN CURLMcode curl_multi_fdset(CURLM *multi_handle,
                                        fd_set *exc_fd_set,
                                        int *max_fd);
 
+<<<<<<< HEAD
 /*
  * Name:     curl_multi_wait()
  *
@@ -162,6 +173,8 @@ CURL_EXTERN CURLMcode curl_multi_wait(CURLM *multi_handle,
                                       int timeout_ms,
                                       int *ret);
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  /*
   * Name:    curl_multi_perform()
   *
@@ -340,6 +353,7 @@ typedef enum {
   /* maximum number of entries in the connection cache */
   CINIT(MAXCONNECTS, LONG, 6),
 
+<<<<<<< HEAD
   /* maximum number of (pipelining) connections to one host */
   CINIT(MAX_HOST_CONNECTIONS, LONG, 7),
 
@@ -365,6 +379,8 @@ typedef enum {
   /* maximum number of open connections in total */
   CINIT(MAX_TOTAL_CONNECTIONS, LONG, 13),
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   CURLMOPT_LASTENTRY /* the last unused */
 } CURLMoption;
 

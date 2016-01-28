@@ -31,15 +31,24 @@ THE SOFTWARE.
 
 #include <vector>
 
+<<<<<<< HEAD
 
+=======
+#include "2d/CCSpriteFrame.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCSprite.h"
 #include "platform/CCFileUtils.h"
 #include "base/CCNS.h"
 #include "base/ccMacros.h"
 #include "base/CCDirector.h"
+<<<<<<< HEAD
 #include "renderer/CCTexture2D.h"
 #include "renderer/CCTextureCache.h"
 
+=======
+#include "renderer/CCTextureCache.h"
+#include "math/TransformUtils.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "deprecated/CCString.h"
 
@@ -54,7 +63,11 @@ SpriteFrameCache* SpriteFrameCache::getInstance()
 {
     if (! _sharedSpriteFrameCache)
     {
+<<<<<<< HEAD
         _sharedSpriteFrameCache = new (std::nothrow) SpriteFrameCache();
+=======
+        _sharedSpriteFrameCache = new SpriteFrameCache();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _sharedSpriteFrameCache->init();
     }
 
@@ -211,12 +224,15 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist, Texture
     _loadedFileNames->insert(plist);
 }
 
+<<<<<<< HEAD
 void SpriteFrameCache::addSpriteFramesWithFileContent(const std::string& plist_content, Texture2D *texture)
 {
     ValueMap dict = FileUtils::getInstance()->getValueMapFromData(plist_content.c_str(), static_cast<int>(plist_content.size()));
     addSpriteFramesWithDictionary(dict, texture);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName)
 {
     CCASSERT(textureFileName.size()>0, "texture name should not be null");
@@ -235,6 +251,7 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist, const s
 void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist)
 {
     CCASSERT(plist.size()>0, "plist filename should not be nullptr");
+<<<<<<< HEAD
     
     std::string fullPath = FileUtils::getInstance()->fullPathForFilename(plist);
     if (fullPath.size() == 0)
@@ -247,6 +264,12 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist)
     if (_loadedFileNames->find(plist) == _loadedFileNames->end())
     {
         
+=======
+
+    if (_loadedFileNames->find(plist) == _loadedFileNames->end())
+    {
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename(plist);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         ValueMap dict = FileUtils::getInstance()->getValueMapFromFile(fullPath);
 
         string texturePath("");
@@ -292,6 +315,7 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist)
     }
 }
 
+<<<<<<< HEAD
 bool SpriteFrameCache::isSpriteFramesWithFileLoaded(const std::string& plist) const
 {
     bool result = false;
@@ -304,6 +328,8 @@ bool SpriteFrameCache::isSpriteFramesWithFileLoaded(const std::string& plist) co
     return result;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void SpriteFrameCache::addSpriteFrame(SpriteFrame* frame, const std::string& frameName)
 {
     _spriteFrames.insert(frameName, frame);
@@ -334,7 +360,11 @@ void SpriteFrameCache::removeUnusedSpriteFrames()
 
     _spriteFrames.erase(toRemoveFrames);
     
+<<<<<<< HEAD
     // FIXME:. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
+=======
+    // XXX. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if( removed )
     {
         _loadedFileNames->clear();
@@ -361,7 +391,11 @@ void SpriteFrameCache::removeSpriteFrameByName(const std::string& name)
         _spriteFrames.erase(name);
     }
 
+<<<<<<< HEAD
     // FIXME:. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
+=======
+    // XXX. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _loadedFileNames->clear();
 }
 
@@ -384,6 +418,7 @@ void SpriteFrameCache::removeSpriteFramesFromFile(const std::string& plist)
     }
 }
 
+<<<<<<< HEAD
 void SpriteFrameCache::removeSpriteFramesFromFileContent(const std::string& plist_content)
 {
     ValueMap dict = FileUtils::getInstance()->getValueMapFromData(plist_content.data(), static_cast<int>(plist_content.size()));
@@ -395,6 +430,8 @@ void SpriteFrameCache::removeSpriteFramesFromFileContent(const std::string& plis
     removeSpriteFramesFromDictionary(dict);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void SpriteFrameCache::removeSpriteFramesFromDictionary(ValueMap& dictionary)
 {
     ValueMap framesDict = dictionary["frames"].asValueMap();
@@ -448,3 +485,7 @@ SpriteFrame* SpriteFrameCache::getSpriteFrameByName(const std::string& name)
 }
 
 NS_CC_END
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -5,7 +5,11 @@
 /*    Basic Type 1/Type 2 tables definitions and interface (specification  */
 /*    only).                                                               */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2004, 2006, 2008, 2009, 2011, 2014 by                   */
+=======
+/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2008, 2009 by             */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -49,6 +53,7 @@ FT_BEGIN_HEADER
   /*    This section contains the definition of Type 1-specific tables,    */
   /*    including structures related to other PostScript font formats.     */
   /*                                                                       */
+<<<<<<< HEAD
   /* <Order>                                                               */
   /*    PS_FontInfoRec                                                     */
   /*    PS_FontInfo                                                        */
@@ -69,6 +74,8 @@ FT_BEGIN_HEADER
   /*    T1_EncodingType                                                    */
   /*    PS_Dict_Keys                                                       */
   /*                                                                       */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
 
 
@@ -210,6 +217,7 @@ FT_BEGIN_HEADER
   /*    given blend dictionary (font info or private).  Used to support    */
   /*    Multiple Masters fonts.                                            */
   /*                                                                       */
+<<<<<<< HEAD
   /* <Values>                                                              */
   /*    T1_BLEND_UNDERLINE_POSITION ::                                     */
   /*    T1_BLEND_UNDERLINE_THICKNESS ::                                    */
@@ -229,11 +237,20 @@ FT_BEGIN_HEADER
   typedef enum  T1_Blend_Flags_
   {
     /* required fields in a FontInfo blend dictionary */
+=======
+  typedef enum  T1_Blend_Flags_
+  {
+    /*# required fields in a FontInfo blend dictionary */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     T1_BLEND_UNDERLINE_POSITION = 0,
     T1_BLEND_UNDERLINE_THICKNESS,
     T1_BLEND_ITALIC_ANGLE,
 
+<<<<<<< HEAD
     /* required fields in a Private blend dictionary */
+=======
+    /*# required fields in a Private blend dictionary */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     T1_BLEND_BLUE_VALUES,
     T1_BLEND_OTHER_BLUES,
     T1_BLEND_STANDARD_WIDTH,
@@ -246,6 +263,7 @@ FT_BEGIN_HEADER
     T1_BLEND_FAMILY_OTHER_BLUES,
     T1_BLEND_FORCE_BOLD,
 
+<<<<<<< HEAD
     T1_BLEND_MAX    /* do not remove */
 
   } T1_Blend_Flags;
@@ -253,6 +271,17 @@ FT_BEGIN_HEADER
 
   /* these constants are deprecated; use the corresponding */
   /* `T1_Blend_Flags' values instead                       */
+=======
+    /*# never remove */
+    T1_BLEND_MAX
+
+  } T1_Blend_Flags;
+
+  /* */
+
+
+  /*# backwards compatible definitions */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define t1_blend_underline_position   T1_BLEND_UNDERLINE_POSITION
 #define t1_blend_underline_thickness  T1_BLEND_UNDERLINE_THICKNESS
 #define t1_blend_italic_angle         T1_BLEND_ITALIC_ANGLE
@@ -269,8 +298,11 @@ FT_BEGIN_HEADER
 #define t1_blend_force_bold           T1_BLEND_FORCE_BOLD
 #define t1_blend_max                  T1_BLEND_MAX
 
+<<<<<<< HEAD
   /* */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   /* maximum number of Multiple Masters designs, as defined in the spec */
 #define T1_MAX_MM_DESIGNS     16
@@ -369,6 +401,7 @@ FT_BEGIN_HEADER
   /*                                                                       */
   typedef struct CID_FaceDictRec_*  CID_FaceDict;
 
+<<<<<<< HEAD
 
   /*************************************************************************/
   /*                                                                       */
@@ -380,6 +413,12 @@ FT_BEGIN_HEADER
   /*    kept to maintain source compatibility between various versions of  */
   /*    FreeType.                                                          */
   /*                                                                       */
+=======
+  /* */
+
+
+  /* backwards-compatible definition */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   typedef CID_FaceDictRec  CID_FontDict;
 
 
@@ -536,6 +575,7 @@ FT_BEGIN_HEADER
   FT_Get_PS_Font_Private( FT_Face     face,
                           PS_Private  afont_private );
 
+<<<<<<< HEAD
 
   /*************************************************************************/
   /*                                                                       */
@@ -752,6 +792,11 @@ FT_BEGIN_HEADER
 
   /* */
 
+=======
+  /* */
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 #endif /* __T1TABLES_H__ */

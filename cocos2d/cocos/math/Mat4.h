@@ -1,6 +1,9 @@
 /**
  Copyright 2013 BlackBerry Inc.
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,6 +25,7 @@
 #ifndef MATH_MAT4_H
 #define MATH_MAT4_H
 
+<<<<<<< HEAD
 #include "base/ccMacros.h"
 
 #include "math/Vec3.h"
@@ -36,6 +40,11 @@
  * @{
  */
 
+=======
+#include "math/Vec3.h"
+#include "math/Vec4.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 //class Plane;
@@ -46,10 +55,17 @@ NS_CC_MATH_BEGIN
  * Vectors are treated as columns, resulting in a matrix that is represented as follows,
  * where x, y and z are the translation components of the matrix:
  *
+<<<<<<< HEAD
  *     1  0  0  x
  *     0  1  0  y
  *     0  0  1  z
  *     0  0  0  1
+=======
+ * 1  0  0  x
+ * 0  1  0  y
+ * 0  0  1  z
+ * 0  0  0  1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *
  * This matrix class is directly compatible with OpenGL since its elements are
  * laid out in memory exactly as they are expected by OpenGL.
@@ -71,7 +87,11 @@ NS_CC_MATH_BEGIN
  *
  * @see Transform
  */
+<<<<<<< HEAD
 class CC_DLL Mat4
+=======
+class Mat4
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     // //temp add conversion
@@ -89,6 +109,7 @@ public:
     /**
      * Stores the columns of this 4x4 matrix.
      * */
+<<<<<<< HEAD
 #ifdef __SSE__
     union {
         __m128 col[4];
@@ -106,6 +127,17 @@ public:
      *     0  1  0  0
      *     0  0  1  0
      *     0  0  0  1
+=======
+    float m[16];
+
+    /**
+     * Constructs a matrix initialized to the identity matrix:
+     *
+     * 1  0  0  0
+     * 0  1  0  0
+     * 0  0  1  0
+     * 0  0  0  1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Mat4();
 
@@ -281,9 +313,18 @@ public:
                                 const Vec3& cameraUpVector, const Vec3& cameraForwardVector,
                                 Mat4* dst);
 
+<<<<<<< HEAD
     //Fills in an existing Mat4 so that it reflects the coordinate system about a specified Plane.
     //plane The Plane about which to create a reflection.
     //dst A matrix to store the result in.
+=======
+    /**
+     * Fills in an existing Mat4 so that it reflects the coordinate system about a specified Plane.
+     *
+     * @param plane The Plane about which to create a reflection.
+     * @param dst A matrix to store the result in.
+     */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     //static void createReflection(const Plane& plane, Mat4* dst);
 
     /**
@@ -488,7 +529,15 @@ public:
     bool inverse();
 
     /**
+<<<<<<< HEAD
      * Get the inversed matrix.
+=======
+     * Stores the inverse of this matrix in the specified matrix.
+     *
+     * @param dst A matrix to store the invert of this matrix in.
+     * 
+     * @return true if the the matrix can be inverted, false otherwise.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Mat4 getInversed() const;
 
@@ -545,7 +594,13 @@ public:
     void negate();
 
     /**
+<<<<<<< HEAD
      Get the Negated matrix.
+=======
+     * Negates this matrix and stores the result in dst.
+     *
+     * @param dst A matrix to store the result in.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Mat4 getNegated() const;
 
@@ -761,7 +816,11 @@ public:
      *
      * @param point The point to transform and also a vector to hold the result in.
      */
+<<<<<<< HEAD
     inline void transformPoint(Vec3* point) const { GP_ASSERT(point); transformVector(point->x, point->y, point->z, 1.0f, point); }
+=======
+    void transformPoint(Vec3* point) const;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Transforms the specified point by this matrix, and stores
@@ -770,7 +829,11 @@ public:
      * @param point The point to transform.
      * @param dst A vector to store the transformed point in.
      */
+<<<<<<< HEAD
     inline void transformPoint(const Vec3& point, Vec3* dst) const { GP_ASSERT(dst); transformVector(point.x, point.y, point.z, 1.0f, dst); }
+=======
+    void transformPoint(const Vec3& point, Vec3* dst) const;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Transforms the specified vector by this matrix by
@@ -864,7 +927,13 @@ public:
     void transpose();
 
     /**
+<<<<<<< HEAD
      * Get the Transposed matrix.
+=======
+     * Transposes this matrix and stores the result in dst.
+     *
+     * @param dst A matrix to store the result in.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Mat4 getTransposed() const;
 
@@ -988,10 +1057,14 @@ inline Vec4& operator*=(Vec4& v, const Mat4& m);
 inline const Vec4 operator*(const Mat4& m, const Vec4& v);
 
 NS_CC_MATH_END
+<<<<<<< HEAD
 /**
  end of base group
  @}
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "math/Mat4.inl"
 
 #endif // MATH_MAT4_H

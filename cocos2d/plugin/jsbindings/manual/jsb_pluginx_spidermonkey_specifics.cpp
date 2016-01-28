@@ -46,6 +46,7 @@ void jsb_remove_proxy(js_proxy_t* nativeProxy, js_proxy_t* jsProxy)
     JS_REMOVE_PROXY(nativeProxy, jsProxy);
 }
 
+<<<<<<< HEAD
 void get_or_create_js_obj(JSContext* cx, JS::HandleObject obj, const std::string &name, JS::MutableHandleObject jsObj)
 {
     JS::RootedValue nsval(cx);
@@ -59,5 +60,7 @@ void get_or_create_js_obj(JSContext* cx, JS::HandleObject obj, const std::string
     }
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 } // namespace pluginx {
 

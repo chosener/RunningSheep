@@ -25,7 +25,11 @@ THE SOFTWARE.
 
 #include "2d/CCComponentContainer.h"
 #include "2d/CCComponent.h"
+<<<<<<< HEAD
 #include "2d/CCNode.h"
+=======
+#include "base/CCDirector.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -60,7 +64,11 @@ bool ComponentContainer::add(Component *com)
     {
         if (_components == nullptr)
         {
+<<<<<<< HEAD
             _components = new (std::nothrow) Map<std::string, Component*>();
+=======
+            _components = new Map<std::string, Component*>();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         Component *component = _components->at(com->getName());
         
@@ -89,6 +97,7 @@ bool ComponentContainer::remove(const std::string& name)
         com->setOwner(nullptr);
         
         _components->erase(iter);
+<<<<<<< HEAD
         ret = true;
     } while(0);
     return ret;
@@ -115,6 +124,13 @@ bool ComponentContainer::remove(Component *com)
     } while(0);
     return ret;
 }
+=======
+        
+        ret = true;
+    } while(0);
+    return ret;
+ }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void ComponentContainer::removeAll()
 {
@@ -135,7 +151,11 @@ void ComponentContainer::removeAll()
 
 void ComponentContainer::alloc(void)
 {
+<<<<<<< HEAD
     _components = new (std::nothrow) Map<std::string, Component*>();
+=======
+    _components = new Map<std::string, Component*>();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ComponentContainer::visit(float delta)

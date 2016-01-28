@@ -26,12 +26,21 @@ THE SOFTWARE.
 #include "2d/CCMenu.h"
 #include "base/CCDirector.h"
 #include "base/CCTouch.h"
+<<<<<<< HEAD
 #include "base/CCEventListenerTouch.h"
 #include "base/CCEventDispatcher.h"
 #include "platform/CCStdC.h"
 #include "deprecated/CCString.h"
 
 #include <vector>
+=======
+#include "CCStdC.h"
+#include "base/CCEventListenerTouch.h"
+#include "deprecated/CCString.h"
+
+#include <vector>
+#include <stdarg.h>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace std;
 
@@ -88,7 +97,11 @@ Menu * Menu::create(MenuItem* item, ...)
 
 Menu* Menu::createWithArray(const Vector<MenuItem*>& arrayOfItems)
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) Menu();
+=======
+    auto ret = new Menu();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithArray(arrayOfItems))
     {
         ret->autorelease();
@@ -140,7 +153,11 @@ bool Menu::initWithArray(const Vector<MenuItem*>& arrayOfItems)
         setAnchorPoint(Vec2(0.5f, 0.5f));
         this->setContentSize(s);
 
+<<<<<<< HEAD
         setPosition(s.width/2, s.height/2);
+=======
+        setPosition(Vec2(s.width/2, s.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         int z=0;
         
@@ -320,7 +337,11 @@ void Menu::alignItemsVerticallyWithPadding(float padding)
     float y = height / 2.0f;
     
     for(const auto &child : _children) {
+<<<<<<< HEAD
         child->setPosition(0, y - child->getContentSize().height * child->getScaleY() / 2.0f);
+=======
+        child->setPosition(Vec2(0, y - child->getContentSize().height * child->getScaleY() / 2.0f));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         y -= child->getContentSize().height * child->getScaleY() + padding;
     }
 }
@@ -339,7 +360,11 @@ void Menu::alignItemsHorizontallyWithPadding(float padding)
     float x = -width / 2.0f;
     
     for(const auto &child : _children) {
+<<<<<<< HEAD
         child->setPosition(x + child->getContentSize().width * child->getScaleX() / 2.0f, 0);
+=======
+        child->setPosition(Vec2(x + child->getContentSize().width * child->getScaleX() / 2.0f, 0));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         x += child->getContentSize().width * child->getScaleX() + padding;
     }
 }
@@ -418,8 +443,13 @@ void Menu::alignItemsInColumnsWithArray(const ValueVector& rows)
         float tmp = child->getContentSize().height;
         rowHeight = (unsigned int)((rowHeight >= tmp || isnan(tmp)) ? rowHeight : tmp);
 
+<<<<<<< HEAD
         child->setPosition(x - winSize.width / 2,
                                y - child->getContentSize().height / 2);
+=======
+        child->setPosition(Vec2(x - winSize.width / 2,
+                               y - child->getContentSize().height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         x += w;
         ++columnsOccupied;
@@ -519,8 +549,13 @@ void Menu::alignItemsInRowsWithArray(const ValueVector& columns)
         float tmp = child->getContentSize().width;
         columnWidth = (unsigned int)((columnWidth >= tmp || isnan(tmp)) ? columnWidth : tmp);
 
+<<<<<<< HEAD
         child->setPosition(x + columnWidths[column] / 2,
                                y - winSize.height / 2);
+=======
+        child->setPosition(Vec2(x + columnWidths[column] / 2,
+                               y - winSize.height / 2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         y -= child->getContentSize().height + 10;
         ++rowsOccupied;
@@ -549,7 +584,11 @@ MenuItem* Menu::getItemForTouch(Touch *touch)
             {
                 Vec2 local = child->convertToNodeSpace(touchLocation);
                 Rect r = child->rect();
+<<<<<<< HEAD
                 r.origin.setZero();
+=======
+                r.origin = Vec2::ZERO;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 
                 if (r.containsPoint(local))
                 {

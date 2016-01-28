@@ -28,6 +28,7 @@
 #include <string>
 #include <unordered_map>
 #include "base/ccTypes.h"
+<<<<<<< HEAD
 
 NS_CC_BEGIN
 
@@ -42,14 +43,31 @@ class Texture2D;
  * @brief the sprite3D material is only texture for now
  * @js NA
  * @lua NA
+=======
+#include "base/CCMap.h"
+
+NS_CC_BEGIN
+
+class Sprite3D;
+class Mesh;
+class EventListenerCustom;
+class EventCustom;
+class Texture2D;
+
+/**
+ * the sprite3D material is only texture for now
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class Sprite3DMaterialCache
 {
 public:
     /**get & destroy cache*/
     static Sprite3DMaterialCache* getInstance();
+<<<<<<< HEAD
 
     /**destroy the instance*/
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static void destroyInstance();
     
     /**add to cache*/
@@ -74,9 +92,12 @@ protected:
     
 };
 
+<<<<<<< HEAD
 // end of 3d group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // __CCSPRIT3DMATERIAL_H__

@@ -1,6 +1,7 @@
 
 
 #include "TextBMFontReader.h"
+<<<<<<< HEAD
 
 #include "2d/CCFontAtlasCache.h"
 #include "ui/UITextBMFont.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UITextBMFont.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -21,7 +29,11 @@ namespace cocostudio
     
     static TextBMFontReader* instanceTextBMFontReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(TextBMFontReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(TextBMFontReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     TextBMFontReader::TextBMFontReader()
     {
@@ -37,16 +49,23 @@ namespace cocostudio
     {
         if (!instanceTextBMFontReader)
         {
+<<<<<<< HEAD
             instanceTextBMFontReader = new (std::nothrow) TextBMFontReader();
+=======
+            instanceTextBMFontReader = new TextBMFontReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceTextBMFontReader;
     }
     
+<<<<<<< HEAD
     void TextBMFontReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceTextBMFontReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void TextBMFontReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         this->beginSetBasicProperties(widget);
@@ -115,6 +134,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> TextBMFontReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -259,4 +279,7 @@ namespace cocostudio
         return textBMFont;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

@@ -26,6 +26,7 @@
 #define __UIRICHTEXT_H__
 
 #include "ui/UIWidget.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 
 NS_CC_BEGIN
@@ -46,12 +47,23 @@ public:
     /**
      *@brief Rich element type.
      */
+=======
+
+NS_CC_BEGIN
+
+namespace ui {
+    
+class RichElement : public Ref
+{
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class Type
     {
         TEXT,
         IMAGE,
         CUSTOM
     };
+<<<<<<< HEAD
     
     /**
      * @brief Default constructor.
@@ -76,6 +88,10 @@ public:
      * @param opacity A opacity value in `GLubyte`.
      * @return True if initialize success, false otherwise.
      */
+=======
+    RichElement(){};
+    virtual ~RichElement(){};
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool init(int tag, const Color3B& color, GLubyte opacity);
 protected:
     Type _type;
@@ -85,6 +101,7 @@ protected:
     friend class RichText;
 };
     
+<<<<<<< HEAD
 /**
  *@brief Rich element for displaying text.
  */
@@ -132,6 +149,14 @@ public:
      * @param fontSize Content font size.
      * @return RichElementText instance.
      */
+=======
+class RichElementText : public RichElement
+{
+public:
+    RichElementText(){_type = Type::TEXT;};
+    virtual ~RichElementText(){};
+    bool init(int tag, const Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static RichElementText* create(int tag, const Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
 protected:
     std::string _text;
@@ -141,6 +166,7 @@ protected:
     
 };
     
+<<<<<<< HEAD
 /**
  *@brief Rich element for displaying images.
  */
@@ -186,6 +212,14 @@ public:
      * @param filePath A image file name.
      * @return A RichElementImage instance.
      */
+=======
+class RichElementImage : public RichElement
+{
+public:
+    RichElementImage(){_type = Type::IMAGE;};
+    virtual ~RichElementImage(){};
+    bool init(int tag, const Color3B& color, GLubyte opacity, const std::string& filePath);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static RichElementImage* create(int tag, const Color3B& color, GLubyte opacity, const std::string& filePath);
 protected:
     std::string _filePath;
@@ -194,6 +228,7 @@ protected:
     friend class RichText;
 };
     
+<<<<<<< HEAD
 /**
  *@brief Rich element for displaying custom node type.
  */
@@ -237,12 +272,21 @@ public:
      * @param customNode A custom node pointer.
      * @return A RichElementCustomNode instance.
      */
+=======
+class RichElementCustomNode : public RichElement
+{
+public:
+    RichElementCustomNode(){_type = Type::CUSTOM;};
+    virtual ~RichElementCustomNode(){CC_SAFE_RELEASE(_customNode);};
+    bool init(int tag, const Color3B& color, GLubyte opacity, Node* customNode);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static RichElementCustomNode* create(int tag, const Color3B& color, GLubyte opacity, Node* customNode);
 protected:
     Node* _customNode;
     friend class RichText;
 };
     
+<<<<<<< HEAD
 /**
  *@brief A container for displaying various RichElements.
  * We could use it to display texts with images easily.
@@ -318,15 +362,37 @@ public:
     virtual void setAnchorPoint(const Vec2 &pt) override;
     virtual Size getVirtualRendererSize() const override;
     virtual void ignoreContentAdaptWithSize(bool ignore) override;
+=======
+class RichText : public Widget
+{
+public:
+    RichText();
+    virtual ~RichText();
+    static RichText* create();
+    void insertElement(RichElement* element, int index);
+    void pushBackElement(RichElement* element);
+    void removeElement(int index);
+    void removeElement(RichElement* element);
+    virtual void visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    void setVerticalSpace(float space);
+    virtual void setAnchorPoint(const Vec2 &pt);
+    virtual const Size& getVirtualRendererSize() const override;
+    void formatText();
+    virtual void ignoreContentAdaptWithSize(bool ignore);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual std::string getDescription() const override;
     
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
     
 protected:
+<<<<<<< HEAD
     virtual void adaptRenderers() override;
 
     virtual void initRenderer() override;
+=======
+    virtual void initRenderer();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void pushToContainer(Node* renderer);
     void handleTextRenderer(const std::string& text, const std::string& fontName, float fontSize, const Color3B& color, GLubyte opacity);
     void handleImageRenderer(const std::string& fileParh, const Color3B& color, GLubyte opacity);
@@ -344,8 +410,11 @@ protected:
     
 }
 
+<<<<<<< HEAD
 // end of ui group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__UIRichText__) */

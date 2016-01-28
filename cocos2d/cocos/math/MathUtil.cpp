@@ -21,6 +21,7 @@ This file was modified to fit the cocos2d-x project
 #include "MathUtil.h"
 #include "base/ccMacros.h"
 
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include <cpu-features.h>
 #endif
@@ -72,12 +73,18 @@ This file was modified to fit the cocos2d-x project
 
 #include "MathUtil.inl"
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 void MathUtil::smooth(float* x, float target, float elapsedTime, float responseTime)
 {
     GP_ASSERT(x);
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (elapsedTime > 0)
     {
         *x += (target - *x) * elapsedTime / (elapsedTime + responseTime);
@@ -95,6 +102,7 @@ void MathUtil::smooth(float* x, float target, float elapsedTime, float riseTime,
     }
 }
 
+<<<<<<< HEAD
 float MathUtil::lerp(float from, float to, float alpha)
 {
     return from * (1.0f - alpha) + to * alpha;
@@ -275,4 +283,6 @@ void MathUtil::crossVec3(const float* v1, const float* v2, float* dst)
 #endif
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_END

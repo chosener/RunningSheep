@@ -21,6 +21,7 @@
     <ClInclude Include="..\Bone.h" />
     <ClInclude Include="..\BoneData.h" />
     <ClInclude Include="..\BoundingBoxAttachment.h" />
+<<<<<<< HEAD
     <ClInclude Include="..\Event.h" />
     <ClInclude Include="..\EventData.h" />
     <ClInclude Include="..\extension.h" />
@@ -38,12 +39,27 @@
     <ClInclude Include="..\SkeletonRenderer.h" />
     <ClInclude Include="..\Skin.h" />
     <ClInclude Include="..\SkinnedMeshAttachment.h" />
+=======
+    <ClInclude Include="..\CCSkeleton.h" />
+    <ClInclude Include="..\CCSkeletonAnimation.h" />
+    <ClInclude Include="..\extension.h" />
+    <ClInclude Include="..\Event.h" />
+    <ClInclude Include="..\EventData.h" />
+    <ClInclude Include="..\Json.h" />
+    <ClInclude Include="..\RegionAttachment.h" />
+    <ClInclude Include="..\Skeleton.h" />
+    <ClInclude Include="..\SkeletonBounds.h" />
+    <ClInclude Include="..\SkeletonData.h" />
+    <ClInclude Include="..\SkeletonJson.h" />
+    <ClInclude Include="..\Skin.h" />
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     <ClInclude Include="..\Slot.h" />
     <ClInclude Include="..\SlotData.h" />
     <ClInclude Include="..\spine-cocos2dx.h" />
     <ClInclude Include="..\spine.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="..\Animation.c" />
     <ClCompile Include="..\AnimationState.c" />
     <ClCompile Include="..\AnimationStateData.c" />
@@ -73,6 +89,32 @@
     <ClCompile Include="..\SkinnedMeshAttachment.c" />
     <ClCompile Include="..\Slot.c" />
     <ClCompile Include="..\SlotData.c" />
+=======
+    <ClCompile Include="..\Animation.cpp" />
+    <ClCompile Include="..\AnimationState.cpp" />
+    <ClCompile Include="..\AnimationStateData.cpp" />
+    <ClCompile Include="..\Atlas.cpp" />
+    <ClCompile Include="..\AtlasAttachmentLoader.cpp" />
+    <ClCompile Include="..\Attachment.cpp" />
+    <ClCompile Include="..\AttachmentLoader.cpp" />
+    <ClCompile Include="..\Bone.cpp" />
+    <ClCompile Include="..\BoneData.cpp" />
+    <ClCompile Include="..\BoundingBoxAttachment.cpp" />
+    <ClCompile Include="..\CCSkeleton.cpp" />
+    <ClCompile Include="..\CCSkeletonAnimation.cpp" />
+    <ClCompile Include="..\extension.cpp" />
+    <ClCompile Include="..\Event.cpp" />
+    <ClCompile Include="..\EventData.cpp" />
+    <ClCompile Include="..\Json.cpp" />
+    <ClCompile Include="..\RegionAttachment.cpp" />
+    <ClCompile Include="..\Skeleton.cpp" />
+    <ClCompile Include="..\SkeletonBounds.cpp" />
+    <ClCompile Include="..\SkeletonData.cpp" />
+    <ClCompile Include="..\SkeletonJson.cpp" />
+    <ClCompile Include="..\Skin.cpp" />
+    <ClCompile Include="..\Slot.cpp" />
+    <ClCompile Include="..\SlotData.cpp" />
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     <ClCompile Include="..\spine-cocos2dx.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

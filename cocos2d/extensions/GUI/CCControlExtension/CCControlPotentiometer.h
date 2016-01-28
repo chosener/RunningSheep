@@ -29,7 +29,10 @@
 
 #include "CCControl.h"
 #include "2d/CCProgressTimer.h"
+<<<<<<< HEAD
 #include "extensions/ExtensionExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -41,7 +44,11 @@ NS_CC_EXT_BEGIN
  */
 
 /** @class ControlPotentiometer Potentiometer control for Cocos2D. */
+<<<<<<< HEAD
 class CC_EX_DLL ControlPotentiometer : public Control
+=======
+class ControlPotentiometer : public Control
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**
@@ -50,7 +57,10 @@ public:
     static ControlPotentiometer* create(const char* backgroundFile, const char* progressFile, const char* thumbFile);
     /**
      * @js ctor
+<<<<<<< HEAD
      * @lua new
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ControlPotentiometer();
     /**

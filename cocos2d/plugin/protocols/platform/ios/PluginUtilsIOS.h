@@ -84,6 +84,10 @@ public:
     static std::string callOCStringFunctionWithName(PluginProtocol* pPlugin, const char* funcName);
 
     static void outputLog(const char* pFormat, ...);
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 private:
     static id callRetFunctionWithParam(PluginProtocol* pPlugin, const char* funcName, id param);
     static id callRetFunction(PluginProtocol* pPlugin, const char* funcName);

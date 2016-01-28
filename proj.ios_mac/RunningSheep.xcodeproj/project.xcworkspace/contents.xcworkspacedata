@@ -2,6 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
+<<<<<<< HEAD
       location = "self:">
+=======
+      location = "self:HelloCpp.xcodeproj">
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    </FileRef>
 </Workspace>

@@ -35,8 +35,11 @@ THE SOFTWARE.
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 class Action;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct _hashElement;
 
 /**
@@ -44,14 +47,22 @@ struct _hashElement;
  * @{
  */
 
+<<<<<<< HEAD
 /** @class ActionManager
+=======
+/** 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  @brief ActionManager is a singleton that manages all the actions.
  Normally you won't need to use this singleton directly. 99% of the cases you will use the Node interface,
  which uses this singleton.
  But there are some cases where you might need to use this singleton.
  Examples:
     - When you want to run an action where the target is different from a Node. 
+<<<<<<< HEAD
     - When you want to pause / resume the actions.
+=======
+    - When you want to pause / resume the actions
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  @since v0.8
  */
@@ -62,7 +73,10 @@ public:
      * @js ctor
      */
     ActionManager(void);
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js NA
      * @lua NA
@@ -75,25 +89,36 @@ public:
      If the target is already present, then the action will be added to the existing target.
      If the target is not present, a new instance of this target will be created either paused or not, and the action will be added to the newly created target.
      When the target is paused, the queued actions won't be 'ticked'.
+<<<<<<< HEAD
      *
      * @param action    A certain action.
      * @param target    The target which need to be added an action.
      * @param paused    Is the target paused or not.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void addAction(Action *action, Node *target, bool paused);
 
     /** Removes all actions from all the targets.
+<<<<<<< HEAD
      */
+=======
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void removeAllActions();
 
     /** Removes all actions from a certain target.
      All the actions that belongs to the target will be removed.
+<<<<<<< HEAD
      *
      * @param target    A certain target.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void removeAllActionsFromTarget(Node *target);
 
     /** Removes an action given an action reference.
+<<<<<<< HEAD
      *
      * @param action    A certain target.
      */
@@ -119,6 +144,16 @@ public:
      * @param tag       The action's tag.
      * @param target    A certain target.
      * @return  The Action the with the given tag.
+=======
+    */
+    void removeAction(Action *action);
+
+    /** Removes an action given its tag and the target */
+    void removeActionByTag(int tag, Node *target);
+
+    /** Gets an action given its tag an a target
+     @return the Action the with the given tag
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Action* getActionByTag(int tag, const Node *target) const;
 
@@ -126,6 +161,7 @@ public:
      * Composable actions are counted as 1 action. Example:
      * - If you are running 1 Sequence of 7 actions, it will return 1.
      * - If you are running 7 Sequences of 2 actions, it will return 7.
+<<<<<<< HEAD
      *
      * @param target    A certain target.
      * @return  The numbers of actions that are running in a certain target.
@@ -164,6 +200,30 @@ public:
     /** Main loop of ActionManager.
      * @param dt    In seconds.
      */
+=======
+     */
+    ssize_t getNumberOfRunningActionsInTarget(const Node *target) const;
+
+    /** @deprecated use getNumberOfRunningActionsInTarget() instead */
+    CC_DEPRECATED_ATTRIBUTE inline ssize_t numberOfRunningActionsInTarget(Node *target) const { return getNumberOfRunningActionsInTarget(target); }
+
+    /** Pauses the target: all running actions and newly added actions will be paused.
+    */
+    void pauseTarget(Node *target);
+
+    /** Resumes the target. All queued actions will be resumed.
+    */
+    void resumeTarget(Node *target);
+    
+    /** Pauses all running actions, returning a list of targets whose actions were paused.
+     */
+    Vector<Node*> pauseAllRunningActions();
+    
+    /** Resume a set of targets (convenience function to reverse a pauseAllRunningActions call)
+     */
+    void resumeTargets(const Vector<Node*>& targetsToResume);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void update(float dt);
     
 protected:

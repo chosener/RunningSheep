@@ -45,6 +45,7 @@ void AudioManager::loadAllMusic()
     bool bIsOpenMusic = true;
     bool bIsOpenSound = true;
     
+<<<<<<< HEAD
     int chanelGame = DSConfig::getInstance()->getiChannelGame();
     
     switch (chanelGame)
@@ -71,6 +72,10 @@ void AudioManager::loadAllMusic()
         default:
             break;
     }
+=======
+    bIsOpenMusic = UserDefault::getInstance()->getBoolForKey("music_open", true);
+    bIsOpenSound = UserDefault::getInstance()->getBoolForKey("sound_open", true);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     setbIsOpenMusic(bIsOpenMusic);
     setbIsOpenSound(bIsOpenSound);
@@ -79,6 +84,10 @@ void AudioManager::loadAllMusic()
     preLoadBgMusic(bgMusic);
     preLoadSound(testSound);
     
+<<<<<<< HEAD
+=======
+#if 0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     auto musicOptionListener = EventListenerCustom::create("event_option_music", CC_CALLBACK_1(AudioManager::onEventOptionMusic, this));
     //添加自定义事件监听器，优先权为1
     EVENT_DISPATCHER->addEventListenerWithFixedPriority(musicOptionListener, 1);
@@ -87,6 +96,11 @@ void AudioManager::loadAllMusic()
     //添加自定义事件监听器，优先权为1
     EVENT_DISPATCHER->addEventListenerWithFixedPriority(soundOptionListener, 1);
     
+<<<<<<< HEAD
+=======
+#endif
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     setbgMusic(bgMusic);
 }
 
@@ -150,9 +164,18 @@ void AudioManager::playSound(Sound& sound,bool loop/* default is false */)
 
 void AudioManager::playMusic(int _index,bool loop/* default = true */)
 {
+<<<<<<< HEAD
     InfoSound* infoSound = DataManager::getInstance()->getInfoSoundType(_index);
     
     string path = infoSound->path;
+=======
+#if 0
+    InfoSound* infoSound = DataManager::getInstance()->getInfoSoundType(_index);
+    
+    string path = infoSound->path;
+#endif
+    string path = "";
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     Music music = {path.c_str()};
     
@@ -174,11 +197,22 @@ void AudioManager::playMusic(int _index,bool loop/* default = true */)
 
 void AudioManager::playSound(int _index,bool loop/* default is false */)
 {
+<<<<<<< HEAD
+=======
+#if 0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     InfoSound* infoSound = DataManager::getInstance()->getInfoSoundType(_index);
     
     unsigned int id = infoSound->id;
     
     string path = infoSound->path;
+<<<<<<< HEAD
+=======
+#endif
+    unsigned int id = 0;
+    
+    string path = "";
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     Sound sound = {id,path.c_str()};
     
@@ -247,7 +281,11 @@ void AudioManager::onEventOptionMusic(EventCustom* event)
 {
     bool isOpen = event->getUserData();
     setbIsOpenMusic(isOpen);
+<<<<<<< HEAD
     UserDefault::getInstance()->setBoolForKey(s_music_open, isOpen);
+=======
+    UserDefault::getInstance()->setBoolForKey("s_music_open", isOpen);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     DLog::d("music isOpen", isOpen);
     
     //设置背景音乐
@@ -267,7 +305,11 @@ void AudioManager::onEventOptionSound(EventCustom* event)
 {
     bool isOpen = event->getUserData();
     setbIsOpenSound(isOpen);
+<<<<<<< HEAD
     UserDefault::getInstance()->setBoolForKey(s_sound_open, isOpen);
+=======
+    UserDefault::getInstance()->setBoolForKey("s_sound_open", isOpen);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     DLog::d("sound isOpen", isOpen);
     
     //设置音效

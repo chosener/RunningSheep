@@ -25,6 +25,7 @@ THE SOFTWARE.
 #ifndef __SUPPORT_CCUSERDEFAULT_H__
 #define __SUPPORT_CCUSERDEFAULT_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
 #include <string>
 #include "base/CCData.h"
@@ -35,6 +36,18 @@ THE SOFTWARE.
  */
 NS_CC_BEGIN
 
+=======
+#include "base/CCPlatformMacros.h"
+#include <string>
+#include "base/CCData.h"
+
+NS_CC_BEGIN
+
+/**
+ * @addtogroup data_storage
+ * @{
+ */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /**
  * UserDefault acts as a tiny database. You can save and get base type values by it.
@@ -50,6 +63,7 @@ public:
     // get value methods
 
     /**
+<<<<<<< HEAD
      * Get bool value by key, if the key doesn't exist, will return false.
      * You can set the default value, or it is false.
      * @param key The key to get value.
@@ -151,10 +165,74 @@ public:
      * @js NA
      */
     virtual Data getDataForKey(const char* key, const Data& defaultValue);
+=======
+    @brief Get bool value by key, if the key doesn't exist, a default value will return.
+     You can set the default value, or it is false.
+    * @js NA
+    */
+    bool    getBoolForKey(const char* pKey);
+    /**
+     * @js NA
+     */
+    bool    getBoolForKey(const char* pKey, bool defaultValue);
+    /**
+    @brief Get integer value by key, if the key doesn't exist, a default value will return.
+     You can set the default value, or it is 0.
+    * @js NA
+    */
+    int     getIntegerForKey(const char* pKey);
+    /**
+     * @js NA
+     */
+    int     getIntegerForKey(const char* pKey, int defaultValue);
+    /**
+    @brief Get float value by key, if the key doesn't exist, a default value will return.
+     You can set the default value, or it is 0.0f.
+    * @js NA
+    */
+    float    getFloatForKey(const char* pKey);
+    /**
+     * @js NA
+     */
+    float    getFloatForKey(const char* pKey, float defaultValue);
+    /**
+    @brief Get double value by key, if the key doesn't exist, a default value will return.
+     You can set the default value, or it is 0.0.
+    * @js NA
+    */
+    double  getDoubleForKey(const char* pKey);
+    /**
+     * @js NA
+     */
+    double  getDoubleForKey(const char* pKey, double defaultValue);
+    /**
+    @brief Get string value by key, if the key doesn't exist, a default value will return.
+    You can set the default value, or it is "".
+    * @js NA
+    */
+    std::string getStringForKey(const char* pKey);
+    /**
+     * @js NA
+     */
+    std::string getStringForKey(const char* pKey, const std::string & defaultValue);
+    /**
+     @brief Get binary data value by key, if the key doesn't exist, a default value will return.
+     You can set the default value, or it is null.
+     * @js NA
+     * @lua NA
+     */
+    Data getDataForKey(const char* pKey);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    Data getDataForKey(const char* pKey, const Data& defaultValue);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // set value methods
 
     /**
+<<<<<<< HEAD
      * Set bool value by key.
      * @param key The key to set.
      * @param value A bool value to set to the key.
@@ -203,6 +281,45 @@ public:
     virtual void flush();
 
     /** Returns the singleton.
+=======
+     @brief Set bool value by key.
+     * @js NA
+     */
+    void    setBoolForKey(const char* pKey, bool value);
+    /**
+     @brief Set integer value by key.
+     * @js NA
+     */
+    void    setIntegerForKey(const char* pKey, int value);
+    /**
+     @brief Set float value by key.
+     * @js NA
+     */
+    void    setFloatForKey(const char* pKey, float value);
+    /**
+     @brief Set double value by key.
+     * @js NA
+     */
+    void    setDoubleForKey(const char* pKey, double value);
+    /**
+     @brief Set string value by key.
+     * @js NA
+     */
+    void    setStringForKey(const char* pKey, const std::string & value);
+    /**
+     @brief Set binary data value by key.
+     * @js NA
+     * @lua NA
+     */
+    void    setDataForKey(const char* pKey, const Data& value);
+    /**
+     @brief Save content to xml file
+     * @js NA
+     */
+    void    flush();
+
+    /** returns the singleton 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -212,6 +329,7 @@ public:
      */
     static void destroyInstance();
 
+<<<<<<< HEAD
     /**
     * You can inherit from platform dependent implementation of UserDefault, such as UserDefaultAndroid,
     * and use this function to set delegate, then UserDefault will invoke delegate's implementation.
@@ -225,10 +343,14 @@ public:
     static void setDelegate(UserDefault *delegate);
 
     /** @deprecated Use getInstace() instead.
+=======
+    /** deprecated. Use getInstace() instead 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     CC_DEPRECATED_ATTRIBUTE static UserDefault* sharedUserDefault();
+<<<<<<< HEAD
     /**@deprecated Use destroyInstance() instead.
      * @js NA
      */
@@ -239,16 +361,34 @@ public:
     static const std::string& getXMLFilePath();
     /** All supported platforms other iOS & Android use xml file to save values. This function checks whether the xml file exists or not.
      * @return True if the xml file exists, flase if not.
+=======
+    /**
+     * @js NA
+     */
+    CC_DEPRECATED_ATTRIBUTE static void purgeSharedUserDefault();
+    /**
+     * @js NA
+     */
+    static const std::string& getXMLFilePath();
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      */
     static bool isXMLFileExist();
 
+<<<<<<< HEAD
 protected:
     UserDefault();
     ~UserDefault();
     
 private:
     
+=======
+private:
+    UserDefault();
+    ~UserDefault();
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static bool createXMLFile();
     static void initXMLFilePath();
     
@@ -257,9 +397,16 @@ private:
     static bool _isFilePathInitialized;
 };
 
+<<<<<<< HEAD
 
 NS_CC_END
 // end of base group
 /** @} */
+=======
+// end of data_storage group
+/// @}
+
+NS_CC_END
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __SUPPORT_CCUSERDEFAULT_H__

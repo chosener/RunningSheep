@@ -30,21 +30,33 @@
 #ifndef __CC_WEBSOCKET_H__
 #define __CC_WEBSOCKET_H__
 
+<<<<<<< HEAD
 #include <string>
 #include <vector>
 
 #include "platform/CCPlatformMacros.h"
 #include "platform/CCStdC.h"
 
+=======
+#include "base/CCPlatformMacros.h"
+#include "CCStdC.h"
+#include <list>
+#include <string>
+#include <vector>
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct libwebsocket;
 struct libwebsocket_context;
 struct libwebsocket_protocols;
 
+<<<<<<< HEAD
 /**
  * @addtogroup core
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 namespace network {
@@ -52,6 +64,7 @@ namespace network {
 class WsThreadHelper;
 class WsMessage;
 
+<<<<<<< HEAD
 /**
  * WebSocket is wrapper of the libwebsockets-protocol, let the develop could call the websocket easily.
  */
@@ -61,19 +74,32 @@ public:
     /**
      * Construtor of WebSocket.
      *
+=======
+class WebSocket
+{
+public:
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js ctor
      */
     WebSocket();
     /**
+<<<<<<< HEAD
      * Destructor of WebSocket.
      *
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~WebSocket();
 
     /**
+<<<<<<< HEAD
      * Data structure for message
+=======
+     *  @brief Data structure for message
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     struct Data
     {
@@ -84,6 +110,7 @@ public:
     };
 
     /**
+<<<<<<< HEAD
      * ErrorCode enum used to represent the error in the websocket.
      */
     enum class ErrorCode
@@ -109,10 +136,35 @@ public:
      *
      * The most member function are pure virtual functions,they should be implemented the in subclass.
      * @lua NA
+=======
+     *  @brief Errors in websocket
+     */
+    enum class ErrorCode
+    {
+        TIME_OUT,
+        CONNECTION_FAILURE,
+        UNKNOWN,
+    };
+
+    /**
+     *  Websocket state
+     */
+    enum class State
+    {
+        CONNECTING,
+        OPEN,
+        CLOSING,
+        CLOSED,
+    };
+
+    /**
+     *  @brief The delegate class to process websocket events.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     class Delegate
     {
     public:
+<<<<<<< HEAD
         /** Destructor of Delegate. */
         virtual ~Delegate() {}
         /**
@@ -145,6 +197,12 @@ public:
          * @param ws The WebSocket object connected.
          * @param error WebSocket::ErrorCode enum,would be ErrorCode::TIME_OUT or ErrorCode::CONNECTION_FAILURE.
          */
+=======
+        virtual ~Delegate() {}
+        virtual void onOpen(WebSocket* ws) = 0;
+        virtual void onMessage(WebSocket* ws, const Data& data) = 0;
+        virtual void onClose(WebSocket* ws) = 0;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         virtual void onError(WebSocket* ws, const ErrorCode& error) = 0;
     };
 
@@ -154,8 +212,12 @@ public:
      *          It needs to be invoked right after websocket instance is allocated.
      *  @param  delegate The delegate which want to receive event from websocket.
      *  @param  url      The URL of websocket server.
+<<<<<<< HEAD
      *  @return true: Success, false: Failure.
      *  @lua NA
+=======
+     *  @return true: Success, false: Failure
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     bool init(const Delegate& delegate,
               const std::string& url,
@@ -163,18 +225,24 @@ public:
 
     /**
      *  @brief Sends string data to websocket server.
+<<<<<<< HEAD
      *  
      *  @param message string data.
      *  @lua sendstring
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void send(const std::string& message);
 
     /**
      *  @brief Sends binary data to websocket server.
+<<<<<<< HEAD
      *  
      *  @param binaryMsg binary string data.
      *  @param len the size of binary string data.
      *  @lua sendstring
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void send(const unsigned char* binaryMsg, unsigned int len);
 
@@ -185,7 +253,10 @@ public:
 
     /**
      *  @brief Gets current state of connection.
+<<<<<<< HEAD
      *  @return State the state value coule be State::CONNECTING, State::OPEN, State::CLOSING or State::CLOSED
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     State getReadyState();
 
@@ -226,7 +297,10 @@ private:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__CC_JSB_WEBSOCKET_H__) */

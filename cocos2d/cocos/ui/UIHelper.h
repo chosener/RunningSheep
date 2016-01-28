@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __UIHELPER_H__
 
 #include <string>
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
 #include "ui/GUIExport.h"
 #include "2d/CCNode.h"
@@ -36,11 +37,18 @@ NS_CC_BEGIN
  * @addtogroup ui
  * @{
  */
+=======
+#include "base/CCPlatformMacros.h"
+
+NS_CC_BEGIN
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 namespace ui {
     
     class Widget;
 
 /**
+<<<<<<< HEAD
  * Helper class for traversing children in widget tree.
  * It also provides some helper functions for layout.
  */
@@ -116,6 +124,41 @@ public:
 
 // end of ui group
 /// @}
+=======
+*   @js NA
+*   @lua NA
+*/
+class Helper
+{
+public:
+    /**
+     * Finds a widget whose tag equals to param tag from root widget.
+     *
+     * @param root      widget which will be seeked.
+     *
+     * @tag             tag value.
+     *
+     * @return finded result.
+     */
+    static Widget* seekWidgetByTag(Widget* root, int tag);
+    
+    /**
+     * Finds a widget whose name equals to param name from root widget.
+     *
+     * @param root      widget which will be seeked.
+     *
+     * @name             name value.
+     *
+     * @return finded result.
+     */
+    static Widget* seekWidgetByName(Widget* root, const std::string& name);
+    
+    /*temp action*/
+    static Widget* seekActionWidgetByActionTag(Widget* root, int tag);
+};
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__CocoGUI__UISystem__) */

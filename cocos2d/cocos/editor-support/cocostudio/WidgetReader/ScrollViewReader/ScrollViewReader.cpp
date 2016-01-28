@@ -1,6 +1,7 @@
 
 
 #include "ScrollViewReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIScrollView.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIScrollView.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -23,7 +31,11 @@ namespace cocostudio
     
     static ScrollViewReader* instanceScrollViewReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(ScrollViewReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(ScrollViewReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     ScrollViewReader::ScrollViewReader()
     {
@@ -39,11 +51,16 @@ namespace cocostudio
     {
         if (!instanceScrollViewReader)
         {
+<<<<<<< HEAD
             instanceScrollViewReader = new (std::nothrow) ScrollViewReader();
+=======
+            instanceScrollViewReader = new ScrollViewReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceScrollViewReader;
     }
     
+<<<<<<< HEAD
     void ScrollViewReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceScrollViewReader);
@@ -52,6 +69,11 @@ namespace cocostudio
     void ScrollViewReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode* cocoNode)
     {
         //TODO: need to refactor...
+=======
+    void ScrollViewReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode* cocoNode)
+    {
+        //TODO::need to refactor...
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         LayoutReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
         
         ScrollView* scrollView = static_cast<ScrollView*>(widget);
@@ -93,6 +115,7 @@ namespace cocostudio
         
         
         LayoutReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> ScrollViewReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -565,4 +588,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

@@ -1,7 +1,11 @@
 /**
  Copyright 2013 BlackBerry Inc.
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies
  
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -22,6 +26,7 @@
 #ifndef MATH_VEC4_H
 #define MATH_VEC4_H
 
+<<<<<<< HEAD
 #ifdef __SSE__
 #include <xmmintrin.h>
 #endif
@@ -33,6 +38,10 @@
  * @{
  */
 
+=======
+#include "math/CCMathBase.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 class Mat4;
@@ -40,6 +49,7 @@ class Mat4;
 /**
  * Defines 4-element floating point vector.
  */
+<<<<<<< HEAD
 class CC_DLL Vec4
 {
 public:
@@ -54,6 +64,12 @@ public:
         __m128 v;
     };
 #else
+=======
+class Vec4
+{
+public:
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * The x-coordinate.
      */
@@ -73,7 +89,11 @@ public:
      * The w-coordinate.
      */
     float w;
+<<<<<<< HEAD
 #endif
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Constructs a new vector initialized to all zeros.
      */
@@ -274,7 +294,17 @@ public:
     void normalize();
 
     /**
+<<<<<<< HEAD
      * Get the normalized vector.
+=======
+     * Normalizes this vector and stores the result in dst.
+     *
+     * If the vector already has unit length or if the length
+     * of the vector is zero, this method simply copies the
+     * current vector into dst.
+     *
+     * @param dst The destination vector.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Vec4 getNormalized() const;
 
@@ -459,10 +489,14 @@ public:
 inline const Vec4 operator*(float x, const Vec4& v);
 
 NS_CC_MATH_END
+<<<<<<< HEAD
 /**
  end of base group
  @}
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "math/Vec4.inl"
 
 #endif // MATH_VEC4_H

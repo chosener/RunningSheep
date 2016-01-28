@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __UICHECKBOX_H__
 
 #include "ui/UIWidget.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 
 /**
@@ -33,47 +34,69 @@ THE SOFTWARE.
  * @{
  */
 NS_CC_BEGIN
+=======
+
+NS_CC_BEGIN
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Sprite;
 
 namespace ui {
 
+<<<<<<< HEAD
 /**
  * Checkbox event type, there are two type here:
  * - selected state
  * - unselected state
  * @deprecated use `CheckBox::EventType` instead
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef enum
 {
     CHECKBOX_STATE_EVENT_SELECTED,
     CHECKBOX_STATE_EVENT_UNSELECTED
 }CheckBoxEventType;
 
+<<<<<<< HEAD
 /**
  * A callback which will be called after checkbox event happens.
  * @deprecated use `CheckBox::ccCheckBoxCallback` instead.
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef void (Ref::*SEL_SelectedStateEvent)(Ref*,CheckBoxEventType);
 #define checkboxselectedeventselector(_SELECTOR) (SEL_SelectedStateEvent)(&_SELECTOR)
 
 /**
+<<<<<<< HEAD
  *  Checkbox is a specific type of two-states button that can be either checked or unchecked.
  */
 class CC_GUI_DLL CheckBox : public Widget
+=======
+*   @js NA
+*   @lua NA
+*/
+class CheckBox : public Widget
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
     DECLARE_CLASS_GUI_INFO
     
 public:
+<<<<<<< HEAD
     /**
      * CheckBox event type, currently only "selected" and "unselected" event are cared.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class EventType
     {
         SELECTED,
         UNSELECTED
     };
     
+<<<<<<< HEAD
     /**
      * A callback which will be called after certain CheckBox event issue.
      * @see `CheckBox::EventType`
@@ -84,22 +107,37 @@ public:
      * Default constructor.
      * 
      * @lua new
+=======
+    typedef std::function<void(Ref*,CheckBox::EventType)> ccCheckBoxCallback;
+    
+    /**
+     * Default constructor
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CheckBox();
 
     /**
+<<<<<<< HEAD
      * Default destructor.
      * 
      * @lua NA
+=======
+     * Default destructor
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~CheckBox();
 
     /**
+<<<<<<< HEAD
      * Create and return a empty CheckBox instance pointer.
+=======
+     * Allocates and initializes.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static CheckBox* create();
     
     /**
+<<<<<<< HEAD
      * Create an checkbox with various images.
      *
      * @param backGround    backGround texture.
@@ -113,10 +151,27 @@ public:
      */
     static CheckBox* create(const std::string& backGround,
                             const std::string& backGroundSelected,
+=======
+     * create an checkbox
+     *
+     * @param backGround    backGround texture.
+     *
+     * @param backGroundSelected    backGround selected state texture.
+     *
+     * @param cross    cross texture.
+     *
+     * @param frontCrossDisabled    cross dark state texture.
+     *
+     * @param texType    @see TextureResType
+     */
+    static CheckBox* create(const std::string& backGround,
+                            const std::string& backGroundSeleted,
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                             const std::string& cross,
                             const std::string& backGroundDisabled,
                             const std::string& frontCrossDisabled,
                             TextureResType texType = TextureResType::LOCAL);
+<<<<<<< HEAD
     
     /**
      * Another factory method to create a CheckBox instance.
@@ -144,28 +199,65 @@ public:
                       const std::string& backgroundSelected,
                       const std::string& cross,
                       const std::string& backgroundDisabled,
+=======
+
+    /**
+     * Load textures for checkbox.
+     *
+     * @param backGround    backGround texture.
+     *
+     * @param backGroundSelected    backGround selected state texture.
+     *
+     * @param cross    cross texture.
+     *
+     * @param frontCrossDisabled    cross dark state texture.
+     *
+     * @param texType    @see TextureResType
+     */
+    void loadTextures(const std::string& backGround,
+                      const std::string& backGroundSelected,
+                      const std::string& cross,
+                      const std::string& backGroundDisabled,
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                       const std::string& frontCrossDisabled,
                       TextureResType texType = TextureResType::LOCAL);
 
     /**
+<<<<<<< HEAD
      * Load background texture for checkbox.
      *
      * @param backGround   The background image name.
      * @param type    @see `Widget::TextureResType`
+=======
+     * Load backGround texture for checkbox.
+     *
+     * @param backGround    backGround texture.
+     *
+     * @param texType    @see TextureResType
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void loadTextureBackGround(const std::string& backGround,TextureResType type = TextureResType::LOCAL);
 
     /**
+<<<<<<< HEAD
      * Load background selected state texture for checkbox.
      *
      * @param backGroundSelected    The background selected state image name.
      * @param texType    @see `Widget::TextureResType`
+=======
+     * Load backGroundSelected texture for checkbox.
+     *
+     * @param backGroundSelected     backGround selected state texture.
+     *
+     * @param texType    @see TextureResType
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void loadTextureBackGroundSelected(const std::string& backGroundSelected,TextureResType texType = TextureResType::LOCAL);
 
     /**
      * Load cross texture for checkbox.
      *
+<<<<<<< HEAD
      * @param crossTextureName    The cross texture name.
      * @param texType    @see `Widget::TextureResType`
      */
@@ -177,18 +269,41 @@ public:
      * @param backGroundDisabled    The background disabled state texture name.
      *
      * @param texType    @see `Widget::TextureResType`
+=======
+     * @param cross    cross texture.
+     *
+     * @param texType    @see TextureResType
+     */
+    void loadTextureFrontCross(const std::string&,TextureResType texType = TextureResType::LOCAL);
+
+    /**
+     * Load backGroundDisabled texture for checkbox.
+     *
+     * @param backGroundDisabled    backGroundDisabled texture.
+     *
+     * @param texType    @see TextureResType
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void loadTextureBackGroundDisabled(const std::string& backGroundDisabled,TextureResType texType = TextureResType::LOCAL);
 
     /**
+<<<<<<< HEAD
      * Load frontcross disabled texture for checkbox.
      *
      * @param frontCrossDisabled    The front cross disabled state texture name.
      * @param texType    @see `Widget::TextureResType`
+=======
+     * Load frontCrossDisabled texture for checkbox.
+     *
+     * @param frontCrossDisabled    frontCrossDisabled texture.
+     *
+     * @param texType    @see TextureResType
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void loadTextureFrontCrossDisabled(const std::string& frontCrossDisabled,TextureResType texType = TextureResType::LOCAL);
 
     /**
+<<<<<<< HEAD
      * Change Checkbox state to selected.
      *
      * @deprecated use `isSelected()` instead
@@ -247,6 +362,36 @@ public:
      * @since v3.3
      */
     float getZoomScale()const;
+=======
+     * Sets selcted state for checkbox.
+     *
+     * @param selected    true that checkbox is selected, false otherwise.
+     */
+    void setSelectedState(bool selected);
+
+    /**
+     * Gets selcted state of checkbox.
+     *
+     * @return selected    true that checkbox is selected, false otherwise.
+     */
+    bool getSelectedState()const;
+
+    //add a call back function would called when checkbox is selected or unselected.
+    CC_DEPRECATED_ATTRIBUTE void addEventListenerCheckBox(Ref* target,SEL_SelectedStateEvent selector);
+    void addEventListener(const ccCheckBoxCallback& callback);
+
+
+    //override "getVirtualRendererSize" method of widget.
+    virtual const Size& getVirtualRendererSize() const override;
+
+    //override "getVirtualRenderer" method of widget.
+    virtual Node* getVirtualRenderer() override;
+
+    /**
+     * Returns the "class name" of widget.
+     */
+    virtual std::string getDescription() const override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
@@ -266,9 +411,18 @@ protected:
     void selectedEvent();
     void unSelectedEvent();
     
+<<<<<<< HEAD
     virtual void releaseUpEvent() override;
     
     virtual void onSizeChanged() override;
+=======
+    virtual void releaseUpEvent();
+    
+    virtual void onSizeChanged() override;
+  
+    virtual void updateFlippedX() override;
+    virtual void updateFlippedY() override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     void backGroundTextureScaleChangedWithSize();
     void backGroundSelectedTextureScaleChangedWithSize();
@@ -310,9 +464,12 @@ protected:
     TextureResType _backGroundDisabledTexType;
     TextureResType _frontCrossDisabledTexType;
 
+<<<<<<< HEAD
     float _zoomScale;
     float _backgroundTextureScaleX;
     float _backgroundTextureScaleY;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string _backGroundFileName;
     std::string _backGroundSelectedFileName;
     std::string _frontCrossFileName;
@@ -329,7 +486,10 @@ protected:
 }
 
 NS_CC_END
+<<<<<<< HEAD
 // end of ui group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__CocoGUI__CheckBox__) */

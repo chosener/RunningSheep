@@ -23,18 +23,23 @@ THE SOFTWARE.
  ****************************************************************************/
 package org.cocos2dx.lib;
 
+<<<<<<< HEAD
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 
 import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
 import com.chukong.cocosplay.client.CocosPlayClient;
+=======
+import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+<<<<<<< HEAD
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
@@ -292,6 +297,120 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     }
     
     @Override
+=======
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Message;
+import android.view.ViewGroup;
+import android.util.Log;
+import android.widget.FrameLayout;
+import android.preference.PreferenceManager.OnActivityResultListener;
+
+public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener {
+	// ===========================================================
+	// Constants
+	// ===========================================================
+
+	private final static String TAG = Cocos2dxActivity.class.getSimpleName();
+
+	// ===========================================================
+	// Fields
+	// ===========================================================
+	
+	private Cocos2dxGLSurfaceView mGLSurfaceView;
+	private Cocos2dxHandler mHandler;	
+	private static Cocos2dxActivity sContext = null;
+	private Cocos2dxVideoHelper mVideoHelper = null;
+	
+	public static Context getContext() {
+		return sContext;
+	}
+	
+	protected void onLoadNativeLibraries() {
+		try {
+			ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+			Bundle bundle = ai.metaData;
+			String libName = bundle.getString("android.app.lib_name");
+			
+    		System.loadLibrary(libName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// ===========================================================
+	// Constructors
+	// ===========================================================
+	
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		onLoadNativeLibraries();
+
+		sContext = this;
+    	this.mHandler = new Cocos2dxHandler(this);
+    	
+    	Cocos2dxHelper.init(this);
+    	
+    	this.init();
+    	if (mVideoHelper == null) {
+    		mVideoHelper = new Cocos2dxVideoHelper(this, mFrameLayout);
+		}
+	}
+	
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+
+	// ===========================================================
+	// Methods for/from SuperClass/Interfaces
+	// ===========================================================
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		Cocos2dxHelper.onResume();
+		this.mGLSurfaceView.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		
+		Cocos2dxHelper.onPause();
+		this.mGLSurfaceView.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+	@Override
+	public void showDialog(final String pTitle, final String pMessage) {
+		Message msg = new Message();
+		msg.what = Cocos2dxHandler.HANDLER_SHOW_DIALOG;
+		msg.obj = new Cocos2dxHandler.DialogMessage(pTitle, pMessage);
+		this.mHandler.sendMessage(msg);
+	}
+
+	@Override
+	public void showEditTextDialog(final String pTitle, final String pContent, final int pInputMode, final int pInputFlag, final int pReturnType, final int pMaxLength) { 
+		Message msg = new Message();
+		msg.what = Cocos2dxHandler.HANDLER_SHOW_EDITBOX_DIALOG;
+		msg.obj = new Cocos2dxHandler.EditBoxMessage(pTitle, pContent, pInputMode, pInputFlag, pReturnType, pMaxLength);
+		this.mHandler.sendMessage(msg);
+	}
+	
+	@Override
+	public void runOnGLThread(final Runnable pRunnable) {
+		this.mGLSurfaceView.queueEvent(pRunnable);
+	}
+	
+	@Override
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         for (OnActivityResultListener listener : Cocos2dxHelper.getOnActivityResultListeners()) {
@@ -302,6 +421,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     }
 
 
+<<<<<<< HEAD
     protected FrameLayout mFrameLayout = null;
     // ===========================================================
     // Methods
@@ -309,6 +429,15 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     public void init() {
         
         // FrameLayout
+=======
+	protected FrameLayout mFrameLayout = null;
+	// ===========================================================
+	// Methods
+	// ===========================================================
+	public void init() {
+		
+    	// FrameLayout
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         ViewGroup.LayoutParams framelayout_params =
             new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                        ViewGroup.LayoutParams.MATCH_PARENT);
@@ -333,12 +462,17 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 
         // Switch to supported OpenGL (ARGB888) mode on emulator
         if (isAndroidEmulator())
+<<<<<<< HEAD
            this.mGLSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+=======
+           this.mGLSurfaceView.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         this.mGLSurfaceView.setCocos2dxRenderer(new Cocos2dxRenderer());
         this.mGLSurfaceView.setCocos2dxEditText(edittext);
 
         // Set framelayout as the content view
+<<<<<<< HEAD
         setContentView(mFrameLayout);
     }
     
@@ -351,6 +485,13 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         glSurfaceView.setEGLConfigChooser(chooser);
 
         return glSurfaceView;
+=======
+		setContentView(mFrameLayout);
+	}
+	
+    public Cocos2dxGLSurfaceView onCreateView() {
+    	return new Cocos2dxGLSurfaceView(this);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
    private final static boolean isAndroidEmulator() {
@@ -366,7 +507,13 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
       return isEmulator;
    }
 
+<<<<<<< HEAD
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+=======
+	// ===========================================================
+	// Inner and Anonymous Classes
+	// ===========================================================
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

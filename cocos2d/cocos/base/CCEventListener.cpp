@@ -22,7 +22,13 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+<<<<<<< HEAD
 #include "base/CCEventListener.h"
+=======
+#include "base/CCConsole.h"
+#include "base/CCEventListener.h"
+#include "platform/CCCommon.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 

@@ -15,13 +15,18 @@
 #else
   #define DELTA_EPOCH_IN_MICROSECS  11644473600000000ULL
 #endif
+<<<<<<< HEAD
 
 #ifndef _TIMEZONE_DEFINED 
+=======
+ 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct timezone 
 {
   int  tz_minuteswest; /* minutes W of Greenwich */
   int  tz_dsttime;     /* type of dst correction */
 };
+<<<<<<< HEAD
 
 int gettimeofday(struct timeval *tv, struct timezone *tz);
 
@@ -29,3 +34,10 @@ int gettimeofday(struct timeval *tv, struct timezone *tz);
 
 
 #endif
+=======
+ 
+int gettimeofday(struct timeval *tv, struct timezone *tz);
+
+
+#endif
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

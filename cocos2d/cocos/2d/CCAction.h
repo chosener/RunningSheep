@@ -40,12 +40,20 @@ class Node;
  */
 
 /** 
+<<<<<<< HEAD
  * @brief Base class for Action objects.
+=======
+@brief Base class for Action objects.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL Action : public Ref, public Clonable
 {
 public:
+<<<<<<< HEAD
     /** Default tag used for all the actions. */
+=======
+    /// Default tag used for all the actions
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static const int INVALID_TAG = -1;
     /**
      * @js NA
@@ -53,6 +61,7 @@ public:
      */
     virtual std::string description() const;
 
+<<<<<<< HEAD
     /** Returns a clone of action.
      *
      * @return A clone action.
@@ -158,12 +167,73 @@ protected:
      */
     Node    *_target;
     /** The action tag. An identifier of the action. */
+=======
+	/** returns a clone of action */
+	virtual Action* clone() const = 0;
+
+    /** returns a new action that performs the exactly the reverse action */
+	virtual Action* reverse() const = 0;
+
+    //! return true if the action has finished
+    virtual bool isDone() const;
+
+    //! called before the action start. It will also set the target.
+    virtual void startWithTarget(Node *target);
+
+    /** 
+    called after the action has finished. It will set the 'target' to nil.
+    IMPORTANT: You should never call "[action stop]" manually. Instead, use: "target->stopAction(action);"
+    */
+    virtual void stop();
+
+    //! called every frame with it's delta time. DON'T override unless you know what you are doing.
+    virtual void step(float dt);
+
+    /** 
+    called once per frame. time a value between 0 and 1
+
+    For example: 
+    - 0 means that the action just started
+    - 0.5 means that the action is in the middle
+    - 1 means that the action is over
+    */
+    virtual void update(float time);
+    
+    inline Node* getTarget() const { return _target; }
+    /** The action will modify the target properties. */
+    inline void setTarget(Node *target) { _target = target; }
+    
+    inline Node* getOriginalTarget() const { return _originalTarget; }
+    /** Set the original target, since target can be nil.
+    Is the target that were used to run the action. Unless you are doing something complex, like ActionManager, you should NOT call this method.
+    The target is 'assigned', it is not 'retained'.
+    @since v0.8.2
+    */
+    inline void setOriginalTarget(Node *originalTarget) { _originalTarget = originalTarget; }
+
+    inline int getTag() const { return _tag; }
+    inline void setTag(int tag) { _tag = tag; }
+
+protected:
+    Action();
+    virtual ~Action();
+
+    Node    *_originalTarget;
+    /** The "target".
+    The target will be set with the 'startWithTarget' method.
+    When the 'stop' method is called, target will be set to nil.
+    The target is 'assigned', it is not 'retained'.
+    */
+    Node    *_target;
+    /** The action tag. An identifier of the action */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int     _tag;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Action);
 };
 
+<<<<<<< HEAD
 /** @class FiniteTimeAction
  * @brief
  * Base class actions that do have a finite time duration.
@@ -171,10 +241,21 @@ private:
  * - An action with a duration of 0 seconds.
  * - An action with a duration of 35.5 seconds.
  * Infinite time actions are valid.
+=======
+/** 
+@brief 
+ Base class actions that do have a finite time duration.
+ Possible actions:
+   - An action with a duration of 0 seconds
+   - An action with a duration of 35.5 seconds
+
+ Infinite time actions are valid
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL FiniteTimeAction : public Action
 {
 public:
+<<<<<<< HEAD
     /** Get duration in seconds of the action. 
      *
      * @return The duration in seconds of the action.
@@ -184,11 +265,17 @@ public:
      *
      * @param duration In seconds of the action.
      */
+=======
+    //! get duration in seconds of the action
+    inline float getDuration() const { return _duration; }
+    //! set duration in seconds of the action
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setDuration(float duration) { _duration = duration; }
 
     //
     // Overrides
     //
+<<<<<<< HEAD
     virtual FiniteTimeAction* reverse() const override
     {
         CC_ASSERT(0);
@@ -208,6 +295,18 @@ CC_CONSTRUCTOR_ACCESS:
 
 protected:
     //! Duration in seconds.
+=======
+    virtual FiniteTimeAction* reverse() const override = 0;
+	virtual FiniteTimeAction* clone() const override = 0;
+
+protected:
+    FiniteTimeAction()
+	: _duration(0)
+    {}
+    virtual ~FiniteTimeAction(){}
+
+    //! duration in seconds
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     float _duration;
 
 private:
@@ -217,15 +316,24 @@ private:
 class ActionInterval;
 class RepeatForever;
 
+<<<<<<< HEAD
 /** @class Speed
  * @brief Changes the speed of an action, making it take longer (speed>1)
  * or less (speed<1) time.
  * Useful to simulate 'slow motion' or 'fast forward' effect.
  * @warning This action can't be Sequenceable because it is not an IntervalAction.
+=======
+/** 
+ @brief Changes the speed of an action, making it take longer (speed>1)
+ or less (speed<1) time.
+ Useful to simulate 'slow motion' or 'fast forward' effect.
+ @warning This action can't be Sequenceable because it is not an IntervalAction
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL Speed : public Action
 {
 public:
+<<<<<<< HEAD
     /** Create the action and set the speed.
      *
      * @param action An action.
@@ -252,11 +360,24 @@ public:
      *
      * @return The interior action.
      */
+=======
+    /** create the action */
+    static Speed* create(ActionInterval* action, float speed);
+
+    inline float getSpeed(void) const { return _speed; }
+    /** alter the speed of the inner function in runtime */
+    inline void setSpeed(float speed) { _speed = speed; }
+
+
+    void setInnerAction(ActionInterval *action);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline ActionInterval* getInnerAction() const { return _innerAction; }
 
     //
     // Override
     //
+<<<<<<< HEAD
     virtual Speed* clone() const override;
     virtual Speed* reverse() const override;
     virtual void startWithTarget(Node* target) override;
@@ -269,12 +390,23 @@ public:
      *
      * @return Is true if the action has finished.
      */
+=======
+	virtual Speed* clone() const override;
+    virtual Speed* reverse() const override;
+    virtual void startWithTarget(Node* target) override;
+    virtual void stop() override;
+    virtual void step(float dt) override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool isDone() const  override;
     
 CC_CONSTRUCTOR_ACCESS:
     Speed();
     virtual ~Speed(void);
+<<<<<<< HEAD
     /** Initializes the action. */
+=======
+    /** initializes the action */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithAction(ActionInterval *action, float speed);
 
 protected:
@@ -285,6 +417,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(Speed);
 };
 
+<<<<<<< HEAD
 /** @class Follow
  * @brief Follow is an action that "follows" a node.
  * Eg:
@@ -294,6 +427,19 @@ private:
  * Instead of using Camera as a "follower", use this action instead.
  * @since v0.99.2
  */
+=======
+/** 
+@brief Follow is an action that "follows" a node.
+
+Eg:
+@code
+layer->runAction(Follow::actionWithTarget(hero));
+@endcode
+
+Instead of using Camera as a "follower", use this action instead.
+@since v0.99.2
+*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL Follow : public Action
 {
 public:
@@ -305,6 +451,7 @@ public:
      *              with no boundary.
      */
     static Follow* create(Node *followedNode, const Rect& rect = Rect::ZERO);
+<<<<<<< HEAD
     /** Return boundarySet.
      *
      * @return Return boundarySet.
@@ -321,16 +468,27 @@ public:
      * @param value Turn on/off boundary.
      */
     CC_DEPRECATED_ATTRIBUTE inline void setBoudarySet(bool value) { setBoundarySet(value); }
+=======
+
+    inline bool isBoundarySet() const { return _boundarySet; }
+    /** alter behavior - turn on/off boundary */
+    inline void setBoudarySet(bool value) { _boundarySet = value; }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     //
     // Override
     //
+<<<<<<< HEAD
     virtual Follow* clone() const override;
     virtual Follow* reverse() const override;
     /**
      * @param dt in seconds.
      * @js NA
      */
+=======
+	virtual Follow* clone() const override;
+	virtual Follow* reverse() const override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void step(float dt) override;
     virtual bool isDone() const override;
     virtual void stop() override;
@@ -365,6 +523,7 @@ CC_CONSTRUCTOR_ACCESS:
     bool initWithTarget(Node *followedNode, const Rect& rect = Rect::ZERO);
 
 protected:
+<<<<<<< HEAD
     /** Node to follow. */
     Node *_followedNode;
 
@@ -379,11 +538,31 @@ protected:
     Vec2 _fullScreenSize;
 
     /** World boundaries. */
+=======
+    // node to follow
+    Node *_followedNode;
+
+    // whether camera should be limited to certain area
+    bool _boundarySet;
+
+    // if screen size is bigger than the boundary - update not needed
+    bool _boundaryFullyCovered;
+
+    // fast access to the screen dimensions
+    Vec2 _halfScreenSize;
+    Vec2 _fullScreenSize;
+
+    // world boundaries
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     float _leftBoundary;
     float _rightBoundary;
     float _topBoundary;
     float _bottomBoundary;
+<<<<<<< HEAD
     Rect _worldRect;
+=======
+	Rect _worldRect;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Follow);

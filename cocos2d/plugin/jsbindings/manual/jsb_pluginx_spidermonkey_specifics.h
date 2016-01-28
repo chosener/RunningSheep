@@ -60,7 +60,11 @@ namespace pluginx {
 
 typedef struct js_proxy {
 	void *ptr;
+<<<<<<< HEAD
     JS::Heap<JSObject*> obj;
+=======
+	JSObject *obj;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	UT_hash_handle hh;
 } js_proxy_t;
 
@@ -69,8 +73,13 @@ extern js_proxy_t *_js_native_global_ht;
 
 typedef struct js_type_class {
 	JSClass *jsclass;
+<<<<<<< HEAD
     JS::Heap<JSObject*> proto;
     JS::Heap<JSObject*> parentProto;
+=======
+	JSObject *proto;
+	JSObject *parentProto;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 } js_type_class_t;
 
 extern std::unordered_map<std::string, js_type_class_t*> _js_global_type_map;
@@ -152,7 +161,10 @@ js_proxy_t* jsb_new_proxy(void* nativeObj, JSObject* jsObj);
 js_proxy_t* jsb_get_native_proxy(void* nativeObj);
 js_proxy_t* jsb_get_js_proxy(JSObject* jsObj);
 void jsb_remove_proxy(js_proxy_t* nativeProxy, js_proxy_t* jsProxy);
+<<<<<<< HEAD
 void get_or_create_js_obj(JSContext* cx, JS::HandleObject obj, const std::string &name, JS::MutableHandleObject jsObj);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**
      * You don't need to manage the returned pointer. They live for the whole life of
@@ -198,12 +210,21 @@ void get_or_create_js_obj(JSContext* cx, JS::HandleObject obj, const std::string
             
             //JSB_AUTOCOMPARTMENT_WITH_GLOBAL_OBJCET
             
+<<<<<<< HEAD
             JSObject* js_obj = JS_NewObject(cx, typeProxy->jsclass, JS::RootedObject(cx, typeProxy->proto), JS::RootedObject(cx,typeProxy->parentProto));
             proxy = jsb_new_proxy(native_obj, js_obj);
 #ifdef DEBUG
             JS::AddNamedObjectRoot(cx, &proxy->obj, typeid(*native_obj).name());
 #else
             JS::AddObjectRoot(cx, &proxy->obj);
+=======
+            JSObject* js_obj = JS_NewObject(cx, typeProxy->jsclass, typeProxy->proto, typeProxy->parentProto);
+            proxy = jsb_new_proxy(native_obj, js_obj);
+#ifdef DEBUG
+            JS_AddNamedObjectRoot(cx, &proxy->obj, typeid(*native_obj).name());
+#else
+            JS_AddObjectRoot(cx, &proxy->obj);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
             return proxy;
         } else {

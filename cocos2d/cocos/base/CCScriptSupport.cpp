@@ -47,7 +47,11 @@ NS_CC_BEGIN
 
 ScriptHandlerEntry* ScriptHandlerEntry::create(int handler)
 {
+<<<<<<< HEAD
     ScriptHandlerEntry* entry = new (std::nothrow) ScriptHandlerEntry(handler);
+=======
+    ScriptHandlerEntry* entry = new ScriptHandlerEntry(handler);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     entry->autorelease();
     return entry;
 }
@@ -67,7 +71,11 @@ ScriptHandlerEntry::~ScriptHandlerEntry(void)
 
 SchedulerScriptHandlerEntry* SchedulerScriptHandlerEntry::create(int handler, float interval, bool paused)
 {
+<<<<<<< HEAD
     SchedulerScriptHandlerEntry* entry = new (std::nothrow) SchedulerScriptHandlerEntry(handler);
+=======
+    SchedulerScriptHandlerEntry* entry = new SchedulerScriptHandlerEntry(handler);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     entry->init(interval, paused);
     entry->autorelease();
     return entry;
@@ -75,7 +83,11 @@ SchedulerScriptHandlerEntry* SchedulerScriptHandlerEntry::create(int handler, fl
 
 bool SchedulerScriptHandlerEntry::init(float interval, bool paused)
 {
+<<<<<<< HEAD
     _timer = new (std::nothrow) TimerScriptHandler();
+=======
+    _timer = new TimerScriptHandler();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _timer->initWithScriptHandler(_handler, interval);
     _paused = paused;
     LUALOG("[LUA] ADD script schedule: %d, entryID: %d", _handler, _entryId);
@@ -97,7 +109,11 @@ TouchScriptHandlerEntry* TouchScriptHandlerEntry::create(int handler,
                                                              int priority,
                                                              bool swallowsTouches)
 {
+<<<<<<< HEAD
     TouchScriptHandlerEntry* entry = new (std::nothrow) TouchScriptHandlerEntry(handler);
+=======
+    TouchScriptHandlerEntry* entry = new TouchScriptHandlerEntry(handler);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     entry->init(isMultiTouches, priority, swallowsTouches);
     entry->autorelease();
     return entry;
@@ -149,7 +165,11 @@ ScriptEngineManager* ScriptEngineManager::getInstance()
 {
     if (!s_pSharedScriptEngineManager)
     {
+<<<<<<< HEAD
         s_pSharedScriptEngineManager = new (std::nothrow) ScriptEngineManager();
+=======
+        s_pSharedScriptEngineManager = new ScriptEngineManager();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     return s_pSharedScriptEngineManager;
 }

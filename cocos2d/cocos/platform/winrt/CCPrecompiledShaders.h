@@ -48,6 +48,17 @@ typedef struct _CompiledProgram
     int    length;
 } CompiledProgram;
 
+<<<<<<< HEAD
+=======
+#if 0
+
+const unsigned char gKey[] = "hello";
+const unsigned char gProgram[] = "world";
+PrecompiledShader gFoo = {gKey, gProgram, 100};
+
+PrecompiledShader shaders[]  = {gFoo, gFoo};
+#endif
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 class CC_DLL CCPrecompiledShaders
 {
@@ -55,20 +66,31 @@ public:
     CCPrecompiledShaders();
     virtual ~CCPrecompiledShaders();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     @brief    Get current precompiled shaders instance.
     @return Current precompiled shaders instance pointer.
     */
     static CCPrecompiledShaders* getInstance();
 
+<<<<<<< HEAD
     void addPrecompiledProgram(const char* key, const unsigned char* program, int programLength);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string addShaders(const GLchar* vShaderByteArray, const GLchar* fShaderByteArray);
     bool addProgram(GLuint program, const std::string& id);
 
     bool loadProgram(GLuint program, const GLchar* vShaderByteArray, const GLchar* fShaderByteArray);
 
 
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) && defined(WP8_SHADER_COMPILER)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void savePrecompiledShaders();
 #endif
 

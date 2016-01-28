@@ -25,6 +25,7 @@
 #ifndef __TestCpp__LoadingBarReader__
 #define __TestCpp__LoadingBarReader__
 
+<<<<<<< HEAD
 #include "cocostudio/WidgetReader/WidgetReader.h"
 #include "cocostudio/CocosStudioExport.h"
 
@@ -35,10 +36,22 @@ namespace cocostudio
         DECLARE_CLASS_NODE_READER_INFO
         
     public:
+=======
+#include "../WidgetReader.h"
+
+namespace cocostudio
+{
+    class LoadingBarReader : public WidgetReader
+    {
+    public:
+        DECLARE_CLASS_WIDGET_READER_INFO
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         LoadingBarReader();
         virtual ~LoadingBarReader();
         
         static LoadingBarReader* getInstance();
+<<<<<<< HEAD
         /** @deprecated Use method destroyInstance() instead */
         CC_DEPRECATED_ATTRIBUTE static void purge();
         static void destroyInstance();
@@ -52,6 +65,12 @@ namespace cocostudio
         
         int getResourceType(std::string key);
         
+=======
+        static void purge();
+        
+        virtual void setPropsFromJsonDictionary(cocos2d::ui::Widget* widget, const rapidjson::Value& options);
+        virtual void setPropsFromBinary(cocos2d::ui::Widget* widget, CocoLoader* cocoLoader,  stExpCocoNode*	pCocoNode) ;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     };
 }
 

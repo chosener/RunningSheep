@@ -71,7 +71,11 @@ static Vec2 cpVert2Point(const cpVect &vert)
 static Vec2* cpVertArray2ccpArrayN(const cpVect* cpVertArray, unsigned int count)
 {
     if (count == 0) return nullptr;
+<<<<<<< HEAD
     Vec2* pPoints = new (std::nothrow) Vec2[count];
+=======
+    Vec2* pPoints = new Vec2[count];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     for (unsigned int i = 0; i < count; ++i)
     {
@@ -171,7 +175,11 @@ static void DrawConstraint(cpConstraint *constraint, DrawNode *renderer)
 	}
     else if (klass == cpDampedSpringGetClass())
     {
+<<<<<<< HEAD
 		// TODO: uninplemented
+=======
+		// TODO
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	}
     else
     {
@@ -205,7 +213,11 @@ PhysicsDebugNode::PhysicsDebugNode()
 
 PhysicsDebugNode* PhysicsDebugNode::create(cpSpace *space)
 {
+<<<<<<< HEAD
     PhysicsDebugNode *node = new (std::nothrow) PhysicsDebugNode();
+=======
+    PhysicsDebugNode *node = new PhysicsDebugNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (node)
     {
         node->init();

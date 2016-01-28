@@ -32,17 +32,21 @@ THE SOFTWARE.
 #include "math/Vec3.h"
 #include "math/Vec4.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup support
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class GLProgram;
 
 class GLProgramState;
 
+<<<<<<< HEAD
 /**
  Some GLprogram state could be shared. GLProgramStateCache is used to cache this, and will reuse the
  old GLProgramState, which will accelerate the creation of game objects such as sprites, particles etc.
@@ -60,6 +64,21 @@ public:
     /**Remove all the cached GLProgramState.*/
 	void removeAllGLProgramState();
     /**Remove unused GLProgramState.*/
+=======
+//
+//
+// GLProgramStateCache
+//
+//
+class GLProgramStateCache
+{
+public:
+    static GLProgramStateCache* getInstance();
+    static void destroyInstance();
+    
+    GLProgramState* getGLProgramState(GLProgram* program);
+	void removeAllGLProgramState();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void removeUnusedGLProgramState();
 
 protected:
@@ -71,8 +90,12 @@ protected:
 };
 
 NS_CC_END
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCGLPROGRAMSTATECACHE_H__ */

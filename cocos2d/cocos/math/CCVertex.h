@@ -28,6 +28,7 @@
 
 #include "base/ccTypes.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -35,6 +36,15 @@
 
 NS_CC_BEGIN
 
+=======
+NS_CC_BEGIN
+
+/**
+ * @addtogroup data_structures
+ * @{
+ */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /** @file CCVertex.h */
 
 /** converts a line to a polygon */
@@ -46,11 +56,19 @@ bool CC_DLL ccVertexLineIntersect(float Ax, float Ay,
                              float Cx, float Cy,
                              float Dx, float Dy, float *T);
 
+<<<<<<< HEAD
 NS_CC_END
 
 
 // end of base group
 /// @}
 
+=======
+// end of data_structures group
+/// @}
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCVERTEX_H__ */
 

@@ -1,6 +1,7 @@
 
 
 #include "TextReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIText.h"
 #include "cocostudio/CocoLoader.h"
@@ -12,6 +13,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIText.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -26,7 +34,11 @@ namespace cocostudio
     
     static TextReader* instanceTextReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(TextReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(TextReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     TextReader::TextReader()
     {
@@ -42,16 +54,23 @@ namespace cocostudio
     {
         if (!instanceTextReader)
         {
+<<<<<<< HEAD
             instanceTextReader = new (std::nothrow) TextReader();
+=======
+            instanceTextReader = new TextReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceTextReader;
     }
     
+<<<<<<< HEAD
     void TextReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceTextReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void TextReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         this->beginSetBasicProperties(widget);
@@ -116,7 +135,11 @@ namespace cocostudio
       
         label->setFontSize(DICTOOL->getIntValue_json(options, P_FontSize,20));
        
+<<<<<<< HEAD
         std::string fontName = DICTOOL->getStringValue_json(options, P_FontName, "");
+=======
+        std::string fontName = DICTOOL->getStringValue_json(options, P_FontName, "微软雅黑");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         std::string fontFilePath = jsonPath.append(fontName);
 		if (FileUtils::getInstance()->isFileExist(fontFilePath))
@@ -147,6 +170,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> TextReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -506,4 +530,7 @@ namespace cocostudio
         return text;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

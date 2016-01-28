@@ -29,7 +29,11 @@ THE SOFTWARE.
 #include <vector>
 #include <unordered_map>
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccTypes.h"
 #include "base/CCValue.h"
 #include "base/CCData.h"
@@ -37,11 +41,19 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup support
  * @{
  */
 
 /** Helper class to handle file operations. */
+=======
+ * @addtogroup platform
+ * @{
+ */
+
+//! @brief  Helper class to handle file operations
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL FileUtils
 {
 public:
@@ -54,6 +66,7 @@ public:
      *  Destroys the instance of FileUtils.
      */
     static void destroyInstance();
+<<<<<<< HEAD
     
     /**
      * You can inherit from platform dependent implementation of FileUtils, such as FileUtilsAndroid,
@@ -69,6 +82,8 @@ public:
      * @lua NA
      */
     static void setDelegate(FileUtils *delegate);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /** @deprecated Use getInstance() instead */
     CC_DEPRECATED_ATTRIBUTE static FileUtils* sharedFileUtils() { return getInstance(); }
@@ -84,7 +99,16 @@ public:
     virtual ~FileUtils();
     
     /**
+<<<<<<< HEAD
      *  Purges full path caches.
+=======
+     *  Purges the file searching cache.
+     *
+     *  @note It should be invoked after the resources were updated.
+     *        For instance, in the CocosPlayer sample, every time you run application from CocosBuilder,
+     *        All the resources will be downloaded to the writable folder, before new js app launchs,
+     *        this method should be invoked to clean the file search cache.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual void purgeCachedEntries();
     
@@ -103,8 +127,13 @@ public:
      *  Gets resource file data
      *
      *  @param[in]  filename The resource file name which contains the path.
+<<<<<<< HEAD
      *  @param[in]  mode The read mode of the file.
      *  @param[out] size If the file read operation succeeds, it will be the data size, otherwise 0.
+=======
+     *  @param[in]  pszMode The read mode of the file.
+     *  @param[out] pSize If the file read operation succeeds, it will be the data size, otherwise 0.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @return Upon success, a pointer to the data is returned, otherwise NULL.
      *  @warning Recall: you are responsible for calling free() on any Non-NULL pointer returned.
      */
@@ -166,7 +195,11 @@ public:
 
      @since v2.1
      */
+<<<<<<< HEAD
     virtual std::string fullPathForFilename(const std::string &filename) const;
+=======
+    virtual std::string fullPathForFilename(const std::string &filename);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**
      * Loads the filenameLookup dictionary from the contents of a filename.
@@ -212,7 +245,11 @@ public:
     virtual void setFilenameLookupDictionary(const ValueMap& filenameLookupDict);
     
     /**
+<<<<<<< HEAD
      *  Gets full path from a file name and the path of the relative file.
+=======
+     *  Gets full path from a file name and the path of the reletive file.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @param filename The file name.
      *  @param pszRelativeFile The path of the relative file.
      *  @return The full path.
@@ -226,7 +263,11 @@ public:
      *  Sets the array that contains the search order of the resources.
      *
      *  @param searchResolutionsOrder The source array that contains the search order of the resources.
+<<<<<<< HEAD
      *  @see getSearchResolutionsOrder(), fullPathForFilename(const char*).
+=======
+     *  @see getSearchResolutionsOrder(void), fullPathForFilename(const char*).
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @since v2.1
      *  In js:var setSearchResolutionsOrder(var jsval)
      *  @lua NA
@@ -248,7 +289,11 @@ public:
      *  @since v2.1
      *  @lua NA
      */
+<<<<<<< HEAD
     virtual const std::vector<std::string>& getSearchResolutionsOrder() const;
+=======
+    virtual const std::vector<std::string>& getSearchResolutionsOrder();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** 
      *  Sets the array of search paths.
@@ -272,11 +317,14 @@ public:
     virtual void setSearchPaths(const std::vector<std::string>& searchPaths);
     
     /**
+<<<<<<< HEAD
      * Set default resource root path.
      */
     void setDefaultResourceRootPath(const std::string& path);
 
     /**
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
       * Add search path.
       *
       * @since v2.1
@@ -299,6 +347,7 @@ public:
     virtual std::string getWritablePath() const = 0;
     
     /**
+<<<<<<< HEAD
      *  Sets writable path.
      */
     virtual void setWritablePath(const std::string& writablePath);
@@ -340,6 +389,13 @@ public:
      *  @note If a relative path was passed in, it will be inserted a default root path at the beginning.
      *  @param filename The path of the file, it could be a relative or absolute path.
      *  @return True if the file exists, false if not.
+=======
+     *  Checks whether a file exists.
+     *
+     *  @note If a relative path was passed in, it will be inserted a default root path at the beginning.
+     *  @param strFilePath The path of the file, it could be a relative or absolute path.
+     *  @return true if the file exists, otherwise it will return false.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual bool isFileExist(const std::string& filename) const;
     
@@ -349,6 +405,7 @@ public:
      *  @note On Android, if the parameter passed in is relative to "assets/", this method will treat it as an absolute path.
      *        Also on Blackberry, path starts with "app/native/Resources/" is treated as an absolute path.
      *
+<<<<<<< HEAD
      *  @param path The path that needs to be checked.
      *  @return True if it's an absolute path, false if not.
      */
@@ -406,6 +463,39 @@ public:
     virtual long getFileSize(const std::string &filepath);
 
     /** Returns the full path cache. */
+=======
+     *  @param strPath The path that needs to be checked.
+     *  @return true if it's an absolute path, otherwise it will return false.
+     */
+    virtual bool isAbsolutePath(const std::string& path) const;
+    
+    
+    /**
+     *  Sets/Gets whether to pop-up a message box when failed to load an image.
+     */
+    virtual void setPopupNotify(bool notify);
+    virtual bool isPopupNotify();
+
+    /**
+     *  Converts the contents of a file to a ValueMap.
+     *  @note This method is used internally.
+     */
+    virtual ValueMap getValueMapFromFile(const std::string& filename);
+    
+    /**
+     *  Write a ValueMap to a plist file.
+     *  @note This method is used internally.
+     */
+    virtual bool writeToFile(ValueMap& dict, const std::string& fullPath);
+    
+    /**
+     *  Converts the contents of a file to a ValueVector.
+     *  @note This method is used internally.
+     */
+    virtual ValueVector getValueVectorFromFile(const std::string& filename);
+
+    /** Returns the full path cache */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const std::unordered_map<std::string, std::string>& getFullPathCache() const { return _fullPathCache; }
 
 protected:
@@ -434,13 +524,18 @@ protected:
     virtual std::string getNewFilename(const std::string &filename) const;
     
     /**
+<<<<<<< HEAD
      *  Checks whether a file exists without considering search paths and resolution orders.
      *  @param filename The file (with absolute path) to look up for
      *  @return Returns true if the file found at the given absolute path, otherwise returns false
+=======
+     *  Checks whether file exists without considering search paths and resolution orders.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual bool isFileExistInternal(const std::string& filename) const = 0;
     
     /**
+<<<<<<< HEAD
      *  Checks whether a directory exists without considering search paths and resolution orders.
      *  @param dirPath The directory (with absolute path) to look up for
      *  @return Returns true if the directory found at the given absolute path, otherwise returns false
@@ -448,6 +543,8 @@ protected:
     virtual bool isDirectoryExistInternal(const std::string& dirPath) const;
     
     /**
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  Gets full path for filename, resolution directory and search path.
      *
      *  @param filename The file name.
@@ -455,7 +552,11 @@ protected:
      *  @param searchPath The search path.
      *  @return The full path of the file. It will return an empty string if the full path of the file doesn't exist.
      */
+<<<<<<< HEAD
     virtual std::string getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath) const;
+=======
+    virtual std::string getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**
      *  Gets full path for the directory and the filename.
@@ -463,6 +564,7 @@ protected:
      *  @note Only iOS and Mac need to override this method since they are using
      *        `[[NSBundle mainBundle] pathForResource: ofType: inDirectory:]` to make a full path.
      *        Other platforms will use the default implementation of this method.
+<<<<<<< HEAD
      *  @param directory The directory contains the file we are looking for.
      *  @param filename  The name of the file.
      *  @return The full path of the file, if the file can't be found, it will return an empty string.
@@ -477,6 +579,13 @@ protected:
      *  @return The full path for the file, if not found, the return value will be an empty string
      */
     virtual std::string searchFullPathForFilename(const std::string& filename) const;
+=======
+     *  @param strDirectory The directory contains the file we are looking for.
+     *  @param strFilename  The name of the file.
+     *  @return The full path of the file, if the file can't be found, it will return an empty string.
+     */
+    virtual std::string getFullPathForDirectoryAndFilename(const std::string& directory, const std::string& filename);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     
     /** Dictionary used to lookup filenames based on a key.
@@ -513,6 +622,7 @@ protected:
      *  The full path cache. When a file is found, it will be added into this cache. 
      *  This variable is used for improving the performance of file search.
      */
+<<<<<<< HEAD
     mutable std::unordered_map<std::string, std::string> _fullPathCache;
     
     /**
@@ -521,14 +631,24 @@ protected:
     std::string _writablePath;
 
     /**
+=======
+    std::unordered_map<std::string, std::string> _fullPathCache;
+    
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  The singleton pointer of FileUtils.
      */
     static FileUtils* s_sharedFileUtils;
     
 };
 
+<<<<<<< HEAD
 // end of support group
 /** @} */
+=======
+// end of platform group
+/// @}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

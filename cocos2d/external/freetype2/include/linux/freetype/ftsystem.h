@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType low-level system interface definition (specification).      */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2001, 2002, 2005, 2010, 2014 by                         */
+=======
+/*  Copyright 1996-2001, 2002, 2005, 2010 by                               */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -192,10 +196,13 @@ FT_BEGIN_HEADER
    * @description:
    *   A handle to an input stream.
    *
+<<<<<<< HEAD
    * @also:
    *   See @FT_StreamRec for the publicly accessible fields of a given
    *   stream object.
    *
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    */
   typedef struct FT_StreamRec_*  FT_Stream;
 
@@ -289,11 +296,14 @@ FT_BEGIN_HEADER
    *   size ::
    *     The stream size in bytes.
    *
+<<<<<<< HEAD
    *     In case of compressed streams where the size is unknown before
    *     actually doing the decompression, the value is set to 0x7FFFFFFF. 
    *     (Note that this size value can occur for normal streams also; it is
    *     thus just a hint.)
    *
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *   pos ::
    *     The current position within the stream.
    *
@@ -344,6 +354,10 @@ FT_BEGIN_HEADER
 
   } FT_StreamRec;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

@@ -25,6 +25,7 @@ THE SOFTWARE.
 #ifndef __CC_APPLICATION_WINRT_H__
 #define __CC_APPLICATION_WINRT_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformConfig.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 
@@ -32,6 +33,14 @@ THE SOFTWARE.
 #include "platform/CCCommon.h"
 #include "platform/CCApplicationProtocol.h"
 #include "platform/winrt/InputEvent.h"
+=======
+#include "base/CCPlatformConfig.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+
+#include "CCStdC.h"
+#include "platform/CCCommon.h"
+#include "platform/CCApplicationProtocol.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <string>
 
 NS_CC_BEGIN
@@ -63,6 +72,7 @@ public:
      @brief Get target platform
      */
     virtual Platform getTargetPlatform() override;
+<<<<<<< HEAD
     
     /**
      @brief Open url in default browser
@@ -79,6 +89,8 @@ public:
     {
         m_openURLDelegate = del;
     }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      *  Sets the Resource root path.
@@ -104,8 +116,11 @@ protected:
     std::string         m_resourceRootPath;
     std::string         m_startupScriptFilename;
 
+<<<<<<< HEAD
     std::function<void(::Platform::String^)> m_openURLDelegate;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static Application * sm_pSharedApplication;
 };
 

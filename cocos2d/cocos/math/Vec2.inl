@@ -22,6 +22,7 @@
 
 NS_CC_MATH_BEGIN
 
+<<<<<<< HEAD
 inline Vec2::Vec2()
 : x(0.0f), y(0.0f)
 {
@@ -139,6 +140,8 @@ inline void Vec2::smooth(const Vec2& target, float elapsedTime, float responseTi
     }
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 inline const Vec2 Vec2::operator+(const Vec2& v) const
 {
     Vec2 result(*this);
@@ -199,6 +202,7 @@ inline bool Vec2::operator<(const Vec2& v) const
     return x < v.x;
 }
 
+<<<<<<< HEAD
 inline bool Vec2::operator>(const Vec2& v) const
 {
     if (x == v.x)
@@ -208,6 +212,8 @@ inline bool Vec2::operator>(const Vec2& v) const
     return x > v.x;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 inline bool Vec2::operator==(const Vec2& v) const
 {
     return x==v.x && y==v.y;
@@ -225,10 +231,13 @@ inline const Vec2 operator*(float x, const Vec2& v)
     return result;
 }
 
+<<<<<<< HEAD
 void Vec2::setPoint(float xx, float yy)
 {
     this->x = xx;
     this->y = yy;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_END

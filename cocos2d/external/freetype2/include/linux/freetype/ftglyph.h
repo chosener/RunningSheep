@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType convenience functions to handle glyphs (specification).     */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2003, 2006, 2008, 2009, 2011, 2013, 2014 by             */
+=======
+/*  Copyright 1996-2003, 2006, 2008, 2009, 2011 by                         */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -94,7 +98,11 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* <Description>                                                         */
   /*    The root glyph structure contains a given glyph image plus its     */
+<<<<<<< HEAD
   /*    advance width in 16.16 fixed-point format.                         */
+=======
+  /*    advance width in 16.16 fixed float format.                         */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Fields>                                                              */
   /*    library :: A handle to the FreeType library object.                */
@@ -325,8 +333,27 @@ FT_BEGIN_HEADER
   } FT_Glyph_BBox_Mode;
 
 
+<<<<<<< HEAD
   /* these constants are deprecated; use the corresponding */
   /* `FT_Glyph_BBox_Mode' values instead                   */
+=======
+  /*************************************************************************/
+  /*                                                                       */
+  /* <Enum>                                                                */
+  /*    ft_glyph_bbox_xxx                                                  */
+  /*                                                                       */
+  /* <Description>                                                         */
+  /*    These constants are deprecated.  Use the corresponding             */
+  /*    @FT_Glyph_BBox_Mode values instead.                                */
+  /*                                                                       */
+  /* <Values>                                                              */
+  /*   ft_glyph_bbox_unscaled  :: See @FT_GLYPH_BBOX_UNSCALED.             */
+  /*   ft_glyph_bbox_subpixels :: See @FT_GLYPH_BBOX_SUBPIXELS.            */
+  /*   ft_glyph_bbox_gridfit   :: See @FT_GLYPH_BBOX_GRIDFIT.              */
+  /*   ft_glyph_bbox_truncate  :: See @FT_GLYPH_BBOX_TRUNCATE.             */
+  /*   ft_glyph_bbox_pixels    :: See @FT_GLYPH_BBOX_PIXELS.               */
+  /*                                                                       */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define ft_glyph_bbox_unscaled   FT_GLYPH_BBOX_UNSCALED
 #define ft_glyph_bbox_subpixels  FT_GLYPH_BBOX_SUBPIXELS
 #define ft_glyph_bbox_gridfit    FT_GLYPH_BBOX_GRIDFIT
@@ -344,17 +371,29 @@ FT_BEGIN_HEADER
   /*    outline's points, including Bézier control points.  Though it      */
   /*    coincides with the exact bounding box for most glyphs, it can be   */
   /*    slightly larger in some situations (like when rotating an outline  */
+<<<<<<< HEAD
   /*    that contains Bézier outside arcs).                                */
+=======
+  /*    which contains Bézier outside arcs).                               */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    Computing the control box is very fast, while getting the bounding */
   /*    box can take much more time as it needs to walk over all segments  */
   /*    and arcs in the outline.  To get the latter, you can use the       */
+<<<<<<< HEAD
   /*    `ftbbox' component, which is dedicated to this single task.        */
+=======
+  /*    `ftbbox' component which is dedicated to this single task.         */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Input>                                                               */
   /*    glyph :: A handle to the source glyph object.                      */
   /*                                                                       */
+<<<<<<< HEAD
   /*    mode  :: The mode that indicates how to interpret the returned     */
+=======
+  /*    mode  :: The mode which indicates how to interpret the returned    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*             bounding box values.                                      */
   /*                                                                       */
   /* <Output>                                                              */
@@ -374,7 +413,11 @@ FT_BEGIN_HEADER
   /*    @FT_LOAD_NO_SCALE, the resulting CBox is meaningless.  To get      */
   /*    reasonable values for the CBox it is necessary to load the glyph   */
   /*    at a large ppem value (so that the hinting instructions can        */
+<<<<<<< HEAD
   /*    properly shift and scale the subglyphs), then extracting the CBox, */
+=======
+  /*    properly shift and scale the subglyphs), then extracting the CBox  */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    which can be eventually converted back to font units.              */
   /*                                                                       */
   /*    Note that the maximum coordinates are exclusive, which means that  */
@@ -589,6 +632,10 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Matrix_Invert( FT_Matrix*  matrix );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

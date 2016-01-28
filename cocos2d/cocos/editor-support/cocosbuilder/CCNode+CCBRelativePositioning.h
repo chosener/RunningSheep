@@ -5,9 +5,15 @@
 
 namespace cocosbuilder {
 
+<<<<<<< HEAD
 extern CC_DLL cocos2d::Vec2 getAbsolutePosition(const cocos2d::Vec2 &pt, CCBReader::PositionType type, const cocos2d::Size &containerSize, const std::string&propName);
 
 extern CC_DLL void setRelativeScale(cocos2d::Node *node, float scaleX, float scaleY, CCBReader::ScaleType type, const std::string& propName);
+=======
+extern cocos2d::Vec2 getAbsolutePosition(const cocos2d::Vec2 &pt, CCBReader::PositionType type, const cocos2d::Size &containerSize, const std::string&propName);
+
+extern void setRelativeScale(cocos2d::Node *node, float scaleX, float scaleY, CCBReader::ScaleType type, const std::string& propName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }
 

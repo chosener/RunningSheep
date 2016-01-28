@@ -25,10 +25,17 @@ void LayerLoader::onHandlePropTypeCheck(Node * pNode, Node * pParent, const char
     } else if(strcmp(pPropertyName, PROPERTY_ACCELEROMETER_ENABLED) == 0) {
         ((Layer *)pNode)->setAccelerometerEnabled(pCheck);
     } else if(strcmp(pPropertyName, PROPERTY_MOUSE_ENABLED) == 0) {
+<<<<<<< HEAD
         // TODO: Not supported
         CCLOG("The property '%s' is not supported!", PROPERTY_MOUSE_ENABLED);
     } else if(strcmp(pPropertyName, PROPERTY_KEYBOARD_ENABLED) == 0) {
         // TODO: Not supported
+=======
+        // TODO XXX
+        CCLOG("The property '%s' is not supported!", PROPERTY_MOUSE_ENABLED);
+    } else if(strcmp(pPropertyName, PROPERTY_KEYBOARD_ENABLED) == 0) {
+        // TODO XXX
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         CCLOG("The property '%s' is not supported!", PROPERTY_KEYBOARD_ENABLED);
         // This comes closest: ((Layer *)pNode)->setKeypadEnabled(pCheck);
     } else {

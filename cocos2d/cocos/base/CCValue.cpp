@@ -29,9 +29,15 @@
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 CC_DLL const ValueVector ValueVectorNull;
 CC_DLL const ValueMap ValueMapNull;
 CC_DLL const ValueMapIntKey ValueMapIntKeyNull;
+=======
+const ValueVector ValueVectorNull;
+const ValueMap ValueMapNull;
+const ValueMapIntKey ValueMapIntKeyNull;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 const Value Value::Null;
 
@@ -91,42 +97,66 @@ Value::Value(const std::string& v)
 Value::Value(const ValueVector& v)
 : _type(Type::VECTOR)
 {
+<<<<<<< HEAD
     _field.vectorVal = new (std::nothrow) ValueVector();
+=======
+    _field.vectorVal = new ValueVector();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.vectorVal = v;
 }
 
 Value::Value(ValueVector&& v)
 : _type(Type::VECTOR)
 {
+<<<<<<< HEAD
     _field.vectorVal = new (std::nothrow) ValueVector();
+=======
+    _field.vectorVal = new ValueVector();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.vectorVal = std::move(v);
 }
 
 Value::Value(const ValueMap& v)
 : _type(Type::MAP)
 {
+<<<<<<< HEAD
     _field.mapVal = new (std::nothrow) ValueMap();
+=======
+    _field.mapVal = new ValueMap();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.mapVal = v;
 }
 
 Value::Value(ValueMap&& v)
 : _type(Type::MAP)
 {
+<<<<<<< HEAD
     _field.mapVal = new (std::nothrow) ValueMap();
+=======
+    _field.mapVal = new ValueMap();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.mapVal = std::move(v);
 }
 
 Value::Value(const ValueMapIntKey& v)
 : _type(Type::INT_KEY_MAP)
 {
+<<<<<<< HEAD
     _field.intKeyMapVal = new (std::nothrow) ValueMapIntKey();
+=======
+    _field.intKeyMapVal = new ValueMapIntKey();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.intKeyMapVal = v;
 }
 
 Value::Value(ValueMapIntKey&& v)
 : _type(Type::INT_KEY_MAP)
 {
+<<<<<<< HEAD
     _field.intKeyMapVal = new (std::nothrow) ValueMapIntKey();
+=======
+    _field.intKeyMapVal = new ValueMapIntKey();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     *_field.intKeyMapVal = std::move(v);
 }
 
@@ -178,21 +208,33 @@ Value& Value::operator= (const Value& other)
             case Type::VECTOR:
                 if (_field.vectorVal == nullptr)
                 {
+<<<<<<< HEAD
                     _field.vectorVal = new (std::nothrow) ValueVector();
+=======
+                    _field.vectorVal = new ValueVector();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 }
                 *_field.vectorVal = *other._field.vectorVal;
                 break;
             case Type::MAP:
                 if (_field.mapVal == nullptr)
                 {
+<<<<<<< HEAD
                     _field.mapVal = new (std::nothrow) ValueMap();
+=======
+                    _field.mapVal = new ValueMap();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 }
                 *_field.mapVal = *other._field.mapVal;
                 break;
             case Type::INT_KEY_MAP:
                 if (_field.intKeyMapVal == nullptr)
                 {
+<<<<<<< HEAD
                     _field.intKeyMapVal = new (std::nothrow) ValueMapIntKey();
+=======
+                    _field.intKeyMapVal = new ValueMapIntKey();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 }
                 *_field.intKeyMapVal = *other._field.intKeyMapVal;
                 break;
@@ -756,7 +798,11 @@ static std::string visit(const Value& v, int depth)
     return ret.str();
 }
 
+<<<<<<< HEAD
 std::string Value::getDescription() const
+=======
+std::string Value::getDescription()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     std::string ret("\n");
     ret += visit(*this, 0);
@@ -816,6 +862,7 @@ void Value::reset(Type type)
             _field.strVal = new std::string();
             break;
         case Type::VECTOR:
+<<<<<<< HEAD
             _field.vectorVal = new (std::nothrow) ValueVector();
             break;
         case Type::MAP:
@@ -823,6 +870,15 @@ void Value::reset(Type type)
             break;
         case Type::INT_KEY_MAP:
             _field.intKeyMapVal = new (std::nothrow) ValueMapIntKey();
+=======
+            _field.vectorVal = new ValueVector();
+            break;
+        case Type::MAP:
+            _field.mapVal = new ValueMap();
+            break;
+        case Type::INT_KEY_MAP:
+            _field.intKeyMapVal = new ValueMapIntKey();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             break;
         default:
             break;

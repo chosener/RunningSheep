@@ -29,14 +29,18 @@ THE SOFTWARE.
 #include "2d/CCLabel.h"
 #include "base/CCIMEDelegate.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup ui
  * @{
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class TextFieldTTF;
 
+<<<<<<< HEAD
 
 /**
  * A input protocol for TextField.
@@ -53,6 +57,21 @@ public:
     /**
      *@brief    If the sender doesn't want to attach to the IME, return true.
      */
+=======
+/**
+ * @addtogroup input
+ * @{
+ */
+
+class CC_DLL TextFieldDelegate
+{
+public:
+    virtual ~TextFieldDelegate() {}
+
+    /**
+    @brief    If the sender doesn't want to attach to the IME, return true;
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool onTextFieldAttachWithIME(TextFieldTTF * sender)
     {
         CC_UNUSED_PARAM(sender);
@@ -60,8 +79,13 @@ public:
     }
 
     /**
+<<<<<<< HEAD
      *@brief    If the sender doesn't want to detach from the IME, return true.
      */
+=======
+    @brief    If the sender doesn't want to detach from the IME, return true;
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool onTextFieldDetachWithIME(TextFieldTTF * sender)
     {
         CC_UNUSED_PARAM(sender);
@@ -69,8 +93,13 @@ public:
     }
 
     /**
+<<<<<<< HEAD
      *@brief    If the sender doesn't want to insert the text, return true.
      */
+=======
+    @brief    If the sender doesn't want to insert the text, return true;
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool onTextFieldInsertText(TextFieldTTF * sender, const char * text, size_t nLen)
     {
         CC_UNUSED_PARAM(sender);
@@ -80,8 +109,13 @@ public:
     }
 
     /**
+<<<<<<< HEAD
      *@brief    If the sender doesn't want to delete the delText, return true.
      */
+=======
+    @brief    If the sender doesn't want to delete the delText, return true;
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool onTextFieldDeleteBackward(TextFieldTTF * sender, const char * delText, size_t nLen)
     {
         CC_UNUSED_PARAM(sender);
@@ -91,9 +125,14 @@ public:
     }
 
     /**
+<<<<<<< HEAD
      *@brief    If the sender doesn't want to draw, return true.
      * @js NA
      */
+=======
+    @brief    If the sender doesn't want to draw, return true.
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool onVisit(TextFieldTTF * sender,Renderer *renderer, const Mat4 &transform, uint32_t flags)
     {
         CC_UNUSED_PARAM(sender);
@@ -102,12 +141,18 @@ public:
 };
 
 /**
+<<<<<<< HEAD
  *@brief    A simple text input field with TTF font.
  */
+=======
+@brief    A simple text input field with TTF font.
+*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL TextFieldTTF : public Label, public IMEDelegate
 {
 public:
     /**
+<<<<<<< HEAD
      * Default constructor.
      * @js ctor
      */
@@ -115,11 +160,18 @@ public:
     
     /**
      * Default destructor.
+=======
+     * @js ctor
+     */
+    TextFieldTTF();
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~TextFieldTTF();
 
+<<<<<<< HEAD
     /** Creates a TextFieldTTF from a fontname, alignment, dimension and font size.
     * @js NA
     */
@@ -145,19 +197,50 @@ public:
      *@brief    End text input and close keyboard.
      */
     virtual bool detachWithIME() override;
+=======
+    //char * description();
+
+    /** creates a TextFieldTTF from a fontname, alignment, dimension and font size */
+    static TextFieldTTF * textFieldWithPlaceHolder(const std::string& placeholder, const Size& dimensions, TextHAlignment alignment, const std::string& fontName, float fontSize);
+    /** creates a TextFieldTTF from a fontname and font size */
+    static TextFieldTTF * textFieldWithPlaceHolder(const std::string& placeholder, const std::string& fontName, float fontSize);
+    /** initializes the TextFieldTTF with a font name, alignment, dimension and font size */
+    bool initWithPlaceHolder(const std::string& placeholder, const Size& dimensions, TextHAlignment alignment, const std::string& fontName, float fontSize);
+    /** initializes the TextFieldTTF with a font name and font size */
+    bool initWithPlaceHolder(const std::string& placeholder, const std::string& fontName, float fontSize);
+
+    /**
+    @brief    Open keyboard and receive input text.
+    */
+    virtual bool attachWithIME();
+
+    /**
+    @brief    End text input and close keyboard.
+    */
+    virtual bool detachWithIME();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     //////////////////////////////////////////////////////////////////////////
     // properties
     //////////////////////////////////////////////////////////////////////////
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     inline TextFieldDelegate* getDelegate() const { return _delegate; };
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     inline void setDelegate(TextFieldDelegate* delegate) { _delegate = delegate; };
 
+<<<<<<< HEAD
     /**
      * Query the currently inputed charater count.
      *@return The total input character count.
@@ -226,6 +309,27 @@ public:
      *@return Whether current text is displayed as secure text entry.
      * @js NA
      */
+=======
+    inline int getCharCount() const { return _charCount; };
+    
+    virtual const Color4B& getColorSpaceHolder();
+
+    virtual void setColorSpaceHolder(const Color3B& color);
+    virtual void setColorSpaceHolder(const Color4B& color);
+
+    virtual void setTextColor(const Color4B& textColor) override;
+
+    // input text property
+    virtual void setString(const std::string& text) override;
+    virtual const std::string& getString() const override;
+
+    // place holder text property
+    // place holder text displayed when there is no text in the text field.
+    virtual void setPlaceHolder(const std::string& text);
+    virtual const std::string& getPlaceHolder(void) const;
+
+    virtual void setSecureTextEntry(bool value);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool isSecureTextEntry();
 
     virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
@@ -257,8 +361,16 @@ private:
     LengthStack * _lens;
 };
 
+<<<<<<< HEAD
 NS_CC_END
 // end of ui group
 /// @}
 
+=======
+// end of input group
+/// @}
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif    // __CC_TEXT_FIELD_H__

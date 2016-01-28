@@ -1,5 +1,8 @@
 #include "MciPlayer.h"
+<<<<<<< HEAD
 #include <tchar.h>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define WIN_CLASS_NAME        "CocosDenshionCallbackWnd"
 #define BREAK_IF(cond)      if (cond) break;
@@ -35,7 +38,11 @@ MciPlayer::MciPlayer()
         wc.hCursor        = LoadCursor( NULL, IDC_ARROW );    // Load The Arrow Pointer
         wc.hbrBackground  = NULL;                           // No Background Required For GL
         wc.lpszMenuName   = NULL;                           // We Don't Want A Menu
+<<<<<<< HEAD
         wc.lpszClassName  = _T(WIN_CLASS_NAME);                 // Set The Class Name
+=======
+        wc.lpszClassName  = WIN_CLASS_NAME;                 // Set The Class Name
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         if (! RegisterClass(&wc)
             && 1410 != GetLastError())
@@ -46,7 +53,11 @@ MciPlayer::MciPlayer()
 
     _wnd = CreateWindowEx(
         WS_EX_APPWINDOW,                                    // Extended Style For The Window
+<<<<<<< HEAD
         _T(WIN_CLASS_NAME),                                        // Class Name
+=======
+        WIN_CLASS_NAME,                                        // Class Name
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         NULL,                                        // Window Title
         WS_POPUPWINDOW,/*WS_OVERLAPPEDWINDOW*/               // Defined Window Style
         0, 0,                                                // Window Position
@@ -89,6 +100,7 @@ void MciPlayer::Open(const char* pFileName, UINT uId)
         MCI_OPEN_PARMS mciOpen = {0};
         MCIERROR mciError;
         mciOpen.lpstrDeviceType = (LPCTSTR)MCI_ALL_DEVICE_ID;
+<<<<<<< HEAD
 		WCHAR* fileNameWideChar = new WCHAR[nLen + 1];
 		BREAK_IF(! fileNameWideChar);
 		MultiByteToWideChar(CP_ACP, 0, pFileName, nLen + 1, fileNameWideChar, nLen + 1);
@@ -96,6 +108,11 @@ void MciPlayer::Open(const char* pFileName, UINT uId)
 
         mciError = mciSendCommand(0,MCI_OPEN, MCI_OPEN_ELEMENT, reinterpret_cast<DWORD_PTR>(&mciOpen));
 		CC_SAFE_DELETE_ARRAY(mciOpen.lpstrElementName);
+=======
+        mciOpen.lpstrElementName = pFileName;
+
+        mciError = mciSendCommand(0,MCI_OPEN, MCI_OPEN_ELEMENT, reinterpret_cast<DWORD_PTR>(&mciOpen));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         BREAK_IF(mciError);
 
         _dev = mciOpen.wDeviceID;
@@ -161,7 +178,10 @@ void MciPlayer::Stop()
 {
     _SendGenericCommand(MCI_STOP);
     _playing = false;
+<<<<<<< HEAD
     _times = 0;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void MciPlayer::Rewind()

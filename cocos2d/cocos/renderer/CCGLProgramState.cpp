@@ -37,7 +37,10 @@ THE SOFTWARE.
 #include "base/CCEventListenerCustom.h"
 #include "base/CCEventType.h"
 #include "base/CCDirector.h"
+<<<<<<< HEAD
 #include "base/CCEventDispatcher.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -48,16 +51,28 @@ NS_CC_BEGIN
 //
 
 UniformValue::UniformValue()
+<<<<<<< HEAD
 : _uniform(nullptr)
 , _glprogram(nullptr)
 , _useCallback(false)
+=======
+: _useCallback(false)
+, _uniform(nullptr)
+, _glprogram(nullptr)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 
 UniformValue::UniformValue(Uniform *uniform, GLProgram* glprogram)
+<<<<<<< HEAD
 : _uniform(uniform)
 , _glprogram(glprogram)
 , _useCallback(false)
+=======
+: _useCallback(false)
+, _uniform(uniform)
+, _glprogram(glprogram)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 
@@ -80,11 +95,14 @@ void UniformValue::apply()
                 GL::bindTexture2DN(_value.tex.textureUnit, _value.tex.textureId);
                 break;
 
+<<<<<<< HEAD
             case GL_SAMPLER_CUBE:
                 _glprogram->setUniformLocationWith1i(_uniform->location, _value.tex.textureUnit);
                 GL::bindTextureN(_value.tex.textureUnit, _value.tex.textureId, GL_TEXTURE_CUBE_MAP);
                 break;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             case GL_INT:
                 _glprogram->setUniformLocationWith1i(_uniform->location, _value.intValue);
                 break;
@@ -119,7 +137,11 @@ void UniformValue::apply()
 void UniformValue::setCallback(const std::function<void(GLProgram*, Uniform*)> &callback)
 {
 	// delete previously set callback
+<<<<<<< HEAD
 	// TODO: memory will leak if the user does:
+=======
+	// XXX TODO: memory will leak if the user does:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	//    value->setCallback();
 	//    value->setFloat();
 	if (_useCallback)
@@ -140,7 +162,11 @@ void UniformValue::setFloat(float value)
 
 void UniformValue::setTexture(GLuint textureId, GLuint textureUnit)
 {
+<<<<<<< HEAD
     //CCASSERT(_uniform->type == GL_SAMPLER_2D, "Wrong type. expecting GL_SAMPLER_2D");
+=======
+    CCASSERT(_uniform->type == GL_SAMPLER_2D, "Wrong type. expecting GL_SAMPLER_2D");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _value.tex.textureId = textureId;
     _value.tex.textureUnit = textureUnit;
     _useCallback = false;
@@ -187,15 +213,25 @@ void UniformValue::setMat4(const Mat4& value)
 //
 
 VertexAttribValue::VertexAttribValue()
+<<<<<<< HEAD
 : _vertexAttrib(nullptr)
 , _useCallback(false)
+=======
+: _useCallback(false)
+, _vertexAttrib(nullptr)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _enabled(false)
 {
 }
 
 VertexAttribValue::VertexAttribValue(VertexAttrib *vertexAttrib)
+<<<<<<< HEAD
 : _vertexAttrib(vertexAttrib)
 , _useCallback(false)
+=======
+: _useCallback(false)
+, _vertexAttrib(vertexAttrib)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _enabled(false)
 {
 }
@@ -279,6 +315,7 @@ GLProgramState* GLProgramState::getOrCreateWithGLProgram(GLProgram *glprogram)
 }
 
 GLProgramState::GLProgramState()
+<<<<<<< HEAD
 : _uniformAttributeValueDirty(true)
 , _textureUnitIndex(1)
 , _vertexAttribsFlags(0)
@@ -293,13 +330,28 @@ GLProgramState::GLProgramState()
             CCLOG("Dirty Uniform and Attributes of GLProgramState"); 
             _uniformAttributeValueDirty = true;
         });
+=======
+: _vertexAttribsFlags(0)
+, _glprogram(nullptr)
+, _textureUnitIndex(1)
+, _uniformAttributeValueDirty(true)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    /** listen the event that renderer was recreated on Android/WP8 */
+    CCLOG("create rendererRecreatedListener for GLProgramState");
+    _backToForegroundlistener = EventListenerCustom::create(EVENT_RENDERER_RECREATED, [this](EventCustom*) { _uniformAttributeValueDirty = true; });
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(_backToForegroundlistener, -1);
 #endif
 }
 
 GLProgramState::~GLProgramState()
 {
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Director::getInstance()->getEventDispatcher()->removeEventListener(_backToForegroundlistener);
 #endif
     
@@ -345,7 +397,11 @@ void GLProgramState::apply(const Mat4& modelView)
     applyUniforms();
 }
 
+<<<<<<< HEAD
 void GLProgramState::updateUniformsAndAttributes()
+=======
+void GLProgramState::applyGLProgram(const Mat4& modelView)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     CCASSERT(_glprogram, "invalid glprogram");
     if(_uniformAttributeValueDirty)
@@ -366,12 +422,15 @@ void GLProgramState::updateUniformsAndAttributes()
         _uniformAttributeValueDirty = false;
         
     }
+<<<<<<< HEAD
 }
 
 void GLProgramState::applyGLProgram(const Mat4& modelView)
 {
     CCASSERT(_glprogram, "invalid glprogram");
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // set shader
     _glprogram->use();
     _glprogram->setUniformsForBuiltins(modelView);
@@ -380,7 +439,10 @@ void GLProgramState::applyAttributes(bool applyAttribFlags)
 {
     // Don't set attributes if they weren't set
     // Use Case: Auto-batching
+<<<<<<< HEAD
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(_vertexAttribsFlags) {
         // enable/disable vertex attribs
         if (applyAttribFlags)
@@ -395,7 +457,10 @@ void GLProgramState::applyAttributes(bool applyAttribFlags)
 void GLProgramState::applyUniforms()
 {
     // set uniforms
+<<<<<<< HEAD
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     for(auto& uniform : _uniforms) {
         uniform.second.apply();
     }
@@ -413,7 +478,10 @@ void GLProgramState::setGLProgram(GLProgram *glprogram)
 
 UniformValue* GLProgramState::getUniformValue(GLint uniformLocation)
 {
+<<<<<<< HEAD
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const auto itr = _uniforms.find(uniformLocation);
     if (itr != _uniforms.end())
         return &itr->second;
@@ -422,7 +490,10 @@ UniformValue* GLProgramState::getUniformValue(GLint uniformLocation)
 
 UniformValue* GLProgramState::getUniformValue(const std::string &name)
 {
+<<<<<<< HEAD
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const auto itr = _uniformsByName.find(name);
     if (itr != _uniformsByName.end())
         return &_uniforms[itr->second];
@@ -431,7 +502,10 @@ UniformValue* GLProgramState::getUniformValue(const std::string &name)
 
 VertexAttribValue* GLProgramState::getVertexAttribValue(const std::string &name)
 {
+<<<<<<< HEAD
     updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const auto itr = _attributes.find(name);
     if( itr != _attributes.end())
         return &itr->second;

@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    Additional Mac-specific API.                                         */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2001, 2004, 2006, 2007, 2013 by                         */
+=======
+/*  Copyright 1996-2001, 2004, 2006, 2007 by                               */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  Just van Rossum, David Turner, Robert Wilhelm, and Werner Lemberg.     */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -18,7 +22,11 @@
 
 /***************************************************************************/
 /*                                                                         */
+<<<<<<< HEAD
 /* NOTE: Include this file after FT_FREETYPE_H and after any               */
+=======
+/* NOTE: Include this file after <freetype/freetype.h> and after any       */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*       Mac-specific headers (because this header uses Mac types such as  */
 /*       Handle, FSSpec, FSRef, etc.)                                      */
 /*                                                                         */
@@ -168,7 +176,11 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* <Description>                                                         */
   /*    Return a pathname of the disk file and face index for given font   */
+<<<<<<< HEAD
   /*    name that is handled by ATS framework.                             */
+=======
+  /*    name which is handled by ATS framework.                            */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Input>                                                               */
   /*    fontName    :: Mac OS name of the font in ATS framework.           */

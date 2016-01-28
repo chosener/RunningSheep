@@ -35,12 +35,21 @@ NS_CC_BEGIN
 class NodeGrid;
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
  * @{
  */
 
 /** @class TransitionPageTurn
 * @brief A transition which peels back the bottom right hand corner of a scene
+=======
+ * @addtogroup transition
+ * @{
+ */
+
+/**
+@brief A transition which peels back the bottom right hand corner of a scene
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 to transition to the scene beneath it simulating a page turn.
 
 This uses a 3DAction so it's strongly recommended that depth buffering
@@ -57,21 +66,28 @@ public:
      * Creates a base transition with duration and incoming scene.
      * If back is true then the effect is reversed to appear as if the incoming
      * scene is being turned from left over the outgoing scene.
+<<<<<<< HEAD
      *
      * @param t Duration time, in seconds.
      * @param scene A given scene.
      * @param backwards If back is true then the effect is reversed to appear as if the incoming scene is being turned from left over the outgoing scene.
      * @return An autoreleased TransitionPageTurn object.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static TransitionPageTurn* create(float t,Scene* scene,bool backwards);
     
     //
     // Overrides
+<<<<<<< HEAD
     // @js NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     //
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
 
     /**
+<<<<<<< HEAD
      * Creates a base transition with duration and incoming scene.
      * If back is true then the effect is reversed to appear as if the incoming
      * scene is being turned from left over the outgoing scene.
@@ -88,6 +104,14 @@ public:
      * @param vector A given size.
      * @return The action that will be performed.
      */
+=======
+    * Creates a base transition with duration and incoming scene.
+    * If back is true then the effect is reversed to appear as if the incoming 
+    * scene is being turned from left over the outgoing scene.
+    */
+    bool initWithDuration(float t,Scene* scene,bool backwards);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ActionInterval* actionWithSize(const Size& vector);
 
     //
@@ -113,10 +137,25 @@ protected:
 protected:
     NodeGrid* _inSceneProxy;
     NodeGrid* _outSceneProxy;
+<<<<<<< HEAD
     bool    _back;
 };
 
 // end of _2d group
+=======
+    bool    _back;    
+    static float POLYGON_OFFSET_FACTOR;
+    static float POLYGON_OFFSET_UNITS;
+    
+protected:
+    CustomCommand _enableOffsetCmd;
+    CustomCommand _disableOffsetCmd;
+    void onEnablePolygonOffset();
+    void onDisablePolygonOffset();
+};
+
+// end of transition group
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

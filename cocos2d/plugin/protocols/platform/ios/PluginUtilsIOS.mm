@@ -162,6 +162,10 @@ NSMutableDictionary* PluginUtilsIOS::createDictFromMap(std::map<std::string, std
     
     return dict;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void PluginUtilsIOS::callOCFunctionWithName_oneParam(PluginProtocol* pPlugin, const char* funcName, id param)
 {
     return_if_fails(funcName != NULL && strlen(funcName) > 0);
@@ -243,9 +247,15 @@ float PluginUtilsIOS::callOCFloatFunctionWithName(PluginProtocol* pPlugin, const
 bool PluginUtilsIOS::callOCBoolFunctionWithName_oneParam(PluginProtocol* pPlugin, const char* funcName, id param)
 {
     bool ret = false;
+<<<<<<< HEAD
     BOOL* pRet = (BOOL*)callRetFunctionWithParam(pPlugin, funcName, param);
     if (nil != pRet) {
         ret = pRet;
+=======
+    NSNumber* pRet = (NSNumber*)callRetFunctionWithParam(pPlugin, funcName, param);
+    if (nil != pRet) {
+        ret = [pRet boolValue];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     return ret;
@@ -254,9 +264,15 @@ bool PluginUtilsIOS::callOCBoolFunctionWithName_oneParam(PluginProtocol* pPlugin
 bool PluginUtilsIOS::callOCBoolFunctionWithName(PluginProtocol* pPlugin, const char* funcName)
 {
     bool ret = false;
+<<<<<<< HEAD
     BOOL* pRet = (BOOL*)callRetFunction(pPlugin, funcName);
     if (nil != pRet) {
         ret = pRet;
+=======
+    NSNumber* pRet = (NSNumber*)callRetFunction(pPlugin, funcName);
+    if (nil != pRet) {
+        ret = [pRet boolValue];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     return ret;

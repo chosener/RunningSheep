@@ -25,9 +25,18 @@
 #ifndef _COCOLOADER_H
 #define _COCOLOADER_H
 
+<<<<<<< HEAD
 #include <stdint.h>
 #include "json/document.h"
 #include "cocostudio/CocosStudioExport.h"
+=======
+#include <stdio.h>
+#include <vector>
+#include <cstdio>
+#include <stdint.h>
+#include "json/rapidjson.h"
+#include "json/document.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #pragma pack (4)
 
@@ -35,7 +44,11 @@ namespace cocostudio{
         
 class CocoLoader;
     
+<<<<<<< HEAD
 struct CC_STUDIO_DLL stExpCocoAttribDesc
+=======
+struct  stExpCocoAttribDesc
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     char	m_cTypeName;
     uint32_t m_szName;
@@ -43,7 +56,11 @@ public:
     char* GetName(CocoLoader*	pCoco);
 };
 
+<<<<<<< HEAD
 struct CC_STUDIO_DLL stExpCocoObjectDesc
+=======
+struct  stExpCocoObjectDesc
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     unsigned char	m_cAttribNum;
     uint32_t		m_szName;
@@ -54,7 +71,11 @@ public:
     stExpCocoAttribDesc*	GetAttribDescArray(CocoLoader*	pCoco);
 };
 
+<<<<<<< HEAD
 struct CC_STUDIO_DLL stExpCocoNode
+=======
+struct  stExpCocoNode
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     int16_t			m_ObjIndex;
@@ -72,7 +93,11 @@ public:
     void WriteJson(CocoLoader* pCoco,void* pFileName = nullptr, int vLayer = 0, bool bEndNode = false, bool bParentNodeIsArray = false);
 };
 
+<<<<<<< HEAD
 struct CC_STUDIO_DLL stCocoFileHeader
+=======
+struct	stCocoFileHeader
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     char		m_FileDesc[32];
     char		m_Version[32];
@@ -85,7 +110,11 @@ struct CC_STUDIO_DLL stCocoFileHeader
     
 };
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL CocoLoader
+=======
+class CocoLoader
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     stCocoFileHeader*			m_pFileHeader;
     stExpCocoNode*				m_pRootNode;

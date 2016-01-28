@@ -26,15 +26,21 @@
 #define _CC_BATCHCOMMAND_H_
 
 #include "renderer/CCRenderCommand.h"
+<<<<<<< HEAD
 
 /**
  * @addtogroup support
  * @{
  */
+=======
+#include "renderer/CCGLProgram.h"
+#include "CCRenderCommandPool.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 class TextureAtlas;
+<<<<<<< HEAD
 class GLProgram;
 /**
 Command used to draw batches in one TextureAtlas.
@@ -74,12 +80,39 @@ protected:
     TextureAtlas *_textureAtlas;
 
     /**ModelView transform.*/
+=======
+
+class BatchCommand : public RenderCommand
+{
+public:
+
+    BatchCommand();
+    ~BatchCommand();
+
+    void init(float depth, GLProgram* shader, BlendFunc blendType, TextureAtlas *textureAtlas, const Mat4& modelViewTransform);
+
+    void execute();
+
+protected:
+    //Material
+    int32_t _materialID;
+    GLuint _textureID;
+    GLProgram* _shader;
+    BlendFunc _blendType;
+
+    TextureAtlas *_textureAtlas;
+
+    // ModelView transform
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Mat4 _mv;
 };
 NS_CC_END
 
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //_CC_BATCHCOMMAND_H_

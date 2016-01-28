@@ -1,6 +1,7 @@
 
 
 #include "PageViewReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIPageView.h"
 #include "ui/UILayout.h"
@@ -14,12 +15,24 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIPageView.h"
+#include "ui/UILayout.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
     static PageViewReader* instancePageViewReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(PageViewReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(PageViewReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     PageViewReader::PageViewReader()
     {
@@ -35,16 +48,23 @@ namespace cocostudio
     {
         if (!instancePageViewReader)
         {
+<<<<<<< HEAD
             instancePageViewReader = new (std::nothrow) PageViewReader();
+=======
+            instancePageViewReader = new PageViewReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instancePageViewReader;
     }
     
+<<<<<<< HEAD
     void PageViewReader::destroyInstance()
     {
         CC_SAFE_DELETE(instancePageViewReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void PageViewReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
 	{
 		LayoutReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -53,6 +73,7 @@ namespace cocostudio
     void PageViewReader::setPropsFromJsonDictionary(Widget *widget, const rapidjson::Value &options)
     {
         LayoutReader::setPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> PageViewReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -470,4 +491,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

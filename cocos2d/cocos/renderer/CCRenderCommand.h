@@ -28,6 +28,7 @@
 
 #include <stdint.h>
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
 #include "base/ccTypes.h"
 
@@ -36,12 +37,18 @@
  * @{
  */
 
+=======
+#include "base/CCPlatformMacros.h"
+#include "base/ccTypes.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 /** Base class of the `RenderCommand` hierarchy.
 *
  The `Renderer` knows how to render `RenderCommands` objects.
  */
+<<<<<<< HEAD
 class CC_DLL RenderCommand
 {
 public:
@@ -133,4 +140,41 @@ NS_CC_END
  end of support group
  @}
  */
+=======
+class RenderCommand
+{
+public:
+
+    enum class Type
+    {
+        UNKNOWN_COMMAND,
+        QUAD_COMMAND,
+        CUSTOM_COMMAND,
+        BATCH_COMMAND,
+        GROUP_COMMAND,
+        MESH_COMMAND,
+    };
+
+    /** Get Render Command Id */
+    inline float getGlobalOrder() const { return _globalOrder; }
+
+    /** Returns the Command type */
+    inline Type getType() const { return _type; }
+
+protected:
+    RenderCommand();
+    virtual ~RenderCommand();
+
+    void printID();
+
+    // Type used in order to avoid dynamic cast, faster
+    Type _type;
+
+    // commands are sort by depth
+    float _globalOrder;
+};
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //__CCRENDERCOMMAND_H_

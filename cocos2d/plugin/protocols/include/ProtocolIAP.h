@@ -27,7 +27,10 @@ THE SOFTWARE.
 #include "PluginProtocol.h"
 #include <map>
 #include <string>
+<<<<<<< HEAD
 #include <functional>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { namespace plugin {
 
@@ -61,8 +64,11 @@ public:
 	ProtocolIAP();
 	virtual ~ProtocolIAP();
 
+<<<<<<< HEAD
 	typedef std::function<void(int, std::string&)> ProtocolIAPCallback;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     @brief config the developer info
     @param devInfo This parameter is the info of developer,
@@ -82,14 +88,20 @@ public:
              Look at the manual of plugins.
     */
     void payForProduct(TProductInfo info);
+<<<<<<< HEAD
     void payForProduct(TProductInfo info, ProtocolIAPCallback cb);
 
     /**
     @deprecated
+=======
+
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     @breif set the result listener
     @param pListener The callback object for pay result
     @wraning Must invoke this interface before payForProduct.
     */
+<<<<<<< HEAD
     CC_DEPRECATED_ATTRIBUTE void setResultListener(PayResultListener* pListener);
     
     /**
@@ -97,6 +109,10 @@ public:
     @breif get the result listener
     */
     CC_DEPRECATED_ATTRIBUTE inline PayResultListener* getResultListener()
+=======
+    void setResultListener(PayResultListener* pListener);
+    inline PayResultListener* getResultListener()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         return _listener;
     }
@@ -105,6 +121,7 @@ public:
     @brief pay result callback
     */
     void onPayResult(PayResultCode ret, const char* msg);
+<<<<<<< HEAD
 
     /**
     @brief set callback function
@@ -121,12 +138,17 @@ public:
     {
     	return _callback;
     }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 protected:
     static bool _paying;
 
     TProductInfo _curInfo;
     PayResultListener* _listener;
+<<<<<<< HEAD
     ProtocolIAPCallback _callback;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 }} // namespace cocos2d { namespace plugin {

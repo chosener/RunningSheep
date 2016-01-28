@@ -25,13 +25,20 @@ THE SOFTWARE.
 #ifndef __CC_EXTENTIONS_CCINPUTDELEGATE_H__
 #define __CC_EXTENTIONS_CCINPUTDELEGATE_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCTouch.h"
 #include "base/CCEvent.h"
 #include "base/ccTypes.h"
 #include "base/CCEventKeyboard.h"
 #include "base/CCEventListener.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d {
     class __Set;
@@ -42,9 +49,15 @@ namespace cocostudio {
 /**
  *  @lua NA
  */
+<<<<<<< HEAD
 class CC_STUDIO_DLL InputDelegate
 {
 CC_CONSTRUCTOR_ACCESS:
+=======
+class InputDelegate
+{
+protected:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js ctor
      */

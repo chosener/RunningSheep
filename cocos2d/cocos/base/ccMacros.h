@@ -33,7 +33,11 @@ THE SOFTWARE.
 #endif
 
 #include "base/CCConsole.h"
+<<<<<<< HEAD
 #include "platform/CCStdC.h"
+=======
+#include "CCStdC.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifndef CCASSERT
 #if COCOS2D_DEBUG > 0
@@ -55,7 +59,11 @@ THE SOFTWARE.
 
 #define GP_ASSERT(cond) CCASSERT(cond, "")
 
+<<<<<<< HEAD
 // FIXME:: Backward compatible
+=======
+// XXX: Backward compatible
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define CCAssert CCASSERT
 #endif  // CCASSERT
 
@@ -63,24 +71,38 @@ THE SOFTWARE.
 
 /** @def CC_SWAP
 simple macro that swaps 2 variables
+<<<<<<< HEAD
  @deprecated use std::swap() instead
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 #define CC_SWAP(x, y, type)    \
 {    type temp = (x);        \
     x = y; y = temp;        \
 }
 
+<<<<<<< HEAD
 #include "base/ccRandom.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /** @def CCRANDOM_MINUS1_1
  returns a random float between -1 and 1
  */
+<<<<<<< HEAD
 #define CCRANDOM_MINUS1_1() cocos2d::rand_minus1_1()
+=======
+#define CCRANDOM_MINUS1_1() ((2.0f*((float)rand()/RAND_MAX))-1.0f)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /** @def CCRANDOM_0_1
  returns a random float between 0 and 1
  */
+<<<<<<< HEAD
 #define CCRANDOM_0_1() cocos2d::rand_0_1()
+=======
+#define CCRANDOM_0_1() ((float)rand()/RAND_MAX)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /** @def CC_DEGREES_TO_RADIANS
  converts degrees to radians
@@ -92,8 +114,12 @@ simple macro that swaps 2 variables
  */
 #define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) * 57.29577951f) // PI * 180
 
+<<<<<<< HEAD
 #define CC_REPEAT_FOREVER (UINT_MAX -1)
 #define kRepeatForever CC_REPEAT_FOREVER
+=======
+#define kRepeatForever (UINT_MAX -1)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /** @def CC_BLEND_SRC
 default gl blend src function. Compatible with premultiplied alpha images.
@@ -124,7 +150,11 @@ do { \
   */
 #define CC_DIRECTOR_END()                                       \
 do {                                                            \
+<<<<<<< HEAD
     Director *__director = cocos2d::Director::getInstance();             \
+=======
+    Director *__director = Director::getInstance();             \
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     __director->end();                                          \
 } while(0)
 
@@ -132,7 +162,11 @@ do {                                                            \
 On Mac it returns 1;
 On iPhone it returns 2 if RetinaDisplay is On. Otherwise it returns 1
 */
+<<<<<<< HEAD
 #define CC_CONTENT_SCALE_FACTOR() cocos2d::Director::getInstance()->getContentScaleFactor()
+=======
+#define CC_CONTENT_SCALE_FACTOR() Director::getInstance()->getContentScaleFactor()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /****************************/
 /** RETINA DISPLAY ENABLED **/
@@ -206,6 +240,7 @@ It should work same as apples CFSwapInt32LittleToHost(..)
 /**********************/
 #if CC_ENABLE_PROFILERS
 
+<<<<<<< HEAD
 #define CC_PROFILER_DISPLAY_TIMERS() NS_CC::Profiler::getInstance()->displayTimers()
 #define CC_PROFILER_PURGE_ALL() NS_CC::Profiler::getInstance()->releaseAllTimers()
 
@@ -220,6 +255,22 @@ It should work same as apples CFSwapInt32LittleToHost(..)
 #define CC_PROFILER_START_INSTANCE(__id__, __name__) do{ NS_CC::ProfilingBeginTimingBlock( NS_CC::String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
 #define CC_PROFILER_STOP_INSTANCE(__id__, __name__) do{ NS_CC::ProfilingEndTimingBlock(    NS_CC::String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
 #define CC_PROFILER_RESET_INSTANCE(__id__, __name__) do{ NS_CC::ProfilingResetTimingBlock( NS_CC::String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
+=======
+#define CC_PROFILER_DISPLAY_TIMERS() Profiler::getInstance()->displayTimers()
+#define CC_PROFILER_PURGE_ALL() Profiler::getInstance()->releaseAllTimers()
+
+#define CC_PROFILER_START(__name__) ProfilingBeginTimingBlock(__name__)
+#define CC_PROFILER_STOP(__name__) ProfilingEndTimingBlock(__name__)
+#define CC_PROFILER_RESET(__name__) ProfilingResetTimingBlock(__name__)
+
+#define CC_PROFILER_START_CATEGORY(__cat__, __name__) do{ if(__cat__) ProfilingBeginTimingBlock(__name__); } while(0)
+#define CC_PROFILER_STOP_CATEGORY(__cat__, __name__) do{ if(__cat__) ProfilingEndTimingBlock(__name__); } while(0)
+#define CC_PROFILER_RESET_CATEGORY(__cat__, __name__) do{ if(__cat__) ProfilingResetTimingBlock(__name__); } while(0)
+
+#define CC_PROFILER_START_INSTANCE(__id__, __name__) do{ ProfilingBeginTimingBlock( String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
+#define CC_PROFILER_STOP_INSTANCE(__id__, __name__) do{ ProfilingEndTimingBlock(    String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
+#define CC_PROFILER_RESET_INSTANCE(__id__, __name__) do{ ProfilingResetTimingBlock( String::createWithFormat("%08X - %s", __id__, __name__)->getCString() ); } while(0)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #else
@@ -257,10 +308,17 @@ It should work same as apples CFSwapInt32LittleToHost(..)
  Increments the GL Draws counts by one.
  The number of calls per frame are displayed on the screen when the Director's stats are enabled.
  */
+<<<<<<< HEAD
 #define CC_INCREMENT_GL_DRAWS(__n__) cocos2d::Director::getInstance()->getRenderer()->addDrawnBatches(__n__)
 #define CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(__drawcalls__, __vertices__) \
     do {                                                                \
         auto __renderer__ = cocos2d::Director::getInstance()->getRenderer();     \
+=======
+#define CC_INCREMENT_GL_DRAWS(__n__) Director::getInstance()->getRenderer()->addDrawnBatches(__n__)
+#define CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(__drawcalls__, __vertices__) \
+    do {                                                                \
+        auto __renderer__ = Director::getInstance()->getRenderer();     \
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         __renderer__->addDrawnBatches(__drawcalls__);                   \
         __renderer__->addDrawnVertices(__vertices__);                   \
     } while(0)

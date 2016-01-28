@@ -24,9 +24,17 @@
 #ifndef __CCANIMATIONCURVE_H__
 #define __CCANIMATIONCURVE_H__
 
+<<<<<<< HEAD
 #include <functional>
 
 #include "platform/CCPlatformMacros.h"
+=======
+#include <unordered_map>
+#include <functional>
+
+#include "base/ccTypes.h"
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCRef.h"
 #include "math/CCMath.h"
 
@@ -37,11 +45,14 @@
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup _3d
  * @{
  */
 
 /**
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * Evaluate Type
  */
 enum class EvaluateType
@@ -53,9 +64,13 @@ enum class EvaluateType
 };
 
 /**
+<<<<<<< HEAD
  * @brief curve of bone's position, rotation or scale
  *
  * @lua NA
+=======
+ * curve of bone's position, rotation or scale
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 template <int componentSize>
 class AnimationCurve: public Ref
@@ -102,9 +117,12 @@ protected:
     std::function<void(float time, float* dst)> _evaluateFun; //user defined function
 };
 
+<<<<<<< HEAD
 // end of 3d group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #include "CCAnimationCurve.inl"

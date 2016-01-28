@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType modules public interface (specification).                   */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2003, 2006, 2008-2010, 2012, 2013 by                    */
+=======
+/*  Copyright 1996-2001, 2002, 2003, 2006, 2008, 2009, 2010 by             */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -42,11 +46,16 @@ FT_BEGIN_HEADER
   /*    Module Management                                                  */
   /*                                                                       */
   /* <Abstract>                                                            */
+<<<<<<< HEAD
   /*    How to add, upgrade, remove, and control modules from FreeType.    */
+=======
+  /*    How to add, upgrade, and remove modules from FreeType.             */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Description>                                                         */
   /*    The definitions below are used to manage modules within FreeType.  */
   /*    Modules can be added, upgraded, and removed at runtime.            */
+<<<<<<< HEAD
   /*    Additionally, some module properties can be controlled also.       */
   /*                                                                       */
   /*    Here is a list of possible values of the `module_name' field in    */
@@ -101,6 +110,8 @@ FT_BEGIN_HEADER
   /*    FT_Set_Renderer                                                    */
   /*                                                                       */
   /*    FT_Set_Debug_Hook                                                  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*************************************************************************/
 
@@ -172,7 +183,11 @@ FT_BEGIN_HEADER
   /*    A function used to query a given module for a specific interface.  */
   /*                                                                       */
   /* <Input>                                                               */
+<<<<<<< HEAD
   /*    module :: The module to be searched.                               */
+=======
+  /*    module :: The module to finalize.                                  */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    name ::   The name of the interface in the module.                 */
   /*                                                                       */
@@ -303,6 +318,7 @@ FT_BEGIN_HEADER
                     FT_Module   module );
 
 
+<<<<<<< HEAD
   /**********************************************************************
    *
    * @function:
@@ -434,6 +450,8 @@ FT_BEGIN_HEADER
                    void*             value );
 
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
   /*                                                                       */
   /* <Function>                                                            */
@@ -445,7 +463,11 @@ FT_BEGIN_HEADER
   /*    @FT_Done_Library then only destroys a library if the counter is~1, */
   /*    otherwise it simply decrements the counter.                        */
   /*                                                                       */
+<<<<<<< HEAD
   /*    This function helps in managing life-cycles of structures that     */
+=======
+  /*    This function helps in managing life-cycles of structures which    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    reference @FT_Library objects.                                     */
   /*                                                                       */
   /* <Input>                                                               */
@@ -518,7 +540,11 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Done_Library( FT_Library  library );
 
+<<<<<<< HEAD
   /* */
+=======
+/* */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   typedef void
   (*FT_DebugHook_Func)( void*  arg );
@@ -611,17 +637,29 @@ FT_BEGIN_HEADER
    *       The library implements a bytecode interpreter that doesn't
    *       support the patented operations of the TrueType virtual machine.
    *
+<<<<<<< HEAD
    *       Its main use is to load certain Asian fonts that position and
    *       scale glyph components with bytecode instructions.  It produces
    *       bad output for most other fonts.
    *
    *     FT_TRUETYPE_ENGINE_TYPE_PATENTED ::
+=======
+   *       Its main use is to load certain Asian fonts which position and
+   *       scale glyph components with bytecode instructions.  It produces
+   *       bad output for most other fonts.
+   *
+   *    FT_TRUETYPE_ENGINE_TYPE_PATENTED ::
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *       The library implements a bytecode interpreter that covers
    *       the full instruction set of the TrueType virtual machine (this
    *       was governed by patents until May 2010, hence the name).
    *
    *  @since:
+<<<<<<< HEAD
    *     2.2
+=======
+   *       2.2
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
   typedef enum  FT_TrueTypeEngineType_
@@ -656,6 +694,10 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_TrueTypeEngineType )
   FT_Get_TrueType_Engine_Type( FT_Library  library );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

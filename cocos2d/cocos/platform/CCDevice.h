@@ -1,6 +1,10 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -26,7 +30,11 @@ THE SOFTWARE.
 #ifndef __CCDEVICE_H__
 #define __CCDEVICE_H__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
+=======
+#include "base/CCPlatformMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccMacros.h"
 #include "base/CCData.h"
 
@@ -34,6 +42,7 @@ NS_CC_BEGIN
 
 struct FontDefinition;
 
+<<<<<<< HEAD
 /**
  * @addtogroup support
  * @{
@@ -60,6 +69,23 @@ public:
         TOP_LEFT      = 0x11, /** Horizontal left and vertical top. */
     };
 
+=======
+class CC_DLL Device
+{
+public:
+    enum class TextAlign
+    {
+        CENTER        = 0x33, ///< Horizontal center and vertical center.
+        TOP           = 0x13, ///< Horizontal center and vertical top.
+        TOP_RIGHT     = 0x12, ///< Horizontal right and vertical top.
+        RIGHT         = 0x32, ///< Horizontal right and vertical center.
+        BOTTOM_RIGHT = 0x22, ///< Horizontal right and vertical bottom.
+        BOTTOM        = 0x23, ///< Horizontal center and vertical bottom.
+        BOTTOM_LEFT  = 0x21, ///< Horizontal left and vertical bottom.
+        LEFT          = 0x31, ///< Horizontal left and vertical center.
+        TOP_LEFT      = 0x11, ///< Horizontal left and vertical top.
+    };
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      *  Gets the DPI of device
      *  @return The DPI of device.
@@ -70,12 +96,16 @@ public:
      * To enable or disable accelerometer.
      */
     static void setAccelerometerEnabled(bool isEnabled);
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      *  Sets the interval of accelerometer.
      */
     static void setAccelerometerInterval(float interval);
 
+<<<<<<< HEAD
     /**
      * Controls whether the screen should remain on.
      * 
@@ -86,14 +116,19 @@ public:
     /**
      * Gets texture data for text.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static Data getTextureDataForText(const char * text, const FontDefinition& textDefinition, TextAlign align, int &width, int &height, bool& hasPremultipliedAlpha);
 
 private:
     CC_DISALLOW_IMPLICIT_CONSTRUCTORS(Device);
 };
 
+<<<<<<< HEAD
 // end group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

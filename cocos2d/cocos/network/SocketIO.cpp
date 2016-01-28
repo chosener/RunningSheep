@@ -120,7 +120,11 @@ void SIOClientImpl::handshake()
     std::stringstream pre;
     pre << "http://" << _uri << "/socket.io/1";
 
+<<<<<<< HEAD
     HttpRequest* request = new (std::nothrow) HttpRequest();
+=======
+    HttpRequest* request = new HttpRequest();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     request->setUrl(pre.str().c_str());
     request->setRequestType(HttpRequest::Type::GET);
 
@@ -216,7 +220,11 @@ void SIOClientImpl::openSocket()
     std::stringstream s;
     s << _uri << "/socket.io/1/websocket/" << _sid;
 
+<<<<<<< HEAD
     _ws = new (std::nothrow) WebSocket();
+=======
+    _ws = new WebSocket();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!_ws->init(*this, s.str()))
     {
         CC_SAFE_DELETE(_ws);
@@ -258,7 +266,11 @@ void SIOClientImpl::disconnect()
 
 SIOClientImpl* SIOClientImpl::create(const std::string& host, int port)
 {
+<<<<<<< HEAD
     SIOClientImpl *s = new (std::nothrow) SIOClientImpl(host, port);
+=======
+    SIOClientImpl *s = new SIOClientImpl(host, port);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (s && s->init())
     {
@@ -359,7 +371,11 @@ void SIOClientImpl::onOpen(WebSocket* ws)
         iter->second->onOpen();
     }
 
+<<<<<<< HEAD
     Director::getInstance()->getScheduler()->schedule(CC_SCHEDULE_SELECTOR(SIOClientImpl::heartbeat), this, (_heartbeat * .9f), false);
+=======
+    Director::getInstance()->getScheduler()->schedule(schedule_selector(SIOClientImpl::heartbeat), this, (_heartbeat * .9f), false);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     log("SIOClientImpl::onOpen socket connected!");
 }
@@ -595,7 +611,11 @@ SocketIO::~SocketIO(void)
 SocketIO* SocketIO::getInstance()
 {
     if (nullptr == _inst)
+<<<<<<< HEAD
         _inst = new (std::nothrow) SocketIO();
+=======
+        _inst = new SocketIO();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     return _inst;
 }
@@ -660,7 +680,11 @@ SIOClient* SocketIO::connect(const std::string& uri, SocketIO::SIODelegate& dele
         //create a new socket, new client, connect
         socket = SIOClientImpl::create(host, port);
 
+<<<<<<< HEAD
         c = new (std::nothrow) SIOClient(host, port, path, socket, delegate);
+=======
+        c = new SIOClient(host, port, path, socket, delegate);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         socket->addClient(path, c);
 
@@ -673,7 +697,11 @@ SIOClient* SocketIO::connect(const std::string& uri, SocketIO::SIODelegate& dele
 
         if(c == nullptr)
         {
+<<<<<<< HEAD
             c = new (std::nothrow) SIOClient(host, port, path, socket, delegate);
+=======
+            c = new SIOClient(host, port, path, socket, delegate);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
             socket->addClient(path, c);
 

@@ -1,7 +1,11 @@
 /****************************************************************************
 Copyright (c) 2008-2010 Ricardo Quesada
 Copyright (c) 2010-2012 cocos2d-x.org
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
 http://www.cocos2d-x.org
 
@@ -23,16 +27,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 
 #ifndef __CCLABELTTF_H__
 #define __CCLABELTTF_H__
 
 /// @cond DO_NOT_SHOW
 
+=======
+#ifndef __CCLABELTTF_H__
+#define __CCLABELTTF_H__
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCNode.h"
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #elif _MSC_VER >= 1400 //vs 2005 or higher
@@ -49,6 +60,19 @@ class Label;
  * @{
  */
 
+=======
+class Label;
+
+/**
+ * @addtogroup GUI
+ * @{
+ * @addtogroup label
+ * @{
+ */
+
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /** @brief LabelTTF is a subclass of TextureNode that knows how to render text labels
  *
  * All features from TextureNode are valid in LabelTTF
@@ -166,6 +190,7 @@ protected:
 };
 
 
+<<<<<<< HEAD
 // end of group
 /// @}
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
@@ -177,5 +202,13 @@ protected:
 NS_CC_END
 
 /// @endcond
+=======
+// end of GUI group
+/// @}
+/// @}
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //__CCLABEL_H__
 

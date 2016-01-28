@@ -47,6 +47,7 @@ extern "C" {
                 {
                     pListener->onSocialResult((SocialRetCode) ret, strMsg.c_str());
                 }
+<<<<<<< HEAD
                 else
                 {
                 	ProtocolSocial::ProtocolSocialCallback callback = pSocial->getCallback();
@@ -59,6 +60,11 @@ extern "C" {
         }
     }
 
+=======
+            }
+        }
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ProtocolSocial::ProtocolSocial()
@@ -115,12 +121,15 @@ void ProtocolSocial::submitScore(const char* leadboardID, long score)
     }
 }
 
+<<<<<<< HEAD
 void ProtocolSocial::submitScore(const char* leadboardID, long score, ProtocolSocialCallback cb)
 {
 	_callback = cb;
 	submitScore(leadboardID, score);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolSocial::showLeaderboard(const char* leaderboardID)
 {
     PluginJavaData* pData = PluginUtils::getPluginJavaData(this);
@@ -166,12 +175,15 @@ void ProtocolSocial::unlockAchievement(TAchievementInfo achInfo)
     }
 }
 
+<<<<<<< HEAD
 void ProtocolSocial::unlockAchievement(TAchievementInfo achInfo, ProtocolSocialCallback cb)
 {
 	_callback = cb;
 	unlockAchievement(achInfo);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolSocial::showAchievements()
 {
     PluginUtils::callJavaFunctionWithName(this, "showAchievements");

@@ -30,6 +30,7 @@ import android.view.KeyEvent;
 import android.widget.EditText;
 
 public class Cocos2dxEditText extends EditText {
+<<<<<<< HEAD
     // ===========================================================
     // Constants
     // ===========================================================
@@ -87,4 +88,63 @@ public class Cocos2dxEditText extends EditText {
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+=======
+	// ===========================================================
+	// Constants
+	// ===========================================================
+
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
+	private Cocos2dxGLSurfaceView mCocos2dxGLSurfaceView;
+
+	// ===========================================================
+	// Constructors
+	// ===========================================================
+
+	public Cocos2dxEditText(final Context context) {
+		super(context);
+	}
+
+	public Cocos2dxEditText(final Context context, final AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public Cocos2dxEditText(final Context context, final AttributeSet attrs, final int defStyle) {
+		super(context, attrs, defStyle);
+	}
+
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+
+	public void setCocos2dxGLSurfaceView(final Cocos2dxGLSurfaceView pCocos2dxGLSurfaceView) {
+		this.mCocos2dxGLSurfaceView = pCocos2dxGLSurfaceView;
+	}
+
+	// ===========================================================
+	// Methods for/from SuperClass/Interfaces
+	// ===========================================================
+
+	@Override
+	public boolean onKeyDown(final int pKeyCode, final KeyEvent pKeyEvent) {
+		super.onKeyDown(pKeyCode, pKeyEvent);
+
+		/* Let GlSurfaceView get focus if back key is input. */
+		if (pKeyCode == KeyEvent.KEYCODE_BACK) {
+			this.mCocos2dxGLSurfaceView.requestFocus();
+		}
+
+		return true;
+	}
+
+	// ===========================================================
+	// Methods
+	// ===========================================================
+
+	// ===========================================================
+	// Inner and Anonymous Classes
+	// ===========================================================
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

@@ -46,6 +46,7 @@ extern "C" {
 				{
 			        listener->onAdsResult((AdsResultCode) ret, strMsg.c_str());
 				}
+<<<<<<< HEAD
 			    else
 			    {
 			    	ProtocolAds::ProtocolAdsCallback callback = pAds->getCallback();
@@ -54,6 +55,8 @@ extern "C" {
 			    		callback(ret, strMsg);
 			    	}
 			    }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 			}
 		}
 	}

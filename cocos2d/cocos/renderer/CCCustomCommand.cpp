@@ -32,11 +32,14 @@ CustomCommand::CustomCommand()
     _type = RenderCommand::Type::CUSTOM_COMMAND;
 }
 
+<<<<<<< HEAD
 void CustomCommand::init(float depth, const cocos2d::Mat4 &modelViewTransform, uint32_t flags)
 {
     RenderCommand::init(depth, modelViewTransform, flags);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void CustomCommand::init(float globalOrder)
 {
     _globalOrder = globalOrder;

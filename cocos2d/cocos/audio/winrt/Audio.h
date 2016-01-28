@@ -5,6 +5,7 @@
 ////
 //// Copyright (c) Microsoft Corporation. All rights reserved
 
+<<<<<<< HEAD
 // For licensing information relating to this distribution please see Third Party Notices file.
 
 #pragma once
@@ -17,13 +18,21 @@
 
 #define XAUDIO2_HELPER_FUNCTIONS 1
 #include <xaudio2.h>
+=======
+#pragma once
+
+#include "pch.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <map>
 
 static const int STREAMING_BUFFER_SIZE = 65536;
 static const int MAX_BUFFER_COUNT = 3;
 
+<<<<<<< HEAD
 #define UNUSED_PARAM(unusedparam) (void)unusedparam
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct SoundEffectData
 {
 	unsigned int				m_soundID;
@@ -96,11 +105,18 @@ private:
     StreamingVoiceContext       m_voiceContext;
 
     typedef std::map<unsigned int, SoundEffectData> EffectList;
+<<<<<<< HEAD
     typedef std::pair<unsigned int, SoundEffectData> Effect;
 	EffectList				    m_soundEffects;         
 
     unsigned int                m_backgroundID;       
     std::string                 m_backgroundFile;       
+=======
+	EffectList				    m_soundEffects;
+
+    unsigned int                m_backgroundID;
+    std::string                 m_backgroundFile;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool                        m_backgroundLoop;
 
     float                       m_soundEffctVolume;
@@ -156,12 +172,19 @@ public:
 
     void PauseAllSoundEffects();
     void ResumeAllSoundEffects();
+<<<<<<< HEAD
     void StopAllSoundEffects(bool bReleaseData);
+=======
+    void StopAllSoundEffects();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     void PreloadSoundEffect(const char* pszFilePath, bool isMusic = false);
     void UnloadSoundEffect(const char* pszFilePath);
     void UnloadSoundEffect(unsigned int sound);
+<<<<<<< HEAD
 
 private:
     void RemoveFromList(unsigned int sound);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };

@@ -188,6 +188,7 @@ bool Rect::intersectsRect(const Rect& rect) const
              rect.getMaxY() <      getMinY());
 }
 
+<<<<<<< HEAD
 bool Rect::intersectsCircle(const cocos2d::Vec2 &center, float radius) const
 {
     Vec2 rectangleCenter((origin.x + size.width / 2),
@@ -239,6 +240,8 @@ void Rect::merge(const Rect& rect)
     size.height = std::max(top1, top2) - origin.y;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Rect Rect::unionWithRect(const Rect & rect) const
 {
     float thisLeftX = origin.x;

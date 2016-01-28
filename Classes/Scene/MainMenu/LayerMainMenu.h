@@ -11,9 +11,16 @@
 
 #include <stdio.h>
 #include "../../Framework/CocosHead.h"
+<<<<<<< HEAD
 #include "../../Framework/BasicLayer.h"
 
 //这是测试层Test
+=======
+#include "../../Framework/GameHeader.h"
+#include "../../Framework/BasicLayer.h"
+
+//游戏主菜单
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class LayerMainMenu : public BasicLayer
 {
 public:
@@ -23,6 +30,18 @@ public:
     virtual bool init();
     
     CREATE_FUNC(LayerMainMenu);
+<<<<<<< HEAD
+=======
+    
+private:
+    void initView();
+    ///背景
+    void initBackGround();
+    ///按钮
+    void initButton();
+    
+    void onGameStart(Node* sender, Touch* touch, Event* e);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 #endif /* defined(__MagicTouch__LayerMainMenu__) */

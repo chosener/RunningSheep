@@ -27,15 +27,29 @@ THE SOFTWARE.
 #ifndef __CCTILE_MAP_ATLAS__
 #define __CCTILE_MAP_ATLAS__
 
+<<<<<<< HEAD
 #include "2d/CCAtlasNode.h"
+=======
+#include "CCAtlasNode.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCValue.h"
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
 
 struct sImageTGA;
 
+=======
+struct sImageTGA;
+
+/**
+ * @addtogroup tilemap_parallax_nodes
+ * @{
+ */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /** @brief TileMapAtlas is a subclass of AtlasNode.
 
 It knows how to render a map based of tiles.
@@ -50,7 +64,10 @@ IMPORTANT:
 This class is deprecated. It is maintained for compatibility reasons only.
 You SHOULD not use this class.
 Instead, use the newer TMX file format: TMXTiledMap
+<<<<<<< HEAD
 @js NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL TileMapAtlas : public AtlasNode 
 {
@@ -73,6 +90,7 @@ public:
     The file will be loaded using the TextureMgr.
     */
     bool initWithTileFile(const std::string& tile, const std::string& mapFile, int tileWidth, int tileHeight);
+<<<<<<< HEAD
     /**
      * Returns a tile from position x,y.
      *For the moment only channel R is used
@@ -82,6 +100,12 @@ public:
      * Returns a tile from position x,y.
      *For the moment only channel R is used
      */
+=======
+    /** returns a tile from position x,y.
+    For the moment only channel R is used
+    */
+    Color3B getTileAt(const Vec2& position) const;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_DEPRECATED_ATTRIBUTE Color3B tileAt(const Vec2& position) const { return getTileAt(position); };
     /** sets a tile at position x,y.
     For the moment only channel R is used
@@ -90,6 +114,7 @@ public:
     /** dealloc the map from memory */
     void releaseMap();
     
+<<<<<<< HEAD
     /**
      * Query TGA image info.
      *@return The TGA image info.
@@ -100,6 +125,9 @@ public:
      * Set the TGA image info for TileMapAtlas
      *@param TGAInfo The TGA info in sImageTGA.
      */
+=======
+    inline struct sImageTGA* getTGAInfo() const { return _TGAInfo; };
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setTGAInfo(struct sImageTGA* TGAInfo) { _TGAInfo = TGAInfo; };
 
 protected:
@@ -117,7 +145,12 @@ protected:
     struct sImageTGA* _TGAInfo;
 };
 
+<<<<<<< HEAD
 /// @endcond
+=======
+// end of tilemap_parallax_nodes group
+/// @}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

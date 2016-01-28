@@ -27,7 +27,10 @@ THE SOFTWARE.
 
 #include <string>
 #include "DictionaryHelper.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ObjectFactory.h"
 #include "CocoLoader.h"
 
@@ -47,7 +50,11 @@ THE SOFTWARE.
 #define CREATE_CLASS_COMPONENT_INFO(className) \
         cocos2d::ObjectFactory::TInfo(#className, &className::createInstance)
 
+<<<<<<< HEAD
 struct CC_STUDIO_DLL SerData
+=======
+struct SerData
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     const rapidjson::Value *_rData;
     cocostudio::stExpCocoNode *_cocoNode;

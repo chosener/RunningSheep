@@ -26,12 +26,23 @@ THE SOFTWARE.
 
 #include "2d/CCMotionStreak.h"
 #include "math/CCVertex.h"
+<<<<<<< HEAD
 #include "base/CCDirector.h"
 #include "renderer/CCTextureCache.h"
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCTexture2D.h"
 #include "renderer/CCRenderer.h"
 #include "renderer/CCGLProgramState.h"
+=======
+#include "base/ccMacros.h"
+#include "base/CCDirector.h"
+#include "renderer/CCTextureCache.h"
+#include "renderer/ccGLStateCache.h"
+#include "renderer/CCGLProgram.h"
+#include "renderer/CCGLProgramState.h"
+#include "renderer/CCCustomCommand.h"
+#include "renderer/CCRenderer.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -40,6 +51,10 @@ MotionStreak::MotionStreak()
 , _startingPositionInitialized(false)
 , _texture(nullptr)
 , _blendFunc(BlendFunc::ALPHA_NON_PREMULTIPLIED)
+<<<<<<< HEAD
+=======
+, _positionR(Vec2::ZERO)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _stroke(0.0f)
 , _fadeDelta(0.0f)
 , _minSeg(0.0f)
@@ -66,7 +81,11 @@ MotionStreak::~MotionStreak()
 
 MotionStreak* MotionStreak::create(float fade, float minSeg, float stroke, const Color3B& color, const std::string& path)
 {
+<<<<<<< HEAD
     MotionStreak *ret = new (std::nothrow) MotionStreak();
+=======
+    MotionStreak *ret = new MotionStreak();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithFade(fade, minSeg, stroke, color, path))
     {
         ret->autorelease();
@@ -79,7 +98,11 @@ MotionStreak* MotionStreak::create(float fade, float minSeg, float stroke, const
 
 MotionStreak* MotionStreak::create(float fade, float minSeg, float stroke, const Color3B& color, Texture2D* texture)
 {
+<<<<<<< HEAD
     MotionStreak *ret = new (std::nothrow) MotionStreak();
+=======
+    MotionStreak *ret = new MotionStreak();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithFade(fade, minSeg, stroke, color, texture))
     {
         ret->autorelease();
@@ -105,7 +128,11 @@ bool MotionStreak::initWithFade(float fade, float minSeg, float stroke, const Co
     ignoreAnchorPointForPosition(true);
     _startingPositionInitialized = false;
 
+<<<<<<< HEAD
     _positionR.setZero();
+=======
+    _positionR = Vec2::ZERO;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _fastMode = true;
     _minSeg = (minSeg == -1.0f) ? stroke/5.0f : minSeg;
     _minSeg *= _minSeg;
@@ -168,11 +195,14 @@ float MotionStreak::getPositionX() const
     return _positionR.x;
 }
 
+<<<<<<< HEAD
 Vec3 MotionStreak::getPosition3D() const
 {
     return Vec3(_positionR.x, _positionR.y, getPositionZ());
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void MotionStreak::setPositionX(float x)
 {
     if (!_startingPositionInitialized) {
@@ -410,9 +440,17 @@ void MotionStreak::draw(Renderer *renderer, const Mat4 &transform, uint32_t flag
 {
     if(_nuPoints <= 1)
         return;
+<<<<<<< HEAD
     _customCommand.init(_globalZOrder, transform, flags);
+=======
+    _customCommand.init(_globalZOrder);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _customCommand.func = CC_CALLBACK_0(MotionStreak::onDraw, this, transform, flags);
     renderer->addCommand(&_customCommand);
 }
 
 NS_CC_END
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

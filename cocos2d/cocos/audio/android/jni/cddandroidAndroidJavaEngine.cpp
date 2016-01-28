@@ -291,11 +291,19 @@ namespace CocosDenshion {
             methodInfo.env->DeleteLocalRef(methodInfo.classID);
         }
 
+<<<<<<< HEAD
         static void loadEffect(const char* pszFilePath, char* loadEffectName) {
             cocos2d::JniMethodInfo methodInfo;
             std::string fullPath = CocosDenshion::android::getFullPathWithoutAssetsPrefix(pszFilePath);
         
             if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME, loadEffectName, "(Ljava/lang/String;)V")) {
+=======
+        void AndroidJavaEngine::preloadEffect(const char* pszFilePath) {
+            cocos2d::JniMethodInfo methodInfo;
+            std::string fullPath = CocosDenshion::android::getFullPathWithoutAssetsPrefix(pszFilePath);
+        
+            if (! getJNIStaticMethodInfo(methodInfo, "preloadEffect", "(Ljava/lang/String;)V")) {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 return ;
             }
         
@@ -305,6 +313,7 @@ namespace CocosDenshion {
             methodInfo.env->DeleteLocalRef(methodInfo.classID);
         }
 
+<<<<<<< HEAD
 
         void AndroidJavaEngine::preloadEffect(const char* pszFilePath) {
             loadEffect(pszFilePath, "preloadEffect");
@@ -315,3 +324,20 @@ namespace CocosDenshion {
         }
     }
 }
+=======
+        void AndroidJavaEngine::unloadEffect(const char* pszFilePath) {
+            cocos2d::JniMethodInfo methodInfo;
+            std::string fullPath = CocosDenshion::android::getFullPathWithoutAssetsPrefix(pszFilePath);
+        
+            if (! getJNIStaticMethodInfo(methodInfo, "unloadEffect", "(Ljava/lang/String;)V")) {
+                return ;
+            }
+        
+            jstring stringArg = methodInfo.env->NewStringUTF(fullPath.c_str());
+            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, stringArg);
+            methodInfo.env->DeleteLocalRef(stringArg);
+            methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        }
+    }
+}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

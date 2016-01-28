@@ -49,7 +49,11 @@ TextBMFont::~TextBMFont()
 
 TextBMFont* TextBMFont::create()
 {
+<<<<<<< HEAD
     TextBMFont* widget = new (std::nothrow) TextBMFont();
+=======
+    TextBMFont* widget = new TextBMFont();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (widget && widget->init())
     {
         widget->autorelease();
@@ -61,7 +65,11 @@ TextBMFont* TextBMFont::create()
     
 TextBMFont* TextBMFont::create(const std::string &text, const std::string &filename)
 {
+<<<<<<< HEAD
     TextBMFont* widget = new (std::nothrow) TextBMFont();
+=======
+    TextBMFont* widget = new TextBMFont();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (widget && widget->init())
     {
         widget->setFntFile(filename);
@@ -89,22 +97,34 @@ void TextBMFont::setFntFile(const std::string& fileName)
     _labelBMFontRenderer->setBMFontFilePath(fileName);
     
     _fntFileHasInit = true;
+<<<<<<< HEAD
     updateContentSizeWithTextureSize(_labelBMFontRenderer->getContentSize());
     _labelBMFontRendererAdaptDirty = true;
+=======
+    setString(_stringValue);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void TextBMFont::setString(const std::string& value)
 {
+<<<<<<< HEAD
     if (value == _labelBMFontRenderer->getString())
     {
         return;
     }
     _stringValue = value;
     _labelBMFontRenderer->setString(value);
+=======
+    _stringValue = value;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!_fntFileHasInit)
     {
         return;
     }
+<<<<<<< HEAD
+=======
+    _labelBMFontRenderer->setString(value);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     updateContentSizeWithTextureSize(_labelBMFontRenderer->getContentSize());
     _labelBMFontRendererAdaptDirty = true;
 }
@@ -134,7 +154,11 @@ void TextBMFont::adaptRenderers()
     }
 }
 
+<<<<<<< HEAD
 Size TextBMFont::getVirtualRendererSize() const
+=======
+const Size& TextBMFont::getVirtualRendererSize() const
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return _labelBMFontRenderer->getContentSize();
 }

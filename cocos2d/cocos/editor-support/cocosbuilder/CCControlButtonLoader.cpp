@@ -19,8 +19,12 @@ namespace cocosbuilder {;
 #define PROPERTY_TITLETTFSIZE_HIGHLIGHTED "titleTTFSize|2"
 #define PROPERTY_TITLETTFSIZE_DISABLED "titleTTFSize|3"
 #define PROPERTY_LABELANCHORPOINT "labelAnchorPoint"
+<<<<<<< HEAD
 // TODO: Should be "preferredSize". This is a typo in cocos2d-iphone, cocos2d-x and CocosBuilder!    
 #define PROPERTY_PREFEREDSIZE "preferedSize"
+=======
+#define PROPERTY_PREFEREDSIZE "preferedSize" // TODO Should be "preferredSize". This is a typo in cocos2d-iphone, cocos2d-x and CocosBuilder!
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define PROPERTY_BACKGROUNDSPRITEFRAME_NORMAL "backgroundSpriteFrame|1"
 #define PROPERTY_BACKGROUNDSPRITEFRAME_HIGHLIGHTED "backgroundSpriteFrame|2"
 #define PROPERTY_BACKGROUNDSPRITEFRAME_DISABLED "backgroundSpriteFrame|3"

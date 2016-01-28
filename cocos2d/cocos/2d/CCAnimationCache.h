@@ -30,17 +30,27 @@ THE SOFTWARE.
 #include "base/CCRef.h"
 #include "base/CCMap.h"
 #include "base/CCValue.h"
+<<<<<<< HEAD
 #include "2d/CCAnimation.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <string>
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 
 class Animation;
 
 /**
  * @addtogroup _2d
+=======
+class Animation;
+
+/**
+ * @addtogroup sprite_nodes
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
@@ -50,7 +60,10 @@ It saves in a cache the animations. You should use this class if you want to sav
 Before v0.99.5, the recommend way was to save them on the Sprite. Since v0.99.5, you should use this class instead.
 
 @since v0.99.5
+<<<<<<< HEAD
 @js cc.animationCache
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL AnimationCache : public Ref
 {
@@ -64,6 +77,7 @@ public:
      * @lua NA
      */
     ~AnimationCache();
+<<<<<<< HEAD
     /** Returns the shared instance of the Animation cache 
 	 @js NA
 	*/
@@ -78,11 +92,25 @@ public:
     CC_DEPRECATED_ATTRIBUTE static AnimationCache* sharedAnimationCache() { return AnimationCache::getInstance(); }
 
     /** @deprecated Use destroyInstance() instead. */
+=======
+    /** Returns the shared instance of the Animation cache */
+    static AnimationCache* getInstance();
+
+    /** Purges the cache. It releases all the Animation objects and the shared instance.
+     */
+    static void destroyInstance();
+
+    /** @deprecated Use getInstance() instead */
+    CC_DEPRECATED_ATTRIBUTE static AnimationCache* sharedAnimationCache() { return AnimationCache::getInstance(); }
+
+    /** @deprecated Use destroyInstance() instead */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_DEPRECATED_ATTRIBUTE static void purgeSharedAnimationCache() { return AnimationCache::destroyInstance(); }
 
     bool init(void);
 
     /** Adds a Animation with a name.
+<<<<<<< HEAD
      *
      * @param animation An animation.
      * @param name The name of animation.
@@ -92,6 +120,13 @@ public:
     /** Deletes a Animation from the cache.
      *
      * @param name The name of animation.
+=======
+    */
+    void addAnimation(Animation *animation, const std::string& name);
+
+    /** Deletes a Animation from the cache.
+     
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void removeAnimation(const std::string& name);
     /** @deprecated. Use removeAnimation() instead
@@ -101,6 +136,7 @@ public:
     CC_DEPRECATED_ATTRIBUTE void removeAnimationByName(const std::string& name){ removeAnimation(name);}
 
     /** Returns a Animation that was previously added.
+<<<<<<< HEAD
      * If the name is not found it will return nil.
      * You should retain the returned copy if you are going to use it.
      *
@@ -109,26 +145,48 @@ public:
     Animation* getAnimation(const std::string& name);
     /**
      * @deprecated. Use getAnimation() instead
+=======
+    If the name is not found it will return nil.
+    You should retain the returned copy if you are going to use it.
+    */
+    Animation* getAnimation(const std::string& name);
+    /**
+     @deprecated. Use getAnimation() instead
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     CC_DEPRECATED_ATTRIBUTE Animation* animationByName(const std::string& name){ return getAnimation(name); }
 
+<<<<<<< HEAD
     /** Adds an animation from an NSDictionary.
      * Make sure that the frames were previously loaded in the SpriteFrameCache.
      * @param dictionary An NSDictionary.
      * @param plist The path of the relative file,it use to find the plist path for load SpriteFrames.
      * @since v1.1
 	 @js NA
+=======
+    /** Adds an animation from an NSDictionary
+     Make sure that the frames were previously loaded in the SpriteFrameCache.
+     @param plist The path of the relative file,it use to find the plist path for load SpriteFrames.
+     @since v1.1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void addAnimationsWithDictionary(const ValueMap& dictionary,const std::string& plist);
 
     /** Adds an animation from a plist file.
+<<<<<<< HEAD
      * Make sure that the frames were previously loaded in the SpriteFrameCache.
      * @since v1.1
      * @js addAnimations
      * @lua addAnimations
      * @param plist An animation from a plist file.
+=======
+     Make sure that the frames were previously loaded in the SpriteFrameCache.
+     @since v1.1
+     * @js addAnimations
+     * @lua addAnimations
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void addAnimationsWithFile(const std::string& plist);
 

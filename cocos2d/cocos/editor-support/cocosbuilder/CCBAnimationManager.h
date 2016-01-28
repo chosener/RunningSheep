@@ -8,20 +8,31 @@
 
 #include "extensions/ExtensionMacros.h"
 #include "CCBSequence.h"
+<<<<<<< HEAD
 #include "CCBKeyframe.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "CCBSequenceProperty.h"
 #include "extensions/GUI/CCControlExtension/CCControl.h"
 
 namespace cocosbuilder {
 
+<<<<<<< HEAD
 class CC_DLL CCBAnimationManagerDelegate
+=======
+class CCBAnimationManagerDelegate
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     virtual ~CCBAnimationManagerDelegate() {}
     virtual void completedAnimationSequenceNamed(const char *name) = 0;
 };
 
+<<<<<<< HEAD
 class CC_DLL CCBAnimationManager : public cocos2d::Ref
+=======
+class CCBAnimationManager : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     bool _jsControlled;
@@ -161,7 +172,11 @@ private:
     
 };
 
+<<<<<<< HEAD
 class CC_DLL CCBSetSpriteFrame : public cocos2d::ActionInstant
+=======
+class CCBSetSpriteFrame : public cocos2d::ActionInstant
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /** creates a Place action with a position */
@@ -184,7 +199,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBSoundEffect : public cocos2d::ActionInstant
+=======
+class CCBSoundEffect : public cocos2d::ActionInstant
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static CCBSoundEffect* actionWithSoundFile(const std::string &file, float pitch, float pan, float gain);
@@ -206,7 +225,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBRotateTo : public cocos2d::ActionInterval
+=======
+class CCBRotateTo : public cocos2d::ActionInterval
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static CCBRotateTo* create(float fDuration, float fAngle);
@@ -225,7 +248,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBRotateXTo: public cocos2d::ActionInterval
+=======
+class CCBRotateXTo: public cocos2d::ActionInterval
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static CCBRotateXTo* create(float fDuration, float fAngle);
@@ -244,7 +271,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBRotateYTo: public cocos2d::ActionInterval
+=======
+class CCBRotateYTo: public cocos2d::ActionInterval
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static CCBRotateYTo* create(float fDuration, float fAngle);
@@ -263,7 +294,11 @@ private:
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBEaseInstant : public cocos2d::ActionEase
+=======
+class CCBEaseInstant : public cocos2d::ActionEase
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static CCBEaseInstant* create(cocos2d::ActionInterval *pAction);

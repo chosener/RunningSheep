@@ -1,6 +1,7 @@
 
 
 #include "TextAtlasReader.h"
+<<<<<<< HEAD
 
 #include "ui/UITextAtlas.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UITextAtlas.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -24,7 +32,11 @@ namespace cocostudio
     
     static TextAtlasReader* instanceTextAtalsReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(TextAtlasReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(TextAtlasReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     TextAtlasReader::TextAtlasReader()
     {
@@ -40,16 +52,23 @@ namespace cocostudio
     {
         if (!instanceTextAtalsReader)
         {
+<<<<<<< HEAD
             instanceTextAtalsReader = new (std::nothrow) TextAtlasReader();
+=======
+            instanceTextAtalsReader = new TextAtlasReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceTextAtalsReader;
     }
     
+<<<<<<< HEAD
     void TextAtlasReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceTextAtalsReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void TextAtlasReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         this->beginSetBasicProperties(widget);
@@ -142,6 +161,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> TextAtlasReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -308,4 +328,7 @@ namespace cocostudio
         return textAtlas;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

@@ -5,9 +5,15 @@ using namespace cocos2d;
 
 namespace cocosbuilder {
 
+<<<<<<< HEAD
 CC_DLL Vec2 getAbsolutePosition(const Vec2 &pt, CCBReader::PositionType type, const Size &containerSize, const std::string& propName)
 {
     Vec2 absPt;
+=======
+Vec2 getAbsolutePosition(const Vec2 &pt, CCBReader::PositionType type, const Size &containerSize, const std::string& propName)
+{
+    Vec2 absPt = Vec2(0,0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (type == CCBReader::PositionType::RELATIVE_BOTTOM_LEFT)
     {
         absPt = pt;
@@ -43,7 +49,11 @@ CC_DLL Vec2 getAbsolutePosition(const Vec2 &pt, CCBReader::PositionType type, co
     return absPt;
 }
 
+<<<<<<< HEAD
 CC_DLL void setRelativeScale(Node *pNode, float scaleX, float scaleY, CCBReader::ScaleType type, const std::string& propName)
+=======
+void setRelativeScale(Node *pNode, float scaleX, float scaleY, CCBReader::ScaleType type, const std::string& propName)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     CCASSERT(pNode, "pNode should not be null");
     

@@ -74,7 +74,10 @@
 
 #include "zlib.h"
 #include "unzip.h"
+<<<<<<< HEAD
 #include "ioapi_mem.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifdef STDC
 #  include <stddef.h>
@@ -802,6 +805,7 @@ unzFile ZEXPORT unzOpen64 (const void *path)
     return unzOpenInternal(path, NULL, 1);
 }
 
+<<<<<<< HEAD
 unzFile ZEXPORT unzOpenBuffer (const  void* buffer, uLong size)
 {
     char path[48] = {0};
@@ -811,6 +815,8 @@ unzFile ZEXPORT unzOpenBuffer (const  void* buffer, uLong size)
     return unzOpenInternal(path, &memory_file, 0);
 }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*
   Close a ZipFile opened with unzipOpen.
   If there is files inside the .Zip opened with unzipOpenCurrentFile (see later),

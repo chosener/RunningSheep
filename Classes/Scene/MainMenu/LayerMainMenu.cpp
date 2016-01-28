@@ -43,5 +43,47 @@ bool LayerMainMenu::init()
     
     this->addChild(label, 1);
     
+<<<<<<< HEAD
     return true;
 }
+=======
+    this->initView();
+    
+    return true;
+}
+void LayerMainMenu::initView()
+{
+    this->initBackGround();
+    this->initButton();
+}
+void LayerMainMenu::initBackGround()
+{
+    Sprite* spBg0 = Sprite::create("images/mainmenu/activity.png");
+    spBg0->setPosition(DISPLAY_CX,DISPLAY_CY);
+    this->addChild(spBg0,-1);
+    
+    Sprite* spBg = Sprite::create("images/mainmenu/backgroundTop.png");
+    spBg->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+    spBg->setPosition(DISPLAY_WIDTH/2,DISPLAY_BOTTOM);
+    this->addChild(spBg,-1);
+
+}
+void LayerMainMenu::initButton()
+{
+    ImageButton* imgBtnStart = ImageButton::create("images/mainmenu/btnPlay.png", "images/mainmenu/btnPlay.png");
+    imgBtnStart->setPosition(DISPLAY_WIDTH * 0.7f,DISPLAY_HEIGHT * 0.1f);
+    this->addChild(imgBtnStart);
+    imgBtnStart->addTouchEventListener(CALL_PRESS_FUNC_SELECTOR(LayerMainMenu::onGameStart), this);
+    
+
+}
+
+void LayerMainMenu::onGameStart(Node* sender, Touch* touch, Event* e)
+{
+    DLog::d("game start !");
+    SceneManager::getInstance()->changeScene(SceneManager::en_GameScene);
+}
+
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

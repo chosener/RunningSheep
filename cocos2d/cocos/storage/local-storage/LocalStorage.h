@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 /****************************************************************************
 Copyright (c) 2012 Zynga Inc.
 Copyright (c) 2013-2015 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
+=======
+/*
+
+Copyright (c) 2012 - Zynga Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +27,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+<<<<<<< HEAD
 ****************************************************************************/
 
 #ifndef __JSB_LOCALSTORAGE_H
@@ -53,5 +60,34 @@ void CC_DLL localStorageRemoveItem( const std::string& key );
 
 // end group
 /// @}
+=======
+
+*/
+
+/*
+ Local Storage support for the JS Bindings for iOS.
+ Works on cocos2d-iphone and cocos2d-x.
+ */
+
+#ifndef __JSB_LOCALSTORAGE_H
+#define __JSB_LOCALSTORAGE_H
+
+#include <string>
+
+/** Initializes the database. If path is null, it will create an in-memory DB */
+void localStorageInit( const std::string& fullpath = "");
+
+/** Frees the allocated resources */
+void localStorageFree();
+
+/** sets an item in the LS */
+void localStorageSetItem( const std::string& key, const std::string& value);
+
+/** gets an item from the LS */
+std::string localStorageGetItem( const std::string& key );
+
+/** removes an item from the LS */
+void localStorageRemoveItem( const std::string& key );
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __JSB_LOCALSTORAGE_H

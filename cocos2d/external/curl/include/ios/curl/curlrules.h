@@ -7,7 +7,11 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
+<<<<<<< HEAD
  * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.
+=======
+ * Copyright (C) 1998 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -190,7 +194,11 @@ typedef char
  * CURL_ISOCPP and CURL_OFF_T_C definitions are done here in order to allow
  * these to be visible and exported by the external libcurl interface API,
  * while also making them visible to the library internals, simply including
+<<<<<<< HEAD
  * curl_setup.h, without actually needing to include curl.h internally.
+=======
+ * setup.h, without actually needing to include curl.h internally.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * If some day this section would grow big enough, all this should be moved
  * to its own header file.
  */
@@ -248,7 +256,10 @@ typedef char
 #undef CURL_PULL_WS2TCPIP_H
 #undef CURL_PULL_SYS_TYPES_H
 #undef CURL_PULL_SYS_SOCKET_H
+<<<<<<< HEAD
 #undef CURL_PULL_SYS_POLL_H
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #undef CURL_PULL_STDINT_H
 #undef CURL_PULL_INTTYPES_H
 

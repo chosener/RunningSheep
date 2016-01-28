@@ -70,6 +70,7 @@ void ProtocolSocial::submitScore(const char* leadboardID, long score)
         [curObj submitScore:pID withScore:score];
     }
 }
+<<<<<<< HEAD
     void ProtocolSocial::submitScore(const char* leadboardID, long score, ProtocolSocialCallback callback)
     {
         PluginOCData* pData = PluginUtilsIOS::getPluginOCData(this);
@@ -83,6 +84,8 @@ void ProtocolSocial::submitScore(const char* leadboardID, long score)
             [curObj submitScore:pID withScore:score];
         }
     }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void ProtocolSocial::showLeaderboard(const char* leaderboardID)
 {
@@ -119,6 +122,7 @@ void ProtocolSocial::unlockAchievement(TAchievementInfo achInfo)
         }
     }
 }
+<<<<<<< HEAD
     void ProtocolSocial::unlockAchievement(TAchievementInfo achInfo,ProtocolSocialCallback callback)
     {
         if (achInfo.empty())
@@ -140,6 +144,8 @@ void ProtocolSocial::unlockAchievement(TAchievementInfo achInfo)
             }
         }
     }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void ProtocolSocial::showAchievements()
 {

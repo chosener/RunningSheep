@@ -27,6 +27,7 @@
 #define _CC_CUSTOMCOMMAND_H_
 
 #include "renderer/CCRenderCommand.h"
+<<<<<<< HEAD
 
 /**
  * @addtogroup support
@@ -67,14 +68,37 @@ public:
     //TODO: This function is not used, it should be removed.
     inline bool isTranslucent() { return true; }
     /**Callback function.*/
+=======
+#include "renderer/CCRenderCommandPool.h"
+
+NS_CC_BEGIN
+
+class CustomCommand : public RenderCommand
+{
+public:
+    CustomCommand();
+    ~CustomCommand();
+    
+public:
+
+    void init(float depth);
+
+    void execute();
+
+    inline bool isTranslucent() { return true; }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::function<void()> func;
 
 protected:
 };
 
 NS_CC_END
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //_CC_CUSTOMCOMMAND_H_

@@ -26,7 +26,10 @@ THE SOFTWARE.
 
 #include <jni.h>
 #include <string>
+<<<<<<< HEAD
 #include <map>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d {
 
@@ -47,7 +50,10 @@ public:
     static bool getStaticMethodInfo(PluginJniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode);
     static bool getMethodInfo(PluginJniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode);
     static std::string jstring2string(jstring jstr);
+<<<<<<< HEAD
     static std::map<std::string, std::string> JSONObject2Map(jobject json);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     static bool setClassLoaderFrom(jobject nativeActivityInstance);
 

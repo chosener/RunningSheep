@@ -40,7 +40,11 @@ THE SOFTWARE.
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCRenderer.h"
 #include "renderer/CCTexture2D.h"
+<<<<<<< HEAD
 #include "platform/CCGL.h"
+=======
+#include "CCGL.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #include "deprecated/CCString.h"
@@ -120,7 +124,11 @@ void TextureAtlas::setQuads(V3F_C4B_T2F_Quad* quads)
 
 TextureAtlas * TextureAtlas::create(const std::string& file, ssize_t capacity)
 {
+<<<<<<< HEAD
     TextureAtlas * textureAtlas = new (std::nothrow) TextureAtlas();
+=======
+    TextureAtlas * textureAtlas = new TextureAtlas();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(textureAtlas && textureAtlas->initWithFile(file, capacity))
     {
         textureAtlas->autorelease();
@@ -132,7 +140,11 @@ TextureAtlas * TextureAtlas::create(const std::string& file, ssize_t capacity)
 
 TextureAtlas * TextureAtlas::createWithTexture(Texture2D *texture, ssize_t capacity)
 {
+<<<<<<< HEAD
     TextureAtlas * textureAtlas = new (std::nothrow) TextureAtlas();
+=======
+    TextureAtlas * textureAtlas = new TextureAtlas();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (textureAtlas && textureAtlas->initWithTexture(texture, capacity))
     {
         textureAtlas->autorelease();
@@ -605,7 +617,11 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
 
     if(!numberOfQuads)
         return;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GL::bindTexture2D(_texture->getName());
 
     if (Configuration::getInstance()->supportsShareableVAO())
@@ -614,7 +630,11 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
         // Using VBO and VAO
         //
 
+<<<<<<< HEAD
         // FIXME:: update is done in draw... perhaps it should be done in a timer
+=======
+        // XXX: update is done in draw... perhaps it should be done in a timer
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (_dirty) 
         {
             glBindBuffer(GL_ARRAY_BUFFER, _buffersVBO[0]);
@@ -625,9 +645,15 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
 //            glBufferData(GL_ARRAY_BUFFER, sizeof(quads_[0]) * (n-start), &quads_[start], GL_DYNAMIC_DRAW);
 
             // option 3: orphaning + glMapBuffer
+<<<<<<< HEAD
             glBufferData(GL_ARRAY_BUFFER, sizeof(_quads[0]) * _capacity, nullptr, GL_DYNAMIC_DRAW);
             void *buf = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
             memcpy(buf, _quads, sizeof(_quads[0])* _totalQuads);
+=======
+            glBufferData(GL_ARRAY_BUFFER, sizeof(_quads[0]) * (numberOfQuads-start), nullptr, GL_DYNAMIC_DRAW);
+            void *buf = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+            memcpy(buf, _quads, sizeof(_quads[0])* (numberOfQuads-start));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             glUnmapBuffer(GL_ARRAY_BUFFER);
             
             glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -642,9 +668,13 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
 #endif
 
         glDrawElements(GL_TRIANGLES, (GLsizei) numberOfQuads*6, GL_UNSIGNED_SHORT, (GLvoid*) (start*6*sizeof(_indices[0])) );
+<<<<<<< HEAD
         
         GL::bindVAO(0);
         
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #if CC_REBIND_INDICES_BUFFER
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 #endif
@@ -660,10 +690,17 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
 #define kQuadSize sizeof(_quads[0].bl)
         glBindBuffer(GL_ARRAY_BUFFER, _buffersVBO[0]);
 
+<<<<<<< HEAD
         // FIXME:: update is done in draw... perhaps it should be done in a timer
         if (_dirty) 
         {
             glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(_quads[0]) * _totalQuads , &_quads[0] );
+=======
+        // XXX: update is done in draw... perhaps it should be done in a timer
+        if (_dirty) 
+        {
+            glBufferSubData(GL_ARRAY_BUFFER, sizeof(_quads[0])*start, sizeof(_quads[0]) * numberOfQuads , &_quads[start] );
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _dirty = false;
         }
 
@@ -687,7 +724,11 @@ void TextureAtlas::drawNumberOfQuads(ssize_t numberOfQuads, ssize_t start)
     }
 
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,numberOfQuads*6);
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CHECK_GL_ERROR_DEBUG();
 }
 

@@ -23,6 +23,7 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "CCActionTimelineCache.h"
+<<<<<<< HEAD
 #include "CSLoader.h"
 #include "CCFrame.h"
 #include "CCTimeLine.h"
@@ -43,10 +44,19 @@ THE SOFTWARE.
 
 using namespace cocos2d;
 using namespace flatbuffers;
+=======
+#include "CCNodeReader.h"
+#include "CCFrame.h"
+#include "CCTimeLine.h"
+#include "CCActionTimeline.h"
+
+using namespace cocos2d;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio {
 namespace timeline{
 
+<<<<<<< HEAD
 static const char* Property_VisibleForFrame = "VisibleForFrame";
 static const char* Property_Position        = "Position";
 static const char* Property_Scale           = "Scale";
@@ -58,6 +68,20 @@ static const char* Property_Alpha           = "Alpha";
 static const char* Property_AnchorPoint     = "AnchorPoint";
 static const char* Property_ZOrder          = "ZOrder";
 static const char* Property_ActionValue     = "ActionValue";
+=======
+static const char* FrameType_VisibleFrame       = "VisibleFrame";
+static const char* FrameType_PositionFrame      = "PositionFrame";
+static const char* FrameType_ScaleFrame         = "ScaleFrame";
+static const char* FrameType_RotationFrame      = "RotationFrame";
+static const char* FrameType_SkewFrame          = "SkewFrame";
+static const char* FrameType_RotationSkewFrame  = "RotationSkewFrame";
+static const char* FrameType_AnchorFrame        = "AnchorFrame";
+static const char* FrameType_InnerActionFrame   = "InnerActionFrame";
+static const char* FrameType_ColorFrame         = "ColorFrame";
+static const char* FrameType_TextureFrame       = "TextureFrame";
+static const char* FrameType_EventFrame         = "EventFrame";
+static const char* FrameType_ZOrderFrame        = "ZOrderFrame";
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 static const char* ACTION           = "action";
 static const char* DURATION         = "duration";
@@ -87,7 +111,11 @@ ActionTimelineCache* ActionTimelineCache::getInstance()
 {
     if (! _sharedActionCache)
     {
+<<<<<<< HEAD
         _sharedActionCache = new (std::nothrow) ActionTimelineCache();
+=======
+        _sharedActionCache = new ActionTimelineCache();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _sharedActionCache->init();
     }
 
@@ -107,7 +135,10 @@ void ActionTimelineCache::purge()
 void ActionTimelineCache::init()
 {
     using namespace std::placeholders;
+<<<<<<< HEAD
     /*
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _funcs.insert(Pair(FrameType_VisibleFrame,      std::bind(&ActionTimelineCache::loadVisibleFrame,      this, _1)));
     _funcs.insert(Pair(FrameType_PositionFrame,     std::bind(&ActionTimelineCache::loadPositionFrame,     this, _1)));
     _funcs.insert(Pair(FrameType_ScaleFrame,        std::bind(&ActionTimelineCache::loadScaleFrame,        this, _1)));
@@ -120,7 +151,10 @@ void ActionTimelineCache::init()
     _funcs.insert(Pair(FrameType_TextureFrame,      std::bind(&ActionTimelineCache::loadTextureFrame,      this, _1)));
     _funcs.insert(Pair(FrameType_EventFrame,        std::bind(&ActionTimelineCache::loadEventFrame,        this, _1)));
     _funcs.insert(Pair(FrameType_ZOrderFrame,       std::bind(&ActionTimelineCache::loadZOrderFrame,       this, _1)));
+<<<<<<< HEAD
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }
 
@@ -132,6 +166,7 @@ void ActionTimelineCache::removeAction(const std::string& fileName)
     }
 }
 
+<<<<<<< HEAD
 ActionTimeline* ActionTimelineCache::createAction(const std::string& filename)
 {
     std::string path = filename;
@@ -154,6 +189,9 @@ ActionTimeline* ActionTimelineCache::createAction(const std::string& filename)
 }
 
 ActionTimeline* ActionTimelineCache::createActionFromJson(const std::string& fileName)
+=======
+ActionTimeline* ActionTimelineCache::createAction(const std::string& fileName)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     ActionTimeline* action = _animationActions.at(fileName);
     if (action == nullptr)
@@ -166,7 +204,11 @@ ActionTimeline* ActionTimelineCache::createActionFromJson(const std::string& fil
 ActionTimeline* ActionTimelineCache::loadAnimationActionWithFile(const std::string& fileName)
 {
     // Read content from file
+<<<<<<< HEAD
     std::string fullPath    = FileUtils::getInstance()->fullPathForFilename(fileName);
+=======
+    std::string fullPath    = CCFileUtils::getInstance()->fullPathForFilename(fileName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string contentStr  = FileUtils::getInstance()->getStringFromFile(fullPath);
 
     return loadAnimationActionWithContent(fileName, contentStr);
@@ -208,6 +250,10 @@ ActionTimeline* ActionTimelineCache::loadAnimationActionWithContent(const std::s
     return action;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Timeline* ActionTimelineCache::loadTimeline(const rapidjson::Value& json)
 {
     Timeline* timeline = nullptr;
@@ -350,10 +396,18 @@ Frame* ActionTimelineCache::loadColorFrame(const rapidjson::Value& json)
 {
     ColorFrame* frame = ColorFrame::create();
 
+<<<<<<< HEAD
+=======
+    GLubyte alpha = (GLubyte)DICTOOL->getIntValue_json(json, ALPHA);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GLubyte red   = (GLubyte)DICTOOL->getIntValue_json(json, RED);
     GLubyte green = (GLubyte)DICTOOL->getIntValue_json(json, GREEN);
     GLubyte blue  = (GLubyte)DICTOOL->getIntValue_json(json, BLUE);
 
+<<<<<<< HEAD
+=======
+    frame->setAlpha(alpha);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     frame->setColor(Color3B(red, green, blue));
 
     return frame;
@@ -372,7 +426,11 @@ Frame* ActionTimelineCache::loadTextureFrame(const rapidjson::Value& json)
         SpriteFrame* spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(path);
         if(spriteFrame == nullptr)
         {
+<<<<<<< HEAD
             std::string jsonPath = CSLoader::getInstance()->getJsonPath();
+=======
+            std::string jsonPath = NodeReader::getInstance()->getJsonPath();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             path = jsonPath + texture;
         }
 
@@ -402,6 +460,7 @@ Frame* ActionTimelineCache::loadZOrderFrame(const rapidjson::Value& json)
 
     return frame;
 }
+<<<<<<< HEAD
     
 ActionTimeline* ActionTimelineCache::createActionWithFlatBuffersFile(const std::string &fileName)
 {
@@ -922,6 +981,8 @@ ActionTimeline* ActionTimelineCache::createActionWithFlatBuffersForSimulator(con
     
     return action;
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }
 }

@@ -29,13 +29,20 @@ THE SOFTWARE.
 #include "cocostudio/CCDatas.h"
 #include "cocostudio/CCArmature.h"
 #include "cocostudio/DictionaryHelper.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "json/document.h"
 #include "DictionaryHelper.h"
 
 #include <string>
 #include <queue>
+<<<<<<< HEAD
+=======
+#include <list>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <mutex>
 #include <thread>
 #include <condition_variable>
@@ -52,7 +59,11 @@ namespace cocostudio {
  *  @js NA
  *  @lua NA
  */
+<<<<<<< HEAD
 class CC_STUDIO_DLL DataReaderHelper : cocos2d::Ref
+=======
+class  DataReaderHelper : cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 protected:
 

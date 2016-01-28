@@ -24,19 +24,34 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 #include "2d/CCTMXTiledMap.h"
 #include "2d/CCTMXXMLParser.h"
 #include "2d/CCTMXLayer.h"
 #include "2d/CCSprite.h"
 #include "deprecated/CCString.h" // For StringUtils::format
 
+=======
+#include "CCTMXTiledMap.h"
+#include "CCTMXXMLParser.h"
+#include "CCTMXLayer.h"
+#include "2d/CCSprite.h"
+#include "deprecated/CCString.h" // For StringUtils::format
+
+#include <algorithm>
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 // implementation TMXTiledMap
 
 TMXTiledMap * TMXTiledMap::create(const std::string& tmxFile)
 {
+<<<<<<< HEAD
     TMXTiledMap *ret = new (std::nothrow) TMXTiledMap();
+=======
+    TMXTiledMap *ret = new TMXTiledMap();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret->initWithTMXFile(tmxFile))
     {
         ret->autorelease();
@@ -48,7 +63,11 @@ TMXTiledMap * TMXTiledMap::create(const std::string& tmxFile)
 
 TMXTiledMap* TMXTiledMap::createWithXML(const std::string& tmxString, const std::string& resourcePath)
 {
+<<<<<<< HEAD
     TMXTiledMap *ret = new (std::nothrow) TMXTiledMap();
+=======
+    TMXTiledMap *ret = new TMXTiledMap();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret->initWithXML(tmxString, resourcePath))
     {
         ret->autorelease();
@@ -136,7 +155,11 @@ TMXTilesetInfo * TMXTiledMap::tilesetForLayer(TMXLayerInfo *layerInfo, TMXMapInf
                         //    gid = CFSwapInt32( gid );
                         /* We support little endian.*/
 
+<<<<<<< HEAD
                         // FIXME:: gid == 0 --> empty tile
+=======
+                        // XXX: gid == 0 --> empty tile
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                         if( gid != 0 ) 
                         {
                             // Optimization: quick return
@@ -263,3 +286,7 @@ std::string TMXTiledMap::getDescription() const
 
 
 NS_CC_END
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -37,13 +37,23 @@ THE SOFTWARE.
 #include "GLES2/gl2ext.h"
 #include "winrtangle.h"
 #include "esUtil.h"
+<<<<<<< HEAD
 #include "base/ccMacros.h"
+=======
+#include "ccMacros.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define GL_WRITE_ONLY_OES                                       0x88B9
 #define GL_BUFFER_ACCESS_OES                                    0x88BB
 #define GL_BUFFER_MAPPED_OES                                    0x88BC
 #define GL_BUFFER_MAP_POINTER_OES                               0x88BD
 
+<<<<<<< HEAD
+=======
+#define GL_BGRA						GL_BGRA_EXT
+
+#define	glClearDepth				glClearDepthf
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 inline void glGenVertexArrays(GLsizei n, GLuint *arrays)
@@ -74,5 +84,9 @@ inline GLboolean glUnmapBuffer(GLenum targets)
 }
 
 #define GL_DEPTH24_STENCIL8			GL_DEPTH24_STENCIL8_OES
+<<<<<<< HEAD
+=======
+#define GL_WRITE_ONLY				GL_WRITE_ONLY_OES
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __CCGL_ANGLE_H__

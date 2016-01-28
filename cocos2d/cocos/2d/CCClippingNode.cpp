@@ -26,12 +26,23 @@
  */
 
 #include "2d/CCClippingNode.h"
+<<<<<<< HEAD
 #include "2d/CCDrawingPrimitives.h"
 #include "renderer/CCGLProgramCache.h"
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCRenderer.h"
 #include "base/CCDirector.h"
 
+=======
+#include "renderer/CCGLProgram.h"
+#include "renderer/CCGLProgramCache.h"
+#include "2d/CCDrawingPrimitives.h"
+#include "base/CCDirector.h"
+
+#include "renderer/CCRenderer.h"
+#include "renderer/CCGroupCommand.h"
+#include "renderer/CCCustomCommand.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -82,7 +93,11 @@ ClippingNode::~ClippingNode()
 
 ClippingNode* ClippingNode::create()
 {
+<<<<<<< HEAD
     ClippingNode *ret = new (std::nothrow) ClippingNode();
+=======
+    ClippingNode *ret = new ClippingNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -97,7 +112,11 @@ ClippingNode* ClippingNode::create()
 
 ClippingNode* ClippingNode::create(Node *pStencil)
 {
+<<<<<<< HEAD
     ClippingNode *ret = new (std::nothrow) ClippingNode();
+=======
+    ClippingNode *ret = new ClippingNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init(pStencil))
     {
         ret->autorelease();
@@ -201,6 +220,7 @@ void ClippingNode::drawFullScreenQuadClearStencil()
     director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
     director->loadIdentityMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
     
+<<<<<<< HEAD
     Vec2 vertices[] = {
         Vec2(-1.0f, -1.0f),
         Vec2(1.0f, -1.0f),
@@ -228,11 +248,23 @@ void ClippingNode::drawFullScreenQuadClearStencil()
     
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+=======
+    
+    DrawPrimitives::drawSolidRect(Vec2(-1,-1), Vec2(1,1), Color4F(1, 1, 1, 1));
+    
+    director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+    director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
+<<<<<<< HEAD
     if (!_visible || !hasContent())
+=======
+    if(!_visible)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return;
     
     uint32_t flags = processParentFlags(parentTransform, parentFlags);
@@ -257,7 +289,11 @@ void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
     renderer->addCommand(&_beforeVisitCmd);
     if (_alphaThreshold < 1)
     {
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WINDOWS || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #else
         // since glAlphaTest do not exists in OES, use a shader that writes
         // pixel only if greater than an alpha threshold
@@ -267,7 +303,11 @@ void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
         program->use();
         program->setUniformLocationWith1f(alphaValueLocation, _alphaThreshold);
         // we need to recursively apply this shader to all the nodes in the stencil node
+<<<<<<< HEAD
         // FIXME: we should have a way to apply shader to all nodes without having to do this
+=======
+        // XXX: we should have a way to apply shader to all nodes without having to do this
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setProgram(_stencil, program);
         
 #endif
@@ -280,7 +320,10 @@ void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
     renderer->addCommand(&_afterDrawStencilCmd);
 
     int i = 0;
+<<<<<<< HEAD
     bool visibleByCamera = isVisitableByVisitingCamera();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if(!_children.empty())
     {
@@ -296,13 +339,21 @@ void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
                 break;
         }
         // self draw
+<<<<<<< HEAD
         if (visibleByCamera)
             this->draw(renderer, _modelViewTransform, flags);
+=======
+        this->draw(renderer, _modelViewTransform, flags);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         for(auto it=_children.cbegin()+i; it != _children.cend(); ++it)
             (*it)->visit(renderer, _modelViewTransform, flags);
     }
+<<<<<<< HEAD
     else if (visibleByCamera)
+=======
+    else
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         this->draw(renderer, _modelViewTransform, flags);
     }
@@ -316,6 +367,7 @@ void ClippingNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 }
 
+<<<<<<< HEAD
 void ClippingNode::setCameraMask(unsigned short mask, bool applyChildren)
 {
     Node::setCameraMask(mask, applyChildren);
@@ -324,6 +376,8 @@ void ClippingNode::setCameraMask(unsigned short mask, bool applyChildren)
         _stencil->setCameraMask(mask, applyChildren);
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Node* ClippingNode::getStencil() const
 {
     return _stencil;
@@ -336,11 +390,14 @@ void ClippingNode::setStencil(Node *stencil)
     _stencil = stencil;
 }
 
+<<<<<<< HEAD
 bool ClippingNode::hasContent() const
 {
     return _children.size() > 0;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 GLfloat ClippingNode::getAlphaThreshold() const
 {
     return _alphaThreshold;
@@ -438,7 +495,11 @@ void ClippingNode::onBeforeVisit()
     // enable alpha test only if the alpha threshold < 1,
     // indeed if alpha threshold == 1, every pixel will be drawn anyways
     if (_alphaThreshold < 1) {
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WINDOWS || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         // manually save the alpha test state
         _currentAlphaTestEnabled = glIsEnabled(GL_ALPHA_TEST);
         glGetIntegerv(GL_ALPHA_TEST_FUNC, (GLint *)&_currentAlphaTestFunc);
@@ -462,7 +523,11 @@ void ClippingNode::onAfterDrawStencil()
     // restore alpha test state
     if (_alphaThreshold < 1)
     {
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WINDOWS || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         // manually restore the alpha test state
         glAlphaFunc(_currentAlphaTestFunc, _currentAlphaTestRef);
         if (!_currentAlphaTestEnabled)
@@ -470,7 +535,11 @@ void ClippingNode::onAfterDrawStencil()
             glDisable(GL_ALPHA_TEST);
         }
 #else
+<<<<<<< HEAD
 // FIXME: we need to find a way to restore the shaders of the stencil node and its childs
+=======
+// XXX: we need to find a way to restore the shaders of the stencil node and its childs
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
     }
 

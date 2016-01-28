@@ -26,6 +26,10 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "2d/CCParticleExamples.h"
+<<<<<<< HEAD
+=======
+#include "platform/CCImage.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCDirector.h"
 #include "base/firePngData.h"
 #include "renderer/CCTextureCache.h"
@@ -46,7 +50,11 @@ static Texture2D* getDefaultTexture()
         texture = Director::getInstance()->getTextureCache()->getTextureForKey(key);
         CC_BREAK_IF(texture != nullptr);
 
+<<<<<<< HEAD
         image = new (std::nothrow) Image();
+=======
+        image = new Image();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         CC_BREAK_IF(nullptr == image);
         ret = image->initWithImageData(__firePngData, sizeof(__firePngData));
         CC_BREAK_IF(!ret);
@@ -61,7 +69,11 @@ static Texture2D* getDefaultTexture()
 
 ParticleFire* ParticleFire::create()
 {
+<<<<<<< HEAD
     ParticleFire* ret = new (std::nothrow) ParticleFire();
+=======
+    ParticleFire* ret = new ParticleFire();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -75,7 +87,11 @@ ParticleFire* ParticleFire::create()
 
 ParticleFire* ParticleFire::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleFire* ret = new (std::nothrow) ParticleFire();
+=======
+    ParticleFire* ret = new ParticleFire();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -98,7 +114,11 @@ bool ParticleFire::initWithTotalParticles(int numberOfParticles)
         this->_emitterMode = Mode::GRAVITY;
 
         // Gravity Mode: gravity
+<<<<<<< HEAD
         this->modeA.gravity.setZero();
+=======
+        this->modeA.gravity = Vec2(0,0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         // Gravity Mode: radial acceleration
         this->modeA.radialAccel = 0;
@@ -114,8 +134,13 @@ bool ParticleFire::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2.0f, 60.0f);
         this->_posVar.set(40.0f, 20.0f);
+=======
+        this->setPosition(Vec2(winSize.width/2, 60));
+        this->_posVar = Vec2(40, 20);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         // life of particles
         _life = 3;
@@ -166,7 +191,11 @@ bool ParticleFire::initWithTotalParticles(int numberOfParticles)
 
 ParticleFireworks* ParticleFireworks::create()
 {
+<<<<<<< HEAD
     ParticleFireworks* ret = new (std::nothrow) ParticleFireworks();
+=======
+    ParticleFireworks* ret = new ParticleFireworks();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -180,7 +209,11 @@ ParticleFireworks* ParticleFireworks::create()
 
 ParticleFireworks* ParticleFireworks::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleFireworks* ret = new (std::nothrow) ParticleFireworks();
+=======
+    ParticleFireworks* ret = new ParticleFireworks();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -203,6 +236,7 @@ bool ParticleFireworks::initWithTotalParticles(int numberOfParticles)
         this->_emitterMode = Mode::GRAVITY;
 
         // Gravity Mode: gravity
+<<<<<<< HEAD
         this->modeA.gravity.set(0.0f, -90.0f);
 
         // Gravity Mode:  radial
@@ -224,6 +258,29 @@ bool ParticleFireworks::initWithTotalParticles(int numberOfParticles)
         // life of particles
         this->_life = 3.5f;
         this->_lifeVar = 1.0f;
+=======
+        this->modeA.gravity = Vec2(0,-90);
+
+        // Gravity Mode:  radial
+        this->modeA.radialAccel = 0;
+        this->modeA.radialAccelVar = 0;
+
+        //  Gravity Mode: speed of particles
+        this->modeA.speed = 180;
+        this->modeA.speedVar = 50;
+
+        // emitter position
+        Size winSize = Director::getInstance()->getWinSize();
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+
+        // angle
+        this->_angle= 90;
+        this->_angleVar = 20;
+
+        // life of particles
+        this->_life = 3.5f;
+        this->_lifeVar = 1;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         // emits per frame
         this->_emissionRate = _totalParticles/_life;
@@ -267,7 +324,11 @@ bool ParticleFireworks::initWithTotalParticles(int numberOfParticles)
 //
 ParticleSun* ParticleSun::create()
 {
+<<<<<<< HEAD
     ParticleSun* ret = new (std::nothrow) ParticleSun();
+=======
+    ParticleSun* ret = new ParticleSun();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -281,7 +342,11 @@ ParticleSun* ParticleSun::create()
 
 ParticleSun* ParticleSun::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleSun* ret = new (std::nothrow) ParticleSun();
+=======
+    ParticleSun* ret = new ParticleSun();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -324,7 +389,11 @@ bool ParticleSun::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -374,7 +443,11 @@ bool ParticleSun::initWithTotalParticles(int numberOfParticles)
 
 ParticleGalaxy* ParticleGalaxy::create()
 {
+<<<<<<< HEAD
     ParticleGalaxy* ret = new (std::nothrow) ParticleGalaxy();
+=======
+    ParticleGalaxy* ret = new ParticleGalaxy();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -388,7 +461,11 @@ ParticleGalaxy* ParticleGalaxy::create()
 
 ParticleGalaxy* ParticleGalaxy::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleGalaxy* ret = new (std::nothrow) ParticleGalaxy();
+=======
+    ParticleGalaxy* ret = new ParticleGalaxy();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -431,7 +508,11 @@ bool ParticleGalaxy::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -483,7 +564,11 @@ bool ParticleGalaxy::initWithTotalParticles(int numberOfParticles)
 
 ParticleFlower* ParticleFlower::create()
 {
+<<<<<<< HEAD
     ParticleFlower* ret = new (std::nothrow) ParticleFlower();
+=======
+    ParticleFlower* ret = new ParticleFlower();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -497,7 +582,11 @@ ParticleFlower* ParticleFlower::create()
 
 ParticleFlower* ParticleFlower::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleFlower* ret = new (std::nothrow) ParticleFlower();
+=======
+    ParticleFlower* ret = new ParticleFlower();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -540,7 +629,11 @@ bool ParticleFlower::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -591,7 +684,11 @@ bool ParticleFlower::initWithTotalParticles(int numberOfParticles)
 
 ParticleMeteor * ParticleMeteor::create()
 {
+<<<<<<< HEAD
     ParticleMeteor *ret = new (std::nothrow) ParticleMeteor();
+=======
+    ParticleMeteor *ret = new ParticleMeteor();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -605,7 +702,11 @@ ParticleMeteor * ParticleMeteor::create()
 
 ParticleMeteor* ParticleMeteor::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleMeteor* ret = new (std::nothrow) ParticleMeteor();
+=======
+    ParticleMeteor* ret = new ParticleMeteor();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -648,7 +749,11 @@ bool ParticleMeteor::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -700,7 +805,11 @@ bool ParticleMeteor::initWithTotalParticles(int numberOfParticles)
 
 ParticleSpiral* ParticleSpiral::create()
 {
+<<<<<<< HEAD
     ParticleSpiral* ret = new (std::nothrow) ParticleSpiral();
+=======
+    ParticleSpiral* ret = new ParticleSpiral();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -714,7 +823,11 @@ ParticleSpiral* ParticleSpiral::create()
 
 ParticleSpiral* ParticleSpiral::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleSpiral* ret = new (std::nothrow) ParticleSpiral();
+=======
+    ParticleSpiral* ret = new ParticleSpiral();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -757,7 +870,11 @@ bool ParticleSpiral::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -809,7 +926,11 @@ bool ParticleSpiral::initWithTotalParticles(int numberOfParticles)
 
 ParticleExplosion* ParticleExplosion::create()
 {
+<<<<<<< HEAD
     ParticleExplosion* ret = new (std::nothrow) ParticleExplosion();
+=======
+    ParticleExplosion* ret = new ParticleExplosion();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -823,7 +944,11 @@ ParticleExplosion* ParticleExplosion::create()
 
 ParticleExplosion* ParticleExplosion::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleExplosion* ret = new (std::nothrow) ParticleExplosion();
+=======
+    ParticleExplosion* ret = new ParticleExplosion();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -865,7 +990,11 @@ bool ParticleExplosion::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height/2);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height/2));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2::ZERO);
 
         // life of particles
@@ -917,7 +1046,11 @@ bool ParticleExplosion::initWithTotalParticles(int numberOfParticles)
 
 ParticleSmoke* ParticleSmoke::create()
 {
+<<<<<<< HEAD
     ParticleSmoke* ret = new (std::nothrow) ParticleSmoke();
+=======
+    ParticleSmoke* ret = new ParticleSmoke();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -931,7 +1064,11 @@ ParticleSmoke* ParticleSmoke::create()
 
 ParticleSmoke* ParticleSmoke::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleSmoke* ret = new (std::nothrow) ParticleSmoke();
+=======
+    ParticleSmoke* ret = new ParticleSmoke();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -970,7 +1107,11 @@ bool ParticleSmoke::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, 0);
+=======
+        this->setPosition(Vec2(winSize.width/2, 0));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2(20, 0));
 
         // life of particles
@@ -1022,7 +1163,11 @@ bool ParticleSmoke::initWithTotalParticles(int numberOfParticles)
 
 ParticleSnow* ParticleSnow::create()
 {
+<<<<<<< HEAD
     ParticleSnow* ret = new (std::nothrow) ParticleSnow();
+=======
+    ParticleSnow* ret = new ParticleSnow();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -1036,7 +1181,11 @@ ParticleSnow* ParticleSnow::create()
 
 ParticleSnow* ParticleSnow::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleSnow* ret = new (std::nothrow) ParticleSnow();
+=======
+    ParticleSnow* ret = new ParticleSnow();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -1075,7 +1224,11 @@ bool ParticleSnow::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height + 10);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height + 10));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2(winSize.width/2, 0));
 
         // angle
@@ -1130,7 +1283,11 @@ bool ParticleSnow::initWithTotalParticles(int numberOfParticles)
 
 ParticleRain* ParticleRain::create()
 {
+<<<<<<< HEAD
     ParticleRain* ret = new (std::nothrow) ParticleRain();
+=======
+    ParticleRain* ret = new ParticleRain();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -1144,7 +1301,11 @@ ParticleRain* ParticleRain::create()
 
 ParticleRain* ParticleRain::createWithTotalParticles(int numberOfParticles)
 {
+<<<<<<< HEAD
     ParticleRain* ret = new (std::nothrow) ParticleRain();
+=======
+    ParticleRain* ret = new ParticleRain();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithTotalParticles(numberOfParticles))
     {
         ret->autorelease();
@@ -1187,7 +1348,11 @@ bool ParticleRain::initWithTotalParticles(int numberOfParticles)
 
         // emitter position
         Size winSize = Director::getInstance()->getWinSize();
+<<<<<<< HEAD
         this->setPosition(winSize.width/2, winSize.height);
+=======
+        this->setPosition(Vec2(winSize.width/2, winSize.height));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         setPosVar(Vec2(winSize.width/2, 0));
 
         // life of particles

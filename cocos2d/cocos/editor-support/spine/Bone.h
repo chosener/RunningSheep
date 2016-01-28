@@ -1,10 +1,15 @@
 /******************************************************************************
+<<<<<<< HEAD
  * Spine Runtimes Software License
  * Version 2.1
+=======
+ * Spine Runtime Software License - Version 1.1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * 
  * Copyright (c) 2013, Esoteric Software
  * All rights reserved.
  * 
+<<<<<<< HEAD
  * You are granted a perpetual, non-exclusive, non-sublicensable and
  * non-transferable license to install, execute and perform the Spine Runtimes
  * Software (the "Software") solely for internal use. Without the written
@@ -26,6 +31,33 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+=======
+ * Redistribution and use in source and binary forms in whole or in part, with
+ * or without modification, are permitted provided that the following conditions
+ * are met:
+ * 
+ * 1. A Spine Essential, Professional, Enterprise, or Education License must
+ *    be purchased from Esoteric Software and the license must remain valid:
+ *    http://esotericsoftware.com/
+ * 2. Redistributions of source code must retain this license, which is the
+ *    above copyright notice, this declaration of conditions and the following
+ *    disclaimer.
+ * 3. Redistributions in binary form must reproduce this license, which is the
+ *    above copyright notice, this declaration of conditions and the following
+ *    disclaimer, in the documentation and/or other materials provided with the
+ *    distribution.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *****************************************************************************/
 
 #ifndef SPINE_BONE_H_
@@ -37,6 +69,7 @@
 extern "C" {
 #endif
 
+<<<<<<< HEAD
 struct spSkeleton;
 
 typedef struct spBone spBone;
@@ -48,11 +81,21 @@ struct spBone {
 	float rotation, rotationIK;
 	float scaleX, scaleY;
 	int/*bool*/flipX, flipY;
+=======
+typedef struct spBone spBone;
+struct spBone {
+	spBoneData* const data;
+	spBone* const parent;
+	float x, y;
+	float rotation;
+	float scaleX, scaleY;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 	float const m00, m01, worldX; /* a b x */
 	float const m10, m11, worldY; /* c d y */
 	float const worldRotation;
 	float const worldScaleX, worldScaleY;
+<<<<<<< HEAD
 	int/*bool*/const worldFlipX, worldFlipY;
 
 #ifdef __cplusplus
@@ -79,25 +122,43 @@ int/*bool*/spBone_isYDown ();
 
 /* @param parent May be 0. */
 spBone* spBone_create (spBoneData* data, struct spSkeleton* skeleton, spBone* parent);
+=======
+};
+
+void spBone_setYDown (int/*bool*/yDown);
+
+/* @param parent May be 0. */
+spBone* spBone_create (spBoneData* data, spBone* parent);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void spBone_dispose (spBone* self);
 
 void spBone_setToSetupPose (spBone* self);
 
+<<<<<<< HEAD
 void spBone_updateWorldTransform (spBone* self);
 
 void spBone_worldToLocal (spBone* self, float worldX, float worldY, float* localX, float* localY);
 void spBone_localToWorld (spBone* self, float localX, float localY, float* worldX, float* worldY);
+=======
+void spBone_updateWorldTransform (spBone* self, int/*bool*/flipX, int/*bool*/flipY);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifdef SPINE_SHORT_NAMES
 typedef spBone Bone;
 #define Bone_setYDown(...) spBone_setYDown(__VA_ARGS__)
+<<<<<<< HEAD
 #define Bone_isYDown() spBone_isYDown()
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define Bone_create(...) spBone_create(__VA_ARGS__)
 #define Bone_dispose(...) spBone_dispose(__VA_ARGS__)
 #define Bone_setToSetupPose(...) spBone_setToSetupPose(__VA_ARGS__)
 #define Bone_updateWorldTransform(...) spBone_updateWorldTransform(__VA_ARGS__)
+<<<<<<< HEAD
 #define Bone_worldToLocal(...) spBone_worldToLocal(__VA_ARGS__)
 #define Bone_localToWorld(...) spBone_localToWorld(__VA_ARGS__)
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
 #ifdef __cplusplus

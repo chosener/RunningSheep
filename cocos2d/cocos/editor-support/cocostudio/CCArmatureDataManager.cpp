@@ -39,7 +39,11 @@ ArmatureDataManager *ArmatureDataManager::getInstance()
 {
     if (s_sharedArmatureDataManager == nullptr)
     {
+<<<<<<< HEAD
         s_sharedArmatureDataManager = new (std::nothrow) ArmatureDataManager();
+=======
+        s_sharedArmatureDataManager = new ArmatureDataManager();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (!s_sharedArmatureDataManager || !s_sharedArmatureDataManager->init())
         {
             CC_SAFE_DELETE(s_sharedArmatureDataManager);
@@ -111,7 +115,11 @@ void ArmatureDataManager::removeArmatureFileInfo(const std::string& configFilePa
 
         for (std::string str : data->plistFiles)
         {
+<<<<<<< HEAD
             SpriteFrameCacheHelper::getInstance()->removeSpriteFrameFromFile(str);
+=======
+            SpriteFrameCache::getInstance()->removeSpriteFramesFromFile(str.c_str());
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         _relativeDatas.erase(configFilePath);
@@ -210,7 +218,11 @@ void ArmatureDataManager::addArmatureFileInfo(const std::string& imagePath, cons
 
     _autoLoadSpriteFile = false;
     DataReaderHelper::getInstance()->addDataFromFile(configFilePath);
+<<<<<<< HEAD
     addSpriteFrameFromFile(plistPath, imagePath, configFilePath);
+=======
+    addSpriteFrameFromFile(plistPath, imagePath);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ArmatureDataManager::addArmatureFileInfoAsync(const std::string& imagePath, const std::string& plistPath, const std::string& configFilePath, Ref *target, SEL_SCHEDULE selector)
@@ -219,7 +231,11 @@ void ArmatureDataManager::addArmatureFileInfoAsync(const std::string& imagePath,
 
     _autoLoadSpriteFile = false;
     DataReaderHelper::getInstance()->addDataFromFileAsync(imagePath, plistPath, configFilePath, target, selector);
+<<<<<<< HEAD
     addSpriteFrameFromFile(plistPath, imagePath, configFilePath);
+=======
+    addSpriteFrameFromFile(plistPath, imagePath);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ArmatureDataManager::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& configFilePath)

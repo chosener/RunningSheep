@@ -3,7 +3,10 @@
 
 #include "jsb_pluginx_spidermonkey_specifics.h"
 #include "pluginxUTF8.h"
+<<<<<<< HEAD
 #include <sstream>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace pluginx {
 
@@ -43,7 +46,14 @@ public:
         // Not suppored in SpiderMonkey v19
         //buffer = JS_EncodeString(cx, string);
         
+<<<<<<< HEAD
         buffer = JS_EncodeString(cx, str);
+=======
+        const jschar *chars = JS_GetStringCharsZ(cx, string);
+        size_t l = JS_GetStringLength(string);
+        char* pUTF8Str = cc_utf16_to_utf8((const unsigned short*)chars, l, NULL, NULL);
+        buffer = pUTF8Str;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     std::string get() {
@@ -58,6 +68,7 @@ public:
     }
 };
 
+<<<<<<< HEAD
 // JSFunctionWrapper
 JSFunctionWrapper::JSFunctionWrapper(JSContext* cx, JSObject *jsthis, jsval fval)
 : _cx(cx)
@@ -86,6 +97,14 @@ bool jsval_to_int32( JSContext *cx, JS::HandleValue vp, int32_t *outval )
     bool ok = true;
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
+=======
+
+bool jsval_to_int32( JSContext *cx, jsval vp, int32_t *outval )
+{
+    bool ok = true;
+    double dp;
+    ok &= JS::ToNumber(cx, JS::RootedValue(cx, vp), &dp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ok) {
         LOGD("jsval_to_int32: the argument is not a number");
         return false;
@@ -98,11 +117,19 @@ bool jsval_to_int32( JSContext *cx, JS::HandleValue vp, int32_t *outval )
     return ok;
 }
 
+<<<<<<< HEAD
 bool jsval_to_uint32( JSContext *cx, JS::HandleValue vp, uint32_t *outval )
 {
     bool ok = true;
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
+=======
+bool jsval_to_uint32( JSContext *cx, jsval vp, uint32_t *outval )
+{
+    bool ok = true;
+    double dp;
+    ok &= JS::ToNumber(cx, JS::RootedValue(cx, vp), &dp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ok) {
         LOGD("jsval_to_uint32: the argument is not a number");
         return false;
@@ -115,11 +142,19 @@ bool jsval_to_uint32( JSContext *cx, JS::HandleValue vp, uint32_t *outval )
     return ok;
 }
 
+<<<<<<< HEAD
 bool jsval_to_uint16( JSContext *cx, JS::HandleValue vp, uint16_t *outval )
 {
     bool ok = true;
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
+=======
+bool jsval_to_uint16( JSContext *cx, jsval vp, uint16_t *outval )
+{
+    bool ok = true;
+    double dp;
+    ok &= JS::ToNumber(cx, JS::RootedValue(cx, vp), &dp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ok) {
         LOGD("jsval_to_uint16: the argument is not a number");
         return false;
@@ -132,9 +167,15 @@ bool jsval_to_uint16( JSContext *cx, JS::HandleValue vp, uint16_t *outval )
     return ok;
 }
 
+<<<<<<< HEAD
 bool jsval_to_long_long(JSContext *cx, JS::HandleValue vp, long long* r) {
     JS::RootedObject tmp_arg(cx);
     bool ok = JS_ValueToObject( cx, vp, &tmp_arg );
+=======
+bool jsval_to_long_long(JSContext *cx, jsval vp, long long* r) {
+    JS::RootedObject tmp_arg(cx);
+    bool ok = JS_ValueToObject( cx, JS::RootedValue(cx, vp), &tmp_arg );
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ok) {
         LOGD("jsval_to_long_long: Error converting value to object");
         return false;
@@ -152,11 +193,19 @@ bool jsval_to_long_long(JSContext *cx, JS::HandleValue vp, long long* r) {
     return true;
 }
 
+<<<<<<< HEAD
 bool jsval_to_long(JSContext *cx, JS::HandleValue vp, long* ret)
 {
     bool ok = true;
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
+=======
+bool jsval_to_long(JSContext *cx, jsval vp, long* ret)
+{
+    bool ok = true;
+    double dp;
+    ok &= JS::ToNumber(cx, JS::RootedValue(cx, vp), &dp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ok) {
         LOGD("jsval_to_long: the argument is not a number");
         return false;
@@ -169,8 +218,13 @@ bool jsval_to_long(JSContext *cx, JS::HandleValue vp, long* ret)
     return ok;
 }
 
+<<<<<<< HEAD
 bool jsval_to_std_string(JSContext *cx, JS::HandleValue v, std::string* ret) {
     JSString *tmp = JS::ToString(cx, v);
+=======
+bool jsval_to_std_string(JSContext *cx, jsval v, std::string* ret) {
+    JSString *tmp = JS::ToString(cx, JS::RootedValue(cx, v));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!tmp) {
         LOGD("jsval_to_std_string: the jsval is not a string.");
         return false;
@@ -181,19 +235,30 @@ bool jsval_to_std_string(JSContext *cx, JS::HandleValue v, std::string* ret) {
     return true;
 }
 
+<<<<<<< HEAD
 bool jsval_to_TProductInfo(JSContext *cx, JS::HandleValue v, TProductInfo* ret)
 {
     JS::RootedObject tmp(cx, v.toObjectOrNull());
+=======
+bool jsval_to_TProductInfo(JSContext *cx, jsval v, TProductInfo* ret)
+{
+    JSObject* tmp = JSVAL_TO_OBJECT(v);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!tmp) {
         LOGD("jsval_to_TProductInfo: the jsval is not an object.");
         return false;
     }
 
+<<<<<<< HEAD
     JS::RootedObject it(cx, JS_NewPropertyIterator(cx, tmp));
+=======
+    JSObject* it = JS_NewPropertyIterator(cx, tmp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     while (true)
     {
         jsid idp;
+<<<<<<< HEAD
         JS::RootedValue key(cx);
         if (! JS_NextProperty(cx, it, &idp) || ! JS_IdToValue(cx, idp, &key))
             return false; // error
@@ -208,6 +273,22 @@ bool jsval_to_TProductInfo(JSContext *cx, JS::HandleValue v, TProductInfo* ret)
 
         JSStringWrapper strWrapper(key.toString(), cx);
         JSStringWrapper strWrapper2(value.toString(), cx);
+=======
+        jsval key;
+        if (! JS_NextProperty(cx, it, &idp) || ! JS_IdToValue(cx, idp, &key))
+            return false; // error
+        if (key == JSVAL_VOID)
+            break; // end of iteration
+        if (! JSVAL_IS_STRING(key))
+            continue; // ignore integer properties
+        JS::RootedValue value(cx);
+        JS_GetPropertyById(cx, tmp, idp, &value);
+        if (! JSVAL_IS_STRING(value))
+            continue; // ignore integer properties
+
+        JSStringWrapper strWrapper(JSVAL_TO_STRING(key), cx);
+        JSStringWrapper strWrapper2(JSVAL_TO_STRING(value), cx);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         (*ret)[strWrapper.get()] = strWrapper2.get();
         LOGD("iterate object: key = %s, value = %s", strWrapper.get().c_str(), strWrapper2.get().c_str());
@@ -216,6 +297,7 @@ bool jsval_to_TProductInfo(JSContext *cx, JS::HandleValue v, TProductInfo* ret)
     return true;
 }
 
+<<<<<<< HEAD
 bool jsval_to_FBInfo(JSContext *cx, JS::HandleValue v, StringMap* ret)
 {
     JS::RootedObject tmp(cx, v.toObjectOrNull());
@@ -302,51 +384,90 @@ bool jsval_array_to_string(JSContext *cx, JS::HandleValue v, std::string* ret)
 }
 
 bool jsval_to_TIAPDeveloperInfo(JSContext *cx, JS::HandleValue v, TIAPDeveloperInfo* ret)
+=======
+bool jsval_to_TIAPDeveloperInfo(JSContext *cx, jsval v, TIAPDeveloperInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TAdsDeveloperInfo(JSContext *cx, JS::HandleValue v, TAdsDeveloperInfo* ret)
+=======
+bool jsval_to_TAdsDeveloperInfo(JSContext *cx, jsval v, TAdsDeveloperInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TAdsInfo(JSContext *cx, JS::HandleValue v, TAdsInfo* ret)
+=======
+bool jsval_to_TAdsInfo(JSContext *cx, jsval v, TAdsInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TShareDeveloperInfo(JSContext *cx, JS::HandleValue v, TShareDeveloperInfo* ret)
+=======
+bool jsval_to_TShareDeveloperInfo(JSContext *cx, jsval v, TShareDeveloperInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TShareInfo(JSContext *cx, JS::HandleValue v, TShareInfo* ret)
+=======
+bool jsval_to_TShareInfo(JSContext *cx, jsval v, TShareInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TPaymentInfo(JSContext *cx, JS::HandleValue v, std::map<std::string, std::string>* ret)
+=======
+bool jsval_to_TPaymentInfo(JSContext *cx, jsval v, std::map<std::string, std::string>* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TSocialDeveloperInfo(JSContext *cx, JS::HandleValue v, TSocialDeveloperInfo* ret)
+=======
+bool jsval_to_TSocialDeveloperInfo(JSContext *cx, jsval v, TSocialDeveloperInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TAchievementInfo(JSContext *cx, JS::HandleValue v, TAchievementInfo* ret)
+=======
+bool jsval_to_TAchievementInfo(JSContext *cx, jsval v, TAchievementInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_TUserDeveloperInfo(JSContext *cx, JS::HandleValue v, TUserDeveloperInfo* ret)
+=======
+bool jsval_to_TUserDeveloperInfo(JSContext *cx, jsval v, TUserDeveloperInfo* ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return jsval_to_TProductInfo(cx, v, ret);
 }
 
+<<<<<<< HEAD
 bool jsval_to_LogEventParamMap(JSContext *cx, JS::HandleValue v, LogEventParamMap** ret)
+=======
+bool jsval_to_LogEventParamMap(JSContext *cx, jsval v, LogEventParamMap** ret)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     bool jsret = false;
     if (v.isObject())
@@ -361,6 +482,7 @@ bool jsval_to_LogEventParamMap(JSContext *cx, JS::HandleValue v, LogEventParamMa
     return jsret;
 }
 
+<<<<<<< HEAD
 bool jsval_to_StringMap(JSContext *cx, JS::HandleValue v, StringMap* ret)
 {
     return jsval_to_TProductInfo(cx, v, ret);
@@ -415,6 +537,12 @@ bool jsval_to_std_map_string_string(JSContext *cx, JS::HandleValue v, std::map<s
     return true;
 }
 
+=======
+bool jsval_to_StringMap(JSContext *cx, jsval v, StringMap* ret)
+{
+    return jsval_to_TProductInfo(cx, v, ret);
+}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 // From native type to jsval
 jsval int32_to_jsval( JSContext *cx, int32_t number )
@@ -464,17 +592,26 @@ jsval c_string_to_jsval(JSContext* cx, const char* v, size_t length /* = -1 */) 
 
 jsval TProductInfo_to_jsval(JSContext *cx, TProductInfo& ret)
 {
+<<<<<<< HEAD
     JS::RootedObject tmp(cx, JS_NewObject(cx, nullptr, JS::NullPtr(), JS::NullPtr()));
+=======
+    JSObject *tmp = JS_NewObject(cx, NULL, NULL, NULL);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!tmp) return JSVAL_NULL;
 
     for (TProductInfo::iterator it = ret.begin(); it != ret.end(); ++it)
     {
+<<<<<<< HEAD
         JS_DefineProperty(cx, tmp, it->first.c_str(), JS::RootedValue(cx, std_string_to_jsval(cx, it->second)), JSPROP_ENUMERATE | JSPROP_PERMANENT);
+=======
+        JS_DefineProperty(cx, tmp, it->first.c_str(), std_string_to_jsval(cx, it->second), NULL, NULL, JSPROP_ENUMERATE | JSPROP_PERMANENT);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     return OBJECT_TO_JSVAL(tmp);
 }
 
+<<<<<<< HEAD
 jsval TProductList_to_jsval(JSContext *cx,TProductList list){
     JS::RootedObject tmp(cx, JS_NewArrayObject(cx, 0));
 	int i = 0;
@@ -487,6 +624,20 @@ jsval TProductList_to_jsval(JSContext *cx,TProductList list){
 	}
 	return OBJECT_TO_JSVAL(tmp);
 }
+=======
+    jsval TProductList_to_jsval(JSContext *cx,TProductList list){
+        JSObject *tmp = JS_NewArrayObject(cx, 0, NULL);
+        int i = 0;
+        for(TProductList::iterator it = list.begin();it!=list.end();++it){
+            JS::RootedValue arrElement(cx);
+            
+            arrElement = TProductInfo_to_jsval(cx, *it);
+            JS_SetElement(cx, tmp, i, &arrElement);
+            ++i;
+        }
+        return OBJECT_TO_JSVAL(tmp);
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 jsval LogEventParamMap_to_jsval(JSContext *cx, LogEventParamMap*& ret)
 {// TODO:

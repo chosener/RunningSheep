@@ -1,7 +1,11 @@
 /**
  Copyright 2013 BlackBerry Inc.
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies
  
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -26,11 +30,14 @@
 #include "math/Mat4.h"
 //#include "Plane.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 class Mat4;
@@ -63,7 +70,11 @@ class Mat4;
  * q4 = (-0.8, 0.0, -0.6, 0.0).
  * For the point p = (1.0, 1.0, 1.0), the following figures show the trajectories of p using lerp, slerp, and squad.
  */
+<<<<<<< HEAD
 class CC_DLL Quaternion
+=======
+class Quaternion
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     friend class Curve;
     friend class Transform;
@@ -189,8 +200,14 @@ public:
     void conjugate();
 
     /**
+<<<<<<< HEAD
      * Gets the conjugate of this quaternion.
      *
+=======
+     * Gets the conjugate of this quaternion in dst.
+     *
+     * @param dst A quaternion to store the conjugate in.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Quaternion getConjugated() const;
 
@@ -207,12 +224,23 @@ public:
     bool inverse();
 
     /**
+<<<<<<< HEAD
      * Gets the inverse of this quaternion.
+=======
+     * Gets the inverse of this quaternion in dst.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *
      * Note that the inverse of a quaternion is equal to its conjugate
      * when the quaternion is unit-length. For this reason, it is more
      * efficient to use the conjugate method directly when you know your
      * quaternion is already unit-length.
+<<<<<<< HEAD
+=======
+     *
+     * @param dst A quaternion to store the inverse in.
+     * 
+     * @return true if the inverse can be computed, false otherwise.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Quaternion getInversed() const;
 
@@ -241,11 +269,21 @@ public:
     void normalize();
 
     /**
+<<<<<<< HEAD
      * Get the normalized quaternion.
      *
      * If the quaternion already has unit length or if the length
      * of the quaternion is zero, this method simply copies
      * this vector.
+=======
+     * Normalizes this quaternion and stores the result in dst.
+     *
+     * If the quaternion already has unit length or if the length
+     * of the quaternion is zero, this method simply copies
+     * this vector into dst.
+     *
+     * @param dst A quaternion to store the result in.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Quaternion getNormalized() const;
 
@@ -362,6 +400,7 @@ public:
     inline const Quaternion operator*(const Quaternion& q) const;
 
     /**
+<<<<<<< HEAD
      * Calculates the quaternion product of this quaternion with the given vec3.
      * @param v The vec3 to multiply.
      * @return The vec3 product.
@@ -369,15 +408,20 @@ public:
     inline Vec3 operator*(const Vec3& v) const;
 
     /**
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * Multiplies this quaternion with the given quaternion.
      * 
      * @param q The quaternion to multiply.
      * @return This quaternion, after the multiplication occurs.
      */
     inline Quaternion& operator*=(const Quaternion& q);
+<<<<<<< HEAD
     
     /** equals to Quaternion(0,0,0, 0) */
     static const Quaternion ZERO;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
 
@@ -411,10 +455,14 @@ private:
 };
 
 NS_CC_MATH_END
+<<<<<<< HEAD
 /**
  end of base group
  @}
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "Quaternion.inl"
 
 #endif

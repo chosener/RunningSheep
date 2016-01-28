@@ -27,14 +27,21 @@ THE SOFTWARE.
 
 #include "cocostudio/CCActionObject.h"
 #include "cocostudio/DictionaryHelper.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio {
     
 class CocoLoader;
 struct stExpCocoNode;
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL ActionManagerEx:public cocos2d::Ref
+=======
+class ActionManagerEx:public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -98,6 +105,7 @@ public:
 	*/
 	ActionObject* playActionByName(const char* jsonName,const char* actionName, cocos2d::CallFunc* func);
 
+<<<<<<< HEAD
 	/**
 	* Stop an Action with a name.
 	*
@@ -109,6 +117,8 @@ public:
 	*/
 	ActionObject* stopActionByName(const char* jsonName,const char* actionName);
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	/*init properties with json dictionay*/
 	void initWithDictionary(const char* jsonName,const rapidjson::Value &dic, Ref* root);
     void initWithBinary(const char* file, Ref* root,  CocoLoader* cocoLoader, stExpCocoNode*	pCocoNode);

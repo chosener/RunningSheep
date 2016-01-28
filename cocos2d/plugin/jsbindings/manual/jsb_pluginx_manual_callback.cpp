@@ -2,8 +2,11 @@
 #include "jsb_pluginx_basic_conversions.h"
 #include "jsb_pluginx_spidermonkey_specifics.h"
 #include "ProtocolAds.h"
+<<<<<<< HEAD
 #include "AgentManager.h"
 #include "FacebookAgent.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace pluginx;
 
@@ -23,11 +26,19 @@ public:
         
         JSContext* cx = s_cx;
         
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
         
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+        JSObject* obj = _JSDelegate;
+        JSAutoCompartment ac(cx, obj);
+        
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
         jsval dataVal[3];
         dataVal[0] = INT_TO_JSVAL(ret);
@@ -44,7 +55,12 @@ public:
                 return;
             }
 
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onPayResult", JS::HandleValueArray::fromMarkedLocation(3, dataVal), &retval);
+=======
+            JS_CallFunctionName(cx, obj, "onPayResult",
+                                3, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
@@ -52,6 +68,7 @@ public:
     {
         _JSDelegate = pJSDelegate;
     }
+<<<<<<< HEAD
     JSObject* getJSDelegate()
     {
         return _JSDelegate;
@@ -65,6 +82,16 @@ public:
         
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+    virtual void onRequestProductsResult(cocos2d::plugin::IAPProductRequest ret, cocos2d::plugin::TProductList info){
+        JSContext* cx = s_cx;
+        
+        JSObject* obj = _JSDelegate;
+        JSAutoCompartment ac(cx, obj);
+        
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
         jsval dataVal[2];
         dataVal[0] = INT_TO_JSVAL(ret);
@@ -80,18 +107,31 @@ public:
                 return;
             }
             
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onRequestProductResult", JS::HandleValueArray::fromMarkedLocation(2, dataVal), &retval);
+=======
+            JS_CallFunctionName(cx, obj, "onRequestProductResult",
+                                2, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
     }
 private:
+<<<<<<< HEAD
     JS::Heap<JSObject*> _JSDelegate;
+=======
+    JSObject* _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 bool js_pluginx_ProtocolIAP_setResultListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     s_cx = cx;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::plugin::ProtocolIAP* cobj = (cocos2d::plugin::ProtocolIAP *)(proxy ? proxy->ptr : NULL);
@@ -99,12 +139,20 @@ bool js_pluginx_ProtocolIAP_setResultListener(JSContext *cx, uint32_t argc, jsva
 
     if (argc == 1) {
         // save the delegate
+<<<<<<< HEAD
         JSObject *jsDelegate = args.get(0).toObjectOrNull();
+=======
+        JSObject *jsDelegate = JSVAL_TO_OBJECT(argv[0]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         Pluginx_PurchaseResult* nativeDelegate = new Pluginx_PurchaseResult();
         nativeDelegate->setJSDelegate(jsDelegate);
         cobj->setResultListener(nativeDelegate);
         
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return true;
     }
 
@@ -112,6 +160,7 @@ bool js_pluginx_ProtocolIAP_setResultListener(JSContext *cx, uint32_t argc, jsva
     return false;
 }
 
+<<<<<<< HEAD
 bool js_pluginx_ProtocolIAP_getResultListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -186,6 +235,8 @@ bool js_pluginx_ProtocolIAP_payForProduct(JSContext *cx, uint32_t argc, jsval *v
     return false;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Pluginx_AdsListener : public cocos2d::plugin::AdsListener
 {
 public:
@@ -193,17 +244,27 @@ public:
     virtual void onAdsResult(AdsResultCode code, const char* msg)
     {
         JSContext* cx = s_cx;
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
 
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
         jsval dataVal[2];
         dataVal[0] = INT_TO_JSVAL(code);
         std::string strMsgInfo = msg;
         dataVal[1] = std_string_to_jsval(cx, strMsgInfo);
         
+<<<<<<< HEAD
+=======
+        JSObject* obj = _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         bool bRet = JS_HasProperty(cx, obj, "onAdsResult", &hasAction);
         if (bRet && hasAction) {
             if(!JS_GetProperty(cx, obj, "onAdsResult", &temp_retval)) {
@@ -212,18 +273,30 @@ public:
             if(temp_retval == JSVAL_VOID) {
                 return;
             }
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onAdsResult", JS::HandleValueArray::fromMarkedLocation(2, dataVal), &retval);
+=======
+            JSAutoCompartment ac(cx, obj);
+            JS_CallFunctionName(cx, obj, "onAdsResult",
+                                2, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
     virtual void onPlayerGetPoints(ProtocolAds* pAdsPlugin, int points)
     {
         JSContext* cx = s_cx;
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
 
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
 
         js_proxy_t * p;
@@ -235,6 +308,10 @@ public:
         dataVal[0] = arg;
         dataVal[1] = INT_TO_JSVAL(points);
         
+<<<<<<< HEAD
+=======
+        JSObject* obj = _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         bool bRet = JS_HasProperty(cx, obj, "onPlayerGetPoints", &hasAction);
         if (bRet && hasAction) {
             if(!JS_GetProperty(cx, obj, "onPlayerGetPoints", &temp_retval)) {
@@ -243,7 +320,13 @@ public:
             if(temp_retval == JSVAL_VOID) {
                 return;
             }
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onPlayerGetPoints", JS::HandleValueArray::fromMarkedLocation(2, dataVal), &retval);
+=======
+            JSAutoCompartment ac(cx, obj);
+            JS_CallFunctionName(cx, obj, "onPlayerGetPoints",
+                                2, NULL, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
@@ -251,6 +334,7 @@ public:
     {
         _JSDelegate = pJSDelegate;
     }
+<<<<<<< HEAD
     JSObject* getJSDelegate()
     {
         return _JSDelegate;
@@ -258,24 +342,41 @@ public:
 
 private:
     JS::Heap<JSObject*> _JSDelegate;
+=======
+
+private:
+    JSObject* _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 bool js_pluginx_ProtocolAds_setAdsListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     s_cx = cx;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::plugin::ProtocolAds* cobj = (cocos2d::plugin::ProtocolAds *)(proxy ? proxy->ptr : NULL);
     bool ok = true;
     if (argc == 1) {
         // save the delegate
+<<<<<<< HEAD
         JSObject *jsDelegate = args.get(0).toObjectOrNull();
+=======
+        JSObject *jsDelegate = JSVAL_TO_OBJECT(argv[0]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         Pluginx_AdsListener* nativeDelegate = new Pluginx_AdsListener();
         nativeDelegate->setJSDelegate(jsDelegate);
         cobj->setAdsListener(nativeDelegate);
         
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return true;
     }
 
@@ -283,6 +384,7 @@ bool js_pluginx_ProtocolAds_setAdsListener(JSContext *cx, uint32_t argc, jsval *
     return false;
 }
 
+<<<<<<< HEAD
 bool js_pluginx_ProtocolAds_getAdsListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -309,23 +411,36 @@ bool js_pluginx_ProtocolAds_getAdsListener(JSContext *cx, uint32_t argc, jsval *
 	return false;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Pluginx_ShareResult : public cocos2d::plugin::ShareResultListener
 {
 public:
     virtual void onShareResult(cocos2d::plugin::ShareResultCode ret, const char* msg)
     {
         JSContext* cx = s_cx;
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
 
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
         jsval dataVal[2];
         dataVal[0] = INT_TO_JSVAL(ret);
         std::string strMsgInfo = msg;
         dataVal[1] = std_string_to_jsval(cx, strMsgInfo);
         
+<<<<<<< HEAD
+=======
+        JSObject* obj = _JSDelegate;
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (JS_HasProperty(cx, obj, "onShareResult", &hasAction) && hasAction) {
             if(!JS_GetProperty(cx, obj, "onShareResult", &temp_retval)) {
                 return;
@@ -333,7 +448,13 @@ public:
             if(temp_retval == JSVAL_VOID) {
                 return;
             }
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onShareResult", JS::HandleValueArray::fromMarkedLocation(2, dataVal), &retval);
+=======
+            JSAutoCompartment ac(cx, obj);
+            JS_CallFunctionName(cx, obj, "onShareResult",
+                                2, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
@@ -341,6 +462,7 @@ public:
     {
         _JSDelegate = pJSDelegate;
     }
+<<<<<<< HEAD
     
     JSObject* getJSDelegate()
     {
@@ -349,12 +471,21 @@ public:
 
 private:
     JS::Heap<JSObject*> _JSDelegate;
+=======
+
+private:
+    JSObject* _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 bool js_pluginx_ProtocolShare_setResultListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     s_cx = cx;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::plugin::ProtocolShare* cobj = (cocos2d::plugin::ProtocolShare *)(proxy ? proxy->ptr : NULL);
@@ -362,12 +493,20 @@ bool js_pluginx_ProtocolShare_setResultListener(JSContext *cx, uint32_t argc, js
 
     if (argc == 1) {
         // save the delegate
+<<<<<<< HEAD
         JSObject *jsDelegate = args.get(0).toObjectOrNull();
+=======
+        JSObject *jsDelegate = JSVAL_TO_OBJECT(argv[0]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         Pluginx_ShareResult* nativeDelegate = new Pluginx_ShareResult();
         nativeDelegate->setJSDelegate(jsDelegate);
         cobj->setResultListener(nativeDelegate);
         
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return true;
     }
 
@@ -375,6 +514,7 @@ bool js_pluginx_ProtocolShare_setResultListener(JSContext *cx, uint32_t argc, js
     return false;
 }
 
+<<<<<<< HEAD
 bool js_pluginx_ProtocolShare_getResultListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -449,23 +589,36 @@ bool js_pluginx_ProtocolShare_share(JSContext *cx, uint32_t argc, jsval *vp)
     return false;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Pluginx_SocialResult : public cocos2d::plugin::SocialListener
 {
 public:
     virtual void onSocialResult(cocos2d::plugin::SocialRetCode ret, const char* msg)
     {
         JSContext* cx = s_cx;
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
 
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
         jsval dataVal[2];
         dataVal[0] = INT_TO_JSVAL(ret);
         std::string strMsgInfo = msg;
         dataVal[1] = std_string_to_jsval(cx, strMsgInfo);
         
+<<<<<<< HEAD
+=======
+        JSObject* obj = _JSDelegate;
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (JS_HasProperty(cx, obj, "onSocialResult", &hasAction) && hasAction) {
             if(!JS_GetProperty(cx, obj, "onSocialResult", &temp_retval)) {
                 return;
@@ -473,7 +626,13 @@ public:
             if(temp_retval == JSVAL_VOID) {
                 return;
             }
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onSocialResult", JS::HandleValueArray::fromMarkedLocation(2, dataVal), &retval);
+=======
+            JSAutoCompartment ac(cx, obj);
+            JS_CallFunctionName(cx, obj, "onSocialResult",
+                                2, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
@@ -481,6 +640,7 @@ public:
     {
         _JSDelegate = pJSDelegate;
     }
+<<<<<<< HEAD
     
     JSObject* getJSDelegate()
     {
@@ -489,12 +649,21 @@ public:
 
 private:
     JS::Heap<JSObject*> _JSDelegate;
+=======
+
+private:
+    JSObject* _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 bool js_pluginx_ProtocolSocial_setListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     s_cx = cx;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::plugin::ProtocolSocial* cobj = (cocos2d::plugin::ProtocolSocial *)(proxy ? proxy->ptr : NULL);
@@ -502,12 +671,20 @@ bool js_pluginx_ProtocolSocial_setListener(JSContext *cx, uint32_t argc, jsval *
 
     if (argc == 1) {
         // save the delegate
+<<<<<<< HEAD
         JSObject *jsDelegate = args.get(0).toObjectOrNull();
+=======
+        JSObject *jsDelegate = JSVAL_TO_OBJECT(argv[0]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         Pluginx_SocialResult* nativeDelegate = new Pluginx_SocialResult();
         nativeDelegate->setJSDelegate(jsDelegate);
         cobj->setListener(nativeDelegate);
         
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return true;
     }
 
@@ -515,6 +692,7 @@ bool js_pluginx_ProtocolSocial_setListener(JSContext *cx, uint32_t argc, jsval *
     return false;
 }
 
+<<<<<<< HEAD
 bool js_pluginx_ProtocolSocial_getListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -641,17 +819,25 @@ bool js_pluginx_ProtocolSocial_unlockAchievement(JSContext *cx, uint32_t argc, j
     return false;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Pluginx_UserActionListener : public cocos2d::plugin::UserActionListener
 {
 public:
     virtual void onActionResult(ProtocolUser* userPlugin, cocos2d::plugin::UserActionResultCode ret, const char* msg)
     {
         JSContext* cx = s_cx;
+<<<<<<< HEAD
         JS::RootedObject obj(cx, _JSDelegate);
         JSAutoCompartment ac(cx, obj);
 
         bool hasAction;
         JS::RootedValue retval(cx);
+=======
+
+        bool hasAction;
+        jsval retval;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         JS::RootedValue temp_retval(cx);
 
         js_proxy_t * p;
@@ -665,6 +851,11 @@ public:
         std::string strMsgInfo = msg;
         dataVal[2] = std_string_to_jsval(cx, strMsgInfo);
         
+<<<<<<< HEAD
+=======
+        JSObject* obj = _JSDelegate;
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (JS_HasProperty(cx, obj, "onActionResult", &hasAction) && hasAction) {
             if(!JS_GetProperty(cx, obj, "onActionResult", &temp_retval)) {
                 return;
@@ -672,7 +863,13 @@ public:
             if(temp_retval == JSVAL_VOID) {
                 return;
             }
+<<<<<<< HEAD
             JS_CallFunctionName(cx, obj, "onActionResult", JS::HandleValueArray::fromMarkedLocation(3, dataVal), &retval);
+=======
+            JSAutoCompartment ac(cx, obj);
+            JS_CallFunctionName(cx, obj, "onActionResult",
+                                3, dataVal, &retval);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 
@@ -680,6 +877,7 @@ public:
     {
         _JSDelegate = pJSDelegate;
     }
+<<<<<<< HEAD
     
     JSObject* getJSDelegate()
     {
@@ -688,12 +886,21 @@ public:
 
 private:
     JS::Heap<JSObject*> _JSDelegate;
+=======
+
+private:
+    JSObject* _JSDelegate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 bool js_pluginx_ProtocolUser_setActionListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     s_cx = cx;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::plugin::ProtocolUser* cobj = (cocos2d::plugin::ProtocolUser *)(proxy ? proxy->ptr : NULL);
@@ -701,12 +908,20 @@ bool js_pluginx_ProtocolUser_setActionListener(JSContext *cx, uint32_t argc, jsv
 
     if (argc == 1) {
         // save the delegate
+<<<<<<< HEAD
         JSObject *jsDelegate = args.get(0).toObjectOrNull();
+=======
+        JSObject *jsDelegate = JSVAL_TO_OBJECT(argv[0]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         Pluginx_UserActionListener* nativeDelegate = new Pluginx_UserActionListener();
         nativeDelegate->setJSDelegate(jsDelegate);
         cobj->setActionListener(nativeDelegate);
         
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return true;
     }
 
@@ -714,6 +929,7 @@ bool js_pluginx_ProtocolUser_setActionListener(JSContext *cx, uint32_t argc, jsv
     return false;
 }
 
+<<<<<<< HEAD
 bool js_pluginx_ProtocolUser_getActionListener(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -1066,3 +1282,5 @@ bool js_pluginx_FacebookAgent_dialog(JSContext *cx, uint32_t argc, jsval *vp)
     JS_ReportError(cx, "js_pluginx_protocols_FacebookAgent_dialog : wrong number of arguments");
     return false;
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

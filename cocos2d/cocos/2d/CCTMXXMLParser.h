@@ -2,7 +2,11 @@
 Copyright (c) 2009-2010 Ricardo Quesada
 Copyright (c) 2010-2012 cocos2d-x.org
 Copyright (c) 2011      Zynga Inc.
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -29,19 +33,29 @@ THE SOFTWARE.
 #ifndef __CC_TM_XML_PARSER__
 #define __CC_TM_XML_PARSER__
 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "math/CCGeometry.h"
 #include "platform/CCSAXParser.h"
 #include "base/CCVector.h"
 #include "base/CCValue.h"
+<<<<<<< HEAD
 #include "2d/CCTMXObjectGroup.h" // needed for Vector<TMXObjectGroup*> for binding
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <string>
 
 NS_CC_BEGIN
 
 class TMXLayerInfo;
+<<<<<<< HEAD
+=======
+class TMXObjectGroup;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class TMXTilesetInfo;
 
 /** @file
@@ -325,5 +339,10 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
 #endif
+=======
+#endif
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

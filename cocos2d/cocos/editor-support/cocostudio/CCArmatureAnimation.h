@@ -28,7 +28,10 @@ THE SOFTWARE.
 
 #include "cocostudio/CCProcessBase.h"
 #include "cocostudio/CCTween.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <queue>
 
 namespace cocostudio {
@@ -66,7 +69,11 @@ struct MovementEvent
     std::string movementID;
 };
 
+<<<<<<< HEAD
 class  CC_STUDIO_DLL ArmatureAnimation : public ProcessBase
+=======
+class  ArmatureAnimation : public ProcessBase
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**
@@ -157,6 +164,7 @@ public:
     /**
      * Pause the Process
      */
+<<<<<<< HEAD
     virtual void pause() override;
     /**
      * Resume the Process
@@ -166,6 +174,17 @@ public:
      * Stop the Process
      */
     virtual void stop() override;
+=======
+    virtual void pause();
+    /**
+     * Resume the Process
+     */
+    virtual void resume();
+    /**
+     * Stop the Process
+     */
+    virtual void stop();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
     /**
@@ -173,7 +192,11 @@ public:
      */
     ssize_t getMovementCount() const;
 
+<<<<<<< HEAD
     virtual void update(float dt) override;
+=======
+    void update(float dt);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Get current movementID
@@ -242,7 +265,11 @@ protected:
      * @js NA
      * @lua NA
      */
+<<<<<<< HEAD
     void updateHandler() override;
+=======
+    void updateHandler();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Update current key frame, and process auto stop, pause

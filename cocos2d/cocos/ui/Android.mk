@@ -25,6 +25,7 @@ UILoadingBar.cpp \
 UISlider.cpp \
 UITextField.cpp \
 UIRichText.cpp \
+<<<<<<< HEAD
 UIHBox.cpp \
 UIVBox.cpp \
 UIRelativeBox.cpp \
@@ -44,3 +45,29 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../editor-support
 LOCAL_STATIC_LIBRARIES := cocos_extension_static
 
 include $(BUILD_STATIC_LIBRARY)
+=======
+CCProtectedNode.cpp \
+UIHBox.cpp \
+UIVBox.cpp \
+UIRelativeBox.cpp \
+UIVideoPlayerAndroid.cpp \
+UIDeprecated.cpp \
+
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/.. \
+$(LOCAL_PATH)/../editor-support
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/.. \
+$(LOCAL_PATH)/../../external \
+$(LOCAL_PATH)/.. \
+$(LOCAL_PATH)/../.. \
+$(LOCAL_PATH)/../editor-support
+
+
+LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_extension_static
+
+include $(BUILD_STATIC_LIBRARY)
+
+$(call import-module,extensions)
+$(call import-module,.)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

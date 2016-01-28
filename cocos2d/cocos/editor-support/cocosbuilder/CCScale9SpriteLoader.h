@@ -3,14 +3,22 @@
 
 #include "CCNodeLoader.h"
 #include "CCScale9SpriteLoader.h"
+<<<<<<< HEAD
 #include "ui/UIScale9Sprite.h"
+=======
+#include "extensions/GUI/CCControlExtension/CCScale9Sprite.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocosbuilder {
 
 /* Forward declaration. */
 class CCBReader;
 
+<<<<<<< HEAD
 class CC_DLL Scale9SpriteLoader : public NodeLoader {
+=======
+class Scale9SpriteLoader : public NodeLoader {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 public:
     /**
      * @js NA
@@ -28,8 +36,13 @@ protected:
      * @js NA
      * @lua NA
      */
+<<<<<<< HEAD
     virtual cocos2d::ui::Scale9Sprite * createNode(cocos2d::Node * pParent, cocosbuilder::CCBReader * ccbReader) {
         cocos2d::ui::Scale9Sprite* pNode = cocos2d::ui::Scale9Sprite::create();
+=======
+    virtual cocos2d::extension::Scale9Sprite * createNode(cocos2d::Node * pParent, cocosbuilder::CCBReader * ccbReader) {
+        cocos2d::extension::Scale9Sprite* pNode = cocos2d::extension::Scale9Sprite::create();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         pNode->setAnchorPoint(cocos2d::Vec2::ZERO);
         

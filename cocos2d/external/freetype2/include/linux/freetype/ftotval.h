@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType API for validating OpenType tables (specification).         */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 2004-2007, 2013, 2014 by                                     */
+=======
+/*  Copyright 2004, 2005, 2006, 2007 by                                    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -58,12 +62,15 @@ FT_BEGIN_HEADER
   /*    This section contains the declaration of functions to validate     */
   /*    some OpenType tables (BASE, GDEF, GPOS, GSUB, JSTF, MATH).         */
   /*                                                                       */
+<<<<<<< HEAD
   /* <Order>                                                               */
   /*    FT_OpenType_Validate                                               */
   /*    FT_OpenType_Free                                                   */
   /*                                                                       */
   /*    FT_VALIDATE_OTXXX                                                  */
   /*                                                                       */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
 
 
@@ -113,6 +120,11 @@ FT_BEGIN_HEADER
                         FT_VALIDATE_JSTF | \
                         FT_VALIDATE_MATH
 
+<<<<<<< HEAD
+=======
+  /* */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  /**********************************************************************
   *
   * @function:
@@ -120,7 +132,11 @@ FT_BEGIN_HEADER
   *
   * @description:
   *    Validate various OpenType tables to assure that all offsets and
+<<<<<<< HEAD
   *    indices are valid.  The idea is that a higher-level library that
+=======
+  *    indices are valid.  The idea is that a higher-level library which
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   *    actually does the text layout can access those tables without
   *    error checking (which can be quite time consuming).
   *
@@ -129,7 +145,11 @@ FT_BEGIN_HEADER
   *       A handle to the input face.
   *
   *    validation_flags ::
+<<<<<<< HEAD
   *       A bit field that specifies the tables to be validated.  See
+=======
+  *       A bit field which specifies the tables to be validated.  See
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   *       @FT_VALIDATE_OTXXX for possible values.
   *
   * @output:
@@ -169,6 +189,11 @@ FT_BEGIN_HEADER
                         FT_Bytes  *GSUB_table,
                         FT_Bytes  *JSTF_table );
 
+<<<<<<< HEAD
+=======
+  /* */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  /**********************************************************************
   *
   * @function:
@@ -193,7 +218,12 @@ FT_BEGIN_HEADER
   FT_OpenType_Free( FT_Face   face,
                     FT_Bytes  table );
 
+<<<<<<< HEAD
   /* */
+=======
+
+ /* */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 FT_END_HEADER

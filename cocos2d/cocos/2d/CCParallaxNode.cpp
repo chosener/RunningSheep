@@ -24,7 +24,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 #include "2d/CCParallaxNode.h"
+=======
+#include "CCParallaxNode.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccCArray.h"
 
 NS_CC_BEGIN
@@ -34,7 +38,11 @@ class PointObject : public Ref
 public:
     static PointObject * create(Vec2 ratio, Vec2 offset)
     {
+<<<<<<< HEAD
         PointObject *ret = new (std::nothrow) PointObject();
+=======
+        PointObject *ret = new PointObject();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         ret->initWithPoint(ratio, offset);
         ret->autorelease();
         return ret;
@@ -66,7 +74,11 @@ private:
 ParallaxNode::ParallaxNode()
 {
     _parallaxArray = ccArrayNew(5);        
+<<<<<<< HEAD
     _lastPosition.set(-100.0f, -100.0f);
+=======
+    _lastPosition = Vec2(-100,-100);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ParallaxNode::~ParallaxNode()
@@ -80,7 +92,11 @@ ParallaxNode::~ParallaxNode()
 
 ParallaxNode * ParallaxNode::create()
 {
+<<<<<<< HEAD
     ParallaxNode *ret = new (std::nothrow) ParallaxNode();
+=======
+    ParallaxNode *ret = new ParallaxNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ret->autorelease();
     return ret;
 }
@@ -165,7 +181,11 @@ void ParallaxNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32
             PointObject *point = (PointObject*)_parallaxArray->arr[i];
             float x = -pos.x + pos.x * point->getRatio().x + point->getOffset().x;
             float y = -pos.y + pos.y * point->getRatio().y + point->getOffset().y;            
+<<<<<<< HEAD
             point->getChild()->setPosition(x,y);
+=======
+            point->getChild()->setPosition(Vec2(x,y));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         _lastPosition = pos;
     }

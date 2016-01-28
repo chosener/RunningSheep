@@ -5,6 +5,7 @@
 #include "jsfriendapi.h"
 
 bool js_pluginx_ProtocolIAP_setResultListener(JSContext *cx, uint32_t argc, jsval *vp);
+<<<<<<< HEAD
 bool js_pluginx_ProtocolIAP_getResultListener(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_pluginx_ProtocolIAP_payForProduct(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -32,5 +33,11 @@ bool js_pluginx_FacebookAgent_login(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_pluginx_FacebookAgent_api(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_pluginx_FacebookAgent_appRequest(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_pluginx_FacebookAgent_dialog(JSContext *cx, uint32_t argc, jsval *vp);
+=======
+bool js_pluginx_ProtocolAds_setAdsListener(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_pluginx_ProtocolShare_setResultListener(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_pluginx_ProtocolSocial_setListener(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_pluginx_ProtocolUser_setActionListener(JSContext *cx, uint32_t argc, jsval *vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* __JS_MANUAL_CALLBACK_H__ */

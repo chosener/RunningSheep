@@ -27,6 +27,7 @@
 
 #include "renderer/CCRenderCommand.h"
 #include "renderer/CCGLProgramState.h"
+<<<<<<< HEAD
 
 /**
  * @addtogroup support
@@ -97,13 +98,55 @@ protected:
     /**The number of quads for rendering.*/
     ssize_t _quadsCount;
     /**Model view matrix when rendering the triangles.*/
+=======
+#include "renderer/CCRenderCommandPool.h"
+
+NS_CC_BEGIN
+
+/** Command used to render one or more Quads */
+class QuadCommand : public RenderCommand
+{
+public:
+    static const int MATERIAL_ID_DO_NOT_BATCH = 0;
+
+    QuadCommand();
+    ~QuadCommand();
+
+    /** Initializes the command with a globalZOrder, a texture ID, a `GLProgram`, a blending function, a pointer to quads,
+     * quantity of quads, and the Model View transform to be used for the quads */
+    void init(float globalOrder, GLuint texutreID, GLProgramState* shader, BlendFunc blendType, V3F_C4B_T2F_Quad* quads, ssize_t quadCount,
+              const Mat4& mv);
+
+    void useMaterial() const;
+
+    inline uint32_t getMaterialID() const { return _materialID; }
+    inline GLuint getTextureID() const { return _textureID; }
+    inline V3F_C4B_T2F_Quad* getQuads() const { return _quads; }
+    inline ssize_t getQuadCount() const { return _quadsCount; }
+    inline GLProgramState* getGLProgramState() const { return _glProgramState; }
+    inline BlendFunc getBlendType() const { return _blendType; }
+    inline const Mat4& getModelView() const { return _mv; }
+
+protected:
+    void generateMaterialID();
+
+    uint32_t _materialID;
+    GLuint _textureID;
+    GLProgramState* _glProgramState;
+    BlendFunc _blendType;
+    V3F_C4B_T2F_Quad* _quads;
+    ssize_t _quadsCount;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Mat4 _mv;
 };
 
 NS_CC_END
 
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //_CC_QUADCOMMAND_H_

@@ -1,7 +1,11 @@
 /****************************************************************************
 Copyright (c) 2010      ForzeField Studios S.L. http://forzefield.com
 Copyright (c) 2010-2012 cocos2d-x.org
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -23,10 +27,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 
 #ifndef __CCARRAY_H__
 #define __CCARRAY_H__
 /// @cond DO_NOT_SHOW
+=======
+#ifndef __CCARRAY_H__
+#define __CCARRAY_H__
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define CC_USE_ARRAY_VECTOR 0
 
@@ -53,7 +62,11 @@ class RCPtr
 {
 public:
 	//Construct using a C pointer
+<<<<<<< HEAD
 	//e.g. RCPtr< T > x = new (std::nothrow) T();
+=======
+	//e.g. RCPtr< T > x = new T();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	RCPtr(T* ptr = nullptr)
     : _ptr(ptr)
 	{
@@ -83,7 +96,11 @@ public:
 	}
 
 	//Assign a pointer
+<<<<<<< HEAD
 	//e.g. x = new (std::nothrow) T();
+=======
+	//e.g. x = new T();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	RCPtr &operator=(T* ptr)
 	{
 //        printf("Array: operator= T*: %p\n", this);
@@ -558,5 +575,8 @@ public:
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __CCARRAY_H__

@@ -1,6 +1,7 @@
 
 
 #include "LoadingBarReader.h"
+<<<<<<< HEAD
 
 #include "ui/UILoadingBar.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,14 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UILoadingBar.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+using namespace cocostudio;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -27,7 +36,11 @@ namespace cocostudio
     
     static LoadingBarReader* instanceLoadingBar = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(LoadingBarReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(LoadingBarReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     LoadingBarReader::LoadingBarReader()
     {
@@ -43,16 +56,23 @@ namespace cocostudio
     {
         if (!instanceLoadingBar)
         {
+<<<<<<< HEAD
             instanceLoadingBar = new (std::nothrow) LoadingBarReader();
+=======
+            instanceLoadingBar = new LoadingBarReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceLoadingBar;
     }
     
+<<<<<<< HEAD
     void LoadingBarReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceLoadingBar);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void LoadingBarReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         WidgetReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -150,6 +170,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> LoadingBarReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -347,4 +368,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

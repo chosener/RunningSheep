@@ -29,6 +29,10 @@
 //#include "../Scene/Gift/LayerGift.h"
 //#include "../Scene/Store/LayerMagician.h"
 //#include "../Scene/Logo/DSLayerKengDie.h"
+<<<<<<< HEAD
+=======
+#include "../../Framework/GameHeader.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 SceneManager* SceneManager::mSceneManager = NULL;
 
@@ -64,12 +68,30 @@ void SceneManager::changeScene( EnumSceneType enScenType )
             break;
         case en_GameLogo:
             break;
+<<<<<<< HEAD
         case en_GameMainMenu:
+=======
+        case en_GameStart:
+        {
+            pScene = LayerStart::createScene();
+        }
+            break;
+        case en_GameMainMenu:
+        {
+            pScene = LayerMainMenu::createScene();
+        }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             break;
         case en_Loading:
             break;
         case en_GameScene:
+<<<<<<< HEAD
 
+=======
+        {
+            pScene = LayerGame::createScene();
+        }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             break;
         case en_TollgateEditorScene:
 

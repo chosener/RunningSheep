@@ -180,7 +180,10 @@ unzFile CC_DLL unzOpen64 OF((const void *path));
        does not describe the reality
 */
 
+<<<<<<< HEAD
 unzFile CC_DLL unzOpenBuffer OF((const void* buffer, uLong size));
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 unzFile CC_DLL unzOpen2 OF((const char *path,
                                     zlib_filefunc_def* pzlib_filefunc_def));

@@ -60,7 +60,11 @@ TriggerMng* TriggerMng::getInstance()
 {
     if (nullptr == _sharedTriggerMng)
     {
+<<<<<<< HEAD
         _sharedTriggerMng = new (std::nothrow) TriggerMng();
+=======
+        _sharedTriggerMng = new TriggerMng();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     return _sharedTriggerMng;
 }
@@ -411,7 +415,11 @@ void TriggerMng::addArmatureMovementCallBack(Armature *pAr, Ref *pTarget, SEL_Mo
 	ArmatureMovementDispatcher *amd = nullptr;
 	if (iter == _movementDispatches->end())
 	{
+<<<<<<< HEAD
 		amd = new (std::nothrow) ArmatureMovementDispatcher();
+=======
+		amd = new ArmatureMovementDispatcher();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         pAr->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(ArmatureMovementDispatcher::animationEvent, amd, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
         amd->addAnimationEventCallBack(pTarget, mecf);
 		_movementDispatches->insert(std::make_pair(pAr, amd));

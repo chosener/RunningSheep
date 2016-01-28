@@ -7,11 +7,14 @@ LOCAL_MODULE_FILENAME := libextension
 
 LOCAL_SRC_FILES := \
 assets-manager/AssetsManager.cpp \
+<<<<<<< HEAD
 assets-manager/Downloader.cpp \
 assets-manager/Manifest.cpp \
 assets-manager/AssetsManagerEx.cpp \
 assets-manager/CCEventAssetsManagerEx.cpp \
 assets-manager/CCEventListenerAssetsManagerEx.cpp \
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 GUI/CCControlExtension/CCControl.cpp \
 GUI/CCControlExtension/CCControlButton.cpp \
 GUI/CCControlExtension/CCControlColourPicker.cpp \
@@ -23,10 +26,19 @@ GUI/CCControlExtension/CCControlStepper.cpp \
 GUI/CCControlExtension/CCControlSwitch.cpp \
 GUI/CCControlExtension/CCControlUtils.cpp \
 GUI/CCControlExtension/CCInvocation.cpp \
+<<<<<<< HEAD
+=======
+GUI/CCControlExtension/CCScale9Sprite.cpp \
+GUI/CCEditBox/CCEditBox.cpp \
+GUI/CCEditBox/CCEditBoxImplAndroid.cpp \
+GUI/CCEditBox/CCEditBoxImplNone.cpp \
+GUI/CCEditBox/CCEditBoxImplWin.cpp \
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 GUI/CCScrollView/CCScrollView.cpp \
 GUI/CCScrollView/CCTableView.cpp \
 GUI/CCScrollView/CCTableViewCell.cpp \
 physics-nodes/CCPhysicsDebugNode.cpp \
+<<<<<<< HEAD
 physics-nodes/CCPhysicsSprite.cpp \
 Particle3D/CCParticle3DAffector.cpp \
 Particle3D/CCParticle3DEmitter.cpp \
@@ -190,7 +202,32 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/. \
                            $(LOCAL_PATH)/.. \
+=======
+physics-nodes/CCPhysicsSprite.cpp
+
+LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
+LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static
+LOCAL_WHOLE_STATIC_LIBRARIES += libwebsockets_static
+
+LOCAL_CXXFLAGS += -fexceptions
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/..
+
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/.. \
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                            $(LOCAL_PATH)/GUI/CCControlExtension \
                            $(LOCAL_PATH)/GUI/CCScrollView 
                     
 include $(BUILD_STATIC_LIBRARY)
+<<<<<<< HEAD
+=======
+
+$(call import-module,.)
+$(call import-module,audio/android)
+$(call import-module,curl/prebuilt/android)
+$(call import-module,Box2D)
+$(call import-module,websockets/prebuilt/android)
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

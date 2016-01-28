@@ -27,7 +27,10 @@ THE SOFTWARE.
 #include "PluginProtocol.h"
 #include <map>
 #include <string>
+<<<<<<< HEAD
 #include <functional>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { namespace plugin {
 
@@ -58,8 +61,11 @@ public:
     ProtocolSocial();
     virtual ~ProtocolSocial();
 
+<<<<<<< HEAD
 	typedef std::function<void(int, std::string&)> ProtocolSocialCallback;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     @brief config the share developer info
     @param devInfo This parameter is the info of developer,
@@ -73,13 +79,17 @@ public:
      * @brief methods of leaderboard feature
      */
     void submitScore(const char* leadboardID, long score);
+<<<<<<< HEAD
     void submitScore(const char* leadboardID, long score, ProtocolSocialCallback cb);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void showLeaderboard(const char* leaderboardID);
 
     /**
      * @brief methods of achievement feature
      */
     void unlockAchievement(TAchievementInfo achInfo);
+<<<<<<< HEAD
     void unlockAchievement(TAchievementInfo achInfo, ProtocolSocialCallback cb);
     void showAchievements();
 
@@ -96,10 +106,20 @@ public:
      @brief get listener
      */
     CC_DEPRECATED_ATTRIBUTE inline SocialListener* getListener()
+=======
+    void showAchievements();
+
+    inline void setListener(SocialListener* listener) {
+        _listener = listener;
+    }
+
+    inline SocialListener* getListener()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         return _listener;
     }
 
+<<<<<<< HEAD
     /*
      @brief set callback function
      */
@@ -119,6 +139,10 @@ public:
 protected:
     SocialListener* _listener;
     ProtocolSocialCallback _callback;
+=======
+protected:
+    SocialListener* _listener;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 }} // namespace cocos2d { namespace plugin {

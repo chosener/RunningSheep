@@ -79,7 +79,11 @@ bool ControlSaturationBrightnessPicker::initWithTargetAndPos(Node* target, Vec2 
 
 ControlSaturationBrightnessPicker* ControlSaturationBrightnessPicker::create(Node* target, Vec2 pos)
 {
+<<<<<<< HEAD
     ControlSaturationBrightnessPicker *pRet = new (std::nothrow) ControlSaturationBrightnessPicker();
+=======
+    ControlSaturationBrightnessPicker *pRet = new ControlSaturationBrightnessPicker();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     pRet->initWithTargetAndPos(target, pos);
     pRet->autorelease();
     return pRet;
@@ -108,7 +112,11 @@ void ControlSaturationBrightnessPicker::updateWithHSV(HSV hsv)
 void ControlSaturationBrightnessPicker::updateDraggerWithHSV(HSV hsv)
 {
     // Set the position of the slider to the correct saturation and brightness
+<<<<<<< HEAD
     Vec2 pos(_startPos.x + boxPos + (boxSize*(1 - hsv.s)),
+=======
+    Vec2 pos = Vec2(_startPos.x + boxPos + (boxSize*(1 - hsv.s)),
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                               _startPos.y + boxPos + (boxSize*hsv.v));
     
     // update

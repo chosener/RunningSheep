@@ -14,14 +14,22 @@ LOCAL_SRC_FILES := auto/jsb_cocos2dx_pluginx_auto.cpp \
                    manual/jsb_pluginx_spidermonkey_specifics.cpp \
                    manual/pluginxUTF8.cpp
 
+<<<<<<< HEAD
 LOCAL_CFLAGS := -DCOCOS2D_JAVASCRIPT -std=c++11
+=======
+LOCAL_CFLAGS := -DCOCOS2D_JAVASCRIPT
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 LOCAL_EXPORT_CFLAGS := -DCOCOS2D_JAVASCRIPT
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/manual \
                     $(LOCAL_PATH)/auto \
                     $(LOCAL_PATH)/../../cocos \
+<<<<<<< HEAD
                     $(LOCAL_PATH)/../protocols/include
+=======
+                    $(LOCAL_PATH)/../protocals/include
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/manual \
                            $(LOCAL_PATH)/auto
@@ -34,4 +42,8 @@ include $(BUILD_STATIC_LIBRARY)
 
 $(call import-module,external/spidermonkey/prebuilt/android)
 $(call import-module,.)
+<<<<<<< HEAD
 $(call import-module,plugin/protocols/proj.android/jni)
+=======
+$(call import-module,cocos2d-x/plugin/protocols/proj.android/jni)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

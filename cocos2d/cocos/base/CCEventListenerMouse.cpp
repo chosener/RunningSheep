@@ -36,7 +36,11 @@ bool EventListenerMouse::checkAvailable()
 
 EventListenerMouse* EventListenerMouse::create()
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) EventListenerMouse();
+=======
+    auto ret = new EventListenerMouse();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -50,7 +54,11 @@ EventListenerMouse* EventListenerMouse::create()
 
 EventListenerMouse* EventListenerMouse::clone()
 {
+<<<<<<< HEAD
     auto ret = new (std::nothrow) EventListenerMouse();
+=======
+    auto ret = new EventListenerMouse();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();

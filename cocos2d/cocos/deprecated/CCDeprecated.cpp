@@ -34,7 +34,11 @@
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 const Vec2 CCPointZero;
+=======
+const Vec2 CCPointZero = Vec2::ZERO;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /* The "zero" size -- equivalent to Size(0, 0). */
 const Size CCSizeZero = Size::ZERO;
@@ -87,10 +91,14 @@ void ccDrawInit()
 
 void ccDrawFree()
 {
+<<<<<<< HEAD
 //it will crash clang static analyzer so hide it if __clang_analyzer__ defined
 #ifndef __clang_analyzer__
     DrawPrimitives::free();
 #endif
+=======
+    DrawPrimitives::free();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ccDrawPoint( const Vec2& point )
@@ -578,6 +586,7 @@ Vec4* kmVec4Transform(Vec4* pOut, const Vec4* pV, const Mat4* pM)
     return pOut;
 }
 
+<<<<<<< HEAD
 const Vec3 KM_VEC3_NEG_Z(0, 0, -1);
 const Vec3 KM_VEC3_POS_Z(0, 0, 1);
 const Vec3 KM_VEC3_POS_Y(0, 1, 0);
@@ -591,6 +600,21 @@ const Vec2 KM_VEC2_NEG_Y(0, -1);
 const Vec2 KM_VEC2_NEG_X(-1, 0);
 const Vec2 KM_VEC2_POS_X(1, 0);
 const Vec2 KM_VEC2_ZERO(0, 0);
+=======
+const Vec3 KM_VEC3_NEG_Z = Vec3(0, 0, -1);
+const Vec3 KM_VEC3_POS_Z = Vec3(0, 0, 1);
+const Vec3 KM_VEC3_POS_Y = Vec3(0, 1, 0);
+const Vec3 KM_VEC3_NEG_Y = Vec3(0, -1, 0);
+const Vec3 KM_VEC3_NEG_X = Vec3(-1, 0, 0);
+const Vec3 KM_VEC3_POS_X = Vec3(1, 0, 0);
+const Vec3 KM_VEC3_ZERO = Vec3(0, 0, 0);
+
+const Vec2 KM_VEC2_POS_Y = Vec2(0, 1);
+const Vec2 KM_VEC2_NEG_Y = Vec2(0, -1);
+const Vec2 KM_VEC2_NEG_X = Vec2(-1, 0);
+const Vec2 KM_VEC2_POS_X = Vec2(1, 0);
+const Vec2 KM_VEC2_ZERO = Vec2(0, 0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

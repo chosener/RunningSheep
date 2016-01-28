@@ -1,5 +1,11 @@
 #include "ComboEffect.h"
+<<<<<<< HEAD
 void showComboEffect(int size,Node* node){
+=======
+
+void showComboEffect(int size,Node* node)
+{
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	if(size<5)
 		return;
 	Size visibleSize = Director::getInstance()->getVisibleSize();

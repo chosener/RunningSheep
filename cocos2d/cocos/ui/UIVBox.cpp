@@ -38,7 +38,11 @@ VBox::~VBox()
 
 VBox* VBox::create()
 {
+<<<<<<< HEAD
     VBox* widget = new (std::nothrow) VBox();
+=======
+    VBox* widget = new VBox();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (widget && widget->init())
     {
         widget->autorelease();
@@ -50,7 +54,11 @@ VBox* VBox::create()
 
 VBox* VBox::create(const cocos2d::Size &size)
 {
+<<<<<<< HEAD
     VBox* widget = new (std::nothrow) VBox();
+=======
+    VBox* widget = new VBox();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (widget && widget->initWithSize(size))
     {
         widget->autorelease();

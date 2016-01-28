@@ -34,6 +34,7 @@
 #include "2d/CCNode.h"
 #include "base/ccTypes.h"
 #include "renderer/CCCustomCommand.h"
+<<<<<<< HEAD
 #include "math/CCMath.h"
 
 NS_CC_BEGIN
@@ -48,10 +49,21 @@ class PointArray;
  * @brief Node that draws dots, segments and polygons.
  * Faster than the "drawing primitives" since they draws everything in one single batch.
  * @since v2.1
+=======
+
+NS_CC_BEGIN
+
+/** DrawNode
+ Node that draws dots, segments and polygons.
+ Faster than the "drawing primitives" since they it draws everything in one single batch.
+ 
+ @since v2.1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL DrawNode : public Node
 {
 public:
+<<<<<<< HEAD
     /** creates and initialize a DrawNode node.
      *
      * @return Return an autorelease object.
@@ -242,6 +254,15 @@ public:
      * @param radius The segment radius.
      * @param color The segment color.
      */
+=======
+    /** creates and initialize a DrawNode node */
+    static DrawNode* create();
+
+    /** draw a dot at a position, with a given radius and color */
+    void drawDot(const Vec2 &pos, float radius, const Color4F &color);
+    
+    /** draw a segment with a radius and color */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void drawSegment(const Vec2 &from, const Vec2 &to, float radius, const Color4F &color);
     
     /** draw a polygon with a fill color and line color
@@ -250,6 +271,7 @@ public:
     * In js: var drawPolygon(var Arrayofpoints, var fillColor, var width, var borderColor)
     * In lua:local drawPolygon(local pointTable,local tableCount,local fillColor,local width,local borderColor)
     * @endcode
+<<<<<<< HEAD
     * @param verts A pointer to point coordinates.
     * @param count The number of verts measured in points.
     * @param fillColor The color will fill in polygon.
@@ -287,6 +309,28 @@ public:
     */
     const BlendFunc& getBlendFunc() const;
     /** Set the color mixed mode.
+=======
+    */
+    void drawPolygon(Vec2 *verts, int count, const Color4F &fillColor, float borderWidth, const Color4F &borderColor);
+	
+    /** draw a triangle with color */
+    void drawTriangle(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, const Color4F &color);
+
+    /** draw a cubic bezier curve with color and number of segments */
+    void drawCubicBezier(const Vec2& from, const Vec2& control1, const Vec2& control2, const Vec2& to, unsigned int segments, const Color4F &color);
+
+    /** draw a quadratic bezier curve with color and number of segments */
+    void drawQuadraticBezier(const Vec2& from, const Vec2& control, const Vec2& to, unsigned int segments, const Color4F &color);
+    
+    /** Clear the geometry in the node's buffer. */
+    void clear();
+    /**
+    * @js NA
+    * @lua NA
+    */
+    const BlendFunc& getBlendFunc() const;
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @code
     * When this function bound into js or lua,the parameter will be changed
     * In js: var setBlendFunc(var src, var dst)
@@ -295,6 +339,7 @@ public:
     */
     void setBlendFunc(const BlendFunc &blendFunc);
 
+<<<<<<< HEAD
     /**
      * @js NA
      */
@@ -307,6 +352,9 @@ public:
      * @js NA
      */
     void onDrawGLPoint(const Mat4 &transform, uint32_t flags);
+=======
+    void onDraw(const Mat4 &transform, uint32_t flags);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     // Overrides
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
@@ -314,6 +362,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     DrawNode();
     virtual ~DrawNode();
+<<<<<<< HEAD
     virtual bool init() override;
 
 protected:
@@ -327,10 +376,20 @@ protected:
     GLuint      _vboGLPoint;
     GLuint      _vaoGLLine;
     GLuint      _vboGLLine;
+=======
+    virtual bool init();
+
+protected:
+    void ensureCapacity(int count);
+
+    GLuint      _vao;
+    GLuint      _vbo;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     int         _bufferCapacity;
     GLsizei     _bufferCount;
     V2F_C4B_T2F *_buffer;
+<<<<<<< HEAD
     
     int         _bufferCapacityGLPoint;
     GLsizei     _bufferCountGLPoint;
@@ -350,11 +409,22 @@ protected:
     bool        _dirty;
     bool        _dirtyGLPoint;
     bool        _dirtyGLLine;
+=======
+
+    BlendFunc   _blendFunc;
+    CustomCommand _customCommand;
+
+    bool        _dirty;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(DrawNode);
 };
+<<<<<<< HEAD
 /** @} */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // __CCDRAWNODES_CCDRAW_NODE_H__

@@ -37,7 +37,11 @@ using cocos2d::tweenfunc::Linear;
 
 Tween *Tween::create(Bone *bone)
 {
+<<<<<<< HEAD
     Tween *pTween = new (std::nothrow) Tween();
+=======
+    Tween *pTween = new Tween();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pTween && pTween->init(bone))
     {
         pTween->autorelease();
@@ -80,8 +84,13 @@ bool Tween::init(Bone *bone)
     bool bRet = false;
     do
     {
+<<<<<<< HEAD
         _from = new (std::nothrow) FrameData();
         _between = new (std::nothrow) FrameData();
+=======
+        _from = new FrameData();
+        _between = new FrameData();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         _bone = bone;
         _tweenData = _bone->getTweenData();

@@ -24,7 +24,17 @@
 
 #include "3d/CCSprite3DMaterial.h"
 
+<<<<<<< HEAD
 #include "renderer/CCTexture2D.h"
+=======
+#include "platform/CCFileUtils.h"
+#include "renderer/CCTextureCache.h"
+#include "base/CCEventCustom.h"
+#include "base/CCEventListenerCustom.h"
+#include "base/CCEventDispatcher.h"
+#include "base/CCEventType.h"
+#include "base/CCDirector.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -44,7 +54,11 @@ Sprite3DMaterialCache* Sprite3DMaterialCache::getInstance()
 {
     if (! _cacheInstance)
     {
+<<<<<<< HEAD
         _cacheInstance = new (std::nothrow) Sprite3DMaterialCache();
+=======
+        _cacheInstance = new Sprite3DMaterialCache();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     return _cacheInstance;

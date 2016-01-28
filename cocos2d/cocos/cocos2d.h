@@ -29,8 +29,13 @@ THE SOFTWARE.
 #define __COCOS2D_H__
 
 // 0x00 HI ME LO
+<<<<<<< HEAD
 // 00   03 03 00
 #define COCOS2D_VERSION 0x00030600
+=======
+// 00   03 02 00
+#define COCOS2D_VERSION 0x00030200
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 //
 // all cocos2d include files
@@ -107,7 +112,10 @@ THE SOFTWARE.
 
 // 2d nodes
 #include "2d/CCNode.h"
+<<<<<<< HEAD
 #include "2d/CCProtectedNode.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCAtlasNode.h"
 #include "2d/CCDrawingPrimitives.h"
 #include "2d/CCDrawNode.h"
@@ -124,7 +132,10 @@ THE SOFTWARE.
 #include "2d/CCMenu.h"
 #include "2d/CCMenuItem.h"
 #include "2d/CCClippingNode.h"
+<<<<<<< HEAD
 #include "2d/CCClippingRectangleNode.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCMotionStreak.h"
 #include "2d/CCProgressTimer.h"
 #include "2d/CCRenderTexture.h"
@@ -138,9 +149,12 @@ THE SOFTWARE.
 #include "2d/CCGrabber.h"
 #include "2d/CCGrid.h"
 
+<<<<<<< HEAD
 #include "2d/CCCamera.h"
 #include "2d/CCLight.h"
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // include
 #include "base/CCProtocols.h"
 
@@ -158,11 +172,14 @@ THE SOFTWARE.
 #include "renderer/ccShaders.h"
 #include "renderer/CCTexture2D.h"
 #include "renderer/CCTextureCache.h"
+<<<<<<< HEAD
 #include "renderer/CCVertexIndexBuffer.h"
 #include "renderer/CCVertexIndexData.h"
 #include "renderer/CCPrimitive.h"
 #include "renderer/CCPrimitiveCommand.h"
 #include "renderer/CCTrianglesCommand.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 // physics
 #include "physics/CCPhysicsBody.h"
@@ -178,6 +195,7 @@ THE SOFTWARE.
 #include "platform/CCImage.h"
 #include "platform/CCSAXParser.h"
 #include "platform/CCThread.h"
+<<<<<<< HEAD
 #include "platform/CCPlatformConfig.h"
 #include "platform/CCPlatformMacros.h"
 
@@ -193,16 +211,38 @@ THE SOFTWARE.
     #include "platform/android/CCGLViewImpl-android.h"
     #include "platform/android/CCGL-android.h"
     #include "platform/android/CCStdC-android.h"
+=======
+#include "base/CCPlatformConfig.h"
+#include "base/CCPlatformMacros.h"
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #include "platform/ios/CCApplication.h"
+    #include "platform/ios/CCGLView.h"
+    #include "platform/ios/CCGL.h"
+    #include "platform/ios/CCStdC.h"
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    #include "platform/android/CCApplication.h"
+    #include "platform/android/CCGLView.h"
+    #include "platform/android/CCGL.h"
+    #include "platform/android/CCStdC.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY)
     #include "platform/blackberry/CCApplication.h"
+<<<<<<< HEAD
     #include "platform/blackberry/CCGLViewImpl.h"
+=======
+    #include "platform/blackberry/CCGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     #include "platform/blackberry/CCGL.h"
     #include "platform/blackberry/CCStdC.h"
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+<<<<<<< HEAD
     #include "platform/win32/CCApplication-win32.h"
     #include "platform/desktop/CCGLViewImpl-desktop.h"
     #include "platform/win32/CCGL-win32.h"
@@ -221,18 +261,49 @@ THE SOFTWARE.
     #include "platform/desktop/CCGLViewImpl-desktop.h"
     #include "platform/linux/CCGL-linux.h"
     #include "platform/linux/CCStdC-linux.h"
+=======
+    #include "platform/win32/CCApplication.h"
+    #include "platform/desktop/CCGLView.h"
+    #include "platform/win32/CCGL.h"
+    #include "platform/win32/CCStdC.h"
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+    #include "platform/mac/CCApplication.h"
+    #include "platform/desktop/CCGLView.h"
+    #include "platform/mac/CCGL.h"
+    #include "platform/mac/CCStdC.h"
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+    #include "platform/linux/CCApplication.h"
+    #include "platform/desktop/CCGLView.h"
+    #include "platform/linux/CCGL.h"
+    #include "platform/linux/CCStdC.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
 	#include "platform/winrt/CCApplication.h"
+<<<<<<< HEAD
 	#include "platform/winrt/CCGLViewImpl-winrt.h"
 	#include "platform/winrt/CCGL.h"
 	#include "platform/winrt/CCStdC.h"
+=======
+	#include "platform/winrt/CCGLView.h"
+	#include "platform/winrt/CCGL.h"
+	#include "platform/winrt/CCStdC.h"
+	#include "platform/winrt/CCPrecompiledShaders.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 	#include "platform/winrt/CCApplication.h"
+<<<<<<< HEAD
 	#include "platform/wp8/CCGLViewImpl-wp8.h"
+=======
+	#include "platform/wp8/CCGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	#include "platform/winrt/CCGL.h"
 	#include "platform/winrt/CCStdC.h"
 	#include "platform/winrt/CCPrecompiledShaders.h"
@@ -270,15 +341,19 @@ THE SOFTWARE.
 #include "2d/CCComponentContainer.h"
 
 //3d
+<<<<<<< HEAD
 #include "3d/CCAABB.h"
 #include "3d/CCOBB.h"
 #include "3d/CCRay.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "3d/CCSprite3D.h"
 #include "3d/CCMesh.h"
 #include "3d/CCMeshSkin.h"
 #include "3d/CCAnimate3D.h"
 #include "3d/CCAnimation3D.h"
 #include "3d/CCSprite3DMaterial.h"
+<<<<<<< HEAD
 #include "3d/CCAttachNode.h"
 #include "3d/CCMeshVertexIndexData.h"
 #include "3d/CCSkeleton3D.h"
@@ -288,6 +363,11 @@ THE SOFTWARE.
 #include "3d/CCTextureCube.h"
 #include "3d/CCSkybox.h"
 #include "3d/CCTerrain.h"
+=======
+
+// Audio
+#include "audio/include/SimpleAudioEngine.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 // Deprecated include
 #include "deprecated/CCDictionary.h"

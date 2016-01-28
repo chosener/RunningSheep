@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    FreeType Multiple Master font interface (specification).             */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 1996-2001, 2003, 2004, 2006, 2009, 2013 by                   */
+=======
+/*  Copyright 1996-2001, 2003, 2004, 2006, 2009 by                         */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -196,7 +200,11 @@ FT_BEGIN_HEADER
   /*                       number of designs).                             */
   /*                                                                       */
   /*    num_namedstyles :: The number of named styles; only meaningful for */
+<<<<<<< HEAD
   /*                       GX that allows certain design coordinates to    */
+=======
+  /*                       GX which allows certain design coordinates to   */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                       have a string ID (in the `name' table)          */
   /*                       associated with them.  The font can tell the    */
   /*                       user that, for example, Weight=1.5 is `Bold'.   */
@@ -218,6 +226,12 @@ FT_BEGIN_HEADER
   } FT_MM_Var;
 
 
+<<<<<<< HEAD
+=======
+  /* */
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
   /*                                                                       */
   /* <Function>                                                            */
@@ -255,7 +269,12 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* <Output>                                                              */
   /*    amaster :: The Multiple Masters/GX var descriptor.                 */
+<<<<<<< HEAD
   /*               Allocates a data structure, which the user must free.   */
+=======
+  /*               Allocates a data structure, which the user must free    */
+  /*               (a single call to FT_FREE will do it).                  */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Return>                                                              */
   /*    FreeType error code.  0~means success.                             */
@@ -362,6 +381,10 @@ FT_BEGIN_HEADER
                                 FT_UInt    num_coords,
                                 FT_Fixed*  coords );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

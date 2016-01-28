@@ -25,7 +25,11 @@ THE SOFTWARE.
 #import "UserWrapper.h"
 #include "PluginUtilsIOS.h"
 #include "ProtocolUser.h"
+<<<<<<< HEAD
 #include "FacebookAgent.h"
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 using namespace cocos2d::plugin;
 
 @implementation UserWrapper
@@ -36,6 +40,7 @@ using namespace cocos2d::plugin;
     ProtocolUser* pUser = dynamic_cast<ProtocolUser*>(pPlugin);
     if (pUser) {
         UserActionListener* listener = pUser->getActionListener();
+<<<<<<< HEAD
         ProtocolUser::ProtocolUserCallback callback = pUser->getCallback();
         const char* chMsg = [msg UTF8String];
         if (NULL != listener)
@@ -88,9 +93,23 @@ using namespace cocos2d::plugin;
             callback(ret, stdmsg);
         }else{
             PluginUtilsIOS::outputLog("Can't find the listener of plugin %s", pPlugin->getPluginName());
+=======
+        if (NULL != listener)
+        {
+            const char* chMsg = [msg UTF8String];
+            listener->onActionResult(pUser, (UserActionResultCode) ret, chMsg);
+        }
+        else
+        {
+            PluginUtilsIOS::outputLog("Listener of plugin %s not set correctly", pPlugin->getPluginName());
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     } else {
         PluginUtilsIOS::outputLog("Can't find the C++ object of the User plugin");
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 @end

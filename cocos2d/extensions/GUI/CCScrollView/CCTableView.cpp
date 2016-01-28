@@ -40,7 +40,11 @@ TableView* TableView::create(TableViewDataSource* dataSource, Size size)
 
 TableView* TableView::create(TableViewDataSource* dataSource, Size size, Node *container)
 {
+<<<<<<< HEAD
     TableView *table = new (std::nothrow) TableView();
+=======
+    TableView *table = new TableView();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     table->initWithViewSize(size, container);
     table->autorelease();
     table->setDataSource(dataSource);
@@ -320,10 +324,17 @@ Vec2 TableView::__offsetFromIndex(ssize_t index)
     switch (this->getDirection())
     {
         case Direction::HORIZONTAL:
+<<<<<<< HEAD
             offset.set(_vCellsPositions[index], 0.0f);
             break;
         default:
             offset.set(0.0f, _vCellsPositions[index]);
+=======
+            offset = Vec2(_vCellsPositions[index], 0.0f);
+            break;
+        default:
+            offset = Vec2(0.0f, _vCellsPositions[index]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             break;
     }
 
@@ -591,12 +602,18 @@ void TableView::onTouchEnded(Touch *pTouch, Event *pEvent)
 
 bool TableView::onTouchBegan(Touch *pTouch, Event *pEvent)
 {
+<<<<<<< HEAD
     for (Node *c = this; c != nullptr; c = c->getParent())
     {
         if (!c->isVisible())
         {
             return false;
         }
+=======
+    if (!this->isVisible())
+    {
+        return false;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     bool touchResult = ScrollView::onTouchBegan(pTouch, pEvent);

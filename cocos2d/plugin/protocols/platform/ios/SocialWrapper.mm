@@ -36,6 +36,7 @@ using namespace cocos2d::plugin;
     ProtocolSocial* pSocial = dynamic_cast<ProtocolSocial*>(pPlugin);
     if (pSocial) {
         SocialListener* pListener = pSocial->getListener();
+<<<<<<< HEAD
         ProtocolSocial::ProtocolSocialCallback callback = pSocial->getCallback();
         const char* chMsg = [msg UTF8String];
         SocialRetCode cRet = (SocialRetCode) ret;
@@ -45,9 +46,20 @@ using namespace cocos2d::plugin;
         }else if(callback){
             std::string stdmsg(chMsg);
             callback(cRet,stdmsg);
+=======
+        if (NULL != pListener)
+        {
+            const char* chMsg = [msg UTF8String];
+            SocialRetCode cRet = (SocialRetCode) ret;
+            pListener->onSocialResult(cRet, chMsg);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     } else {
         PluginUtilsIOS::outputLog("Can't find the C++ object of the Social plugin");
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 @end

@@ -1,6 +1,7 @@
 
 
 #include "ListViewReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIListView.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIListView.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -21,7 +29,11 @@ namespace cocostudio
     
     static ListViewReader* instanceListViewReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(ListViewReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(ListViewReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     ListViewReader::ListViewReader()
     {
@@ -37,16 +49,23 @@ namespace cocostudio
     {
         if (!instanceListViewReader)
         {
+<<<<<<< HEAD
             instanceListViewReader = new (std::nothrow) ListViewReader();
+=======
+            instanceListViewReader = new ListViewReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceListViewReader;
     }
     
+<<<<<<< HEAD
     void ListViewReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceListViewReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void ListViewReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode* cocoNode)
     {
         ScrollViewReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -86,6 +105,7 @@ namespace cocostudio
         
         float itemMargin = DICTOOL->getFloatValue_json(options, P_ItemMargin);
         listView->setItemsMargin(itemMargin);
+<<<<<<< HEAD
     }        
     
     Offset<Table> ListViewReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -607,5 +627,8 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 

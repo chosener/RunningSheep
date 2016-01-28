@@ -28,6 +28,7 @@
 #include "base/CCEvent.h"
 #include "base/ccTypes.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -45,6 +46,13 @@ public:
      *
      * @param acc A given Acceleration.
      */
+=======
+NS_CC_BEGIN
+
+class EventAcceleration : public Event
+{
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventAcceleration(const Acceleration& acc);
     
 private:
@@ -54,7 +62,10 @@ private:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCAccelerometerEvent__) */

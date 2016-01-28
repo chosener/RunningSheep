@@ -23,7 +23,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef UTHASH_H
 #define UTHASH_H 
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <string.h>   /* memcmp,strlen */
 #include <stddef.h>   /* ptrdiff_t */
@@ -938,5 +941,8 @@ typedef struct UT_hash_handle {
    unsigned hashv;                   /* result of hash-fcn(key)        */
 } UT_hash_handle;
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* UTHASH_H */

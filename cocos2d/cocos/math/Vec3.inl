@@ -23,6 +23,7 @@
 
 NS_CC_MATH_BEGIN
 
+<<<<<<< HEAD
 
 inline bool Vec3::isZero() const
 {
@@ -119,6 +120,8 @@ inline void Vec3::subtract(const Vec3& v)
     z -= v.z;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 inline const Vec3 Vec3::operator+(const Vec3& v) const
 {
     Vec3 result(*this);
@@ -170,6 +173,22 @@ inline const Vec3 Vec3::operator/(const float s) const
     return Vec3(this->x / s, this->y / s, this->z / s);
 }
 
+<<<<<<< HEAD
+=======
+inline bool Vec3::operator<(const Vec3& v) const
+{
+    if (x == v.x)
+    {
+        if (y == v.y)
+        {
+            return z < v.z;
+        }
+        return y < v.y;
+    }
+    return x < v.x;
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 inline bool Vec3::operator==(const Vec3& v) const
 {
     return x==v.x && y==v.y && z==v.z;

@@ -28,13 +28,21 @@ THE SOFTWARE.
 #include "base/ccMacros.h"
 #include "base/CCScriptSupport.h"
 
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <algorithm>    // std::find
 #endif
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 static void trackRef(Ref* ref);
 static void untrackRef(Ref* ref);
 #endif
@@ -49,7 +57,11 @@ Ref::Ref()
     _scriptObject = nullptr;
 #endif
     
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     trackRef(this);
 #endif
 }
@@ -73,7 +85,11 @@ Ref::~Ref()
 #endif
 
 
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (_referenceCount != 0)
         untrackRef(this);
 #endif
@@ -81,13 +97,21 @@ Ref::~Ref()
 
 void Ref::retain()
 {
+<<<<<<< HEAD
     CCASSERT(_referenceCount > 0, "reference count should be greater than 0");
+=======
+    CCASSERT(_referenceCount > 0, "reference count should greater than 0");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ++_referenceCount;
 }
 
 void Ref::release()
 {
+<<<<<<< HEAD
     CCASSERT(_referenceCount > 0, "reference count should be greater than 0");
+=======
+    CCASSERT(_referenceCount > 0, "reference count should greater than 0");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     --_referenceCount;
 
     if (_referenceCount == 0)
@@ -127,7 +151,11 @@ void Ref::release()
         }
 #endif
 
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         untrackRef(this);
 #endif
         delete this;
@@ -145,7 +173,11 @@ unsigned int Ref::getReferenceCount() const
     return _referenceCount;
 }
 
+<<<<<<< HEAD
 #if CC_REF_LEAK_DETECTION
+=======
+#if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 static std::list<Ref*> __refAllocationList;
 
@@ -189,7 +221,11 @@ static void untrackRef(Ref* ref)
     __refAllocationList.erase(iter);
 }
 
+<<<<<<< HEAD
 #endif // #if CC_REF_LEAK_DETECTION
+=======
+#endif // #if CC_USE_MEM_LEAK_DETECTION
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 NS_CC_END

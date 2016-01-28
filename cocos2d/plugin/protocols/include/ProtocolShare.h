@@ -27,7 +27,10 @@ THE SOFTWARE.
 #include "PluginProtocol.h"
 #include <map>
 #include <string>
+<<<<<<< HEAD
 #include <functional>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { namespace plugin {
 
@@ -53,8 +56,11 @@ class ProtocolShare : public PluginProtocol
 public:
 	ProtocolShare();
 	virtual ~ProtocolShare();
+<<<<<<< HEAD
     
     typedef std::function<void(int, std::string&)> ProtocolShareCallback;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
     @brief config the share developer info
@@ -74,14 +80,20 @@ public:
              Look at the manual of plugins.
     */
     void share(TShareInfo info);
+<<<<<<< HEAD
     void share(TShareInfo &info, ProtocolShareCallback &cb);
 
     /**
     @deprecated
+=======
+
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     @breif set the result listener
     @param pListener The callback object for share result
     @wraning Must invoke this interface before share
     */
+<<<<<<< HEAD
     CC_DEPRECATED_ATTRIBUTE void setResultListener(ShareResultListener* pListener);
     
     /**
@@ -107,6 +119,9 @@ public:
     {
         return _callback;
     }
+=======
+    void setResultListener(ShareResultListener* pListener);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
     @brief share result callback
@@ -115,7 +130,10 @@ public:
 
 protected:
     ShareResultListener* _listener;
+<<<<<<< HEAD
     ProtocolShareCallback _callback;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 }} // namespace cocos2d { namespace plugin {

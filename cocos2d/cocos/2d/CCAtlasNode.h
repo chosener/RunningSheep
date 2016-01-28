@@ -36,12 +36,17 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
+=======
+ * @addtogroup base_nodes
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
 class TextureAtlas;
 
+<<<<<<< HEAD
 /** @brief AtlasNode is a subclass of Node that implements the RGBAProtocol and TextureProtocol protocol.
  * It knows how to render a TextureAtlas object.
  * If you are going to render a TextureAtlas consider subclassing AtlasNode (or a subclass of AtlasNode).
@@ -72,6 +77,28 @@ public:
      *
      * @return Return A TextureAtlas.
      */
+=======
+/** @brief AtlasNode is a subclass of Node that implements the RGBAProtocol and TextureProtocol protocol
+
+It knows how to render a TextureAtlas object.
+If you are going to render a TextureAtlas consider subclassing AtlasNode (or a subclass of AtlasNode)
+
+All features from Node are valid, plus the following features:
+- opacity and RGB colors
+*/
+class CC_DLL AtlasNode : public Node, public TextureProtocol
+{    
+public:
+	/** creates a AtlasNode  with an Atlas file the width and height of each item and the quantity of items to render*/
+	static AtlasNode * create(const std::string& filename, int tileWidth, int tileHeight, int itemsToRender);
+
+    /** updates the Atlas (indexed vertex array).
+    * Shall be overridden in subclasses
+    */
+    virtual void updateAtlasValues();
+
+    void setTextureAtlas(TextureAtlas* textureAtlas);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     TextureAtlas* getTextureAtlas() const;
     
     void setQuadsToDraw(ssize_t quadsToDraw);
@@ -96,6 +123,10 @@ public:
     */
     virtual void setBlendFunc(const BlendFunc& blendFunc) override;
     /**
+<<<<<<< HEAD
+=======
+    * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @lua NA
     */
     virtual const BlendFunc& getBlendFunc() const override;
@@ -104,10 +135,17 @@ CC_CONSTRUCTOR_ACCESS:
     AtlasNode();
     virtual ~AtlasNode();
 
+<<<<<<< HEAD
     /** Initializes an AtlasNode  with an Atlas file the width and height of each item and the quantity of items to render*/
     bool initWithTileFile(const std::string& tile, int tileWidth, int tileHeight, int itemsToRender);
     
     /** Initializes an AtlasNode  with a texture the width and height of each item measured in points and the quantity of items to render*/
+=======
+    /** initializes an AtlasNode  with an Atlas file the width and height of each item and the quantity of items to render*/
+    bool initWithTileFile(const std::string& tile, int tileWidth, int tileHeight, int itemsToRender);
+    
+    /** initializes an AtlasNode  with a texture the width and height of each item measured in points and the quantity of items to render*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithTexture(Texture2D* texture, int tileWidth, int tileHeight, int itemsToRender);
 
 protected:
@@ -118,6 +156,7 @@ protected:
     friend class Director;
     void setIgnoreContentScaleFactor(bool bIgnoreContentScaleFactor);
 
+<<<<<<< HEAD
     /** Chars per row. */
     int    _itemsPerRow;
     /** Chars per column. */
@@ -126,11 +165,22 @@ protected:
     /** Width of each char. */
     int    _itemWidth;
     /** Height of each char. */
+=======
+    //! chars per row
+    int    _itemsPerRow;
+    //! chars per column
+    int    _itemsPerColumn;
+
+    //! width of each char
+    int    _itemWidth;
+    //! height of each char
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int    _itemHeight;
     
     Color3B    _colorUnmodified;
     
     TextureAtlas* _textureAtlas;
+<<<<<<< HEAD
     /** Protocol variables. */
     bool _isOpacityModifyRGB;
     BlendFunc _blendFunc;
@@ -142,6 +192,19 @@ protected:
     /** This varible is only used for LabelAtlas FPS display. So plz don't modify its value. */
     bool _ignoreContentScaleFactor;
     /** Quad command. */
+=======
+    // protocol variables
+    bool _isOpacityModifyRGB;
+    BlendFunc _blendFunc;
+
+    // quads to draw
+    ssize_t _quadsToDraw;
+    // color uniform
+    GLint    _uniformColor;
+    // This varible is only used for LabelAtlas FPS display. So plz don't modify its value.
+    bool _ignoreContentScaleFactor;
+    // quad command
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     QuadCommand _quadCommand;
 
 private:

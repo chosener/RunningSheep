@@ -22,7 +22,10 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+<<<<<<< HEAD
 #include "renderer/CCMeshCommand.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccMacros.h"
 #include "base/CCConfiguration.h"
 #include "base/CCDirector.h"
@@ -30,9 +33,15 @@
 #include "base/CCEventListenerCustom.h"
 #include "base/CCEventDispatcher.h"
 #include "base/CCEventType.h"
+<<<<<<< HEAD
 #include "base/CCConfiguration.h"
 #include "2d/CCLight.h"
 #include "renderer/ccGLStateCache.h"
+=======
+#include "renderer/CCMeshCommand.h"
+#include "renderer/ccGLStateCache.h"
+#include "renderer/CCGLProgram.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "renderer/CCGLProgramState.h"
 #include "renderer/CCRenderer.h"
 #include "renderer/CCTextureAtlas.h"
@@ -42,6 +51,7 @@
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 static const char          *s_dirLightUniformColorName = "u_DirLightSourceColor";
 static std::vector<Vec3> s_dirLightUniformColorValues;
 static const char          *s_dirLightUniformDirName = "u_DirLightSourceDirection";
@@ -74,11 +84,22 @@ MeshCommand::MeshCommand()
 : _textureID(0)
 , _glProgramState(nullptr)
 , _blendType(BlendFunc::DISABLE)
+=======
+MeshCommand::MeshCommand()
+: _textureID(0)
+, _blendType(BlendFunc::DISABLE)
+, _glProgramState(nullptr)
+, _cullFaceEnabled(false)
+, _cullFace(GL_BACK)
+, _depthTestEnabled(false)
+, _depthWriteEnabled(false)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _displayColor(1.0f, 1.0f, 1.0f, 1.0f)
 , _matrixPalette(nullptr)
 , _matrixPaletteSize(0)
 , _materialID(0)
 , _vao(0)
+<<<<<<< HEAD
 , _cullFaceEnabled(false)
 , _cullFace(GL_BACK)
 , _depthTestEnabled(false)
@@ -91,21 +112,34 @@ MeshCommand::MeshCommand()
 {
     _type = RenderCommand::Type::MESH_COMMAND;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+=======
+{
+    _type = RenderCommand::Type::MESH_COMMAND;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // listen the event that renderer was recreated on Android/WP8
     _rendererRecreatedListener = EventListenerCustom::create(EVENT_RENDERER_RECREATED, CC_CALLBACK_1(MeshCommand::listenRendererRecreated, this));
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(_rendererRecreatedListener, -1);
 #endif
 }
 
+<<<<<<< HEAD
 void MeshCommand::init(float globalZOrder,
                        GLuint textureID,
                        cocos2d::GLProgramState *glProgramState,
                        cocos2d::BlendFunc blendType,
+=======
+void MeshCommand::init(float globalOrder,
+                       GLuint textureID,
+                       GLProgramState* glProgramState,
+                       BlendFunc blendType,
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                        GLuint vertexBuffer,
                        GLuint indexBuffer,
                        GLenum primitive,
                        GLenum indexFormat,
                        ssize_t indexCount,
+<<<<<<< HEAD
                        const cocos2d::Mat4 &mv,
                        uint32_t flags)
 {
@@ -118,11 +152,23 @@ void MeshCommand::init(float globalZOrder,
     _blendType = blendType;
     _glProgramState = glProgramState;
     
+=======
+                       const Mat4 &mv)
+{
+    CCASSERT(glProgramState, "GLProgramState cannot be nill");
+    
+    _globalOrder = globalOrder;
+    _textureID = textureID;
+    _blendType = blendType;
+    _glProgramState = glProgramState;
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _vertexBuffer = vertexBuffer;
     _indexBuffer = indexBuffer;
     _primitive = primitive;
     _indexFormat = indexFormat;
     _indexCount = indexCount;
+<<<<<<< HEAD
     _mv.set(mv);
     
     _is3D = true;
@@ -140,6 +186,9 @@ void MeshCommand::init(float globalOrder,
                        const Mat4 &mv)
 {
     init(globalOrder, textureID, glProgramState, blendType, vertexBuffer, indexBuffer, primitive, indexFormat, indexCount, mv, 0);
+=======
+    _mv = mv;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void MeshCommand::setCullFaceEnabled(bool enable)
@@ -159,7 +208,10 @@ void MeshCommand::setDepthTestEnabled(bool enable)
 
 void MeshCommand::setDepthWriteEnabled(bool enable)
 {
+<<<<<<< HEAD
     _forceDepthWrite = enable;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _depthWriteEnabled = enable;
 }
 
@@ -168,6 +220,7 @@ void MeshCommand::setDisplayColor(const Vec4& color)
     _displayColor = color;
 }
 
+<<<<<<< HEAD
 void MeshCommand::setTransparent(bool value)
 {
     _isTransparent = value;
@@ -188,12 +241,19 @@ MeshCommand::~MeshCommand()
 {
     releaseVAO();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+=======
+MeshCommand::~MeshCommand()
+{
+    releaseVAO();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Director::getInstance()->getEventDispatcher()->removeEventListener(_rendererRecreatedListener);
 #endif
 }
 
 void MeshCommand::applyRenderState()
 {
+<<<<<<< HEAD
     _renderStateCullFaceEnabled = glIsEnabled(GL_CULL_FACE) != GL_FALSE;
     _renderStateDepthTest = glIsEnabled(GL_DEPTH_TEST) != GL_FALSE;
     glGetBooleanv(GL_DEPTH_WRITEMASK, &_renderStateDepthWrite);
@@ -219,11 +279,26 @@ void MeshCommand::applyRenderState()
     if (_depthWriteEnabled != _renderStateDepthWrite)
     {
         glDepthMask(_depthWriteEnabled);
+=======
+    if (_cullFaceEnabled)
+    {
+        glEnable(GL_CULL_FACE);
+        glCullFace(_cullFace);
+    }
+    if (_depthTestEnabled)
+    {
+        glEnable(GL_DEPTH_TEST);
+    }
+    if (_depthWriteEnabled)
+    {
+        glDepthMask(GL_TRUE);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 }
 
 void MeshCommand::restoreRenderState()
 {
+<<<<<<< HEAD
     if (_cullFaceEnabled != _renderStateCullFaceEnabled)
     {
         _renderStateCullFaceEnabled ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE);
@@ -254,6 +329,34 @@ void MeshCommand::genMaterialID(GLuint texID, void* glProgramState, GLuint verte
     intArray[4] = (int) indexBuffer;
     intArray[5] = (int) blend.src;
     intArray[6] = (int) blend.dst;
+=======
+    if (_cullFaceEnabled)
+    {
+        glDisable(GL_CULL_FACE);
+    }
+    if (_depthTestEnabled)
+    {
+        glDisable(GL_DEPTH_TEST);
+    }
+    if (_depthWriteEnabled)
+    {
+        glDepthMask(GL_FALSE);
+    }
+}
+
+void MeshCommand::genMaterialID(GLuint texID, void* glProgramState, void* mesh, const BlendFunc& blend)
+{
+    int* intstate = static_cast<int*>(glProgramState);
+    int* intmesh = static_cast<int*>(mesh);
+    
+    int statekey[] = {intstate[0], 0}, meshkey[] = {intmesh[0], 0};
+    if (sizeof(void*) > sizeof(int))
+    {
+        statekey[1] = intstate[1];
+        meshkey[1] = intmesh[1];
+    }
+    int intArray[] = {(int)texID, statekey[0], statekey[1], meshkey[0], meshkey[1], (int)blend.src, (int)blend.dst};
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _materialID = XXH32((const void*)intArray, sizeof(intArray), 0);
 }
 
@@ -264,6 +367,11 @@ void MeshCommand::MatrixPalleteCallBack( GLProgram* glProgram, Uniform* uniform)
 
 void MeshCommand::preBatchDraw()
 {
+<<<<<<< HEAD
+=======
+    // set render state
+    applyRenderState();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // Set material
     GL::bindTexture2D(_textureID);
     GL::blendFunc(_blendType.src, _blendType.dst);
@@ -283,9 +391,12 @@ void MeshCommand::preBatchDraw()
 }
 void MeshCommand::batchDraw()
 {
+<<<<<<< HEAD
     // set render state
     applyRenderState();
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _glProgramState->setUniformVec4("u_color", _displayColor);
     
     if (_matrixPaletteSize && _matrixPalette)
@@ -296,10 +407,13 @@ void MeshCommand::batchDraw()
     
     _glProgramState->applyGLProgram(_mv);
     _glProgramState->applyUniforms();
+<<<<<<< HEAD
 
     const auto& scene = Director::getInstance()->getRunningScene();
     if (scene && scene->getLights().size() > 0)
         setLightUniforms();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     // Draw
     glDrawElements(_primitive, (GLsizei)_indexCount, _indexFormat, 0);
@@ -338,11 +452,15 @@ void MeshCommand::execute()
         
     }
     
+<<<<<<< HEAD
     _glProgramState->apply(_mv);   
 
     const auto& scene = Director::getInstance()->getRunningScene();
     if (scene && scene->getLights().size() > 0)
         setLightUniforms();
+=======
+    _glProgramState->apply(_mv);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     
@@ -388,6 +506,7 @@ void MeshCommand::releaseVAO()
     }
 }
 
+<<<<<<< HEAD
 
 void MeshCommand::setLightUniforms()
 {
@@ -551,11 +670,17 @@ void MeshCommand::resetLightUniformValues()
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+=======
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void MeshCommand::listenRendererRecreated(EventCustom* event)
 {
     _vao = 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
 NS_CC_END

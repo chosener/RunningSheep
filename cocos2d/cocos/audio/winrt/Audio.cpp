@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 * cocos2d-x   http://www.cocos2d-x.org
 *
@@ -25,6 +26,52 @@ inline void ThrowIfFailed(HRESULT hr)
     if (FAILED(hr))
     {
         // Set a breakpoint on this line to catch DX API errors.
+=======
+//// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+//// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+//// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+//// PARTICULAR PURPOSE.
+////
+//// Copyright (c) Microsoft Corporation. All rights reserved
+
+#include "pch.h"
+#include "Audio.h"
+#include "MediaStreamer.h"
+
+static std::wstring CCUtf8ToUnicode(const char * pszUtf8Str, unsigned len/* = -1*/)
+{
+    std::wstring ret;
+    do
+    {
+        if (! pszUtf8Str) break;
+		// get UTF8 string length
+		if (-1 == len)
+		{
+			len = strlen(pszUtf8Str);
+		}
+        if (len <= 0) break;
+
+		// get UTF16 string length
+		int wLen = MultiByteToWideChar(CP_UTF8, 0, pszUtf8Str, len, 0, 0);
+		if (0 == wLen || 0xFFFD == wLen) break;
+		
+		// convert string  
+        wchar_t * pwszStr = new wchar_t[wLen + 1];
+        if (! pwszStr) break;
+        pwszStr[wLen] = 0;
+        MultiByteToWideChar(CP_UTF8, 0, pszUtf8Str, len, pwszStr, wLen + 1);
+        ret = pwszStr;
+		if(pwszStr) { delete[] (pwszStr);};
+    } while (0);
+    return ret;
+}
+
+static inline void ThrowIfFailed(HRESULT hr)
+{
+    if (FAILED(hr))
+    {
+        // Set a breakpoint on this line to catch DirectX API errors
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         throw Platform::Exception::CreateException(hr);
     }
 }
@@ -38,14 +85,23 @@ void AudioEngineCallbacks::Initialize(Audio *audio)
 // to be closed down and restarted.  The error code is given in error.
 void  _stdcall AudioEngineCallbacks::OnCriticalError(HRESULT Error)
 {
+<<<<<<< HEAD
     UNUSED_PARAM(Error);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     m_audio->SetEngineExperiencedCriticalError();
 };
 
 Audio::Audio() :
     m_backgroundID(0),
+<<<<<<< HEAD
 	m_soundEffctVolume(1.0f),
 	m_backgroundMusicVolume(1.0f)
+=======
+    m_soundEffctVolume(1.0),
+	m_backgroundMusicVolume(1.0f)
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 
@@ -203,10 +259,15 @@ void Audio::StopBackgroundMusic(bool bReleaseData)
 
     StopSoundEffect(m_backgroundID);
 
+<<<<<<< HEAD
     if (bReleaseData){
         UnloadSoundEffect(m_backgroundID);
         RemoveFromList(m_backgroundID);
     }
+=======
+    if (bReleaseData)
+        UnloadSoundEffect(m_backgroundID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Audio::PauseBackgroundMusic()
@@ -313,6 +374,12 @@ void Audio::PlaySoundEffect(unsigned int sound)
 		m_soundEffects[sound].m_soundEffectSourceVoice->SubmitSourceBuffer(&m_soundEffects[sound].m_audioBuffer)
 		);
 
+<<<<<<< HEAD
+=======
+	XAUDIO2_BUFFER buf = {0};
+	XAUDIO2_VOICE_STATE state = {0};
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (m_engineExperiencedCriticalError) {
         // If there's an error, then we'll recreate the engine on the next render pass
         return;
@@ -408,8 +475,12 @@ void Audio::PauseAllSoundEffects()
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
+<<<<<<< HEAD
         if (iter->first != m_backgroundID)
             PauseSoundEffect(iter->first);
+=======
+        PauseSoundEffect(iter->first);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	}
 }
 
@@ -422,12 +493,20 @@ void Audio::ResumeAllSoundEffects()
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
+<<<<<<< HEAD
         if (iter->first != m_backgroundID)
             ResumeSoundEffect(iter->first);
 	}
 }
 
 void Audio::StopAllSoundEffects(bool bReleaseData)
+=======
+        ResumeSoundEffect(iter->first);
+	}
+}
+
+void Audio::StopAllSoundEffects()
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     if (m_engineExperiencedCriticalError) {
         return;
@@ -436,6 +515,7 @@ void Audio::StopAllSoundEffects(bool bReleaseData)
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
+<<<<<<< HEAD
         if (iter->first != m_backgroundID){
             StopSoundEffect(iter->first);
             if (bReleaseData)
@@ -457,6 +537,10 @@ void Audio::StopAllSoundEffects(bool bReleaseData)
             }
         }
     }  
+=======
+        StopSoundEffect(iter->first);
+	}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool Audio::IsSoundEffectStarted(unsigned int sound)
@@ -467,6 +551,7 @@ bool Audio::IsSoundEffectStarted(unsigned int sound)
     return m_soundEffects[sound].m_soundEffectStarted;
 }
 
+<<<<<<< HEAD
 std::wstring CCUtf8ToUnicode(const char * pszUtf8Str)
 {
     std::wstring ret;
@@ -516,17 +601,49 @@ std::string CCUnicodeToUtf8(const wchar_t* pwszStr)
 
 void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
 {
+=======
+void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
+{
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (m_engineExperiencedCriticalError) {
         return;
     }
 
     int sound = Hash(pszFilePath);
 
+<<<<<<< HEAD
 	MediaStreamer mediaStreamer;
 	mediaStreamer.Initialize(CCUtf8ToUnicode(pszFilePath).c_str());
 	m_soundEffects[sound].m_soundID = sound;	
 	
 	uint32 bufferLength = mediaStreamer.GetMaxStreamLengthInBytes();
+=======
+	if (m_soundEffects.end() != m_soundEffects.find(sound))
+    {
+       return;
+    }
+
+	MediaStreamer mediaStreamer;
+	mediaStreamer.Initialize(CCUtf8ToUnicode(pszFilePath, -1).c_str());
+	m_soundEffects[sound].m_soundID = sound;	
+	
+	uint32 bufferLength = mediaStreamer.GetMaxStreamLengthInBytes();
+
+	if (m_soundEffects.find(sound) != m_soundEffects.end())
+	{
+		if (m_soundEffects[sound].m_soundEffectBufferData)
+		{
+			delete[] m_soundEffects[sound].m_soundEffectBufferData;
+			m_soundEffects[sound].m_soundEffectBufferData = NULL;
+		}
+	}
+	else
+	{
+		m_soundEffects[sound].m_soundEffectBufferData = NULL;
+	}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	m_soundEffects[sound].m_soundEffectBufferData = new byte[bufferLength];
 	mediaStreamer.ReadAll(m_soundEffects[sound].m_soundEffectBufferData, bufferLength, &m_soundEffects[sound].m_soundEffectBufferLength);
 
@@ -579,8 +696,11 @@ void Audio::UnloadSoundEffect(const char* pszFilePath)
     int sound = Hash(pszFilePath);
 
     UnloadSoundEffect(sound);
+<<<<<<< HEAD
 
     RemoveFromList(sound);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Audio::UnloadSoundEffect(unsigned int sound)
@@ -594,6 +714,7 @@ void Audio::UnloadSoundEffect(unsigned int sound)
 
     m_soundEffects[sound].m_soundEffectSourceVoice->DestroyVoice();
 
+<<<<<<< HEAD
     if(m_soundEffects[sound].m_soundEffectBufferData)
         delete [] m_soundEffects[sound].m_soundEffectBufferData;
 
@@ -609,3 +730,17 @@ void Audio::RemoveFromList( unsigned int sound )
 }
 
 
+=======
+	if (m_soundEffects[sound].m_soundEffectBufferData)
+	{
+		delete[] m_soundEffects[sound].m_soundEffectBufferData;
+		m_soundEffects[sound].m_soundEffectBufferData = NULL;
+	}
+
+	m_soundEffects[sound].m_soundEffectSourceVoice = nullptr;
+	m_soundEffects[sound].m_soundEffectStarted = false;//
+    ZeroMemory(&m_soundEffects[sound].m_audioBuffer, sizeof(m_soundEffects[sound].m_audioBuffer));
+
+    m_soundEffects.erase(sound);
+}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

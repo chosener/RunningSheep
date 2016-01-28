@@ -32,6 +32,10 @@ THE SOFTWARE.
 #include "renderer/CCRenderer.h"
 #include "platform/CCImage.h"
 #include "platform/CCFileUtils.h"
+<<<<<<< HEAD
+=======
+#include "CCGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -183,6 +187,7 @@ double atof(const char* str)
     
     return ::atof(buf);
 }
+<<<<<<< HEAD
 
 double gettime()
 {
@@ -235,6 +240,8 @@ Rect getCascadeBoundingBox(Node *node)
     
     return cbb;
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 }
 

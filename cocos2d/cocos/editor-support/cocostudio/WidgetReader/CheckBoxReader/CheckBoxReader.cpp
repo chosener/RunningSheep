@@ -1,6 +1,7 @@
 
 
 #include "CheckBoxReader.h"
+<<<<<<< HEAD
 
 #include "ui/UICheckBox.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UICheckBox.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -24,7 +32,11 @@ namespace cocostudio
     
     static CheckBoxReader* instanceCheckBoxReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(CheckBoxReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(CheckBoxReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     CheckBoxReader::CheckBoxReader()
     {
@@ -40,16 +52,23 @@ namespace cocostudio
     {
         if (!instanceCheckBoxReader)
         {
+<<<<<<< HEAD
             instanceCheckBoxReader = new (std::nothrow) CheckBoxReader();
+=======
+            instanceCheckBoxReader = new CheckBoxReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceCheckBoxReader;
     }
     
+<<<<<<< HEAD
     void CheckBoxReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceCheckBoxReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void CheckBoxReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         
@@ -161,6 +180,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> CheckBoxReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -796,5 +816,7 @@ namespace cocostudio
             }
         }
         return 1;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 }

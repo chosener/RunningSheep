@@ -7,14 +7,21 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
+<<<<<<< HEAD
       <AdditionalDependencies>opengl32.lib;glew32.lib;libzlib.lib;libpng.lib;libjpeg.lib;libtiff.lib;libwebp.lib;libiconv.lib;glfw3.lib;freetype250.lib;winmm.lib;ws2_32.lib;libchipmunk.lib;libbox2d.lib;libSpine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+=======
+      <AdditionalDependencies>opengl32.lib;glew32.lib;libzlib.lib;libpng.lib;libjpeg.lib;libtiff.lib;libwebp.lib;libiconv.lib;glfw3.lib;freetype250.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <ClCompile />
+<<<<<<< HEAD
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>

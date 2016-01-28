@@ -23,8 +23,11 @@
 
 NS_CC_MATH_BEGIN
 
+<<<<<<< HEAD
 const Quaternion Quaternion::ZERO(0.0f, 0.0f, 0.0f, 0.0f);
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Quaternion::Quaternion()
     : x(0.0f), y(0.0f), z(0.0f), w(1.0f)
 {

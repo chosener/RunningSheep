@@ -24,13 +24,25 @@
 
 #include "2d/CCNodeGrid.h"
 #include "2d/CCGrid.h"
+<<<<<<< HEAD
 #include "renderer/CCRenderer.h"
+=======
+
+#include "renderer/CCGroupCommand.h"
+#include "renderer/CCRenderer.h"
+#include "renderer/CCCustomCommand.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 NodeGrid* NodeGrid::create()
 {
+<<<<<<< HEAD
     NodeGrid * ret = new (std::nothrow) NodeGrid();
+=======
+    NodeGrid * ret = new NodeGrid();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -85,15 +97,25 @@ void NodeGrid::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t p
     {
         return;
     }
+<<<<<<< HEAD
+=======
+    
+    _groupCommand.init(_globalZOrder);
+    renderer->addCommand(&_groupCommand);
+    renderer->pushGroup(_groupCommand.getRenderQueueID());
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     bool dirty = (parentFlags & FLAGS_TRANSFORM_DIRTY) || _transformUpdated;
     if(dirty)
         _modelViewTransform = this->transform(parentTransform);
     _transformUpdated = false;
+<<<<<<< HEAD
     
     _groupCommand.init(_globalZOrder);
     renderer->addCommand(&_groupCommand);
     renderer->pushGroup(_groupCommand.getRenderQueueID());
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // IMPORTANT:
     // To ease the migration to v3.0, we still support the Mat4 stack,
@@ -122,7 +144,10 @@ void NodeGrid::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t p
     }
     
     int i = 0;
+<<<<<<< HEAD
     bool visibleByCamera = isVisitableByVisitingCamera();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if(!_children.empty())
     {
@@ -138,21 +163,34 @@ void NodeGrid::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t p
                 break;
         }
         // self draw,currently we have nothing to draw on NodeGrid, so there is no need to add render command
+<<<<<<< HEAD
         if (visibleByCamera)
             this->draw(renderer, _modelViewTransform, dirty);
+=======
+        this->draw(renderer, _modelViewTransform, dirty);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         for(auto it=_children.cbegin()+i; it != _children.cend(); ++it) {
             (*it)->visit(renderer, _modelViewTransform, dirty);
         }
     }
+<<<<<<< HEAD
     else if (visibleByCamera)
+=======
+    else
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         this->draw(renderer, _modelViewTransform, dirty);
     }
     
+<<<<<<< HEAD
     // FIX ME: Why need to set _orderOfArrival to 0??
     // Please refer to https://github.com/cocos2d/cocos2d-x/pull/6920
     // setOrderOfArrival(0);
+=======
+    // reset for next frame
+    _orderOfArrival = 0;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if(_nodeGrid && _nodeGrid->isActive())
     {

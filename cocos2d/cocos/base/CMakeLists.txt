@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 if(MACOSX OR APPLE)
   set(COCOS_BASE_SPECIFIC_SRC
@@ -17,19 +18,31 @@ set(COCOS_BASE_SRC
   base/CCConfiguration.cpp
   base/CCConsole.cpp
   base/CCController.cpp
+=======
+set(COCOS_BASE_SRC
+  base/CCAutoreleasePool.cpp
+  base/CCConfiguration.cpp
+  base/CCConsole.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   base/CCData.cpp
   base/CCDataVisitor.cpp
   base/CCDirector.cpp
   base/CCEvent.cpp
   base/CCEventAcceleration.cpp
+<<<<<<< HEAD
   base/CCEventController.cpp
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   base/CCEventCustom.cpp
   base/CCEventDispatcher.cpp
   base/CCEventFocus.cpp
   base/CCEventKeyboard.cpp
   base/CCEventListener.cpp
   base/CCEventListenerAcceleration.cpp
+<<<<<<< HEAD
   base/CCEventListenerController.cpp
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   base/CCEventListenerCustom.cpp
   base/CCEventListenerFocus.cpp
   base/CCEventListenerKeyboard.cpp
@@ -45,20 +58,34 @@ set(COCOS_BASE_SRC
   base/CCScriptSupport.cpp
   base/CCTouch.cpp
   base/CCUserDefault.cpp
+<<<<<<< HEAD
   base/CCValue.cpp
   base/ObjectFactory.cpp
+=======
+  base/CCUserDefaultAndroid.cpp
+  base/CCValue.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   base/TGAlib.cpp
   base/ZipUtils.cpp
   base/atitc.cpp
   base/base64.cpp
   base/ccCArray.cpp
+<<<<<<< HEAD
   base/ccRandom.cpp
+=======
+  base/ccFPSImages.c
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   base/ccTypes.cpp
   base/ccUTF8.cpp
   base/ccUtils.cpp
   base/etc1.cpp
+<<<<<<< HEAD
   base/pvr.cpp
   base/s3tc.cpp
   ${COCOS_BASE_SPECIFIC_SRC}
 
+=======
+  base/s3tc.cpp
+  base/ObjectFactory.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 )

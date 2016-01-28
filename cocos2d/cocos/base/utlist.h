@@ -23,7 +23,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef UTLIST_H
 #define UTLIST_H
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define UTLIST_VERSION 1.9.8
 
@@ -725,5 +728,10 @@ do {                                                                            
  }                                                                                             \
 } while (0)                                                                                    \
 
+<<<<<<< HEAD
 /// @endcond
 #endif /* UTLIST_H */
+=======
+#endif /* UTLIST_H */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

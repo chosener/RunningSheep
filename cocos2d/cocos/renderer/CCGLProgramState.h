@@ -33,11 +33,14 @@ THE SOFTWARE.
 #include "math/Vec3.h"
 #include "math/Vec4.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup support
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class GLProgram;
@@ -47,16 +50,26 @@ struct VertexAttrib;
 class EventListenerCustom;
 class EventCustom;
 
+<<<<<<< HEAD
 /**
  * Uniform Value, which is used to store to value send to openGL pipe line by glUniformXXX.
  *
  * @lua NA
  */
 class CC_DLL UniformValue
+=======
+//
+//
+// UniformValue
+//
+//
+class UniformValue
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     friend class GLProgram;
     friend class GLProgramState;
 public:
+<<<<<<< HEAD
     /**
      Construtor. The Uniform and Glprogram will be nullptr.
      */
@@ -75,12 +88,19 @@ public:
      including float, int, Vec2/3/4, Mat4.
      @param value Value to be sent, support float, int, Vec2/3/4, Mat4.
      */
+=======
+    UniformValue();
+    UniformValue(Uniform *uniform, GLProgram* glprogram);
+    ~UniformValue();
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setFloat(float value);
     void setInt(int value);
     void setVec2(const Vec2& value);
     void setVec3(const Vec3& value);
     void setVec4(const Vec4& value);
     void setMat4(const Mat4& value);
+<<<<<<< HEAD
     /**
      @}
      */
@@ -111,6 +131,18 @@ protected:
      @name Uniform Value Uniform
      @{
      */
+=======
+    void setCallback(const std::function<void(GLProgram*, Uniform*)> &callback);
+    void setTexture(GLuint textureId, GLuint activeTexture);
+
+    void apply();
+
+protected:
+	Uniform* _uniform;  // weak ref
+    GLProgram* _glprogram; // weak ref
+    bool _useCallback;
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     union U{
         float floatValue;
         int intValue;
@@ -131,6 +163,7 @@ protected:
             return *this;
         }
     } _value;
+<<<<<<< HEAD
     /**
      @}
      */
@@ -142,11 +175,22 @@ protected:
  * @lua NA
  */
 class CC_DLL VertexAttribValue
+=======
+};
+
+//
+//
+// VertexAttribValue
+//
+//
+class VertexAttribValue
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     friend class GLProgram;
     friend class GLProgramState;
 
 public:
+<<<<<<< HEAD
     /**
      Constructor.
      @param vertexAttrib VertexAttrib from shader.
@@ -173,6 +217,14 @@ public:
     /**Set a user call back for set VertexAttrib array.*/
     void setCallback(const std::function<void(VertexAttrib*)> &callback);
     /**Apply the vertex attribute to the openGL pipeline.*/
+=======
+    VertexAttribValue(VertexAttrib *vertexAttrib);
+    VertexAttribValue();
+    ~VertexAttribValue();
+
+	void setPointer(GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid *pointer);
+    void setCallback(const std::function<void(VertexAttrib*)> &callback);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void apply();
 
 protected:
@@ -205,7 +257,11 @@ protected:
  A GLProgram can be used by thousands of Nodes, but if different uniform values 
  are going to be used, then each node will need its own GLProgramState
  */
+<<<<<<< HEAD
 class CC_DLL GLProgramState : public Ref
+=======
+class GLProgramState : public Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     friend class GLProgramStateCache;
 public:
@@ -219,6 +275,7 @@ public:
     /** gets-or-creates an instance of GLProgramState for a given GLProgramName */
     static GLProgramState* getOrCreateWithGLProgramName(const std::string &glProgramName );
 
+<<<<<<< HEAD
     /**
      Apply GLProgram, attributes and uniforms.
      @param modelView The applied modelView matrix to shader.
@@ -264,6 +321,30 @@ public:
     /** @{
      Setting user defined uniforms by uniform string name in the shader.
      */
+=======
+    // apply GLProgram, attributes and uniforms
+    void apply(const Mat4& modelView);
+    
+    void applyGLProgram(const Mat4& modelView);
+    /**
+     * apply vertex attributes
+     * @param applyAttribFlags Call GL::enableVertexAttribs(_vertexAttribsFlags) or not
+     */
+    void applyAttributes(bool applyAttribFlags = true);
+    void applyUniforms();
+
+    void setGLProgram(GLProgram* glprogram);
+    GLProgram* getGLProgram() const { return _glprogram; }
+
+    // vertex attribs
+    uint32_t getVertexAttribsFlags() const { return _vertexAttribsFlags; }
+    ssize_t getVertexAttribCount() const { return _attributes.size(); }
+    void setVertexAttribCallback(const std::string &name, const std::function<void(VertexAttrib*)> &callback);
+    void setVertexAttribPointer(const std::string &name, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid *pointer);
+
+    // user defined uniforms
+    ssize_t getUniformCount() const { return _uniforms.size(); }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setUniformInt(const std::string &uniformName, int value);
     void setUniformFloat(const std::string &uniformName, float value);
     void setUniformVec2(const std::string &uniformName, const Vec2& value);
@@ -273,11 +354,15 @@ public:
     void setUniformCallback(const std::string &uniformName, const std::function<void(GLProgram*, Uniform*)> &callback);
     void setUniformTexture(const std::string &uniformName, Texture2D *texture);
     void setUniformTexture(const std::string &uniformName, GLuint textureId);
+<<<<<<< HEAD
     /**@}*/
     
     /** @{
      Setting user defined uniforms by uniform location in the shader.
      */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setUniformInt(GLint uniformLocation, int value);
     void setUniformFloat(GLint uniformLocation, float value);
     void setUniformVec2(GLint uniformLocation, const Vec2& value);
@@ -287,14 +372,21 @@ public:
     void setUniformCallback(GLint uniformLocation, const std::function<void(GLProgram*, Uniform*)> &callback);
     void setUniformTexture(GLint uniformLocation, Texture2D *texture);
     void setUniformTexture(GLint uniformLocation, GLuint textureId);
+<<<<<<< HEAD
     /**@}*/
     
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 protected:
     GLProgramState();
     ~GLProgramState();
     bool init(GLProgram* program);
     void resetGLProgram();
+<<<<<<< HEAD
     void updateUniformsAndAttributes();
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     VertexAttribValue* getVertexAttribValue(const std::string &attributeName);
     UniformValue* getUniformValue(const std::string &uniformName);
     UniformValue* getUniformValue(GLint uniformLocation);
@@ -308,16 +400,24 @@ protected:
     int _textureUnitIndex;
     uint32_t _vertexAttribsFlags;
     GLProgram *_glprogram;
+<<<<<<< HEAD
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+=======
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventListenerCustom* _backToForegroundlistener;
 #endif
 };
 
 NS_CC_END
 
+<<<<<<< HEAD
 /**
  end of support group
  @}
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCGLPROGRAMSTATE_H__ */

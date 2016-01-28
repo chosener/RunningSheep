@@ -29,11 +29,16 @@
 #define __MISCNODE_CCCLIPPING_NODE_H__
 
 #include "2d/CCNode.h"
+<<<<<<< HEAD
 #include "platform/CCGL.h"
+=======
+#include "CCGL.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "renderer/CCGroupCommand.h"
 #include "renderer/CCCustomCommand.h"
 
 NS_CC_BEGIN
+<<<<<<< HEAD
 /**
  *  @addtogroup _2d
  *  @{
@@ -42,23 +47,38 @@ NS_CC_BEGIN
  * It draws its content (childs) clipped using a stencil.
  * The stencil is an other Node that will not be drawn.
  * The clipping is done using the alpha part of the stencil (adjusted with an alphaThreshold).
+=======
+
+/** ClippingNode is a subclass of Node.
+ It draws its content (childs) clipped using a stencil.
+ The stencil is an other Node that will not be drawn.
+ The clipping is done using the alpha part of the stencil (adjusted with an alphaThreshold).
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class CC_DLL ClippingNode : public Node
 {
 public:
     /** Creates and initializes a clipping node without a stencil.
+<<<<<<< HEAD
      *
      * @return An autorelease ClippingNode.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static ClippingNode* create();
     
     /** Creates and initializes a clipping node with an other node as its stencil.
+<<<<<<< HEAD
      * The stencil node will be retained.
      * @param stencil The stencil node.
+=======
+     The stencil node will be retained.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static ClippingNode* create(Node *stencil);
 
     /** The Node to use as a stencil to do the clipping.
+<<<<<<< HEAD
      * The stencil node will be retained.
      * This default to nil.
      *
@@ -111,29 +131,69 @@ public:
      *
      * @param inverted A bool Type,to set the ClippingNode whether or not invert.
      */
+=======
+     The stencil node will be retained.
+     This default to nil.
+     */
+    Node* getStencil() const;
+    void setStencil(Node *stencil);
+    
+    /** The alpha threshold.
+     The content is drawn only where the stencil have pixel with alpha greater than the alphaThreshold.
+     Should be a float between 0 and 1.
+     This default to 1 (so alpha test is disabled).
+     */
+    GLfloat getAlphaThreshold() const;
+    void setAlphaThreshold(GLfloat alphaThreshold);
+    
+    /** Inverted. If this is set to true,
+     the stencil is inverted, so the content is drawn where the stencil is NOT drawn.
+     This default to false.
+     */
+    bool isInverted() const;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setInverted(bool inverted);
 
     // Overrides
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     virtual void onEnter() override;
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     virtual void onEnterTransitionDidFinish() override;
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     virtual void onExitTransitionDidStart() override;
     /**
+<<<<<<< HEAD
+=======
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     virtual void onExit() override;
     virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
     
+<<<<<<< HEAD
     virtual void setCameraMask(unsigned short mask, bool applyChildren = true) override;
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 CC_CONSTRUCTOR_ACCESS:
     ClippingNode();
     
@@ -145,7 +205,11 @@ CC_CONSTRUCTOR_ACCESS:
 
     /** Initializes a clipping node without a stencil.
      */
+<<<<<<< HEAD
     virtual bool init() override;
+=======
+    virtual bool init();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** Initializes a clipping node with an other node as its stencil.
      The stencil node will be retained, and its parent will be set to this clipping node.
@@ -190,7 +254,11 @@ protected:
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(ClippingNode);
 };
+<<<<<<< HEAD
 /** @} */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // __MISCNODE_CCCLIPPING_NODE_H__

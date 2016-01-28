@@ -1,5 +1,9 @@
 /****************************************************************************
+<<<<<<< HEAD
  Copyright (c) 2013-2015 Chukong Technologies
+=======
+ Copyright (c) 2013-2014 Chukong Technologies
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -24,7 +28,10 @@
 
 #ifndef __CCDOUBLE_H__
 #define __CCDOUBLE_H__
+<<<<<<< HEAD
 /// @cond DO_NOT_SHOW
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "base/CCRef.h"
 #include "base/CCDataVisitor.h"
@@ -69,5 +76,8 @@ private:
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCDOUBLE_H__ */

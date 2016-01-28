@@ -1,7 +1,11 @@
 /****************************************************************************
 Copyright (c) 2011      Zynga Inc.
 Copyright (c) 2012 		cocos2d-x.org
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -23,6 +27,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 
 #ifndef __CCSHADER_H__
 #define __CCSHADER_H__
@@ -38,14 +43,32 @@ THE SOFTWARE.
 
 NS_CC_BEGIN
 
+=======
+#ifndef __CCSHADER_H__
+#define __CCSHADER_H__
+
+#include "CCGL.h"
+#include "base/CCPlatformMacros.h"
+
+NS_CC_BEGIN
+
+/**
+ * @addtogroup shaders
+ * @{
+ */
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 extern CC_DLL const GLchar * ccPosition_uColor_frag;
 extern CC_DLL const GLchar * ccPosition_uColor_vert;
 
 extern CC_DLL const GLchar * ccPositionColor_frag;
 extern CC_DLL const GLchar * ccPositionColor_vert;
 
+<<<<<<< HEAD
 extern CC_DLL const GLchar * ccPositionColorTextureAsPointsize_vert;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 extern CC_DLL const GLchar * ccPositionTexture_frag;
 extern CC_DLL const GLchar * ccPositionTexture_vert;
 
@@ -66,8 +89,11 @@ extern CC_DLL const GLchar * ccPositionTexture_uColor_vert;
 extern CC_DLL const GLchar * ccPositionColorLengthTexture_frag;
 extern CC_DLL const GLchar * ccPositionColorLengthTexture_vert;
 
+<<<<<<< HEAD
 extern CC_DLL const GLchar * ccPositionTexture_GrayScale_frag;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 extern CC_DLL const GLchar * ccLabelDistanceFieldNormal_frag;
 extern CC_DLL const GLchar * ccLabelDistanceFieldGlow_frag;
 extern CC_DLL const GLchar * ccLabelNormal_frag;
@@ -79,6 +105,7 @@ extern CC_DLL const GLchar * cc3D_PositionTex_vert;
 extern CC_DLL const GLchar * cc3D_SkinPositionTex_vert;
 extern CC_DLL const GLchar * cc3D_ColorTex_frag;
 extern CC_DLL const GLchar * cc3D_Color_frag;
+<<<<<<< HEAD
 extern CC_DLL const GLchar * cc3D_PositionNormalTex_vert;
 extern CC_DLL const GLchar * cc3D_SkinPositionNormalTex_vert;
 extern CC_DLL const GLchar * cc3D_ColorNormalTex_frag;
@@ -98,4 +125,11 @@ NS_CC_END
  @}
  */
 /// @endcond
+=======
+// end of shaders group
+/// @}
+
+NS_CC_END
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* __CCSHADER_H__ */

@@ -51,7 +51,11 @@ ControlHuePicker::~ControlHuePicker()
 
 ControlHuePicker* ControlHuePicker::create(Node* target, Vec2 pos)
 {
+<<<<<<< HEAD
     ControlHuePicker *pRet = new (std::nothrow) ControlHuePicker();
+=======
+    ControlHuePicker *pRet = new ControlHuePicker();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     pRet->initWithTargetAndPos(target, pos);
     pRet->autorelease();
     return pRet;
@@ -66,7 +70,11 @@ bool ControlHuePicker::initWithTargetAndPos(Node* target, Vec2 pos)
         this->setBackground(ControlUtils::addSpriteToTargetWithPosAndAnchor("huePickerBackground.png", target, pos, Vec2(0.0f, 0.0f)));
         this->setSlider(ControlUtils::addSpriteToTargetWithPosAndAnchor("colourPicker.png", target, pos, Vec2(0.5f, 0.5f)));
         
+<<<<<<< HEAD
         _slider->setPosition(pos.x, pos.y + _background->getBoundingBox().size.height * 0.5f);
+=======
+        _slider->setPosition(Vec2(pos.x, pos.y + _background->getBoundingBox().size.height * 0.5f));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _startPos=pos;
 
         // Sets the default value
@@ -111,7 +119,11 @@ void ControlHuePicker::setHuePercentage(float hueValueInPercent)
     // Set new position of the slider
     float x                 = centerX + limit * cosf(angle);
     float y                 = centerY + limit * sinf(angle);
+<<<<<<< HEAD
     _slider->setPosition(x, y);
+=======
+    _slider->setPosition(Vec2(x, y));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }
 

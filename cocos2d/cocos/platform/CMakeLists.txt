@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 if(WINDOWS)
 
@@ -57,10 +58,35 @@ set(COCOS_PLATFORM_SPECIFIC_SRC
   platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxRenderer.cpp
   platform/android/jni/JniHelper.cpp
   platform/android/jni/TouchesJni.cpp
+=======
+if(WIN32)
+
+ADD_DEFINITIONS(-DUNICODE -D_UNICODE)
+
+set(COCOS_PLATFORM_SPECIFIC_SRC
+  platform/win32/CCStdC.cpp
+  platform/win32/CCFileUtilsWin32.cpp
+  platform/win32/CCCommon.cpp
+  platform/win32/CCApplication.cpp
+  platform/win32/CCDevice.cpp
+)
+
+elseif(APPLE)
+
+else()
+
+set(COCOS_PLATFORM_SPECIFIC_SRC
+  platform/linux/CCStdC.cpp
+  platform/linux/CCFileUtilsLinux.cpp
+  platform/linux/CCCommon.cpp
+  platform/linux/CCApplication.cpp
+  platform/linux/CCDevice.cpp
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 )
 
 endif()
 
+<<<<<<< HEAD
 #leave andatory external stuff here also
 
 include_directories(
@@ -91,3 +117,22 @@ set(COCOS_PLATFORM_SRC
   ${COCOS_PLATFORM_SPECIFIC_SRC}
 
 )
+=======
+include_directories(
+  ../external/ConvertUTF
+)
+
+set(COCOS_PLATFORM_SRC
+  platform/CCSAXParser.cpp
+  platform/CCThread.cpp
+  platform/CCGLViewProtocol.cpp
+  platform/CCFileUtils.cpp
+  platform/CCImage.cpp
+  platform/desktop/CCGLView.cpp
+  ../external/edtaa3func/edtaa3func.cpp
+  ../external/ConvertUTF/ConvertUTFWrapper.cpp
+  ../external/ConvertUTF/ConvertUTF.c
+  ${COCOS_PLATFORM_SPECIFIC_SRC}
+)
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

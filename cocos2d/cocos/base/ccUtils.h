@@ -39,14 +39,22 @@ NS_CC_BEGIN
 ccNextPOT function is licensed under the same license that is used in Texture2D.m.
 */
 
+<<<<<<< HEAD
 /** Returns the Next Power of Two value.
+=======
+/** returns the Next Power of Two value.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 Examples:
 - If "value" is 15, it will return 16.
 - If "value" is 16, it will return 16.
 - If "value" is 17, it will return 32.
+<<<<<<< HEAD
 @param value The value to get next power of two.
 @return Returns the next power of two value.
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 @since v0.99.5
 */
 
@@ -54,6 +62,7 @@ int ccNextPOT(int value);
 
 namespace utils
 {
+<<<<<<< HEAD
     /** Capture the entire screen.
      * To ensure the snapshot is applied after everything is updated and rendered in the current frame,
      * we need to wrap the operation with a custom command which is then inserted into the tail of the render queue.
@@ -63,6 +72,17 @@ namespace utils
      * @since v3.2
      */
     void CC_DLL captureScreen(const std::function<void(bool, const std::string&)>& afterCaptured, const std::string& filename);
+=======
+    /** Capture the entire screen
+     * To ensure the snapshot is applied after everything is updated and rendered in the current frame,
+     * we need to wrap the operation with a custom command which is then inserted into the tail of the render queue.
+     * @param afterCaptured, specify the callback function which will be invoked after the snapshot is done.
+     * @param filename, specify a filename where the snapshot is stored. This parameter can be either an absolute path or a simple
+     * base filename ("hello.png" etc.), don't use a relative path containing directory names.("mydir/hello.png" etc.)
+     * @since v3.2
+     */
+    void captureScreen(const std::function<void(bool, const std::string&)>& afterCaptured, const std::string& filename);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** Find children by name, it will return all child that has the same name.
      * It supports c++ 11 regular expression. It is  a helper function of `Node::enumerateChildren()`.
@@ -73,6 +93,7 @@ namespace utils
      * @return Array of Nodes that matches the name
      * @since v3.2
      */
+<<<<<<< HEAD
     std::vector<Node*> CC_DLL findChildren(const Node &node, const std::string &name);
     
     /** Same to ::atof, but strip the string, remain 7 numbers after '.' before call atof.
@@ -93,6 +114,14 @@ namespace utils
      * @return Returns unionof bounding box of a node and its children.
      */
     Rect CC_DLL getCascadeBoundingBox(Node *node);
+=======
+    std::vector<Node*> findChildren(const Node &node, const std::string &name);
+    
+    /** Same to ::atof, but strip the string, remain 7 numbers after '.' before call atof。
+     *  Why we need this? Because in android c++_static, atof ( and std::atof ) is unsupported for numbers have long decimal part and contain several numbers can approximate to 1 （ like 90.099998474121094 ), it will return inf. this function is used to fix this bug.
+     */
+    double atof(const char* str);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END

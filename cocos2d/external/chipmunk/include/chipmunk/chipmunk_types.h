@@ -5,9 +5,15 @@
    #include "TargetConditionals.h"
 #endif
 
+<<<<<<< HEAD
 #if ((TARGET_OS_IPHONE == 1) || (TARGET_OS_MAC == 1)) && (!defined CP_USE_CGPOINTS)
 	#define CP_USE_CGPOINTS 1
 #endif
+=======
+//#if ((TARGET_OS_IPHONE == 1) || (TARGET_OS_MAC == 1)) && (!defined CP_USE_CGPOINTS)
+//	#define CP_USE_CGPOINTS 1
+//#endif
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if CP_USE_CGPOINTS == 1
 	#if TARGET_OS_IPHONE

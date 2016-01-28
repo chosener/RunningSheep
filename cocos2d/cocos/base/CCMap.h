@@ -1,5 +1,9 @@
 /****************************************************************************
+<<<<<<< HEAD
  Copyright (c) 2013-2015 Chukong Technologies
+=======
+ Copyright (c) 2013-2014 Chukong Technologies
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -37,6 +41,7 @@
 #include <map>
 #endif
 
+<<<<<<< HEAD
 
 /**
  * @addtogroup base
@@ -55,12 +60,29 @@ template <class K, class V>
 class Map
 {
 public: 
+=======
+NS_CC_BEGIN
+
+/**
+ * @addtogroup data_structures
+ * @{
+ */
+
+template <class K, class V>
+class CC_DLL Map
+{
+public:
+    // ------------------------------------------
+    // Iterators
+    // ------------------------------------------
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #if USE_STD_UNORDERED_MAP
     typedef std::unordered_map<K, V> RefMap;
 #else
     typedef std::map<K, V> RefMap;
 #endif
     
+<<<<<<< HEAD
     // ------------------------------------------
     // Iterators
     // ------------------------------------------
@@ -83,6 +105,18 @@ public:
     /** Return const_iterator to beginning.*/
     const_iterator cbegin() const { return _data.cbegin(); }
     /** Return const_iterator to end.*/
+=======
+    typedef typename RefMap::iterator iterator;
+    typedef typename RefMap::const_iterator const_iterator;
+    
+    iterator begin() { return _data.begin(); }
+    const_iterator begin() const { return _data.begin(); }
+    
+    iterator end() { return _data.end(); }
+    const_iterator end() const { return _data.end(); }
+    
+    const_iterator cbegin() const { return _data.cbegin(); }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const_iterator cend() const { return _data.cend(); }
     
     /** Default constructor */
@@ -93,7 +127,11 @@ public:
         CCLOGINFO("In the default constructor of Map!");
     }
     
+<<<<<<< HEAD
     /** Constructor with capacity. */
+=======
+    /** Contructor with capacity */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     explicit Map<K, V>(ssize_t capacity)
     : _data()
     {
@@ -102,7 +140,11 @@ public:
         _data.reserve(capacity);
     }
     
+<<<<<<< HEAD
     /** Copy constructor. */
+=======
+    /** Copy constructor */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Map<K, V>(const Map<K, V>& other)
     {
         static_assert(std::is_convertible<V, Ref*>::value, "Invalid Type for cocos2d::Map<K, V>!");
@@ -111,7 +153,11 @@ public:
         addRefForAllObjects();
     }
     
+<<<<<<< HEAD
     /** Move constructor. */
+=======
+    /** Move constructor */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Map<K, V>(Map<K, V>&& other)
     {
         static_assert(std::is_convertible<V, Ref*>::value, "Invalid Type for cocos2d::Map<K, V>!");
@@ -119,9 +165,14 @@ public:
         _data = std::move(other._data);
     }
     
+<<<<<<< HEAD
     /** 
      * Destructor.
      * It will release all objects in map.
+=======
+    /** Destructor
+     *  It will release all objects in map.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ~Map<K, V>()
     {
@@ -129,7 +180,11 @@ public:
         clear();
     }
     
+<<<<<<< HEAD
     /** Sets capacity of the map. */
+=======
+    /** Sets capacity of the map */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void reserve(ssize_t capacity)
     {
 #if USE_STD_UNORDERED_MAP
@@ -173,8 +228,12 @@ public:
         return _data.size();
     }
     
+<<<<<<< HEAD
     /** 
      * Returns a bool value indicating whether the map container is empty, i.e. whether its size is 0.
+=======
+    /** Returns a bool value indicating whether the map container is empty, i.e. whether its size is 0.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @note This function does not modify the content of the container in any way.
      *        To clear the content of an array object, member function unordered_map::clear exists.
      */
@@ -183,7 +242,11 @@ public:
         return _data.empty();
     }
     
+<<<<<<< HEAD
     /** Returns all keys in the map. */
+=======
+    /** Returns all keys in the map */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::vector<K> keys() const
     {
         std::vector<K> keys;
@@ -200,7 +263,11 @@ public:
         return keys;
     }
     
+<<<<<<< HEAD
     /** Returns all keys that matches the object. */
+=======
+    /** Returns all keys that matches the object */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::vector<K> keys(V object) const
     {
         std::vector<K> keys;
@@ -223,9 +290,13 @@ public:
         return keys;
     }
     
+<<<<<<< HEAD
     /** 
      * Returns a reference to the mapped value of the element with key k in the map.
      *
+=======
+    /** @brief Returns a reference to the mapped value of the element with key k in the map.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @note If key does not match the key of any element in the container, the function return nullptr.
      *  @param key Key value of the element whose mapped value is accessed.
      *       Member type K is the keys for the elements in the container. defined in Map<K, V> as an alias of its first template parameter (Key).
@@ -246,6 +317,7 @@ public:
         return nullptr;
     }
     
+<<<<<<< HEAD
     /** 
      * Searches the container for an element with 'key' as key and returns an iterator to it if found,
      *         otherwise it returns an iterator to Map<K, V>::end (the element past the end of the container).
@@ -253,6 +325,14 @@ public:
      * @param key Key to be searched for.
      *        Member type 'K' is the type of the keys for the elements in the container,
      *        defined in Map<K, V> as an alias of its first template parameter (Key).
+=======
+    /** @brief Searches the container for an element with 'key' as key and returns an iterator to it if found,
+     *         otherwise it returns an iterator to Map<K, V>::end (the element past the end of the container).
+     *  @param key Key to be searched for.
+     *         Member type 'K' is the type of the keys for the elements in the container,
+     *         defined in Map<K, V> as an alias of its first template parameter (Key).
+     *
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     const_iterator find(const K& key) const
     {
@@ -264,12 +344,19 @@ public:
         return _data.find(key);
     }
     
+<<<<<<< HEAD
     /** 
      * Inserts new elements in the map.
      *
      * @note If the container has already contained the key, this function will erase the old pair(key, object)  and insert the new pair.
      * @param key The key to be inserted.
      * @param object The object to be inserted.
+=======
+    /** @brief Inserts new elements in the map.
+     *  @note If the container has already contained the key, this function will erase the old pair(key, object)  and insert the new pair.
+     *  @param key The key to be inserted.
+     *  @param object The object to be inserted.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void insert(const K& key, V object)
     {
@@ -279,11 +366,17 @@ public:
         object->retain();
     }
     
+<<<<<<< HEAD
     /** 
      * Removes an element with an iterator from the Map<K, V> container.
      *
      * @param position Iterator pointing to a single element to be removed from the Map<K, V>.
      *        Member type const_iterator is a forward iterator type.
+=======
+    /** @brief Removes an element with an iterator from the Map<K, V> container.
+     *  @param position Iterator pointing to a single element to be removed from the Map<K, V>.
+     *         Member type const_iterator is a forward iterator type.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     iterator erase(const_iterator position)
     {
@@ -292,12 +385,19 @@ public:
         return _data.erase(position);
     }
     
+<<<<<<< HEAD
     /** 
      * Removes an element with an iterator from the Map<K, V> container.
      *
      * @param k Key of the element to be erased.
      *        Member type 'K' is the type of the keys for the elements in the container,
      *        defined in Map<K, V> as an alias of its first template parameter (Key).
+=======
+    /** @brief Removes an element with an iterator from the Map<K, V> container.
+     *  @param k Key of the element to be erased.
+     *         Member type 'K' is the type of the keys for the elements in the container,
+     *         defined in Map<K, V> as an alias of its first template parameter (Key).
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     size_t erase(const K& k)
     {
@@ -312,10 +412,15 @@ public:
         return 0;
     }
     
+<<<<<<< HEAD
     /** 
      * Removes some elements with a vector which contains keys in the map.
      *
      * @param keys Keys of elements to be erased.
+=======
+    /** @brief Removes some elements with a vector which contains keys in the map.
+     *  @param keys Keys of elements to be erased.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void erase(const std::vector<K>& keys)
     {
@@ -324,8 +429,12 @@ public:
         }
     }
     
+<<<<<<< HEAD
     /** 
      * All the elements in the Map<K,V> container are dropped:
+=======
+    /** All the elements in the Map<K,V> container are dropped:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  their reference count will be decreased, and they are removed from the container,
      *  leaving it with a size of 0.
      */
@@ -339,9 +448,14 @@ public:
         _data.clear();
     }
     
+<<<<<<< HEAD
     /** 
      * Gets a random object in the map.
      * @return Returns the random object if the map isn't empty, otherwise it returns nullptr.
+=======
+    /** @brief Gets a random object in the map
+     *  @return Returns the random object if the map isn't empty, otherwise it returns nullptr.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     V getRandomObject() const
     {
@@ -380,7 +494,11 @@ public:
     //        return _data.at(key);
     //    }
     
+<<<<<<< HEAD
     /** Copy assignment operator. */
+=======
+    /** Copy assignment operator */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Map<K, V>& operator= ( const Map<K, V>& other )
     {
         if (this != &other) {
@@ -392,7 +510,11 @@ public:
         return *this;
     }
     
+<<<<<<< HEAD
     /** Move assignment operator. */
+=======
+    /** Move assignment operator */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Map<K, V>& operator= ( Map<K, V>&& other )
     {
         if (this != &other) {
@@ -417,9 +539,16 @@ protected:
     RefMap _data;
 };
 
+<<<<<<< HEAD
 
 NS_CC_END
 // end group
 /// @}
+=======
+// end of data_structure group
+/// @}
+
+NS_CC_END
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* __CCMAP_H__ */

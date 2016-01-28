@@ -25,6 +25,12 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "base/CCConfiguration.h"
+<<<<<<< HEAD
+=======
+#include <string.h>
+#include "base/ccMacros.h"
+#include "base/ccConfig.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCFileUtils.h"
 
 NS_CC_BEGIN
@@ -47,10 +53,13 @@ Configuration::Configuration()
 , _maxSamplesAllowed(0)
 , _maxTextureUnits(0)
 , _glExtensions(nullptr)
+<<<<<<< HEAD
 , _maxDirLightInShader(1)
 , _maxPointLightInShader(1)
 , _maxSpotLightInShader(1)
 , _animate3DQuality(Animate3DQuality::QUALITY_HIGH)
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 
@@ -150,7 +159,11 @@ Configuration* Configuration::getInstance()
 {
     if (! s_sharedConfiguration)
     {
+<<<<<<< HEAD
         s_sharedConfiguration = new (std::nothrow) Configuration();
+=======
+        s_sharedConfiguration = new Configuration();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         s_sharedConfiguration->init();
     }
     
@@ -162,13 +175,21 @@ void Configuration::destroyInstance()
     CC_SAFE_RELEASE_NULL(s_sharedConfiguration);
 }
 
+<<<<<<< HEAD
 // FIXME: deprecated
+=======
+// XXX: deprecated
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Configuration* Configuration::sharedConfiguration()
 {
     return Configuration::getInstance();
 }
 
+<<<<<<< HEAD
 // FIXME: deprecated
+=======
+// XXX: deprecated
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Configuration::purgeConfiguration()
 {
     Configuration::destroyInstance();
@@ -248,6 +269,7 @@ bool Configuration::supportsShareableVAO() const
 #endif
 }
 
+<<<<<<< HEAD
 int Configuration::getMaxSupportDirLightInShader() const
 {
     return _maxDirLightInShader;
@@ -268,6 +290,8 @@ Animate3DQuality Configuration::getAnimate3DQuality() const
     return _animate3DQuality;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 //
 // generic getters for properties
 //
@@ -337,6 +361,7 @@ void Configuration::loadConfigFile(const std::string& filename)
         else
             CCLOG("Key already present. Ignoring '%s'",dataMapIter->first.c_str());
     }
+<<<<<<< HEAD
     
     //light info
     std::string name = "cocos2d.x.3d.max_dir_light_in_shader";
@@ -362,6 +387,8 @@ void Configuration::loadConfigFile(const std::string& filename)
         _animate3DQuality = (Animate3DQuality)_valueDict[name].asInt();
     else
         _valueDict[name] = Value((int)_animate3DQuality);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END

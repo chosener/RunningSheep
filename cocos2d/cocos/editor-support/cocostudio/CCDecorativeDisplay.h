@@ -28,7 +28,10 @@ THE SOFTWARE.
 #include "cocostudio/CCArmatureDefine.h"
 #include "cocostudio/CCDisplayFactory.h"
 #include "cocostudio/CCDatas.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #if ENABLE_PHYSICS_BOX2D_DETECT || ENABLE_PHYSICS_CHIPMUNK_DETECT || ENABLE_PHYSICS_SAVE_CALCULATED_VERTEX
@@ -44,7 +47,11 @@ namespace cocostudio {
  *  @js NA
  *  @lua NA
  */
+<<<<<<< HEAD
 class CC_STUDIO_DLL DecorativeDisplay: public cocos2d::Ref
+=======
+class  DecorativeDisplay: public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static DecorativeDisplay *create();

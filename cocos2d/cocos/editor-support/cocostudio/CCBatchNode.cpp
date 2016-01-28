@@ -23,6 +23,10 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "cocostudio/CCBatchNode.h"
+<<<<<<< HEAD
+=======
+#include "cocostudio/CCArmatureDefine.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "cocostudio/CCArmature.h"
 #include "cocostudio/CCSkin.h"
 
@@ -37,7 +41,11 @@ namespace cocostudio {
 
 BatchNode *BatchNode::create()
 {
+<<<<<<< HEAD
     BatchNode *batchNode = new (std::nothrow) BatchNode();
+=======
+    BatchNode *batchNode = new BatchNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (batchNode && batchNode->init())
     {
         batchNode->autorelease();
@@ -74,7 +82,11 @@ void BatchNode::addChild(Node *child, int zOrder, int tag)
         armature->setBatchNode(this);
         if (_groupCommand == nullptr)
         {
+<<<<<<< HEAD
             _groupCommand = new (std::nothrow) GroupCommand();
+=======
+            _groupCommand = new GroupCommand();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 }
@@ -88,7 +100,11 @@ void BatchNode::addChild(cocos2d::Node *child, int zOrder, const std::string &na
         armature->setBatchNode(this);
         if (_groupCommand == nullptr)
         {
+<<<<<<< HEAD
             _groupCommand = new (std::nothrow) GroupCommand();
+=======
+            _groupCommand = new GroupCommand();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 }
@@ -107,7 +123,11 @@ void BatchNode::removeChild(Node* child, bool cleanup)
 void BatchNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
     // quick return if not visible. children won't be drawn.
+<<<<<<< HEAD
     if (!_visible || !isVisitableByVisitingCamera())
+=======
+    if (!_visible)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         return;
     }
@@ -124,9 +144,14 @@ void BatchNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t 
     sortAllChildren();
     draw(renderer, _modelViewTransform, flags);
 
+<<<<<<< HEAD
     // FIX ME: Why need to set _orderOfArrival to 0??
     // Please refer to https://github.com/cocos2d/cocos2d-x/pull/6920
     // setOrderOfArrival(0);
+=======
+    // reset for next frame
+    _orderOfArrival = 0;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 }

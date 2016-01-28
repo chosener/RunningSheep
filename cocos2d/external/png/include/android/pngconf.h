@@ -1,9 +1,15 @@
 
 /* pngconf.h - machine configurable file for libpng
  *
+<<<<<<< HEAD
  * libpng version 1.6.16,December 22, 2014
  *
  * Copyright (c) 1998-2014 Glenn Randers-Pehrson
+=======
+ * libpng version 1.6.2 - April 25, 2013
+ *
+ * Copyright (c) 1998-2013 Glenn Randers-Pehrson
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)
  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)
  *
@@ -238,7 +244,10 @@
 #      define PNGAPI _stdcall
 #    endif
 #  endif /* compiler/api */
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* NOTE: PNGCBAPI always defaults to PNGCAPI. */
 
 #  if defined(PNGAPI) && !defined(PNG_USER_PRIVATEBUILD)
@@ -361,6 +370,7 @@
    * version 1.2.41.  Disabling these removes the warnings but may also produce
    * less efficient code.
    */
+<<<<<<< HEAD
 #  if defined(__clang__) && defined(__has_attribute)
      /* Clang defines both __clang__ and __GNUC__. Check __clang__ first. */
 #    if !defined(PNG_USE_RESULT) && __has_attribute(__warn_unused_result__)
@@ -388,6 +398,9 @@
 #    endif
 
 #  elif defined(__GNUC__)
+=======
+#  if defined(__GNUC__)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #    ifndef PNG_USE_RESULT
 #      define PNG_USE_RESULT __attribute__((__warn_unused_result__))
 #    endif
@@ -410,12 +423,21 @@
             __attribute__((__deprecated__))
 #        endif
 #      endif
+<<<<<<< HEAD
 #      if ((__GNUC__ > 3) || !defined(__GNUC_MINOR__) || (__GNUC_MINOR__ >= 1))
 #        ifndef PNG_RESTRICT
 #          define PNG_RESTRICT __restrict
 #        endif
 #      endif /* __GNUC__.__GNUC_MINOR__ > 3.0 */
 #    endif /* __GNUC__ >= 3 */
+=======
+#      if ((__GNUC__ != 3) || !defined(__GNUC_MINOR__) || (__GNUC_MINOR__ >= 1))
+#        ifndef PNG_RESTRICT
+#          define PNG_RESTRICT __restrict
+#        endif
+#      endif /*  __GNUC__ == 3.0 */
+#    endif /*  __GNUC__ >= 3 */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #  elif defined(_MSC_VER)  && (_MSC_VER >= 1300)
 #    ifndef PNG_USE_RESULT
@@ -445,7 +467,11 @@
 #    ifndef PNG_RESTRICT
 #      define PNG_RESTRICT __restrict
 #    endif
+<<<<<<< HEAD
 #  endif
+=======
+#  endif /* _MSC_VER */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* PNG_PEDANTIC_WARNINGS */
 
 #ifndef PNG_DEPRECATED
@@ -466,7 +492,10 @@
 #ifndef PNG_RESTRICT
 #  define PNG_RESTRICT    /* The C99 "restrict" feature */
 #endif
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #ifndef PNG_FP_EXPORT     /* A floating point API. */
 #  ifdef PNG_FLOATING_POINT_SUPPORTED
 #     define PNG_FP_EXPORT(ordinal, type, name, args)\

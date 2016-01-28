@@ -40,16 +40,26 @@ class Camera;
  * @{
  */
 
+<<<<<<< HEAD
 /**
  *@brief Base class for Camera actions.
  *@ingroup Actions
  */
+=======
+/** 
+@brief Base class for Camera actions
+@ingroup Actions
+*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL ActionCamera : public ActionInterval //<NSCopying> 
 {
 public:
     /**
      * @js ctor
+<<<<<<< HEAD
      * @lua new
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ActionCamera();
     /**
@@ -63,6 +73,7 @@ public:
     virtual ActionCamera * reverse() const override;
 	virtual ActionCamera *clone() const override;
 
+<<<<<<< HEAD
     /* Sets the Eye value of the Camera. 
      * 
      * @param eye The Eye value of the Camera.
@@ -99,6 +110,20 @@ public:
      * @return The Up value of the Camera.
      * @js NA
      */
+=======
+    /* sets the Eye value of the Camera */
+    void setEye(const Vec3 &eye);
+    void setEye(float x, float y, float z);
+    /* returns the Eye value of the Camera */
+    const Vec3& getEye() const { return _eye; }
+    /* sets the Center value of the Camera */
+    void setCenter(const Vec3 &center);
+    /* returns the Center value of the Camera */
+    const Vec3& getCenter() const { return _center; }
+    /* sets the Up value of the Camera */
+    void setUp(const Vec3 &up);
+    /* Returns the Up value of the Camera */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const Vec3& getUp() const { return _up; }
 
 protected:
@@ -111,6 +136,7 @@ protected:
     Vec3 _up;
 };
 
+<<<<<<< HEAD
 /** @class OrbitCamera
  *
  * @brief OrbitCamera action.
@@ -139,6 +165,20 @@ public:
      * @param zenith The spherical zenith.
      * @param azimuth The spherical azimuth.
      */
+=======
+/** 
+@brief OrbitCamera action
+Orbits the camera around the center of the screen using spherical coordinates
+@ingroup Actions
+*/
+class CC_DLL OrbitCamera : public ActionCamera //<NSCopying> 
+{
+public:
+    /** creates a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
+    static OrbitCamera* create(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
+    
+    /** positions the camera according to spherical coordinates */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void sphericalRadius(float *r, float *zenith, float *azimuth);
 
     // Overrides
@@ -157,7 +197,11 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~OrbitCamera();
     
+<<<<<<< HEAD
     /** Initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX. */
+=======
+    /** initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithDuration(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
 
 protected:

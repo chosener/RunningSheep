@@ -22,6 +22,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+<<<<<<< HEAD
 
 // FIXME: hack, must be included before ziputils
 #ifdef MINIZIP_FROM_SYSTEM
@@ -32,10 +33,13 @@
 
 #include "base/ZipUtils.h"
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <zlib.h>
 #include <assert.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
 #include "base/CCData.h"
 #include "base/ccMacros.h"
 #include "platform/CCFileUtils.h"
@@ -47,6 +51,15 @@
 #define unzGoToNextFile64(A,B,C,D) unzGoToNextFile2(A,B,C,D, NULL, 0, NULL, 0)
 #endif
 
+=======
+#include "base/ZipUtils.h"
+#include "base/CCData.h"
+#include "base/ccMacros.h"
+#include "platform/CCFileUtils.h"
+#include "unzip.h"
+#include <map>
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 unsigned int ZipUtils::s_uEncryptedPvrKeyParts[4] = {0,0,0,0};
@@ -498,8 +511,11 @@ void ZipUtils::setPvrEncryptionKey(unsigned int keyPart1, unsigned int keyPart2,
 // from unzip.cpp
 #define UNZ_MAXFILENAMEINZIP 256
 
+<<<<<<< HEAD
 static const std::string emptyFilename("");
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct ZipEntryInfo
 {
     unz_file_pos pos;
@@ -516,6 +532,7 @@ public:
     FileListContainer fileList;
 };
 
+<<<<<<< HEAD
 ZipFile *ZipFile::createWithBuffer(const void* buffer, uLong size)
 {
     ZipFile *zip = new ZipFile();
@@ -533,6 +550,8 @@ ZipFile::ZipFile()
     _data->zipFile = nullptr;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 ZipFile::ZipFile(const std::string &zipFile, const std::string &filter)
 : _data(new ZipFilePrivate)
 {
@@ -645,6 +664,7 @@ unsigned char *ZipFile::getFileData(const std::string &fileName, ssize_t *size)
     return buffer;
 }
 
+<<<<<<< HEAD
 std::string ZipFile::getFirstFilename()
 {
     if (unzGoToFirstFile(_data->zipFile) != UNZ_OK) return emptyFilename;
@@ -686,4 +706,6 @@ bool ZipFile::initWithBuffer(const void *buffer, uLong size)
     return true;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END

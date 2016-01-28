@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Plugin-x
 ========
 Plugin-x provides an easy way for developers to integrate various third party SDKs across different platforms with [cocos2d-x](https://github.com/cocos2d/cocos2d-x)
@@ -17,3 +18,7 @@ One unified API for all SDKs
 
 ##Update
 * If you're looking for SDK integration solution for Chinese App Store, please consider using [AnySDK](http://www.anysdk.com) 
+=======
+plugin-x
+========
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

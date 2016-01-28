@@ -27,7 +27,11 @@ THE SOFTWARE.
 
 #include "2d/CCActionCamera.h"
 #include "2d/CCNode.h"
+<<<<<<< HEAD
 #include "platform/CCStdC.h"
+=======
+#include "CCStdC.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 //
@@ -47,7 +51,11 @@ void ActionCamera::startWithTarget(Node *target)
 ActionCamera* ActionCamera::clone() const
 {
 	// no copy constructor
+<<<<<<< HEAD
 	auto a = new (std::nothrow) ActionCamera();
+=======
+	auto a = new ActionCamera();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	a->autorelease();
 	return a;
 }
@@ -60,9 +68,15 @@ ActionCamera * ActionCamera::reverse() const
 
 void ActionCamera::restore()
 {
+<<<<<<< HEAD
     _center.setZero();
     _eye.set(0.0f, 0.0f, FLT_EPSILON);
     _up.set(0.0f, 1.0f, 0.0f);
+=======
+    _center = Vec3(0, 0, 0);
+    _eye = Vec3(0, 0, FLT_EPSILON);
+    _up = Vec3(0, 1, 0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ActionCamera::setEye(const Vec3& eye)
@@ -73,7 +87,11 @@ void ActionCamera::setEye(const Vec3& eye)
 
 void ActionCamera::setEye(float x, float y, float z)
 {
+<<<<<<< HEAD
     _eye.set(x, y, z);
+=======
+    _eye = Vec3(x, y, z);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     updateTransform();
 }
 
@@ -96,7 +114,11 @@ void ActionCamera::updateTransform()
 
     Vec2 anchorPoint = _target->getAnchorPointInPoints();
 
+<<<<<<< HEAD
     bool needsTranslation = !anchorPoint.isZero();
+=======
+    bool needsTranslation = !anchorPoint.equals(Vec2::ZERO);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     Mat4 mv = Mat4::IDENTITY;
 
@@ -115,7 +137,12 @@ void ActionCamera::updateTransform()
         mv = mv * t;
     }
 
+<<<<<<< HEAD
     // FIXME: Using the AdditionalTransform is a complete hack.
+=======
+    // XXX FIXME TODO
+    // Using the AdditionalTransform is a complete hack.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // This should be done by multipliying the lookup-Matrix with the Node's MV matrix
     // And then setting the result as the new MV matrix
     // But that operation needs to be done after all the 'updates'.
@@ -147,7 +174,11 @@ OrbitCamera::~OrbitCamera()
 
 OrbitCamera * OrbitCamera::create(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX)
 {
+<<<<<<< HEAD
     OrbitCamera * obitCamera = new (std::nothrow) OrbitCamera();
+=======
+    OrbitCamera * obitCamera = new OrbitCamera();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(obitCamera->initWithDuration(t, radius, deltaRadius, angleZ, deltaAngleZ, angleX, deltaAngleX))
     {
         obitCamera->autorelease();
@@ -159,11 +190,19 @@ OrbitCamera * OrbitCamera::create(float t, float radius, float deltaRadius, floa
 
 OrbitCamera* OrbitCamera::clone() const
 {
+<<<<<<< HEAD
     // no copy constructor	
     auto a = new (std::nothrow) OrbitCamera();
     a->initWithDuration(_duration, _radius, _deltaRadius, _angleZ, _deltaAngleZ, _angleX, _deltaAngleX);
     a->autorelease();
     return a;
+=======
+	// no copy constructor	
+	auto a = new OrbitCamera();
+	a->initWithDuration(_duration, _radius, _deltaRadius, _angleZ, _deltaAngleZ, _angleX, _deltaAngleX);
+	a->autorelease();
+	return a;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool OrbitCamera::initWithDuration(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX)

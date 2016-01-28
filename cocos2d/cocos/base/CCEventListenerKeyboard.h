@@ -29,28 +29,38 @@
 #include "base/CCEventListener.h"
 #include "base/CCEventKeyboard.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class Event;
 
+<<<<<<< HEAD
 /** @class EventListenerKeyboard
  * @brief Keyboard event listener.
  * @js cc._EventListenerKeyboard
  */
 class CC_DLL EventListenerKeyboard : public EventListener
+=======
+class EventListenerKeyboard : public EventListener
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static const std::string LISTENER_ID;
     
+<<<<<<< HEAD
     /** Create a keyboard event listener.
      * 
      * @return An autoreleased EventListenerKeyboard object.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static EventListenerKeyboard* create();
     
     /// Overrides
@@ -59,14 +69,21 @@ public:
     
     std::function<void(EventKeyboard::KeyCode, Event*)> onKeyPressed;
     std::function<void(EventKeyboard::KeyCode, Event*)> onKeyReleased;
+<<<<<<< HEAD
 CC_CONSTRUCTOR_ACCESS:
+=======
+private:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventListenerKeyboard();
     bool init();
 };
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCKeyboardEventListener__) */

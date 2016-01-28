@@ -58,10 +58,16 @@ FT_BEGIN_HEADER
    * @description:
    *   A list of valid values for the `charset' byte in
    *   @FT_WinFNT_HeaderRec.  Exact mapping tables for the various cpXXXX
+<<<<<<< HEAD
    *   encodings (except for cp1361) can be found at
    *   ftp://ftp.unicode.org/public in the MAPPINGS/VENDORS/MICSFT/WINDOWS
    *   subdirectory.  cp1361 is roughly a superset of
    *   MAPPINGS/OBSOLETE/EASTASIA/KSC/JOHAB.TXT.
+=======
+   *   encodings (except for cp1361) can be found at ftp://ftp.unicode.org
+   *   in the MAPPINGS/VENDORS/MICSFT/WINDOWS subdirectory.  cp1361 is
+   *   roughly a superset of MAPPINGS/OBSOLETE/EASTASIA/KSC/JOHAB.TXT.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @values:
    *   FT_WinFNT_ID_DEFAULT ::
@@ -259,8 +265,13 @@ FT_BEGIN_HEADER
   FT_Get_WinFNT_Header( FT_Face               face,
                         FT_WinFNT_HeaderRec  *aheader );
 
+<<<<<<< HEAD
   /* */
 
+=======
+
+  /* */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 FT_END_HEADER
 

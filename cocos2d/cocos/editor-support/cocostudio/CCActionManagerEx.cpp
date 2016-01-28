@@ -23,6 +23,10 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "cocostudio/CCActionManagerEx.h"
+<<<<<<< HEAD
+=======
+#include "cocostudio/DictionaryHelper.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "cocostudio/CocoLoader.h"
 
 using namespace cocos2d;
@@ -34,7 +38,11 @@ static ActionManagerEx* sharedActionManager = nullptr;
 ActionManagerEx* ActionManagerEx::getInstance()
 {
 	if (!sharedActionManager) {
+<<<<<<< HEAD
 		sharedActionManager = new (std::nothrow) ActionManagerEx();
+=======
+		sharedActionManager = new ActionManagerEx();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	}
 	return sharedActionManager;
 }
@@ -67,13 +75,21 @@ void ActionManagerEx::initWithDictionary(const char* jsonName,const rapidjson::V
 	cocos2d::Vector<ActionObject*> actionList;
 	int actionCount = DICTOOL->getArrayCount_json(dic, "actionlist");
 	for (int i=0; i<actionCount; i++) {
+<<<<<<< HEAD
 		ActionObject* action = new (std::nothrow) ActionObject();
+=======
+		ActionObject* action = new ActionObject();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		action->autorelease();
 		const rapidjson::Value &actionDic = DICTOOL->getDictionaryFromArray_json(dic, "actionlist", i);
 		action->initWithDictionary(actionDic,root);
 		actionList.pushBack(action);
 	}
+<<<<<<< HEAD
 	_actionDic[fileName] = actionList;
+=======
+	_actionDic.insert(std::pair<std::string, cocos2d::Vector<ActionObject*>>(fileName, actionList));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
     
     void ActionManagerEx::initWithBinary(const char* file,
@@ -100,26 +116,41 @@ void ActionManagerEx::initWithDictionary(const char* jsonName,const rapidjson::V
         {
             int actionCount = actionNode->GetChildNum();
             for (int i = 0; i < actionCount; ++i) {
+<<<<<<< HEAD
                 ActionObject* action = new (std::nothrow) ActionObject();
                 action->autorelease();
                 
                 action->initWithBinary(cocoLoader, &actionNode->GetChildArray(cocoLoader)[i], root);
+=======
+                ActionObject* action = new ActionObject();
+                action->autorelease();
+                
+                action->initWithBinary(cocoLoader, actionNode->GetChildArray(cocoLoader), root);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 
                 actionList.pushBack(action);
             }
         }
+<<<<<<< HEAD
         _actionDic[fileName] = actionList;
+=======
+        _actionDic.insert(std::pair<std::string, cocos2d::Vector<ActionObject*>>(fileName, actionList));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
     }
 
 
 ActionObject* ActionManagerEx::getActionByName(const char* jsonName,const char* actionName)
 {
+<<<<<<< HEAD
 	std::string path = jsonName;
 	ssize_t pos = path.find_last_of("/");
 	std::string fileName = path.substr(pos+1,path.length());
 	CCLOG("find filename == %s",fileName.c_str());
 	auto iterator = _actionDic.find(fileName);
+=======
+	auto iterator = _actionDic.find(jsonName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	if (iterator == _actionDic.end())
 	{
 		return nullptr;
@@ -155,6 +186,7 @@ ActionObject* ActionManagerEx::playActionByName(const char* jsonName,const char*
 	}
 	return action;
 }
+<<<<<<< HEAD
 
 ActionObject* ActionManagerEx::stopActionByName(const char* jsonName,const char* actionName)
 {
@@ -165,6 +197,8 @@ ActionObject* ActionManagerEx::stopActionByName(const char* jsonName,const char*
 	}
 	return action;
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 void ActionManagerEx::releaseActions()
 {
@@ -172,8 +206,13 @@ void ActionManagerEx::releaseActions()
     for (iter = _actionDic.begin(); iter != _actionDic.end(); iter++)
     {
         cocos2d::Vector<ActionObject*> objList = iter->second;
+<<<<<<< HEAD
         ssize_t listCount = objList.size();
         for (ssize_t i = 0; i < listCount; i++) {
+=======
+        int listCount = objList.size();
+        for (int i = 0; i < listCount; i++) {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             ActionObject* action = objList.at(i);
             if (action != nullptr) {
                 action->stop();

@@ -35,7 +35,10 @@
 
 #include "CCControl.h"
 #include "CCInvocation.h"
+<<<<<<< HEAD
 #include "extensions/ExtensionExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -46,7 +49,11 @@ NS_CC_EXT_BEGIN
  * @{
  */
 
+<<<<<<< HEAD
 class CC_EX_DLL ControlSaturationBrightnessPicker : public Control
+=======
+class ControlSaturationBrightnessPicker : public Control
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     /** Contains the receiver's current saturation value. */
     CC_SYNTHESIZE_READONLY(float, _saturation, Saturation);
@@ -78,7 +85,11 @@ public:
 
     static ControlSaturationBrightnessPicker* create(Node* target, Vec2 pos);
 
+<<<<<<< HEAD
     virtual void setEnabled(bool enabled) override;
+=======
+    virtual void setEnabled(bool enabled);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js NA
      * @lua NA
@@ -94,8 +105,13 @@ protected:
     void updateSliderPosition(Vec2 location);
     bool checkSliderPosition(Vec2 location);
 
+<<<<<<< HEAD
     virtual bool onTouchBegan(Touch* touch, Event* pEvent) override;
     virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
+=======
+    virtual bool onTouchBegan(Touch* touch, Event* pEvent);
+    virtual void onTouchMoved(Touch *pTouch, Event *pEvent);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 // end of GUI group

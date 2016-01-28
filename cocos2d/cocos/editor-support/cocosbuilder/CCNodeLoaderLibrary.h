@@ -10,7 +10,11 @@ class NodeLoader;
 typedef std::map<std::string, NodeLoader *> NodeLoaderMap;
 typedef std::pair<std::string, NodeLoader *> NodeLoaderMapEntry;
 
+<<<<<<< HEAD
 class CC_DLL NodeLoaderLibrary : public cocos2d::Ref
+=======
+class NodeLoaderLibrary : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**

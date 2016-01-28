@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    Gzip-compressed stream support.                                      */
 /*                                                                         */
+<<<<<<< HEAD
 /*  Copyright 2002-2004, 2006, 2013 by                                     */
+=======
+/*  Copyright 2002, 2003, 2004, 2006 by                                    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -91,6 +95,7 @@ FT_BEGIN_HEADER
   FT_Stream_OpenGzip( FT_Stream  stream,
                       FT_Stream  source );
 
+<<<<<<< HEAD
 
  /************************************************************************
   *
@@ -138,6 +143,9 @@ FT_BEGIN_HEADER
                       FT_ULong        input_len );
 
   /* */
+=======
+ /* */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 FT_END_HEADER

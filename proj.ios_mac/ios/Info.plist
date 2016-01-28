@@ -42,7 +42,11 @@
 		<string>Icon-144.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
+<<<<<<< HEAD
 	<string>com.ds.runningsheep</string>
+=======
+	<string>org.cocos2dx.hellocpp</string>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -55,6 +59,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+<<<<<<< HEAD
 	<key>UILaunchImages</key>
 	<array>
 	    <dict>
@@ -138,6 +143,8 @@
 	        <string>{414, 736}</string>
 	    </dict>
 	</array>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
@@ -146,7 +153,10 @@
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
+<<<<<<< HEAD
 		<string>UIInterfaceOrientationLandscapeRight</string>
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
 </dict>

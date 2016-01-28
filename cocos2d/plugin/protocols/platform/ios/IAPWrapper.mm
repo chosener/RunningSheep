@@ -26,7 +26,10 @@ THE SOFTWARE.
 #include "PluginUtilsIOS.h"
 #include "ProtocolIAP.h"
 #import <StoreKit/StoreKit.h>
+<<<<<<< HEAD
 #import "ParseUtils.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace cocos2d::plugin;
 
@@ -36,6 +39,7 @@ using namespace cocos2d::plugin;
 {
     PluginProtocol* plugin = PluginUtilsIOS::getPluginPtr(obj);
     ProtocolIAP* iapPlugin = dynamic_cast<ProtocolIAP*>(plugin);
+<<<<<<< HEAD
     ProtocolIAP::ProtocolIAPCallback callback = iapPlugin->getCallback();
     const char* chMsg = [msg UTF8String];
     PayResultCode cRet = (PayResultCode) ret;
@@ -44,6 +48,12 @@ using namespace cocos2d::plugin;
     }else if(callback){
         std::string stdmsg(chMsg);
         callback(cRet,stdmsg);
+=======
+    if (iapPlugin) {
+        const char* chMsg = [msg UTF8String];
+        PayResultCode cRet = (PayResultCode) ret;
+        iapPlugin->onPayResult(cRet, chMsg);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     } else {
         PluginUtilsIOS::outputLog("Can't find the C++ object of the IAP plugin");
     }
@@ -51,6 +61,7 @@ using namespace cocos2d::plugin;
 +(void) onRequestProduct:(id)obj withRet:(ProductRequest) ret withProducts:(NSArray *)products{
     PluginProtocol* plugin = PluginUtilsIOS::getPluginPtr(obj);
     ProtocolIAP* iapPlugin = dynamic_cast<ProtocolIAP*>(plugin);
+<<<<<<< HEAD
     PayResultListener *listener = iapPlugin->getResultListener();
     ProtocolIAP:: ProtocolIAPCallback callback = iapPlugin->getCallback();
     if (iapPlugin) {
@@ -81,5 +92,24 @@ using namespace cocos2d::plugin;
     } else {
         PluginUtilsIOS::outputLog("Can't find the C++ object of the IAP plugin");
     }
+=======
+    if (iapPlugin) {
+        TProductList pdlist;
+        if (products) {
+            for(SKProduct *product in products){
+                TProductInfo info;
+                info.insert(std::make_pair("productId", std::string([product.productIdentifier UTF8String])));
+                info.insert(std::make_pair("productName", std::string([product.localizedTitle UTF8String])));
+                info.insert(std::make_pair("productPrice", std::string([[product.price stringValue] UTF8String])));
+                info.insert(std::make_pair("productDesc", std::string([product.localizedDescription UTF8String])));
+                pdlist.push_back(info);
+            }
+        }
+        iapPlugin->getResultListener()->onRequestProductsResult((IAPProductRequest )ret,pdlist);
+    } else {
+        PluginUtilsIOS::outputLog("Can't find the C++ object of the IAP plugin");
+    }
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 @end

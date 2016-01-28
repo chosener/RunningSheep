@@ -26,6 +26,7 @@
 #ifndef __cocos2d_libs__EventController__
 #define __cocos2d_libs__EventController__
 
+<<<<<<< HEAD
 #include "platform/CCPlatformMacros.h"
 #include "base/CCEvent.h"
 
@@ -47,6 +48,19 @@ class EventController : public Event
 {
 public:
     /** ControllerEventType Controller event type.*/
+=======
+#include "base/CCPlatformMacros.h"
+#include "base/CCEvent.h"
+
+NS_CC_BEGIN
+
+class Controller;
+class EventListenerController;
+
+class EventController : public Event
+{
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class ControllerEventType
     {
         CONNECTION,
@@ -54,6 +68,7 @@ public:
         AXIS_STATUS_CHANGED,
     };
     
+<<<<<<< HEAD
     /** Create a EventController with controller event type, contrlloer and key code.
      *
      * @param type A given controller event type.
@@ -94,6 +109,18 @@ public:
      *
      * @return True if it's connected.
      */
+=======
+	EventController(ControllerEventType type, Controller* controller, int keyCode);
+    EventController(ControllerEventType type, Controller* controller, bool isConnected);
+
+    ControllerEventType getControllerEventType() const { return _controllerEventType; }
+    Controller* getController() const { return _controller; }
+
+    int getKeyCode() const{ return _keyCode; }
+    void setKeyCode(int keyCode) { _keyCode = keyCode;}
+
+    void setConnectStatus(bool isConnected) {_isConnected = isConnected;}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool isConnected() const { return _isConnected; }
     
 protected:
@@ -104,10 +131,15 @@ protected:
 
     friend class EventListenerController;
 };
+<<<<<<< HEAD
 /// @endcond EventController
 NS_CC_END
 
 // end of base group
 /// @}
+=======
+
+NS_CC_END
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__cocos2d_libs__EventController__) */

@@ -23,6 +23,7 @@
  ****************************************************************************/
 
 #include "3d/CCAnimate3D.h"
+<<<<<<< HEAD
 #include "3d/CCSprite3D.h"
 #include "3d/CCSkeleton3D.h"
 #include "platform/CCFileUtils.h"
@@ -41,12 +42,33 @@ Animate3D* Animate3D::create(Animation3D* animation)
     auto animate = new (std::nothrow) Animate3D();
     animate->init(animation);
     animate->autorelease();
+=======
+#include "3d/CCAnimation3D.h"
+#include "3d/CCSprite3D.h"
+#include "3d/CCMeshSkin.h"
+
+#include "base/ccMacros.h"
+#include "platform/CCFileUtils.h"
+
+NS_CC_BEGIN
+
+//create Animate3D using Animation.
+Animate3D* Animate3D::create(Animation3D* animation)
+{
+    auto animate = new Animate3D();
+    animate->_animation = animation;
+    animation->retain();
+    
+    animate->autorelease();
+    animate->setDuration(animation->getDuration());
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     return animate;
 }
 
 Animate3D* Animate3D::create(Animation3D* animation, float fromTime, float duration)
 {
+<<<<<<< HEAD
     auto animate = new (std::nothrow) Animate3D();
     animate->init(animation, fromTime, duration);
     animate->autorelease();
@@ -75,10 +97,15 @@ bool Animate3D::init(Animation3D* animation)
 
 bool Animate3D::init(Animation3D* animation, float fromTime, float duration)
 {
+=======
+    auto animate = Animate3D::create(animation);
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     float fullDuration = animation->getDuration();
     if (duration > fullDuration - fromTime)
         duration = fullDuration - fromTime;
     
+<<<<<<< HEAD
     _start = fromTime / fullDuration;
     _last = duration / fullDuration;
     setDuration(duration);
@@ -96,6 +123,13 @@ bool Animate3D::initWithFrames(Animation3D* animation, int startFrame, int endFr
     float duration = (endFrame - startFrame) * perFrameTime;
     init(animation, fromTime, duration);
     return true;
+=======
+    animate->_start = fromTime / fullDuration;
+    animate->_last = duration / fullDuration;
+    animate->setDuration(duration);
+    
+    return  animate;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 /** returns a clone of action */
@@ -111,7 +145,11 @@ Animate3D* Animate3D::clone() const
     copy->_last = _last;
     copy->_playReverse = _playReverse;
     copy->setDuration(animate->getDuration());
+<<<<<<< HEAD
     copy->setOriginInterval(animate->getOriginInterval());
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return copy;
 }
 
@@ -123,6 +161,7 @@ Animate3D* Animate3D::reverse() const
     return animate;
 }
 
+<<<<<<< HEAD
 Node* findChildByNameRecursively(Node* node, const std::string &childName)
 {
     const std::string& name = node->getName();
@@ -277,10 +316,41 @@ void Animate3D::stop()
 void Animate3D::step(float dt)
 {
     ActionInterval::step(dt);
+=======
+//! called before the action start. It will also set the target.
+void Animate3D::startWithTarget(Node *target)
+{
+    Sprite3D* sprite = dynamic_cast<Sprite3D*>(target);
+    CCASSERT(sprite && sprite->getSkin() && _animation, "Animate3D apply to Sprite3D only");
+    
+    ActionInterval::startWithTarget(target);
+    
+    _boneCurves.clear();
+    auto skin = sprite->getSkin();
+    for (unsigned int  i = 0; i < skin->getBoneCount(); i++) {
+        auto bone = skin->getBoneByIndex(i);
+        auto curve = _animation->getBoneCurveByName(bone->getName());
+        if (curve)
+        {
+            _boneCurves[bone] = curve;
+        }
+        else
+        {
+            CCLOG("warning: bone %s not find in animation", bone->getName().c_str());
+        }
+    }
+}
+
+//! called every frame with it's delta time. DON'T override unless you know what you are doing.
+void Animate3D::step(float dt)
+{
+    ActionInterval::step(dt * _absSpeed);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Animate3D::update(float t)
 {
+<<<<<<< HEAD
     if (_target)
     {
         if (_state == Animate3D::Animate3DState::FadeIn && _lastTime > 0.f)
@@ -370,6 +440,38 @@ void Animate3D::update(float t)
             }
         }
     }
+=======
+    if (_target && _weight > 0.f)
+    {
+        float transDst[3], rotDst[4], scaleDst[3];
+        float* trans = nullptr, *rot = nullptr, *scale = nullptr;
+        if (_playReverse)
+            t = 1 - t;
+        
+        t = _start + t * _last;
+        for (const auto& it : _boneCurves) {
+            auto bone = it.first;
+            auto curve = it.second;
+            if (curve->translateCurve)
+            {
+                curve->translateCurve->evaluate(t, transDst, EvaluateType::INT_LINEAR);
+                trans = &transDst[0];
+            }
+            if (curve->rotCurve)
+            {
+                curve->rotCurve->evaluate(t, rotDst, EvaluateType::INT_QUAT_SLERP);
+                rot = &rotDst[0];
+            }
+            if (curve->scaleCurve)
+            {
+                curve->scaleCurve->evaluate(t, scaleDst, EvaluateType::INT_LINEAR);
+                scale = &scaleDst[0];
+            }
+            bone->setAnimationValue(trans, rot, scale, this, _weight);
+        }
+    }
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 float Animate3D::getSpeed() const
@@ -380,7 +482,10 @@ void Animate3D::setSpeed(float speed)
 {
     _absSpeed = fabsf(speed);
     _playReverse = speed < 0;
+<<<<<<< HEAD
     _duration = _originInterval / _absSpeed;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Animate3D::setWeight(float weight)
@@ -389,6 +494,7 @@ void Animate3D::setWeight(float weight)
     _weight = fabsf(weight);
 }
 
+<<<<<<< HEAD
 void Animate3D::setOriginInterval(float interval)
 {
     _originInterval = interval;
@@ -449,4 +555,21 @@ void Animate3D::removeFromMap()
     }
 }
 
+=======
+Animate3D::Animate3D()
+: _absSpeed(1.f)
+, _weight(1.f)
+, _start(0.f)
+, _last(1.f)
+, _animation(nullptr)
+, _playReverse(false)
+{
+    
+}
+Animate3D::~Animate3D()
+{
+    CC_SAFE_RELEASE(_animation);
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END

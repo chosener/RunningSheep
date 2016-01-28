@@ -28,7 +28,11 @@ THE SOFTWARE.
 #ifndef __CC_PARTICLE_SYSTEM_QUAD_H__
 #define __CC_PARTICLE_SYSTEM_QUAD_H__
 
+<<<<<<< HEAD
 #include "2d/CCParticleSystem.h"
+=======
+#include  "CCParticleSystem.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "renderer/CCQuadCommand.h"
 
 NS_CC_BEGIN
@@ -37,28 +41,45 @@ class SpriteFrame;
 class EventCustom;
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
  * @{
  */
 
 /** @class ParticleSystemQuad
  * @brief ParticleSystemQuad is a subclass of ParticleSystem.
+=======
+ * @addtogroup particle_nodes
+ * @{
+ */
+
+/** @brief ParticleSystemQuad is a subclass of ParticleSystem
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 It includes all the features of ParticleSystem.
 
 Special features and Limitations:    
 - Particle size can be any float number.
+<<<<<<< HEAD
 - The system can be scaled.
 - The particles can be rotated.
 - It supports subrects.
 - It supports batched rendering since 1.1.
 @since v0.8
 @js NA
+=======
+- The system can be scaled
+- The particles can be rotated
+- It supports subrects
+- It supports batched rendering since 1.1
+@since v0.8
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL ParticleSystemQuad : public ParticleSystem
 {
 public:
 
+<<<<<<< HEAD
     /** Creates a Particle Emitter.
      *
      * @return An autoreleased ParticleSystemQuad object.
@@ -82,12 +103,26 @@ public:
      * @param dictionary Particle dictionary.
      * @return An autoreleased ParticleSystemQuad object.
      */
+=======
+    /** creates a Particle Emitter */
+    static ParticleSystemQuad * create();
+    /** creates a Particle Emitter with a number of particles */
+    static ParticleSystemQuad * createWithTotalParticles(int numberOfParticles);
+    /** creates an initializes a ParticleSystemQuad from a plist file.
+     This plist files can be created manually or with Particle Designer:
+     */
+    static ParticleSystemQuad * create(const std::string& filename);
+    /** creates a Particle Emitter with a dictionary */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ParticleSystemQuad * create(ValueMap &dictionary);
 
     /** Sets a new SpriteFrame as particle.
     WARNING: this method is experimental. Use setTextureWithRect instead.
+<<<<<<< HEAD
      *
      * @param spriteFrame A given sprite frame as particle texture.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     @since v0.99.4
     */
     void setDisplayFrame(SpriteFrame *spriteFrame);
@@ -96,6 +131,7 @@ public:
      @since v0.99.4
      * @js NA
      * @lua NA
+<<<<<<< HEAD
      *
      * @param texture A given texture.
      8 @param rect A given rect, in points.
@@ -107,6 +143,14 @@ public:
      * @lua NA
      *
      * @param event the event that renderer was recreated on Android/WP8.
+=======
+     */
+    void setTextureWithRect(Texture2D *texture, const Rect& rect);
+
+    /** listen the event that renderer was recreated on Android/WP8
+     * @js NA
+     * @lua NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void listenRendererRecreated(EventCustom* event);
 
@@ -187,7 +231,11 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ParticleSystemQuad);
 };
 
+<<<<<<< HEAD
 // end of _2d group
+=======
+// end of particle_nodes group
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

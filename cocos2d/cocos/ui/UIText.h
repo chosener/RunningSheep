@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __UILABEL_H__
 
 #include "ui/UIWidget.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 #include "base/ccTypes.h"
 
@@ -33,6 +34,8 @@ THE SOFTWARE.
  * @addtogroup ui
  * @{
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -42,6 +45,7 @@ namespace ui {
 
 /**
  *  For creating a system font or a TTF font Text
+<<<<<<< HEAD
  */
 class CC_GUI_DLL Text : public Widget
 {
@@ -51,26 +55,46 @@ class CC_GUI_DLL Text : public Widget
 public:
     /** Type Text type.
      */
+=======
+ *@js 
+ *@lua NA
+ */
+class Text : public Widget
+{
+    
+    DECLARE_CLASS_GUI_INFO
+    
+public:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class Type
     {
         SYSTEM,
         TTF
     };
     /**
+<<<<<<< HEAD
      * Default constructor.
      * @js ctor
      * @lua new
+=======
+     * Default constructor
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Text();
 
     /**
+<<<<<<< HEAD
      * Default destructor.
      * @js NA
      * @lua NA
+=======
+     * Default destructor
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~Text();
 
     /**
+<<<<<<< HEAD
      * Create a Text object.
      *
      * @return An autoreleased Text object.
@@ -92,6 +116,17 @@ public:
      * @param fontName A given font name.
      * @param fontSize A given font size.
      * @return An autoreleased Text object.
+=======
+     * Allocates and initializes.
+     */
+    static Text* create();
+    
+    /**
+     *  create a Text object with textContent, fontName and fontSize
+     *  the fontName could be a system font name or a TTF file path.
+     *  Usage:  Text *text = Text::create("Hello", "Arial", 20);  //create a system font UIText
+     *          Text *text = Text::create("Hello", "xxx\xxx.ttf", 20); //create a TTF font UIText
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static Text* create(const std::string& textContent,
                         const std::string& fontName,
@@ -100,38 +135,57 @@ public:
     /**
      * Changes the string value of label.
      *
+<<<<<<< HEAD
      * @param text  String value.
      */
     CC_DEPRECATED_ATTRIBUTE void setText(const std::string& text)
     {
         this->setString(text);
     }
+=======
+     * @param text  string value.
+     */
+    CC_DEPRECATED_ATTRIBUTE void setText(const std::string& text){this->setString(text);}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setString(const std::string& text);
 
     /**
      * Gets the string value of label.
      *
+<<<<<<< HEAD
      * @return String value.
      */
     CC_DEPRECATED_ATTRIBUTE const std::string& getStringValue()
     {
         return this->getString();
     }
+=======
+     * @return string value.
+     */
+    CC_DEPRECATED_ATTRIBUTE const std::string& getStringValue(){ return this->getString();}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const std::string& getString()const;
 
     /**
      * Gets the string length of the label.
      * Note: This length will be larger than the raw string length,
+<<<<<<< HEAD
      * if you want to get the raw string length,
      * you should call this->getString().size() instead.
      *
      * @return  String length.
+=======
+     * if you want to get the raw string length, you should call this->getString().size() instead
+     *
+     * @return  string length.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ssize_t getStringLength()const;
 
     /**
      * Sets the font size of label.
      *
+<<<<<<< HEAD
      * @param size The font size.
      */
     void setFontSize(int size);
@@ -141,12 +195,19 @@ public:
      *
      * @return The font size.
      */
+=======
+     * @param size font size.
+     */
+    void setFontSize(int size);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int getFontSize()const;
 
     /**
      * Sets the font name of label.
      *  If you are trying to use a system font, you could just pass a font name
      * If you are trying to use a TTF, you should pass a file path to the TTF file
+<<<<<<< HEAD
      * Usage:
      * @code
      *          //create a system font UIText
@@ -169,39 +230,66 @@ public:
     /** Gets the font type.
      * @return The font type.
      */
+=======
+     * Usage:  Text *text = Text::create("Hello", "Arial", 20);  //create a system font UIText
+     *         text->setFontName("Marfelt");  // it will change the font  to  system font no matter the previous font type is TTF or system font
+     *         text->setFontName("xxxx/xxx.ttf"); //it will change the font  to TTF font no matter the previous font type is TTF or system font
+     * @param name font name.
+     */
+    void setFontName(const std::string& name);
+
+    const std::string& getFontName()const;
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Type getType() const;
 
     /**
      * Sets the touch scale enabled of label.
      *
+<<<<<<< HEAD
      * @param enabled Touch scale enabled of label.
+=======
+     * @param enabled touch scale enabled of label.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void setTouchScaleChangeEnabled(bool enabled);
 
     /**
      * Gets the touch scale enabled of label.
      *
+<<<<<<< HEAD
      * @return  Touch scale enabled of label.
+=======
+     * @return  touch scale enabled of label.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     bool isTouchScaleChangeEnabled()const;
 
     //override "getVirtualRendererSize" method of widget.
+<<<<<<< HEAD
     virtual Size getVirtualRendererSize() const override;
+=======
+    virtual const Size& getVirtualRendererSize() const override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     //override "getVirtualRenderer" method of widget.
     virtual Node* getVirtualRenderer() override;
 
+<<<<<<< HEAD
     /** Gets the render size in auto mode.
      *
      * @return The size of render size in auto mode.
      */
     virtual Size getAutoRenderSize();
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Returns the "class name" of widget.
      */
     virtual std::string getDescription() const override;
 
+<<<<<<< HEAD
     /**
      * Sets the rendering size of the text, you should call this method
      * along with calling `ignoreContentAdaptWithSize(false)`, otherwise the text area
@@ -294,6 +382,39 @@ public:
      */
     void disableEffect(LabelEffect effect);
 
+=======
+    void setTextAreaSize(const Size &size);
+
+    const Size& getTextAreaSize()const;
+
+    void setTextHorizontalAlignment(TextHAlignment alignment);
+
+    TextHAlignment getTextHorizontalAlignment()const;
+
+    void setTextVerticalAlignment(TextVAlignment alignment);
+
+    TextVAlignment getTextVerticalAlignment()const;
+    
+    /**
+     * Enable shadow for the label
+     *
+     * @todo support blur for shadow effect
+     */
+    void enableShadow(const Color4B& shadowColor = Color4B::BLACK,const Size &offset = Size(2,-2), int blurRadius = 0);
+    
+    /**
+     * Enable outline for the label
+     * It only works on IOS and Android when you use System fonts
+     */ 
+    void enableOutline(const Color4B& outlineColor,int outlineSize = 1);
+    
+    /** only support for TTF */
+    void enableGlow(const Color4B& glowColor);
+    
+    /** disable shadow/outline/glow rendering */
+    void disableEffect();
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
     virtual bool init(const std::string& textContent,
@@ -306,7 +427,13 @@ protected:
     virtual void onPressStateChangedToPressed() override;
     virtual void onPressStateChangedToDisabled() override;
     virtual void onSizeChanged() override;
+<<<<<<< HEAD
 
+=======
+   
+    virtual void updateFlippedX() override;
+    virtual void updateFlippedY() override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void labelScaleChangedWithSize();
     virtual Widget* createCloneInstance() override;
     virtual void copySpecialProperties(Widget* model) override;
@@ -327,7 +454,10 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of ui group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__CocoGUI__Label__) */

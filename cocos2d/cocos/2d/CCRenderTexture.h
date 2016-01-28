@@ -37,11 +37,16 @@ NS_CC_BEGIN
 class EventCustom;
 
 /**
+<<<<<<< HEAD
  * @addtogroup _2d
+=======
+ * @addtogroup textures
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
 /**
+<<<<<<< HEAD
  * @brief RenderTexture is a generic rendering target. To render things into it,
  * simply construct a render target, call begin on it, call visit on any cocos
  * scenes or objects to render them, and call end. For convenience, render texture
@@ -149,10 +154,67 @@ public:
      * @return An image.
      * @js NA
      */
+=======
+@brief RenderTexture is a generic rendering target. To render things into it,
+simply construct a render target, call begin on it, call visit on any cocos
+scenes or objects to render them, and call end. For convenience, render texture
+adds a sprite as it's display child with the results, so you can simply add
+the render texture to your scene and treat it like any other CocosNode.
+There are also functions for saving the render texture to disk in PNG or JPG format.
+
+@since v0.8.1
+*/
+class CC_DLL RenderTexture : public Node 
+{
+public:
+    /** initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format*/
+    static RenderTexture * create(int w ,int h, Texture2D::PixelFormat format, GLuint depthStencilFormat);
+
+    /** creates a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid */
+    static RenderTexture * create(int w, int h, Texture2D::PixelFormat format);
+
+    /** creates a RenderTexture object with width and height in Points, pixel format is RGBA8888 */
+    static RenderTexture * create(int w, int h);
+
+    /** starts grabbing */
+    virtual void begin();
+
+    /** starts rendering to the texture while clearing the texture first.
+    This is more efficient then calling -clear first and then -begin */
+    virtual void beginWithClear(float r, float g, float b, float a);
+
+    /** starts rendering to the texture while clearing the texture first.
+     This is more efficient then calling -clear first and then -begin */
+    virtual void beginWithClear(float r, float g, float b, float a, float depthValue);
+
+    /** starts rendering to the texture while clearing the texture first.
+     This is more efficient then calling -clear first and then -begin */
+    virtual void beginWithClear(float r, float g, float b, float a, float depthValue, int stencilValue);
+
+    /** end is key word of lua, use other name to export to lua. */
+    inline void endToLua(){ end();};
+
+    /** ends grabbing*/
+    virtual void end();
+
+    /** clears the texture with a color */
+    void clear(float r, float g, float b, float a);
+
+    /** clears the texture with a specified depth value */
+    virtual void clearDepth(float depthValue);
+
+    /** clears the texture with a specified stencil value */
+    virtual void clearStencil(int stencilValue);
+    /* creates a new Image from with the texture's data.
+       Caller is responsible for releasing it by calling delete.
+     */
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Image* newImage(bool flipImage = true);
     
     CC_DEPRECATED_ATTRIBUTE Image* newCCImage(bool flipImage = true) { return newImage(flipImage); };
 
+<<<<<<< HEAD
     /** Saves the texture into a file using JPEG format. The file will be saved in the Documents folder.
      * Returns true if the operation is successful.
      *
@@ -262,6 +324,54 @@ public:
      *
      * @param sprite A Sprite.
      */
+=======
+    /** saves the texture into a file using JPEG format. The file will be saved in the Documents folder.
+        Returns true if the operation is successful.
+     */
+    bool saveToFile(const std::string& filename, bool isRGBA = true);
+
+    /** saves the texture into a file. The format could be JPG or PNG. The file will be saved in the Documents folder.
+        Returns true if the operation is successful.
+     */
+    bool saveToFile(const std::string& filename, Image::Format format, bool isRGBA = true);
+    
+    /** Listen "come to background" message, and save render texture.
+     It only has effect on Android.
+     */
+    void listenToBackground(EventCustom *event);
+    
+    /** Listen "come to foreground" message and restore the frame buffer object
+     It only has effect on Android.
+     */
+    void listenToForeground(EventCustom *event);
+    
+    /** Valid flags: GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, GL_STENCIL_BUFFER_BIT. They can be OR'ed. Valid when "autoDraw" is true. */
+    inline unsigned int getClearFlags() const { return _clearFlags; };
+    inline void setClearFlags(unsigned int clearFlags) { _clearFlags = clearFlags; };
+    
+    /** Clear color value. Valid only when "autoDraw" is true. */
+    inline const Color4F& getClearColor() const { return _clearColor; };
+    inline void setClearColor(const Color4F &clearColor) { _clearColor = clearColor; };
+    
+    /** Value for clearDepth. Valid only when "autoDraw" is true. */
+    inline float getClearDepth() const { return _clearDepth; };
+    inline void setClearDepth(float clearDepth) { _clearDepth = clearDepth; };
+    
+    /** Value for clear Stencil. Valid only when "autoDraw" is true */
+    inline int getClearStencil() const { return _clearStencil; };
+    inline void setClearStencil(int clearStencil) { _clearStencil = clearStencil; };
+    
+    /** When enabled, it will render its children into the texture automatically. Disabled by default for compatiblity reasons.
+     Will be enabled in the future.
+     */
+    inline bool isAutoDraw() const { return _autoDraw; };
+    inline void setAutoDraw(bool isAutoDraw) { _autoDraw = isAutoDraw; };
+
+    /** Gets the Sprite being used. */
+    inline Sprite* getSprite() const { return _sprite; };
+    
+    /** Sets the Sprite being used. */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setSprite(Sprite* sprite) {
         CC_SAFE_RETAIN(sprite);
         CC_SAFE_RELEASE(_sprite);
@@ -272,6 +382,7 @@ public:
     virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
 
+<<<<<<< HEAD
     /** Flag: Use stack matrix computed from scene hierarchy or generate new modelView and projection matrix.
      *
      * @param keepMatrix Wether or not use stack matrix computed from scene hierarchy or generate new modelView and projection matrix.
@@ -314,6 +425,26 @@ public:
      * @param depthStencilFormat The depthStencil format.
      * @return If successed,it will return true.
      */
+=======
+    //flag: use stack matrix computed from scene hierarchy or generate new modelView and projection matrix
+    void setKeepMatrix(bool keepMatrix);
+    /**Used for grab part of screen to a texture. 
+    //rtBegin: the position of renderTexture on the fullRect
+    //fullRect: the total size of screen
+    //fullViewport: the total viewportSize
+    */
+    void setVirtualViewport(const Vec2& rtBegin, const Rect& fullRect, const Rect& fullViewport);
+
+public:
+    // XXX should be procted.
+    // but due to a bug in PowerVR + Android,
+    // the constructor is public again
+    RenderTexture();
+    virtual ~RenderTexture();
+    /** initializes a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid */
+    bool initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat format);
+    /** initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format*/
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat format, GLuint depthStencilFormat);
 
 protected:
@@ -353,12 +484,16 @@ protected:
     CustomCommand _clearCommand;
     CustomCommand _beginCommand;
     CustomCommand _endCommand;
+<<<<<<< HEAD
     /*this command is used to encapsulate saveToFile,
      call saveToFile twice will overwrite this command and callback
      and the command and callback will be executed twice.
     */
     CustomCommand _saveToFileCommand;
     std::function<void (RenderTexture*, const std::string&)> _saveFileCallback;
+=======
+    CustomCommand _saveToFileCommand;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 protected:
     //renderer caches and callbacks
     void onBegin();

@@ -22,8 +22,13 @@
  THE SOFTWARE.
  ****************************************************************************/
 #include "base/CCEventDispatcher.h"
+<<<<<<< HEAD
 #include <algorithm>
 
+=======
+#include "base/CCEvent.h"
+#include "base/CCEventTouch.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCEventCustom.h"
 #include "base/CCEventListenerTouch.h"
 #include "base/CCEventListenerAcceleration.h"
@@ -38,6 +43,11 @@
 #include "base/CCDirector.h"
 #include "base/CCEventType.h"
 
+<<<<<<< HEAD
+=======
+#include <algorithm>
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define DUMP_LISTENER_ITEM_PRIORITY_INFO 0
 
@@ -459,7 +469,11 @@ void EventDispatcher::forceAddEventListener(EventListener* listener)
     if (itr == _listenerMap.end())
     {
         
+<<<<<<< HEAD
         listeners = new (std::nothrow) EventListenerVector();
+=======
+        listeners = new EventListenerVector();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _listenerMap.insert(std::make_pair(listenerID, listeners));
     }
     else
@@ -1024,10 +1038,14 @@ void EventDispatcher::dispatchTouchEvent(EventTouch* event)
 void EventDispatcher::updateListeners(Event* event)
 {
     CCASSERT(_inDispatch > 0, "If program goes here, there should be event in dispatch.");
+<<<<<<< HEAD
 
     if (_inDispatch > 1)
         return;
 
+=======
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     auto onUpdateListeners = [this](const EventListener::ListenerID& listenerID)
     {
         auto listenersIter = _listenerMap.find(listenerID);
@@ -1084,6 +1102,10 @@ void EventDispatcher::updateListeners(Event* event)
         }
     };
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (event->getType() == Event::Type::TOUCH)
     {
         onUpdateListeners(EventListenerTouchOneByOne::LISTENER_ID);
@@ -1094,6 +1116,12 @@ void EventDispatcher::updateListeners(Event* event)
         onUpdateListeners(__getListenerID(event));
     }
     
+<<<<<<< HEAD
+=======
+    if (_inDispatch > 1)
+        return;
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CCASSERT(_inDispatch == 1, "_inDispatch should be 1 here.");
     
     for (auto iter = _listenerMap.begin(); iter != _listenerMap.end();)

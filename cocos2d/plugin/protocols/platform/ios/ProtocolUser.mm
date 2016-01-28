@@ -61,16 +61,20 @@ void ProtocolUser::login()
 {
     PluginUtilsIOS::callOCFunctionWithName(this, "login");
 }
+<<<<<<< HEAD
 void ProtocolUser::login(ProtocolUserCallback &cb)
 {
     _callback = cb;
     ProtocolUser::login();
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 void ProtocolUser::logout()
 {
     PluginUtilsIOS::callOCFunctionWithName(this, "logout");
 }
+<<<<<<< HEAD
 void ProtocolUser::logout(ProtocolUserCallback &cb)
 {
     _callback = cb;
@@ -81,6 +85,12 @@ std::string ProtocolUser::getAccessToken(){
 }
 bool ProtocolUser::isLoggedIn(){
     return PluginUtilsIOS::callOCBoolFunctionWithName(this, "isLoggedIn");
+=======
+    
+bool ProtocolUser::isLogined()
+{
+    return PluginUtilsIOS::callOCBoolFunctionWithName(this, "isLogined");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 std::string ProtocolUser::getSessionID()

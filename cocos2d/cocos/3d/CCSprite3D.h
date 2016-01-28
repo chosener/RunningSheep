@@ -25,13 +25,18 @@
 #ifndef __CCSPRITE3D_H__
 #define __CCSPRITE3D_H__
 
+<<<<<<< HEAD
 #include <unordered_map>
+=======
+#include <vector>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "base/CCVector.h"
 #include "base/ccTypes.h"
 #include "base/CCProtocols.h"
 #include "2d/CCNode.h"
 #include "renderer/CCMeshCommand.h"
+<<<<<<< HEAD
 #include "renderer/CCGLProgramState.h"
 #include "3d/CCSkeleton3D.h" // need to include for lua-binding
 #include "3d/CCAABB.h"
@@ -116,10 +121,40 @@ public:
     
     /**remove all attach nodes*/
     void removeAllAttachNode();
+=======
+
+NS_CC_BEGIN
+
+class GLProgramState;
+class Mesh;
+class Texture2D;
+class MeshSkin;
+
+/** Sprite3D: A sprite can be loaded from 3D model files, .obj, .c3t, .c3b, then can be drawed as sprite */
+class Sprite3D : public Node, public BlendProtocol
+{
+public:
+    /** creates a Sprite3D*/
+    static Sprite3D* create(const std::string &modelPath);
+
+    // creates a Sprite3D. It only supports one texture, and overrides the internal texture with 'texturePath'
+    static Sprite3D* create(const std::string &modelPath, const std::string &texturePath);
+    
+    /**set texture*/
+    void setTexture(const std::string& texFile);
+    void setTexture(Texture2D* texture);
+
+    /**get mesh*/
+    Mesh* getMesh() const { return _mesh; }
+    
+    /**get skin*/
+    MeshSkin* getSkin() const { return _skin; }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // overrides
     virtual void setBlendFunc(const BlendFunc &blendFunc) override;
     virtual const BlendFunc &getBlendFunc() const override;
+<<<<<<< HEAD
     
     // overrides
     /** set GLProgramState, you should bind attributes by yourself */
@@ -176,11 +211,14 @@ public:
     
     /**draw*/
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 CC_CONSTRUCTOR_ACCESS:
     
     Sprite3D();
     virtual ~Sprite3D();
+<<<<<<< HEAD
     
     virtual bool init() override;
     
@@ -315,6 +353,35 @@ extern std::string CC_DLL s_attributeNames[];//attribute names array
 
 // end of 3d group
 /// @}
+=======
+    bool initWithFile(const std::string &path);
+    
+    /**.mtl file should at the same directory with the same name if exist*/
+    bool loadFromObj(const std::string& path);
+    
+    /**load from .c3b or .c3t*/
+    bool loadFromC3x(const std::string& path);
+
+    /**draw*/
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    
+    /**get default shader*/
+    virtual GLProgram* getDefaultGLProgram(bool textured = true);
+    
+    /**generate default GLProgramState*/
+    void genGLProgramState();
+
+protected:
+    Mesh*              _mesh;//mesh
+    MeshSkin*          _skin;//skin
+    
+    MeshCommand       _meshCommand; //render command
+    Texture2D*        _texture;
+    BlendFunc         _blend;
+};
+
+extern std::string s_attributeNames[];//attribute names array
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 #endif // __SPRITE3D_H_

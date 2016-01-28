@@ -26,6 +26,7 @@ THE SOFTWARE.
 #ifndef __CCGL_H__
 #define __CCGL_H__
 
+<<<<<<< HEAD
 #define GL_BGRA						GL_BGRA_EXT
 #define	glClearDepth				glClearDepthf
 #define GL_WRITE_ONLY				GL_WRITE_ONLY_OES
@@ -46,5 +47,8 @@ THE SOFTWARE.
 #endif
 
 
+=======
+#include "CCGL_Angle.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __CCGL_H__

@@ -1,6 +1,10 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
+<<<<<<< HEAD
 Copyright (c) 2013-2015 Chukong Technologies
+=======
+Copyright (c) 2013-2014 Chukong Technologies
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -22,10 +26,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+<<<<<<< HEAD
 
 #ifndef __CCSTRING_H__
 #define __CCSTRING_H__
 /// @cond DO_NOT_SHOW
+=======
+#ifndef __CCSTRING_H__
+#define __CCSTRING_H__
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY)
 #include <string.h>
@@ -217,7 +226,11 @@ std::string toString(T arg)
     return ss.str();
 }
 
+<<<<<<< HEAD
 std::string CC_DLL format(const char* format, ...) CC_FORMAT_PRINTF(1, 2);
+=======
+std::string format(const char* format, ...) CC_FORMAT_PRINTF(1, 2);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 } // namespace StringUtils {
 
@@ -226,5 +239,8 @@ std::string CC_DLL format(const char* format, ...) CC_FORMAT_PRINTF(1, 2);
 
 NS_CC_END
 
+<<<<<<< HEAD
 /// @endcond
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //__CCSTRING_H__

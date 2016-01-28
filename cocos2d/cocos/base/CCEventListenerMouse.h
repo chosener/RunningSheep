@@ -29,28 +29,38 @@
 #ifndef __cocos2d_libs__CCMouseEventListener__
 #define __cocos2d_libs__CCMouseEventListener__
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
  */
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class Event;
 
+<<<<<<< HEAD
 /** @class EventListenerMouse
  * @brief Mouse event listener.
  * @js cc._EventListenerMouse
  */
 class CC_DLL EventListenerMouse : public EventListener
+=======
+class EventListenerMouse : public EventListener
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static const std::string LISTENER_ID;
     
+<<<<<<< HEAD
     /** Create a mouse event listener.
      *
      * @return An autoreleased EventListenerMouse object.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static EventListenerMouse* create();
 
     /// Overrides
@@ -62,14 +72,21 @@ public:
     std::function<void(Event* event)> onMouseMove;
     std::function<void(Event* event)> onMouseScroll;
 
+<<<<<<< HEAD
 CC_CONSTRUCTOR_ACCESS:
+=======
+private:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventListenerMouse();
     bool init();
 };
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCMouseEventListener__) */

@@ -7,7 +7,11 @@
 namespace cocosbuilder {
 
 #define CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(TARGET, SELECTORNAME, METHOD) if(pTarget == TARGET && strcmp(pSelectorName, SELECTORNAME) == 0) { \
+<<<<<<< HEAD
     return CC_MENU_SELECTOR(METHOD); \
+=======
+    return menu_selector(METHOD); \
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 #define CCB_SELECTORRESOLVER_CCCONTROL_GLUE(TARGET, SELECTORNAME, METHOD) if(pTarget == TARGET && strcmp(pSelectorName, SELECTORNAME) == 0) { \
@@ -15,10 +19,17 @@ namespace cocosbuilder {
 }
 
 #define CCB_SELECTORRESOLVER_CALLFUNC_GLUE(TARGET, SELECTORNAME, METHOD) if(pTarget == TARGET && strcmp(pSelectorName, SELECTORNAME) == 0) { \
+<<<<<<< HEAD
     return CC_CALLFUNCN_SELECTOR(METHOD); \
 }
 
 class CC_DLL CCBSelectorResolver {
+=======
+    return callfuncN_selector(METHOD); \
+}
+
+class CCBSelectorResolver {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     public:
     /**
      * @js NA
@@ -31,7 +42,11 @@ class CC_DLL CCBSelectorResolver {
 };
 
 
+<<<<<<< HEAD
 class CC_DLL CCBScriptOwnerProtocol {
+=======
+class CCBScriptOwnerProtocol {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 public:
     /**
      * @js NA

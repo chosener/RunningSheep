@@ -1,6 +1,9 @@
 /**
  Copyright 2013 BlackBerry Inc.
+<<<<<<< HEAD
  Copyright (c) 2014-2015 Chukong Technologies
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,6 +25,7 @@
 #ifndef MATHUTIL_H_
 #define MATHUTIL_H_
 
+<<<<<<< HEAD
 #ifdef __SSE__
 #include <xmmintrin.h>
 #endif
@@ -33,6 +37,10 @@
  * @{
  */
 
+=======
+#include "CCMathBase.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 /**
@@ -40,7 +48,11 @@ NS_CC_MATH_BEGIN
  *
  * This is primarily used for optimized internal math operations.
  */
+<<<<<<< HEAD
 class CC_DLL MathUtil
+=======
+class MathUtil
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     friend class Mat4;
     friend class Vec3;
@@ -75,6 +87,7 @@ public:
      * @param fallTime response time for falling slope (in the same units as elapsedTime).
      */
     static void smooth(float* x, float target, float elapsedTime, float riseTime, float fallTime);
+<<<<<<< HEAD
     
     /**
      * Linearly interpolates between from value to to value by alpha which is in
@@ -138,4 +151,42 @@ NS_CC_MATH_END
  */
 #define MATRIX_SIZE ( sizeof(float) * 16)
 
+=======
+
+private:
+
+    inline static void addMatrix(const float* m, float scalar, float* dst);
+
+    inline static void addMatrix(const float* m1, const float* m2, float* dst);
+
+    inline static void subtractMatrix(const float* m1, const float* m2, float* dst);
+
+    inline static void multiplyMatrix(const float* m, float scalar, float* dst);
+
+    inline static void multiplyMatrix(const float* m1, const float* m2, float* dst);
+
+    inline static void negateMatrix(const float* m, float* dst);
+
+    inline static void transposeMatrix(const float* m, float* dst);
+
+    inline static void transformVec4(const float* m, float x, float y, float z, float w, float* dst);
+
+    inline static void transformVec4(const float* m, const float* v, float* dst);
+
+    inline static void crossVec3(const float* v1, const float* v2, float* dst);
+
+    MathUtil();
+};
+
+NS_CC_MATH_END
+
+#define MATRIX_SIZE ( sizeof(float) * 16)
+
+#ifdef USE_NEON
+#include "MathUtilNeon.inl"
+#else
+#include "MathUtil.inl"
+#endif
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif

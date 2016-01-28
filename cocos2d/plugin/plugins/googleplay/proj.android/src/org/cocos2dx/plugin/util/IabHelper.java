@@ -823,7 +823,11 @@ public class IabHelper {
         logDebug("Starting async operation: " + operation);
     }
 
+<<<<<<< HEAD
     public void flagEndAsync() {
+=======
+    void flagEndAsync() {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         logDebug("Ending async operation: " + mAsyncOperation);
         mAsyncOperation = "";
         mAsyncInProgress = false;

@@ -41,6 +41,7 @@ THE SOFTWARE.
 #include <string.h>
 #include <cmath>
 
+<<<<<<< HEAD
 #include "2d/CCActionCatmullRom.h"
 #include "base/CCDirector.h"
 #include "renderer/ccGLStateCache.h"
@@ -57,6 +58,19 @@ NS_CC_BEGIN
 #pragma warning (disable: 4996)
 #endif
 
+=======
+#include "base/ccTypes.h"
+#include "base/ccMacros.h"
+#include "CCGL.h"
+#include "base/CCDirector.h"
+#include "renderer/ccGLStateCache.h"
+#include "renderer/CCGLProgramCache.h"
+#include "renderer/CCGLProgram.h"
+#include "2d/CCActionCatmullRom.h"
+#include "renderer/CCRenderer.h"
+
+NS_CC_BEGIN
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #ifndef M_PI
     #define M_PI       3.14159265358979323846
 #endif
@@ -124,8 +138,13 @@ void init()
 
 void free()
 {
+<<<<<<< HEAD
     CC_SAFE_RELEASE_NULL(s_shader);
     s_initialized = false;
+=======
+	CC_SAFE_RELEASE_NULL(s_shader);
+	s_initialized = false;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void drawPoint(const Vec2& point)
@@ -165,8 +184,13 @@ void drawPoints( const Vec2 *points, unsigned int numberOfPoints )
     s_shader->setUniformLocationWith4fv(s_colorLocation, (GLfloat*) &s_color.r, 1);
     s_shader->setUniformLocationWith1f(s_pointSizeLocation, s_pointSize);
 
+<<<<<<< HEAD
     // FIXME: Mac OpenGL error. arrays can't go out of scope before draw is executed
     Vec2* newPoints = new (std::nothrow) Vec2[numberOfPoints];
+=======
+    // XXX: Mac OpenGL error. arrays can't go out of scope before draw is executed
+    Vec2* newPoints = new Vec2[numberOfPoints];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // iPhone and 32-bit machines optimization
     if( sizeof(Vec2) == sizeof(Vec2) )
@@ -276,8 +300,13 @@ void drawPoly(const Vec2 *poli, unsigned int numberOfPoints, bool closePolygon)
     else
     {
         // Mac on 64-bit
+<<<<<<< HEAD
         // FIXME: Mac OpenGL error. arrays can't go out of scope before draw is executed
         Vec2* newPoli = new (std::nothrow) Vec2[numberOfPoints];
+=======
+        // XXX: Mac OpenGL error. arrays can't go out of scope before draw is executed
+        Vec2* newPoli = new Vec2[numberOfPoints];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         for( unsigned int i=0; i<numberOfPoints;i++) {
             newPoli[i].x = poli[i].x;
             newPoli[i].y = poli[i].y;
@@ -310,8 +339,13 @@ void drawSolidPoly(const Vec2 *poli, unsigned int numberOfPoints, Color4F color)
 
     GL::enableVertexAttribs( GL::VERTEX_ATTRIB_FLAG_POSITION );
 
+<<<<<<< HEAD
     // FIXME: Mac OpenGL error. arrays can't go out of scope before draw is executed
     Vec2* newPoli = new (std::nothrow) Vec2[numberOfPoints];
+=======
+    // XXX: Mac OpenGL error. arrays can't go out of scope before draw is executed
+    Vec2* newPoli = new Vec2[numberOfPoints];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // iPhone and 32-bit machines optimization
     if (sizeof(Vec2) == sizeof(Vec2))
@@ -328,7 +362,11 @@ void drawSolidPoly(const Vec2 *poli, unsigned int numberOfPoints, Color4F color)
         // Mac on 64-bit
         for(unsigned int i = 0; i < numberOfPoints; i++)
         {
+<<<<<<< HEAD
             newPoli[i].set(poli[i].x, poli[i].y);
+=======
+            newPoli[i] = Vec2( poli[i].x, poli[i].y );
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 #ifdef EMSCRIPTEN
         setGLBufferData(newPoli, numberOfPoints * sizeof(Vec2));
@@ -443,7 +481,11 @@ void drawQuadBezier(const Vec2& origin, const Vec2& control, const Vec2& destina
 {
     lazy_init();
 
+<<<<<<< HEAD
     Vec2* vertices = new (std::nothrow) Vec2[segments + 1];
+=======
+    Vec2* vertices = new Vec2[segments + 1];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     float t = 0.0f;
     for(unsigned int i = 0; i < segments; i++)
@@ -482,7 +524,11 @@ void drawCardinalSpline( PointArray *config, float tension,  unsigned int segmen
 {
     lazy_init();
 
+<<<<<<< HEAD
     Vec2* vertices = new (std::nothrow) Vec2[segments + 1];
+=======
+    Vec2* vertices = new Vec2[segments + 1];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     ssize_t p;
     float lt;
@@ -534,7 +580,11 @@ void drawCubicBezier(const Vec2& origin, const Vec2& control1, const Vec2& contr
 {
     lazy_init();
 
+<<<<<<< HEAD
     Vec2* vertices = new (std::nothrow) Vec2[segments + 1];
+=======
+    Vec2* vertices = new Vec2[segments + 1];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     float t = 0;
     for (unsigned int i = 0; i < segments; i++)
@@ -576,7 +626,11 @@ void setPointSize( GLfloat pointSize )
 {
     s_pointSize = pointSize * CC_CONTENT_SCALE_FACTOR();
 
+<<<<<<< HEAD
     // TODO: glPointSize( pointSize );
+=======
+    //TODO :glPointSize( pointSize );
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }
 
@@ -590,10 +644,13 @@ void setDrawColor4B( GLubyte r, GLubyte g, GLubyte b, GLubyte a )
 
 } // DrawPrimitives namespace
 
+<<<<<<< HEAD
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
 #pragma GCC diagnostic warning "-Wdeprecated-declarations"
 #elif _MSC_VER >= 1400 //vs 2005 or higher
 #pragma warning (pop)
 #endif
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END

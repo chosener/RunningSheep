@@ -26,12 +26,17 @@
 #ifndef __cocos2d_libs__CCEventListenerFocus__
 #define __cocos2d_libs__CCEventListenerFocus__
 
+<<<<<<< HEAD
 #include "base/CCEventListener.h"
 
 /**
  * @addtogroup base
  * @{
  */
+=======
+#include "CCEventListener.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -39,6 +44,7 @@ namespace ui {
     class Widget;
 }
 
+<<<<<<< HEAD
 /** @class EventListenerFocus
  * @brief Focus event listener.
  */
@@ -56,6 +62,14 @@ public:
     /** Destructor.
      * @js NA
      */
+=======
+class EventListenerFocus : public EventListener
+{
+public:
+    static const std::string LISTENER_ID;
+    static EventListenerFocus* create();
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual ~EventListenerFocus();
     
     /// Overrides
@@ -66,16 +80,26 @@ public:
 public:
     std::function<void(ui::Widget*, ui::Widget*)> onFocusChanged;
     
+<<<<<<< HEAD
 CC_CONSTRUCTOR_ACCESS:
+=======
+private:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventListenerFocus();
     bool init();
     
     friend class EventDispatcher;
 };
 
+<<<<<<< HEAD
 NS_CC_END
 
 // end of base group
 /// @}
+=======
+
+
+NS_CC_END
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__cocos2d_libs__CCEventListenerFocus__) */

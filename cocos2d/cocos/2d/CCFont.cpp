@@ -75,12 +75,21 @@ void Font::setCurrentGlyphCollection(GlyphCollection glyphs, const char *customG
         default:
             if (customGlyphs)
             {
+<<<<<<< HEAD
                 size_t length = strlen(customGlyphs);
                 _customGlyphs = new char [length + 2];
                 memcpy(_customGlyphs, customGlyphs, length);
 
                 _customGlyphs[length]   = 0;
                 _customGlyphs[length+1] = 0;
+=======
+                size_t lenght = strlen(customGlyphs);
+                _customGlyphs = new char [lenght + 2];
+                memcpy(_customGlyphs, customGlyphs, lenght);
+
+                _customGlyphs[lenght]   = 0;
+                _customGlyphs[lenght+1] = 0;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             }           
             
             break;
@@ -102,3 +111,8 @@ const char * Font::getCurrentGlyphCollection() const
 
 
 NS_CC_END
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

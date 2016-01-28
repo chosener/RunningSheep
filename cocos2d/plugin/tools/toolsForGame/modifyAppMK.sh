@@ -2,7 +2,11 @@
 MK_FILE_PATH=$1
 TEMP_FILE_PATH=$(dirname ${MK_FILE_PATH})/tempAppMK.txt
 
+<<<<<<< HEAD
 STL_CFG="c++_static"
+=======
+STL_CFG="gnustl_static"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 CPP_FLAG="-frtti"
 
 # check if mk file existed or not
@@ -12,7 +16,11 @@ if [ -f ${MK_FILE_PATH} ]; then
     {
         if (match($0, /^([\s]*[^#]*)APP_STL[\s]*/))
         {
+<<<<<<< HEAD
             printf "APP_STL := c++_static\n";
+=======
+            printf "APP_STL := gnustl_static\n";
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             addSTL = 0;
         } else
         if (match($0, /^([\s]*[^#]*)-frtti/))
@@ -27,7 +35,11 @@ if [ -f ${MK_FILE_PATH} ]; then
     END {
         if (addSTL)
         {
+<<<<<<< HEAD
             printf "APP_STL := c++_static\n";
+=======
+            printf "APP_STL := gnustl_static\n";
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         
         if (addRTTI)

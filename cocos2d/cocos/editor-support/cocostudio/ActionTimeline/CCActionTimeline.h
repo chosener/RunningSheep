@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __CCTIMELINE_ACTION_H__
 
 #include "CCTimeLine.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
 #include "2d/CCAction.h"
 
@@ -46,21 +47,39 @@ struct AnimationInfo
 };
 
 class CC_STUDIO_DLL ActionTimelineData : public cocos2d::Ref
+=======
+#include "renderer/CCRenderer.h"
+
+NS_TIMELINE_BEGIN
+
+class  ActionTimelineData : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static ActionTimelineData* create(int actionTag);
 
     virtual void setActionTag(int actionTag) { _actionTag = actionTag; }
     virtual int getActionTag() const { return _actionTag; }
+<<<<<<< HEAD
 CC_CONSTRUCTOR_ACCESS:
     ActionTimelineData();
     virtual bool init(int actionTag);
 protected:
+=======
+protected:
+    ActionTimelineData();
+    virtual bool init(int actionTag);
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     int _actionTag;
 };
 
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL ActionTimeline : public cocos2d::Action
+=======
+class  ActionTimeline : public cocos2d::Action
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     friend class Frame;
@@ -70,8 +89,11 @@ public:
     ActionTimeline();
     virtual ~ActionTimeline();
 
+<<<<<<< HEAD
     virtual void play(std::string animationName, bool loop);
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual bool init();
 
     /** Goto the specified frame index, and start playing from this index.
@@ -140,21 +162,27 @@ public:
     virtual void removeTimeline(Timeline* timeline);
 
     virtual const cocos2d::Vector<Timeline*>& getTimelines() const { return _timelineList; }
+<<<<<<< HEAD
     
     /** AnimationInfo*/
     virtual void addAnimationInfo(const AnimationInfo& animationInfo);
     virtual void removeAnimationInfo(std::string animationName);
     virtual bool IsAnimationInfoExists(const std::string& animationName);
     virtual AnimationInfo getAnimationInfo(const std::string& animationName);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /** Set ActionTimeline's frame event callback function */
     void setFrameEventCallFunc(std::function<void(Frame *)> listener);
     void clearFrameEventCallFunc();
 
+<<<<<<< HEAD
     /** Last frame callback will call when arriving last frame */
     void setLastFrameCallFunc(std::function<void()> listener);
     void clearLastFrameCallFunc();
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** Inherit from Action. */
 
     /** Returns a clone of ActionTimeline */
@@ -189,8 +217,11 @@ protected:
     bool    _loop;
 
     std::function<void(Frame*)> _frameEventListener;
+<<<<<<< HEAD
     std::function<void()> _lastFrameListener;
     std::map<std::string, AnimationInfo> _animationInfos;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 NS_TIMELINE_END

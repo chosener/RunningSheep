@@ -8,7 +8,11 @@ namespace cocosbuilder {
 /* Forward declaration. */
 class CCBReader;
 
+<<<<<<< HEAD
 class CC_DLL MenuItemImageLoader : public MenuItemLoader {
+=======
+class MenuItemImageLoader : public MenuItemLoader {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 public:
     /**
      * @js NA

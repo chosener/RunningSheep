@@ -27,6 +27,7 @@ THE SOFTWARE.
 #define __CCMOTION_STREAK_H__
 
 #include "base/CCProtocols.h"
+<<<<<<< HEAD
 #include "2d/CCNode.h"
 #include "renderer/CCCustomCommand.h"
 
@@ -107,6 +108,49 @@ public:
      * @param bStartingPositionInitialized True if initialized the starting position.
      */
     inline void setStartingPositionInitialized(bool bStartingPositionInitialized)
+=======
+#include "renderer/CCTexture2D.h"
+#include "base/ccTypes.h"
+#include "2d/CCNode.h"
+#include "renderer/CCCustomCommand.h"
+#ifdef EMSCRIPTEN
+#include "CCGLBufferedNode.h"
+#endif // EMSCRIPTEN
+
+NS_CC_BEGIN
+
+/**
+ * @addtogroup misc_nodes
+ * @{
+ */
+
+/** MotionStreak.
+ Creates a trailing path.
+ */
+class CC_DLL MotionStreak : public Node, public TextureProtocol
+#ifdef EMSCRIPTEN
+, public GLBufferedNode
+#endif // EMSCRIPTEN
+{
+public:
+    /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture filename */
+    static MotionStreak* create(float fade, float minSeg, float stroke, const Color3B& color, const std::string& path);
+    /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture */
+    static MotionStreak* create(float fade, float minSeg, float stroke, const Color3B& color, Texture2D* texture);
+
+    /** color used for the tint */
+    void tintWithColor(const Color3B& colors);
+
+    /** Remove all living segments of the ribbon */
+    void reset();
+
+    /** When fast mode is enabled, new points are added faster but with lower precision */
+    inline bool isFastMode() const { return _fastMode; }
+    inline void setFastMode(bool bFastMode) { _fastMode = bFastMode; }
+
+    inline bool isStartingPositionInitialized() const { return _startingPositionInitialized; }
+    inline void setStartingPositionInitialized(bool bStartingPositionInitialized) 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         _startingPositionInitialized = bStartingPositionInitialized; 
     }
@@ -120,13 +164,20 @@ public:
     virtual void setPositionY(float y) override;
     virtual float getPositionX(void) const override;
     virtual float getPositionY(void) const override;
+<<<<<<< HEAD
     virtual Vec3 getPosition3D() const override;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     * @js NA
     * @lua NA
     */
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
     /**
+<<<<<<< HEAD
+=======
+    * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @lua NA
     */
     virtual void update(float delta) override;
@@ -192,7 +243,11 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(MotionStreak);
 };
 
+<<<<<<< HEAD
 // end of _2d group
+=======
+// end of misc_nodes group
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

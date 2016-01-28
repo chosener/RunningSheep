@@ -27,7 +27,10 @@
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCTextureAtlas.h"
 #include "renderer/CCTexture2D.h"
+<<<<<<< HEAD
 #include "renderer/CCGLProgram.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -40,11 +43,16 @@ BatchCommand::BatchCommand()
     _shader = nullptr;
 }
 
+<<<<<<< HEAD
 void BatchCommand::init(float globalOrder, GLProgram* shader, BlendFunc blendType, TextureAtlas *textureAtlas, const Mat4& modelViewTransform, uint32_t flags)
+=======
+void BatchCommand::init(float globalOrder, GLProgram* shader, BlendFunc blendType, TextureAtlas *textureAtlas, const Mat4& modelViewTransform)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     CCASSERT(shader, "shader cannot be nill");
     CCASSERT(textureAtlas, "textureAtlas cannot be nill");
     
+<<<<<<< HEAD
     RenderCommand::init(globalOrder, modelViewTransform, flags);
     _textureID = textureAtlas->getTexture()->getName();
     _blendType = blendType;
@@ -58,6 +66,16 @@ void BatchCommand::init(float globalOrder, GLProgram* shader, BlendFunc blendTyp
 void BatchCommand::init(float globalOrder, GLProgram* shader, BlendFunc blendType, TextureAtlas *textureAtlas, const Mat4& modelViewTransform)
 {
     init(globalOrder, shader, blendType, textureAtlas, modelViewTransform, 0);
+=======
+    _globalOrder = globalOrder;
+    _textureID = textureAtlas->getTexture()->getName();
+    _blendType = blendType;
+    _shader = shader;
+
+    _textureAtlas = textureAtlas;
+
+    _mv = modelViewTransform;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 BatchCommand::~BatchCommand()

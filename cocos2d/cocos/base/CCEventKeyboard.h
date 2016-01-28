@@ -28,6 +28,7 @@
 
 #include "base/CCEvent.h"
 
+<<<<<<< HEAD
 /**
  * @addtogroup base
  * @{
@@ -44,6 +45,15 @@ public:
     /**
      * KeyCode The key (code).
      * @js NA
+=======
+NS_CC_BEGIN
+
+class EventKeyboard : public Event
+{
+public:
+    /**
+     * The key (code).
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     enum class KeyCode
     {
@@ -61,6 +71,7 @@ public:
         KEY_RETURN,
         KEY_CAPS_LOCK,
         KEY_SHIFT,
+<<<<<<< HEAD
         KEY_LEFT_SHIFT = KEY_SHIFT,
         KEY_RIGHT_SHIFT,
         KEY_CTRL,
@@ -69,6 +80,10 @@ public:
         KEY_ALT,
         KEY_LEFT_ALT = KEY_ALT,
         KEY_RIGHT_ALT,
+=======
+        KEY_CTRL,
+        KEY_ALT,
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         KEY_MENU,
         KEY_HYPER,
         KEY_INSERT,
@@ -216,6 +231,7 @@ public:
         KEY_DPAD_DOWN,
         KEY_DPAD_CENTER,
         KEY_ENTER,
+<<<<<<< HEAD
         KEY_PLAY
     };
     
@@ -225,6 +241,11 @@ public:
      * @param isPressed True if the key is pressed.
      * @js ctor
      */
+=======
+        KEY_PLAY,
+    };
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventKeyboard(KeyCode keyCode, bool isPressed);
     
 private:
@@ -236,7 +257,10 @@ private:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCKeyboardEvent__) */

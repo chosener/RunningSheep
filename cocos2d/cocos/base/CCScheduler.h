@@ -38,6 +38,7 @@ THE SOFTWARE.
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
 class Scheduler;
 
 typedef std::function<void(float)> ccSchedulerFunc;
@@ -45,6 +46,21 @@ typedef std::function<void(float)> ccSchedulerFunc;
 /**
  * @cond
  */
+=======
+/**
+ * @addtogroup global
+ * @{
+ */
+
+class Scheduler;
+
+typedef std::function<void(float)> ccSchedulerFunc;
+//
+// Timer
+//
+/** @brief Light-weight timer */
+//
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL Timer : public Ref
 {
 protected:
@@ -100,9 +116,19 @@ class CC_DLL TimerTargetCallback : public Timer
 public:
     TimerTargetCallback();
     
+<<<<<<< HEAD
     // Initializes a timer with a target, a lambda and an interval in seconds, repeat in number of times to repeat, delay in seconds.
     bool initWithCallback(Scheduler* scheduler, const ccSchedulerFunc& callback, void *target, const std::string& key, float seconds, unsigned int repeat, float delay);
     
+=======
+    /** Initializes a timer with a target, a lambda and an interval in seconds, repeat in number of times to repeat, delay in seconds. */
+    bool initWithCallback(Scheduler* scheduler, const ccSchedulerFunc& callback, void *target, const std::string& key, float seconds, unsigned int repeat, float delay);
+    
+    /**
+     * @js NA
+     * @lua NA
+     */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline const ccSchedulerFunc& getCallback() const { return _callback; };
     inline const std::string& getKey() const { return _key; };
     
@@ -132,6 +158,7 @@ private:
 
 #endif
 
+<<<<<<< HEAD
 /**
  * @endcond
  */
@@ -141,6 +168,11 @@ private:
  * @{
  */
 
+=======
+//
+// Scheduler
+//
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct _listEntry;
 struct _hashSelectorEntry;
 struct _hashUpdateEntry;
@@ -163,6 +195,7 @@ The 'custom selectors' should be avoided when possible. It is faster, and consum
 class CC_DLL Scheduler : public Ref
 {
 public:
+<<<<<<< HEAD
     /** Priority level reserved for system services. 
      * @lua NA
      * @js NA
@@ -187,15 +220,30 @@ public:
     /**
      * Destructor
      *
+=======
+    // Priority level reserved for system services.
+    static const int PRIORITY_SYSTEM;
+    
+    // Minimum priority level for user scheduling.
+    static const int PRIORITY_NON_SYSTEM_MIN;
+    /**
+     * @js ctor
+     */
+    Scheduler();
+    /**
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~Scheduler();
 
+<<<<<<< HEAD
     /**
      * Gets the time scale of schedule callbacks.
      * @see Scheduler::setTimeScale()
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline float getTimeScale() { return _timeScale; }
     /** Modifies the time of all scheduled callbacks.
     You can use this property to create a 'slow motion' or 'fast forward' effect.
@@ -207,7 +255,12 @@ public:
     inline void setTimeScale(float timeScale) { _timeScale = timeScale; }
 
     /** 'update' the scheduler.
+<<<<<<< HEAD
      * You should NEVER call this method, unless you know what you are doing.
+=======
+     You should NEVER call this method, unless you know what you are doing.
+     * @js NA
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void update(float dt);
@@ -220,6 +273,7 @@ public:
      If paused is true, then it won't be called until it is resumed.
      If 'interval' is 0, it will be called every frame, but if so, it's recommended to use 'scheduleUpdate' instead.
      If the 'callback' is already scheduled, then only the interval parameter will be updated without re-scheduling it again.
+<<<<<<< HEAD
      repeat let the action be repeated repeat + 1 times, use CC_REPEAT_FOREVER to let the action run continuously
      delay is the amount of time the action will wait before it'll start.
      @param callback The callback function.
@@ -230,21 +284,31 @@ public:
             But it will only affect first schedule. After first schedule, the delay time is determined by `interval`.
      @param paused Whether or not to pause the schedule.
      @param key The key to identify the callback function, because there is not way to identify a std::function<>.
+=======
+     repeat let the action be repeated repeat + 1 times, use kRepeatForever to let the action run continuously
+     delay is the amount of time the action will wait before it'll start
+     @param key The key to identify the callback
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0
      */
     void schedule(const ccSchedulerFunc& callback, void *target, float interval, unsigned int repeat, float delay, bool paused, const std::string& key);
 
+<<<<<<< HEAD
     /** The scheduled method will be called every 'interval' seconds for ever.
      @param callback The callback function.
      @param target The target of the callback function.
      @param interval The interval to schedule the callback. If the value is 0, then the callback will be scheduled every frame.
      @param paused Whether or not to pause the schedule.
      @param key The key to identify the callback function, because there is not way to identify a std::function<>.
+=======
+    /** Calls scheduleCallback with kRepeatForever and a 0 delay
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0
      */
     void schedule(const ccSchedulerFunc& callback, void *target, float interval, bool paused, const std::string& key);
     
     
+<<<<<<< HEAD
     /** The scheduled method will be called every `interval` seconds.
      If paused is true, then it won't be called until it is resumed.
      If 'interval' is 0, it will be called every frame, but if so, it's recommended to use 'scheduleUpdate' instead.
@@ -269,6 +333,20 @@ public:
      @param interval The interval to schedule the callback. If the value is 0, then the callback will be scheduled every frame.
      @param paused Whether or not to pause the schedule.
      */
+=======
+    /** The scheduled method will be called every 'interval' seconds.
+     If paused is true, then it won't be called until it is resumed.
+     If 'interval' is 0, it will be called every frame, but if so, it's recommended to use 'scheduleUpdate' instead.
+     If the selector is already scheduled, then only the interval parameter will be updated without re-scheduling it again.
+     repeat let the action be repeated repeat + 1 times, use kRepeatForever to let the action run continuously
+     delay is the amount of time the action will wait before it'll start
+     
+     @since v3.0, repeat and delay added in v1.1
+     */
+    void schedule(SEL_SCHEDULE selector, Ref *target, float interval, unsigned int repeat, float delay, bool paused);
+    
+    /** calls scheduleSelector with kRepeatForever and a 0 delay */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void schedule(SEL_SCHEDULE selector, Ref *target, float interval, bool paused);
     
     /** Schedules the 'update' selector for a given target with a given priority.
@@ -286,15 +364,22 @@ public:
     }
 
 #if CC_ENABLE_SCRIPT_BINDING
+<<<<<<< HEAD
     // Schedule for script bindings.
+=======
+    // schedule for script bindings
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** The scheduled script callback will be called every 'interval' seconds.
      If paused is true, then it won't be called until it is resumed.
      If 'interval' is 0, it will be called every frame.
      return schedule script entry ID, used for unscheduleScriptFunc().
+<<<<<<< HEAD
      
      @warn Don't invoke this function unless you know what you are doing.
      @js NA
      @lua NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     unsigned int scheduleScriptFunc(unsigned int handler, float interval, bool paused);
 #endif
@@ -304,30 +389,46 @@ public:
 
     /** Unschedules a callback for a key and a given target.
      If you want to unschedule the 'callbackPerFrame', use unscheduleUpdate.
+<<<<<<< HEAD
      @param key The key to identify the callback function, because there is not way to identify a std::function<>.
      @param target The target to be unscheduled.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0
      */
     void unschedule(const std::string& key, void *target);
 
+<<<<<<< HEAD
     /** Unschedules a selector for a given target.
      If you want to unschedule the "update", use `unscheudleUpdate()`.
      @param selector The selector that is unscheduled.
      @param target The target of the unscheduled selector.
+=======
+    /** Unschedule a selector for a given target.
+     If you want to unschedule the "update", use unscheudleUpdate.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0
      */
     void unschedule(SEL_SCHEDULE selector, Ref *target);
     
     /** Unschedules the update selector for a given target
+<<<<<<< HEAD
      @param target The target to be unscheduled.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v0.99.3
      */
     void unscheduleUpdate(void *target);
     
     /** Unschedules all selectors for a given target.
      This also includes the "update" selector.
+<<<<<<< HEAD
      @param target The target to be unscheduled.
      @since v0.99.3
+=======
+     @since v0.99.3
+     @js  unscheduleCallbackForTarget
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @lua NA
      */
     void unscheduleAllForTarget(void *target);
@@ -336,22 +437,33 @@ public:
      You should NEVER call this method, unless you know what you are doing.
      @since v0.99.3
      */
+<<<<<<< HEAD
     void unscheduleAll();
     
     /** Unschedules all selectors from all targets with a minimum priority.
      You should only call this with `PRIORITY_NON_SYSTEM_MIN` or higher.
      @param minPriority The minimum priority of selector to be unscheduled. Which means, all selectors which
             priority is higher than minPriority will be unscheduled.
+=======
+    void unscheduleAll(void);
+    
+    /** Unschedules all selectors from all targets with a minimum priority.
+     You should only call this with kPriorityNonSystemMin or higher.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v2.0.0
      */
     void unscheduleAllWithMinPriority(int minPriority);
     
 #if CC_ENABLE_SCRIPT_BINDING
+<<<<<<< HEAD
     /** Unschedule a script entry. 
      * @warning Don't invoke this function unless you know what you are doing.
      * @js NA
      * @lua NA
      */
+=======
+    /** Unschedule a script entry. */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void unscheduleScriptEntry(unsigned int scheduleScriptEntryID);
 #endif
     
@@ -360,17 +472,23 @@ public:
     // isScheduled
     
     /** Checks whether a callback associated with 'key' and 'target' is scheduled.
+<<<<<<< HEAD
      @param key The key to identify the callback function, because there is not way to identify a std::function<>.
      @param target The target of the callback.
      @return True if the specified callback is invoked, false if not.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0.0
      */
     bool isScheduled(const std::string& key, void *target);
     
     /** Checks whether a selector for a given taget is scheduled.
+<<<<<<< HEAD
      @param selector The selector to be checked.
      @param target The target of the callback.
      @return True if the specified selector is invoked, false if not.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v3.0
      */
     bool isScheduled(SEL_SCHEDULE selector, Ref *target);
@@ -380,7 +498,10 @@ public:
     /** Pauses the target.
      All scheduled selectors/update for a given target won't be 'ticked' until the target is resumed.
      If the target is not present, nothing happens.
+<<<<<<< HEAD
      @param target The target to be paused.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v0.99.3
      */
     void pauseTarget(void *target);
@@ -388,17 +509,28 @@ public:
     /** Resumes the target.
      The 'target' will be unpaused, so all schedule selectors/update will be 'ticked' again.
      If the target is not present, nothing happens.
+<<<<<<< HEAD
      @param target The target to be resumed.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v0.99.3
      */
     void resumeTarget(void *target);
 
+<<<<<<< HEAD
     /** Returns whether or not the target is paused.
      * @param target The target to be checked.
      * @return True if the target is paused, false if not.
      * @since v1.0.0
      * @lua NA
      */
+=======
+    /** Returns whether or not the target is paused
+    @since v1.0.0
+    * In js: var isTargetPaused(var jsObject)
+    * @lua NA 
+    */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool isTargetPaused(void *target);
 
     /** Pause all selectors from all targets.
@@ -408,25 +540,38 @@ public:
     std::set<void*> pauseAllTargets();
 
     /** Pause all selectors from all targets with a minimum priority.
+<<<<<<< HEAD
       You should only call this with PRIORITY_NON_SYSTEM_MIN or higher.
       @param minPriority The minimum priority of selector to be paused. Which means, all selectors which
             priority is higher than minPriority will be paused.
+=======
+      You should only call this with kPriorityNonSystemMin or higher.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
       @since v2.0.0
       */
     std::set<void*> pauseAllTargetsWithMinPriority(int minPriority);
 
     /** Resume selectors on a set of targets.
      This can be useful for undoing a call to pauseAllSelectors.
+<<<<<<< HEAD
      @param targetsToResume The set of targets to be resumed.
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      @since v2.0.0
       */
     void resumeTargets(const std::set<void*>& targetsToResume);
 
+<<<<<<< HEAD
     /** Calls a function on the cocos2d thread. Useful when you need to call a cocos2d function from another thread.
      This function is thread safe.
      @param function The function to be run in cocos2d thread.
      @since v3.0
      @js NA
+=======
+    /** calls a function on the cocos2d thread. Useful when you need to call a cocos2d function from another thread.
+     This function is thread safe.
+     @since v3.0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void performFunctionInCocosThread( const std::function<void()> &function);
     
@@ -438,20 +583,32 @@ public:
      If paused is true, then it won't be called until it is resumed.
      If 'interval' is 0, it will be called every frame, but if so, it's recommended to use 'scheduleUpdateForTarget:' instead.
      If the selector is already scheduled, then only the interval parameter will be updated without re-scheduling it again.
+<<<<<<< HEAD
      repeat let the action be repeated repeat + 1 times, use CC_REPEAT_FOREVER to let the action run continuously
      delay is the amount of time the action will wait before it'll start
      @deprecated Please use `Scheduler::schedule` instead.
      @since v0.99.3, repeat and delay added in v1.1
      @js NA
+=======
+     repeat let the action be repeated repeat + 1 times, use kRepeatForever to let the action run continuously
+     delay is the amount of time the action will wait before it'll start
+     @deprecated Please use 'Scheduler::schedule' instead.
+     @since v0.99.3, repeat and delay added in v1.1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE void scheduleSelector(SEL_SCHEDULE selector, Ref *target, float interval, unsigned int repeat, float delay, bool paused)
     {
         schedule(selector, target, interval, repeat, delay, paused);
     };
     
+<<<<<<< HEAD
     /** Calls scheduleSelector with CC_REPEAT_FOREVER and a 0 delay.
      *  @deprecated Please use `Scheduler::schedule` instead.
      *  @js NA
+=======
+    /** calls scheduleSelector with kRepeatForever and a 0 delay 
+     *  @deprecated Please use 'Scheduler::schedule' instead.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE void scheduleSelector(SEL_SCHEDULE selector, Ref *target, float interval, bool paused)
     {
@@ -471,14 +628,20 @@ public:
      If you want to unschedule the "update", use unscheudleUpdateForTarget.
      @deprecated Please use 'Scheduler::unschedule' instead.
      @since v0.99.3
+<<<<<<< HEAD
      @js NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE void unscheduleSelector(SEL_SCHEDULE selector, Ref *target) { unschedule(selector, target); };
     
     /** Checks whether a selector for a given taget is scheduled.
      @deprecated Please use 'Scheduler::isScheduled' instead.
      @since v0.99.3
+<<<<<<< HEAD
      @js NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE bool isScheduledForTarget(Ref *target, SEL_SCHEDULE selector) { return isScheduled(selector, target); };
     
@@ -495,7 +658,10 @@ protected:
      The lower the priority, the earlier it is called.
      @note This method is only for internal use.
      @since v3.0
+<<<<<<< HEAD
      @js _schedulePerFrame
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void schedulePerFrame(const ccSchedulerFunc& callback, void *target, int priority, bool paused);
     
@@ -534,8 +700,13 @@ protected:
     std::mutex _performMutex;
 };
 
+<<<<<<< HEAD
 // end of base group
 /** @} */
+=======
+// end of global group
+/// @}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

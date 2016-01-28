@@ -27,12 +27,16 @@
 
 #include "base/CCRef.h"
 #include "base/CCVector.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 
 /**
  * @addtogroup ui
  * @{
  */
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 namespace ui {
@@ -41,24 +45,32 @@ class LayoutProtocol;
 class Widget;
 class RelativeLayoutParameter;
 
+<<<<<<< HEAD
 /**
  *@brief Base class for managing layout.
  * All the concret layout manager should inherit from this class.
  */
 class CC_GUI_DLL LayoutManager : public Ref
+=======
+class LayoutManager : public Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     virtual ~LayoutManager(){};
     LayoutManager(){};
     
+<<<<<<< HEAD
     /**
      * The interface does the actual layouting work.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void doLayout(LayoutProtocol *layout) = 0;
     
     friend class Layout;
 };
 
+<<<<<<< HEAD
 /**
  *@brief Linear vertical layouting class.
  * Note: This class is used only by @see `Layout` class.
@@ -66,6 +78,9 @@ public:
  * @js NA
  */
 class CC_GUI_DLL LinearVerticalLayoutManager : public LayoutManager
+=======
+class LinearVerticalLayoutManager : public LayoutManager
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 private:
     LinearVerticalLayoutManager(){};
@@ -76,6 +91,7 @@ private:
     friend class Layout;
 };
 
+<<<<<<< HEAD
 /**
  *@brief Linear horizontal layouting class.
  *Note: This class is used only by @see `Layout` class.
@@ -83,6 +99,9 @@ private:
  * @js NA
  */
 class CC_GUI_DLL LinearHorizontalLayoutManager : public LayoutManager
+=======
+class LinearHorizontalLayoutManager : public LayoutManager
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 private:
     LinearHorizontalLayoutManager(){};
@@ -93,6 +112,7 @@ private:
     friend class Layout;
 };
 
+<<<<<<< HEAD
 /**
  *@brief Relative layouting class.
  *Note: This class is used only by `Layout` class.
@@ -100,6 +120,9 @@ private:
  * @js NA
  */
 class CC_GUI_DLL RelativeLayoutManager : public LayoutManager
+=======
+class RelativeLayoutManager : public LayoutManager
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 private:
     RelativeLayoutManager()
@@ -132,6 +155,9 @@ private:
 }
 
 NS_CC_END
+<<<<<<< HEAD
 // end of ui group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCLayoutManager__) */

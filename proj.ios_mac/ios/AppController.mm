@@ -23,7 +23,11 @@
  ****************************************************************************/
 
 #import "AppController.h"
+<<<<<<< HEAD
 #import "platform/ios/CCEAGLView-ios.h"
+=======
+#import "CCEAGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
@@ -38,10 +42,13 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
+<<<<<<< HEAD
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
     cocos2d::GLViewImpl::convertAttrs();
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
@@ -49,6 +56,7 @@ static AppDelegate s_sharedApplication;
 
     // Init the CCEAGLView
     CCEAGLView *eaglView = [CCEAGLView viewWithFrame: [window bounds]
+<<<<<<< HEAD
                                          pixelFormat: (NSString*)cocos2d::GLViewImpl::_pixelFormat
                                          depthFormat: cocos2d::GLViewImpl::_depthFormat
                                   preserveBackbuffer: NO
@@ -58,6 +66,14 @@ static AppDelegate s_sharedApplication;
     
     // Enable or disable multiple touches
     [eaglView setMultipleTouchEnabled:NO];
+=======
+                                     pixelFormat: kEAGLColorFormatRGBA8
+                                     depthFormat: GL_DEPTH24_STENCIL8_OES
+                              preserveBackbuffer: NO
+                                      sharegroup: nil
+                                   multiSampling: NO
+                                 numberOfSamples: 0];
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // Use RootViewController manage CCEAGLView 
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
@@ -81,10 +97,17 @@ static AppDelegate s_sharedApplication;
     [[UIApplication sharedApplication] setStatusBarHidden:true];
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
+<<<<<<< HEAD
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
     app->run();
+=======
+    cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
+    cocos2d::Director::getInstance()->setOpenGLView(glview);
+
+    cocos2d::Application::getInstance()->run();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     return YES;
 }

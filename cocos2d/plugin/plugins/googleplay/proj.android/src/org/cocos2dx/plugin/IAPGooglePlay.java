@@ -28,6 +28,7 @@ THE SOFTWARE.
 
 package org.cocos2dx.plugin;
 
+<<<<<<< HEAD
 import java.util.Hashtable;
 
 import org.cocos2dx.plugin.util.IabHelper;
@@ -45,6 +46,38 @@ import android.util.Log;
 
 
 public class IAPGooglePlay implements InterfaceIAP, PluginListener {
+=======
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.preference.PreferenceManager.OnActivityResultListener;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Hashtable;
+
+import org.cocos2dx.plugin.util.IabHelper;
+import org.cocos2dx.plugin.util.IabResult;
+import org.cocos2dx.plugin.util.Inventory;
+import org.cocos2dx.plugin.util.Purchase;
+
+
+public class IAPGooglePlay implements InterfaceIAP, OnActivityResultListener {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // Debug tag, for logging
     static final String TAG = "IAPGooglePlay";
@@ -55,9 +88,12 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
     // The helper object
     IabHelper mHelper;
 
+<<<<<<< HEAD
     static boolean bDebug = false;
     Context mContext;
     static InterfaceIAP mAdapter;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     protected static void LogE(String msg, Exception e) {
         Log.e(TAG, msg, e);
@@ -114,6 +150,7 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
             public void run() {
                 String iapId = productInfo.get("IAPId");
                 String iapSecKey = productInfo.get("IAPSecKey");
+<<<<<<< HEAD
                 try{
                 	mHelper.launchPurchaseFlow(getActivity(), iapId, RC_REQUEST, mPurchaseFinishedListener, iapSecKey);
                 }
@@ -121,18 +158,26 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
                 	LogD("Please retry in a few seconds.");
                     mHelper.flagEndAsync();
                 }
+=======
+                mHelper.launchPurchaseFlow(getActivity(), iapId, RC_REQUEST, mPurchaseFinishedListener, iapSecKey);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             }
         });
     }
 
     @Override
     public void setDebugMode(boolean debug) {
+<<<<<<< HEAD
         //TODO: fix this
         //It's possible setDebug don't work at the first time because init was happening on another thread
         bDebug = debug;
         if (mHelper != null) {
             mHelper.enableDebugLogging(debug);
         }
+=======
+        bDebug = debug;
+        mHelper.enableDebugLogging(debug);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     @Override
@@ -181,6 +226,14 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
         //mHelper = new IabHelper(this, base64EncodedPublicKey);
         mHelper = new IabHelper(getContext(), base64EncodedPublicKey);
 
+<<<<<<< HEAD
+=======
+        //must add to the cocos listener que
+        //look at usage.txt if this line fails
+        Cocos2dxActivity.addOnActivityResultListener(this);
+        
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         // Start setup. This is asynchronous and the specified listener
         // will be called once setup completes.
         Log.d(TAG, "Starting setup.");
@@ -199,8 +252,11 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
                 mHelper.queryInventoryAsync(mGotInventoryListener);
             }
         });
+<<<<<<< HEAD
         
         PluginWrapper.addListener(this);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
 
@@ -215,7 +271,11 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
 
             // Is it a failure?
             if (result.isFailure()) {
+<<<<<<< HEAD
                 Log.e(TAG, "Failed to query inventory: " + result);
+=======
+                complain("Failed to query inventory: " + result);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 return;
             }
 
@@ -231,6 +291,26 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
         Log.e(TAG, "TODO implement refreshPurchases");
     }
 
+<<<<<<< HEAD
+=======
+    //@Override
+    /**
+     * Handle activity result. Call this method from your Activity's
+     * onActivityResult callback.
+     * @return 
+     */
+    public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
+        LogD("onActivityResult("+requestCode+", "+resultCode+", data)");
+        boolean handled = mHelper.handleActivityResult(requestCode, resultCode, data);
+        if(handled) {
+            LogD("handled = TRUE");
+        } else {
+            LogD("handled = FALSE");
+        }
+        return handled;
+    }
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** Verifies the developer payload of a purchase. */
     boolean verifyDeveloperPayload(Purchase p) {
         String payload = p.getDeveloperPayload();
@@ -265,19 +345,32 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         @Override
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+<<<<<<< HEAD
         	
             if (result.isFailure()) {
                  Log.d(TAG, "Error purchasing: " + result);
 
                 failPurchase(result.getMessage());
                 return;
+=======
+            //System.out.println("Purchase Finish heard something");
+   
+            
+            if (result.isFailure()) {
+                 Log.d(TAG, "Error purchasing: " + result);
+                 return;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             }
             else {
                 Log.d(TAG,"Success!");
                 
+<<<<<<< HEAD
                 succeedPurchase(result.getMessage());
 
                 //Auto consume the purchase
+=======
+                succeedPurchase();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 mHelper.consumeAsync(purchase, mConsumeFinishedListener);
             }
         }
@@ -299,6 +392,7 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
         }
     };
 
+<<<<<<< HEAD
     void succeedPurchase(String msg) {
         IAPWrapper.onPayResult(mAdapter, IAPWrapper.PAYRESULT_SUCCESS, msg);
         
@@ -306,6 +400,15 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
 
     void failPurchase(String msg) {
         IAPWrapper.onPayResult(mAdapter, IAPWrapper.PAYRESULT_FAIL, msg);
+=======
+    void succeedPurchase() {
+        IAPWrapper.onPayResult(mAdapter, IAPWrapper.PAYRESULT_SUCCESS, "");
+        
+    }
+
+    void failPurchase() {
+        IAPWrapper.onPayResult(mAdapter, IAPWrapper.PAYRESULT_FAIL, "");
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     // Enables or disables the "please wait" screen.
@@ -322,6 +425,7 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
         Log.d(TAG, "Showing alert dialog: " + message);
         bld.create().show();
     }
+<<<<<<< HEAD
     
     //@Override
     /**
@@ -346,4 +450,6 @@ public class IAPGooglePlay implements InterfaceIAP, PluginListener {
 	public void onDestroy() {
 		PluginWrapper.removeListener(this);
 	}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

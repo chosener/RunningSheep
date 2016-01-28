@@ -1,12 +1,16 @@
 
 
 #include "LayoutReader.h"
+<<<<<<< HEAD
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "ui/UILayout.h"
 #include "cocostudio/CocoLoader.h"
 #include "ui/UIScrollView.h"
 #include "ui/UIPageView.h"
 #include "ui/UIListView.h"
+<<<<<<< HEAD
 #include "cocostudio/CSParseBinary_generated.h"
 #include "cocostudio/FlatBuffersSerialize.h"
 
@@ -16,6 +20,11 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -43,7 +52,11 @@ namespace cocostudio
     
     static LayoutReader* instanceLayoutReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(LayoutReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(LayoutReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     LayoutReader::LayoutReader()
     {
@@ -59,16 +72,23 @@ namespace cocostudio
     {
         if (!instanceLayoutReader)
         {
+<<<<<<< HEAD
             instanceLayoutReader = new (std::nothrow) LayoutReader();
+=======
+            instanceLayoutReader = new LayoutReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceLayoutReader;
     }
     
+<<<<<<< HEAD
     void LayoutReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceLayoutReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void LayoutReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         WidgetReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -222,6 +242,7 @@ namespace cocostudio
         int ecb;
      
         if (dynamic_cast<ui::PageView*>(widget)) {
+<<<<<<< HEAD
             cr = DICTOOL->getIntValue_json(options, P_BgColorR,150);
             cg = DICTOOL->getIntValue_json(options, P_BgColorG,150);
             cb = DICTOOL->getIntValue_json(options, P_BgColorB,100);
@@ -269,6 +290,55 @@ namespace cocostudio
             ecr = DICTOOL->getIntValue_json(options, P_BgEndColorR,150);
             ecg = DICTOOL->getIntValue_json(options, P_BgEndColorG,200);
             ecb = DICTOOL->getIntValue_json(options, P_BgEndColorB,255);
+=======
+            cr = DICTOOL->getIntValue_json(options, "bgColorR",150);
+            cg = DICTOOL->getIntValue_json(options, "bgColorG",150);
+            cb = DICTOOL->getIntValue_json(options, "bgColorB",100);
+            
+            scr = DICTOOL->getIntValue_json(options, "bgStartColorR",255);
+            scg = DICTOOL->getIntValue_json(options, "bgStartColorG",255);
+            scb = DICTOOL->getIntValue_json(options, "bgStartColorB",255);
+            
+            ecr = DICTOOL->getIntValue_json(options, "bgEndColorR",255);
+            ecg = DICTOOL->getIntValue_json(options, "bgEndColorG",150);
+            ecb = DICTOOL->getIntValue_json(options, "bgEndColorB",100);
+        }else if(dynamic_cast<ui::ListView*>(widget)){
+            cr = DICTOOL->getIntValue_json(options, "bgColorR",150);
+            cg = DICTOOL->getIntValue_json(options, "bgColorG",150);
+            cb = DICTOOL->getIntValue_json(options, "bgColorB",255);
+            
+            scr = DICTOOL->getIntValue_json(options, "bgStartColorR",255);
+            scg = DICTOOL->getIntValue_json(options, "bgStartColorG",255);
+            scb = DICTOOL->getIntValue_json(options, "bgStartColorB",255);
+            
+            ecr = DICTOOL->getIntValue_json(options, "bgEndColorR",150);
+            ecg = DICTOOL->getIntValue_json(options, "bgEndColorG",150);
+            ecb = DICTOOL->getIntValue_json(options, "bgEndColorB",255);
+        }else if(dynamic_cast<ui::ScrollView*>(widget)){
+            cr = DICTOOL->getIntValue_json(options, "bgColorR",255);
+            cg = DICTOOL->getIntValue_json(options, "bgColorG",150);
+            cb = DICTOOL->getIntValue_json(options, "bgColorB",100);
+            
+            scr = DICTOOL->getIntValue_json(options, "bgStartColorR",255);
+            scg = DICTOOL->getIntValue_json(options, "bgStartColorG",255);
+            scb = DICTOOL->getIntValue_json(options, "bgStartColorB",255);
+            
+            ecr = DICTOOL->getIntValue_json(options, "bgEndColorR",255);
+            ecg = DICTOOL->getIntValue_json(options, "bgEndColorG",150);
+            ecb = DICTOOL->getIntValue_json(options, "bgEndColorB",100);
+        }else{
+            cr = DICTOOL->getIntValue_json(options, "bgColorR",150);
+            cg = DICTOOL->getIntValue_json(options, "bgColorG",200);
+            cb = DICTOOL->getIntValue_json(options, "bgColorB",255);
+            
+            scr = DICTOOL->getIntValue_json(options, "bgStartColorR",255);
+            scg = DICTOOL->getIntValue_json(options, "bgStartColorG",255);
+            scb = DICTOOL->getIntValue_json(options, "bgStartColorB",255);
+            
+            ecr = DICTOOL->getIntValue_json(options, "bgEndColorR",150);
+            ecg = DICTOOL->getIntValue_json(options, "bgEndColorG",200);
+            ecb = DICTOOL->getIntValue_json(options, "bgEndColorB",255);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         
         float bgcv1 = DICTOOL->getFloatValue_json(options, P_VectorX);
@@ -307,11 +377,16 @@ namespace cocostudio
         int bgimgcb = DICTOOL->getIntValue_json(options, P_ColorB,255);
         panel->setBackGroundImageColor(Color3B(bgimgcr, bgimgcg, bgimgcb));
         
+<<<<<<< HEAD
         int bgimgopacity = DICTOOL->getIntValue_json(options, P_Opacity, 255);
+=======
+        int bgimgopacity = DICTOOL->getIntValue_json(options, "opacity",255);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         panel->setBackGroundImageOpacity(bgimgopacity);
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }    
     
     Offset<Table> LayoutReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -730,4 +805,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

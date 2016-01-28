@@ -1,6 +1,10 @@
 /****************************************************************************
  Copyright (c) 2013      Zynga Inc.
+<<<<<<< HEAD
  Copyright (c) 2013-2015 Chukong Technologies Inc.
+=======
+ Copyright (c) 2013-2014 Chukong Technologies Inc.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -22,6 +26,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+<<<<<<< HEAD
 
 #ifndef _CCFontAtlas_h_
 #define _CCFontAtlas_h_
@@ -37,6 +42,20 @@
 
 NS_CC_BEGIN
 
+=======
+#ifndef _CCFontAtlas_h_
+#define _CCFontAtlas_h_
+
+#include "base/CCPlatformMacros.h"
+#include "base/CCRef.h"
+#include "CCStdC.h"
+#include <string>
+#include <unordered_map>
+
+NS_CC_BEGIN
+
+//fwd
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class Font;
 class Texture2D;
 class EventCustom;
@@ -63,8 +82,12 @@ class CC_DLL FontAtlas : public Ref
 public:
     static const int CacheTextureWidth;
     static const int CacheTextureHeight;
+<<<<<<< HEAD
     static const char* CMD_PURGE_FONTATLAS;
     static const char* CMD_RESET_FONTATLAS;
+=======
+    static const char* EVENT_PURGE_TEXTURES;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js ctor
      */
@@ -110,7 +133,12 @@ public:
      */
      void setAliasTexParameters();
 
+<<<<<<< HEAD
 protected:
+=======
+private:
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void relaseTextures();
     std::unordered_map<ssize_t, Texture2D*> _atlasTextures;
     std::unordered_map<unsigned short, FontLetterDefinition> _fontLetterDefinitions;
@@ -124,13 +152,27 @@ protected:
     float _currentPageOrigX;
     float _currentPageOrigY;
     float _letterPadding;
+<<<<<<< HEAD
+=======
+    bool  _makeDistanceMap;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     int _fontAscender;
     EventListenerCustom* _rendererRecreatedListener;
     bool _antialiasEnabled;
+<<<<<<< HEAD
 };
 
 NS_CC_END
 
 /// @endcond
+=======
+    bool _rendererRecreate;
+};
+
+
+NS_CC_END
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCFontAtlas__) */

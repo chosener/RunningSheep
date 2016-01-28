@@ -24,6 +24,7 @@ THE SOFTWARE.
 package org.cocos2dx.plugin;
 
 import java.lang.reflect.Field;
+<<<<<<< HEAD
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -37,12 +38,19 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+=======
+
+import android.app.Activity;
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 import android.os.Handler;
 import android.util.Log;
 
 
 public class PluginWrapper {
 
+<<<<<<< HEAD
     protected static Context sContext = null;
     protected static GLSurfaceView sGLSurfaceView = null; 
     protected static Handler sMainThreadHandler = null;
@@ -61,6 +69,26 @@ public class PluginWrapper {
         sGLSurfaceView = value;
     }
     
+=======
+	protected static Context sContext = null;
+	protected static GLSurfaceView sGLSurfaceView = null; 
+	protected static Handler sMainThreadHandler = null;
+	protected static Handler sGLThreadHandler = null;
+	private static final String TAG = "PluginWrapper";
+	
+	public static void init(Context context)
+	{
+		sContext = context;
+		if (null == sMainThreadHandler) {
+			sMainThreadHandler = new Handler();
+		}
+	}
+
+	public static void setGLSurfaceView(GLSurfaceView value) {
+		sGLSurfaceView = value;
+	}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     protected static void initFromNativeActivity(Activity act) {
         sContext = act;
         // @warning These lines will cause crash.
@@ -68,6 +96,7 @@ public class PluginWrapper {
 //            sGLThreadHandler = new Handler();
 //        }
     }
+<<<<<<< HEAD
     
     public static void onResume() {
     	for (PluginListener listener : sListeners) {
@@ -112,6 +141,15 @@ public class PluginWrapper {
         Class<?> c = null;
         try {
             String fullName = classFullName.replace('/', '.');
+=======
+	
+	protected static Object initPlugin(String classFullName)
+	{
+		Log.i(TAG, "class name : ----" + classFullName + "----");
+        Class<?> c = null;
+        try {
+        	String fullName = classFullName.replace('/', '.');
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             c = Class.forName(fullName);
         } catch (ClassNotFoundException e) {  
             Log.e(TAG, "Class " + classFullName + " not found.");
@@ -120,6 +158,7 @@ public class PluginWrapper {
         }
 
         try {
+<<<<<<< HEAD
             Context ctx = getContext();
             if (ctx != null) {
                 Object o = c.getDeclaredConstructor(Context.class).newInstance(ctx);
@@ -164,6 +203,52 @@ public class PluginWrapper {
     }
 
     public static void runOnMainThread(Runnable r) {
+=======
+        	Context ctx = getContext();
+			if (ctx != null) {
+	        	Object o = c.getDeclaredConstructor(Context.class).newInstance(ctx);
+				return o;
+			} else {
+				Log.e(TAG, "Plugin " + classFullName + " wasn't initialized.");
+			}
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
+        return null;
+	}
+
+	protected static int getPluginType(Object obj) {
+		int nRet = -1;
+		try
+		{
+			Field filedID = obj.getClass().getField("PluginType");
+			Integer nObj = (Integer) filedID.get(obj);
+			nRet = nObj.intValue();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return nRet;
+	}
+
+	public static Context getContext() {
+		return sContext;
+	}
+	
+	public static void runOnGLThread(Runnable r) {
+		if (null != sGLSurfaceView) {
+			sGLSurfaceView.queueEvent(r);
+		} else
+		if (null != sGLThreadHandler) {
+		    sGLThreadHandler.post(r);
+		} else {
+			Log.i(TAG, "call back invoked on main thread");
+			r.run();
+		}
+	}
+
+	public static void runOnMainThread(Runnable r) {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (null != sMainThreadHandler) {
             sMainThreadHandler.post(r);
         } else
@@ -171,6 +256,7 @@ public class PluginWrapper {
             Activity act = (Activity) sContext;
             act.runOnUiThread(r);
         }
+<<<<<<< HEAD
     }
     
     private static String[] arrPlugins = {"PluginUser", "PluginShare", "PluginSocial", "PluginAds", "PluginAnalytics", "PluginIAP"};
@@ -194,4 +280,7 @@ public class PluginWrapper {
 
         return ht;
     }
+=======
+	}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

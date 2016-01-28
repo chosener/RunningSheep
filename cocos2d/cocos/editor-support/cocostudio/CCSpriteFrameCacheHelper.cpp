@@ -23,8 +23,12 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "cocostudio/CCSpriteFrameCacheHelper.h"
+<<<<<<< HEAD
 #include "platform/CCFileUtils.h"
 #include "2d/CCSpriteFrame.h"
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCSpriteFrameCache.h"
 
 using namespace cocos2d;
@@ -38,7 +42,11 @@ SpriteFrameCacheHelper *SpriteFrameCacheHelper::getInstance()
 {
     if(!_spriteFrameCacheHelper)
     {
+<<<<<<< HEAD
         _spriteFrameCacheHelper = new (std::nothrow) SpriteFrameCacheHelper();
+=======
+        _spriteFrameCacheHelper = new SpriteFrameCacheHelper();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     return _spriteFrameCacheHelper;
@@ -50,6 +58,7 @@ void SpriteFrameCacheHelper::purge()
     _spriteFrameCacheHelper = nullptr;
 }
 
+<<<<<<< HEAD
 void SpriteFrameCacheHelper::retainSpriteFrames(const std::string &plistPath)
 {
     auto it = _usingSpriteFrames.find(plistPath);
@@ -97,6 +106,11 @@ void SpriteFrameCacheHelper::addSpriteFrameFromFile(const std::string& plistPath
 {
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plistPath, imagePath);
     retainSpriteFrames(plistPath);
+=======
+void SpriteFrameCacheHelper::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath)
+{
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plistPath, imagePath);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 SpriteFrameCacheHelper::SpriteFrameCacheHelper()

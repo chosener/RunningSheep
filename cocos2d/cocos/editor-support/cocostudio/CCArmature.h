@@ -31,7 +31,10 @@ THE SOFTWARE.
 #include "cocostudio/CCArmatureAnimation.h"
 #include "cocostudio/CCSpriteFrameCacheHelper.h"
 #include "cocostudio/CCArmatureDataManager.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "math/CCMath.h"
 
 class b2Body;
@@ -68,7 +71,11 @@ CC_DEPRECATED_ATTRIBUTE typedef Armature CCArmature;
 CC_DEPRECATED_ATTRIBUTE typedef ArmatureDataManager CCArmatureDataManager;
 CC_DEPRECATED_ATTRIBUTE typedef cocos2d::tweenfunc::TweenType CCTweenType;
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL Armature : public cocos2d::Node, public cocos2d::BlendProtocol
+=======
+class  Armature : public cocos2d::Node, public cocos2d::BlendProtocol
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 
 public:
@@ -184,7 +191,10 @@ public:
     virtual void updateOffsetPoint();
     virtual void setAnchorPoint(const cocos2d::Vec2& point) override;
     virtual const cocos2d::Vec2& getAnchorPointInPoints() const override;
+<<<<<<< HEAD
     virtual const cocos2d::Vec2& getOffsetPoints() const;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     virtual void setAnimation(ArmatureAnimation *animation);
     virtual ArmatureAnimation *getAnimation() const;
@@ -195,7 +205,11 @@ public:
 #if ENABLE_PHYSICS_BOX2D_DETECT || ENABLE_PHYSICS_CHIPMUNK_DETECT
     virtual void setColliderFilter(ColliderFilter *filter);
 #elif ENABLE_PHYSICS_SAVE_CALCULATED_VERTEX
+<<<<<<< HEAD
     CC_DEPRECATED_ATTRIBUTE virtual void drawContour();
+=======
+    virtual void drawContour();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
 

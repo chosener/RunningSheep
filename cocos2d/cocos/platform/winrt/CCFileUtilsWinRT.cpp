@@ -84,7 +84,11 @@ bool CCFileUtilsWinRT::init()
     return FileUtils::init();
 }
 
+<<<<<<< HEAD
 std::string CCFileUtilsWinRT::getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath) const
+=======
+std::string CCFileUtilsWinRT::getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     std::string unixFileName = convertPathFormatToUnixStyle(filename);
     std::string unixResolutionDirectory = convertPathFormatToUnixStyle(resolutionDirectory);
@@ -93,7 +97,11 @@ std::string CCFileUtilsWinRT::getPathForFilename(const std::string& filename, co
     return FileUtils::getPathForFilename(unixFileName, unixResolutionDirectory, unixSearchPath);
 }
 
+<<<<<<< HEAD
 std::string CCFileUtilsWinRT::getFullPathForDirectoryAndFilename(const std::string& strDirectory, const std::string& strFilename) const
+=======
+std::string CCFileUtilsWinRT::getFullPathForDirectoryAndFilename(const std::string& strDirectory, const std::string& strFilename)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     std::string unixDirectory = convertPathFormatToUnixStyle(strDirectory);
     std::string unixFilename = convertPathFormatToUnixStyle(strFilename);

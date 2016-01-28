@@ -27,7 +27,11 @@ THE SOFTWARE.
 #include <android/log.h>
 #include <string>
 #include "JniHelper.h"
+<<<<<<< HEAD
 #include "CCFileUtils-android.h"
+=======
+#include "CCFileUtilsAndroid.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "android/asset_manager_jni.h"
 #include "deprecated/CCString.h"
 #include "Java_org_cocos2dx_lib_Cocos2dxHelper.h"
@@ -209,6 +213,7 @@ void disableAccelerometerJni() {
     }
 }
 
+<<<<<<< HEAD
 void setKeepScreenOnJni(bool value) {
     JniMethodInfo t;
     
@@ -233,6 +238,8 @@ extern bool openURLJNI(const char* url) {
     return ret;
 }
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // functions for UserDefault
 bool getBoolForKeyJNI(const char* key, bool defaultValue)
 {

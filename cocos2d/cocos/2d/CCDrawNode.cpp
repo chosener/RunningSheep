@@ -22,6 +22,7 @@
  */
 
 #include "2d/CCDrawNode.h"
+<<<<<<< HEAD
 #include "base/CCEventType.h"
 #include "base/CCConfiguration.h"
 #include "renderer/CCRenderer.h"
@@ -33,6 +34,17 @@
 #include "base/CCEventDispatcher.h"
 #include "2d/CCActionCatmullRom.h"
 #include "platform/CCGL.h"
+=======
+#include "CCGL.h"
+#include "base/CCEventType.h"
+#include "base/CCConfiguration.h"
+#include "renderer/CCCustomCommand.h"
+#include "renderer/CCRenderer.h"
+#include "renderer/CCGLProgramState.h"
+#include "base/CCDirector.h"
+#include "base/CCEventListenerCustom.h"
+#include "base/CCEventDispatcher.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -43,63 +55,110 @@ static Vec2 v2fzero(0.0f,0.0f);
 static inline Vec2 v2f(float x, float y)
 {
     Vec2 ret(x, y);
+<<<<<<< HEAD
     return ret;
+=======
+	return ret;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fadd(const Vec2 &v0, const Vec2 &v1)
 {
+<<<<<<< HEAD
     return v2f(v0.x+v1.x, v0.y+v1.y);
+=======
+	return v2f(v0.x+v1.x, v0.y+v1.y);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fsub(const Vec2 &v0, const Vec2 &v1)
 {
+<<<<<<< HEAD
     return v2f(v0.x-v1.x, v0.y-v1.y);
+=======
+	return v2f(v0.x-v1.x, v0.y-v1.y);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fmult(const Vec2 &v, float s)
 {
+<<<<<<< HEAD
     return v2f(v.x * s, v.y * s);
+=======
+	return v2f(v.x * s, v.y * s);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fperp(const Vec2 &p0)
 {
+<<<<<<< HEAD
     return v2f(-p0.y, p0.x);
+=======
+	return v2f(-p0.y, p0.x);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fneg(const Vec2 &p0)
 {
+<<<<<<< HEAD
     return v2f(-p0.x, - p0.y);
+=======
+	return v2f(-p0.x, - p0.y);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline float v2fdot(const Vec2 &p0, const Vec2 &p1)
 {
+<<<<<<< HEAD
     return  p0.x * p1.x + p0.y * p1.y;
+=======
+	return  p0.x * p1.x + p0.y * p1.y;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fforangle(float _a_)
 {
+<<<<<<< HEAD
     return v2f(cosf(_a_), sinf(_a_));
+=======
+	return v2f(cosf(_a_), sinf(_a_));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 v2fnormalize(const Vec2 &p)
 {
+<<<<<<< HEAD
     Vec2 r(p.x, p.y);
     r.normalize();
     return v2f(r.x, r.y);
+=======
+	Vec2 r = Vec2(p.x, p.y).getNormalized();
+	return v2f(r.x, r.y);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static inline Vec2 __v2f(const Vec2 &v)
 {
 //#ifdef __LP64__
+<<<<<<< HEAD
     return v2f(v.x, v.y);
 // #else
 //     return * ((Vec2*) &v);
+=======
+	return v2f(v.x, v.y);
+// #else
+// 	return * ((Vec2*) &v);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // #endif
 }
 
 static inline Tex2F __t(const Vec2 &v)
 {
+<<<<<<< HEAD
     return *(Tex2F*)&v;
+=======
+	return *(Tex2F*)&v;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 // implementation of DrawNode
@@ -107,6 +166,7 @@ static inline Tex2F __t(const Vec2 &v)
 DrawNode::DrawNode()
 : _vao(0)
 , _vbo(0)
+<<<<<<< HEAD
 , _vaoGLPoint(0)
 , _vboGLPoint(0)
 , _vaoGLLine(0)
@@ -123,6 +183,12 @@ DrawNode::DrawNode()
 , _dirty(false)
 , _dirtyGLPoint(false)
 , _dirtyGLLine(false)
+=======
+, _bufferCapacity(0)
+, _bufferCount(0)
+, _buffer(nullptr)
+, _dirty(false)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
 }
@@ -131,6 +197,7 @@ DrawNode::~DrawNode()
 {
     free(_buffer);
     _buffer = nullptr;
+<<<<<<< HEAD
     free(_bufferGLPoint);
     _bufferGLPoint = nullptr;
     free(_bufferGLLine);
@@ -150,12 +217,27 @@ DrawNode::~DrawNode()
         glDeleteVertexArrays(1, &_vaoGLLine);
         glDeleteVertexArrays(1, &_vaoGLPoint);
         _vao = _vaoGLLine = _vaoGLPoint = 0;
+=======
+    
+    glDeleteBuffers(1, &_vbo);
+    _vbo = 0;
+    
+    if (Configuration::getInstance()->supportsShareableVAO())
+    {
+        glDeleteVertexArrays(1, &_vao);
+        GL::bindVAO(0);
+        _vao = 0;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 }
 
 DrawNode* DrawNode::create()
 {
+<<<<<<< HEAD
     DrawNode* ret = new (std::nothrow) DrawNode();
+=======
+    DrawNode* ret = new DrawNode();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init())
     {
         ret->autorelease();
@@ -174,6 +256,7 @@ void DrawNode::ensureCapacity(int count)
     
     if(_bufferCount + count > _bufferCapacity)
     {
+<<<<<<< HEAD
         _bufferCapacity += MAX(_bufferCapacity, count);
         _buffer = (V2F_C4B_T2F*)realloc(_buffer, _bufferCapacity*sizeof(V2F_C4B_T2F));
     }
@@ -199,6 +282,11 @@ void DrawNode::ensureCapacityGLLine(int count)
         _bufferCapacityGLLine += MAX(_bufferCapacityGLLine, count);
         _bufferGLLine = (V2F_C4B_T2F*)realloc(_bufferGLLine, _bufferCapacityGLLine*sizeof(V2F_C4B_T2F));
     }
+=======
+		_bufferCapacity += MAX(_bufferCapacity, count);
+		_buffer = (V2F_C4B_T2F*)realloc(_buffer, _bufferCapacity*sizeof(V2F_C4B_T2F));
+	}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool DrawNode::init()
@@ -208,13 +296,17 @@ bool DrawNode::init()
     setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_LENGTH_TEXTURE_COLOR));
     
     ensureCapacity(512);
+<<<<<<< HEAD
     ensureCapacityGLPoint(64);
     ensureCapacityGLLine(256);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (Configuration::getInstance()->supportsShareableVAO())
     {
         glGenVertexArrays(1, &_vao);
         GL::bindVAO(_vao);
+<<<<<<< HEAD
         glGenBuffers(1, &_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo);
         glBufferData(GL_ARRAY_BUFFER, sizeof(V2F_C4B_T2F)* _bufferCapacity, _buffer, GL_STREAM_DRAW);
@@ -277,13 +369,38 @@ bool DrawNode::init()
         glBufferData(GL_ARRAY_BUFFER, sizeof(V2F_C4B_T2F)*_bufferCapacityGLPoint, _bufferGLPoint, GL_STREAM_DRAW);
 
         glBindBuffer(GL_ARRAY_BUFFER, 0);
+=======
+    }
+    
+    glGenBuffers(1, &_vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(V2F_C4B_T2F)* _bufferCapacity, _buffer, GL_STREAM_DRAW);
+    
+    glEnableVertexAttribArray(GLProgram::VERTEX_ATTRIB_POSITION);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, vertices));
+    
+    glEnableVertexAttribArray(GLProgram::VERTEX_ATTRIB_COLOR);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, colors));
+    
+    glEnableVertexAttribArray(GLProgram::VERTEX_ATTRIB_TEX_COORD);
+    glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, texCoords));
+    
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    if (Configuration::getInstance()->supportsShareableVAO())
+    {
+        GL::bindVAO(0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     CHECK_GL_ERROR_DEBUG();
     
     _dirty = true;
+<<<<<<< HEAD
     _dirtyGLLine = true;
     _dirtyGLPoint = true;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 #if CC_ENABLE_CACHE_TEXTURE_DATA
     // Need to listen the event only when not use batchnode, because it will use VBO
@@ -300,6 +417,7 @@ bool DrawNode::init()
 
 void DrawNode::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
+<<<<<<< HEAD
     if(_bufferCount)
     {
         _customCommand.init(_globalZOrder, transform, flags);
@@ -320,6 +438,11 @@ void DrawNode::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
         _customCommandGLLine.func = CC_CALLBACK_0(DrawNode::onDrawGLLine, this, transform, flags);
         renderer->addCommand(&_customCommandGLLine);
     }
+=======
+    _customCommand.init(_globalZOrder);
+    _customCommand.func = CC_CALLBACK_0(DrawNode::onDraw, this, transform, flags);
+    renderer->addCommand(&_customCommand);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void DrawNode::onDraw(const Mat4 &transform, uint32_t flags)
@@ -327,14 +450,21 @@ void DrawNode::onDraw(const Mat4 &transform, uint32_t flags)
     auto glProgram = getGLProgram();
     glProgram->use();
     glProgram->setUniformsForBuiltins(transform);
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GL::blendFunc(_blendFunc.src, _blendFunc.dst);
 
     if (_dirty)
     {
         glBindBuffer(GL_ARRAY_BUFFER, _vbo);
         glBufferData(GL_ARRAY_BUFFER, sizeof(V2F_C4B_T2F)*_bufferCapacity, _buffer, GL_STREAM_DRAW);
+<<<<<<< HEAD
         
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _dirty = false;
     }
     if (Configuration::getInstance()->supportsShareableVAO())
@@ -348,14 +478,22 @@ void DrawNode::onDraw(const Mat4 &transform, uint32_t flags)
         glBindBuffer(GL_ARRAY_BUFFER, _vbo);
         // vertex
         glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, vertices));
+<<<<<<< HEAD
         // color
         glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, colors));
+=======
+
+        // color
+        glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, colors));
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         // texcood
         glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, sizeof(V2F_C4B_T2F), (GLvoid *)offsetof(V2F_C4B_T2F, texCoords));
     }
 
     glDrawArrays(GL_TRIANGLES, 0, _bufferCount);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+<<<<<<< HEAD
     
     if (Configuration::getInstance()->supportsShareableVAO())
     {
@@ -660,10 +798,18 @@ void DrawNode::drawCatmullRom(PointArray *points, unsigned int segments, const C
     drawCardinalSpline( points, 0.5f, segments, color);
 }
 
+=======
+
+    CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,_bufferCount);
+    CHECK_GL_ERROR_DEBUG();
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void DrawNode::drawDot(const Vec2 &pos, float radius, const Color4F &color)
 {
     unsigned int vertex_count = 2*3;
     ensureCapacity(vertex_count);
+<<<<<<< HEAD
     
     V2F_C4B_T2F a = {Vec2(pos.x - radius, pos.y - radius), Color4B(color), Tex2F(-1.0, -1.0) };
     V2F_C4B_T2F b = {Vec2(pos.x - radius, pos.y + radius), Color4B(color), Tex2F(-1.0,  1.0) };
@@ -687,12 +833,30 @@ void DrawNode::drawRect(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, const Ve
     drawLine(Vec2(p2.x, p2.y), Vec2(p3.x, p3.y), color);
     drawLine(Vec2(p3.x, p3.y), Vec2(p4.x, p4.y), color);
     drawLine(Vec2(p4.x, p4.y), Vec2(p1.x, p1.y), color);
+=======
+	
+	V2F_C4B_T2F a = {Vec2(pos.x - radius, pos.y - radius), Color4B(color), Tex2F(-1.0, -1.0) };
+	V2F_C4B_T2F b = {Vec2(pos.x - radius, pos.y + radius), Color4B(color), Tex2F(-1.0,  1.0) };
+	V2F_C4B_T2F c = {Vec2(pos.x + radius, pos.y + radius), Color4B(color), Tex2F( 1.0,  1.0) };
+	V2F_C4B_T2F d = {Vec2(pos.x + radius, pos.y - radius), Color4B(color), Tex2F( 1.0, -1.0) };
+	
+	V2F_C4B_T2F_Triangle *triangles = (V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount);
+    V2F_C4B_T2F_Triangle triangle0 = {a, b, c};
+    V2F_C4B_T2F_Triangle triangle1 = {a, c, d};
+	triangles[0] = triangle0;
+	triangles[1] = triangle1;
+	
+	_bufferCount += vertex_count;
+	
+	_dirty = true;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void DrawNode::drawSegment(const Vec2 &from, const Vec2 &to, float radius, const Color4F &color)
 {
     unsigned int vertex_count = 6*3;
     ensureCapacity(vertex_count);
+<<<<<<< HEAD
     
     Vec2 a = __v2f(from);
     Vec2 b = __v2f(to);
@@ -715,26 +879,64 @@ void DrawNode::drawSegment(const Vec2 &from, const Vec2 &to, float radius, const
     
     V2F_C4B_T2F_Triangle *triangles = (V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount);
     
+=======
+	
+	Vec2 a = __v2f(from);
+	Vec2 b = __v2f(to);
+	
+	
+	Vec2 n = v2fnormalize(v2fperp(v2fsub(b, a)));
+	Vec2 t = v2fperp(n);
+	
+	Vec2 nw = v2fmult(n, radius);
+	Vec2 tw = v2fmult(t, radius);
+	Vec2 v0 = v2fsub(b, v2fadd(nw, tw));
+	Vec2 v1 = v2fadd(b, v2fsub(nw, tw));
+	Vec2 v2 = v2fsub(b, nw);
+	Vec2 v3 = v2fadd(b, nw);
+	Vec2 v4 = v2fsub(a, nw);
+	Vec2 v5 = v2fadd(a, nw);
+	Vec2 v6 = v2fsub(a, v2fsub(nw, tw));
+	Vec2 v7 = v2fadd(a, v2fadd(nw, tw));
+	
+	
+	V2F_C4B_T2F_Triangle *triangles = (V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount);
+	
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     V2F_C4B_T2F_Triangle triangles0 = {
         {v0, Color4B(color), __t(v2fneg(v2fadd(n, t)))},
         {v1, Color4B(color), __t(v2fsub(n, t))},
         {v2, Color4B(color), __t(v2fneg(n))},
     };
+<<<<<<< HEAD
     triangles[0] = triangles0;
     
+=======
+	triangles[0] = triangles0;
+	
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     V2F_C4B_T2F_Triangle triangles1 = {
         {v3, Color4B(color), __t(n)},
         {v1, Color4B(color), __t(v2fsub(n, t))},
         {v2, Color4B(color), __t(v2fneg(n))},
     };
+<<<<<<< HEAD
     triangles[1] = triangles1;
     
+=======
+	triangles[1] = triangles1;
+	
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     V2F_C4B_T2F_Triangle triangles2 = {
         {v3, Color4B(color), __t(n)},
         {v4, Color4B(color), __t(v2fneg(n))},
         {v2, Color4B(color), __t(v2fneg(n))},
     };
+<<<<<<< HEAD
     triangles[2] = triangles2;
+=======
+	triangles[2] = triangles2;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     V2F_C4B_T2F_Triangle triangles3 = {
         {v3, Color4B(color), __t(n)},
@@ -748,13 +950,18 @@ void DrawNode::drawSegment(const Vec2 &from, const Vec2 &to, float radius, const
         {v4, Color4B(color), __t(v2fneg(n)) },
         {v5, Color4B(color), __t(n)},
     };
+<<<<<<< HEAD
     triangles[4] = triangles4;
+=======
+	triangles[4] = triangles4;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     V2F_C4B_T2F_Triangle triangles5 = {
         {v6, Color4B(color), __t(v2fsub(t, n))},
         {v7, Color4B(color), __t(v2fadd(n, t))},
         {v5, Color4B(color), __t(n)},
     };
+<<<<<<< HEAD
     triangles[5] = triangles5;
     
     _bufferCount += vertex_count;
@@ -822,18 +1029,98 @@ void DrawNode::drawPolygon(const Vec2 *verts, int count, const Color4F &fillColo
             Vec2 outer0 = v2fadd(v0, v2fmult(offset0, borderWidth));
             Vec2 outer1 = v2fadd(v1, v2fmult(offset1, borderWidth));
             
+=======
+	triangles[5] = triangles5;
+	
+	_bufferCount += vertex_count;
+	
+	_dirty = true;
+}
+
+void DrawNode::drawPolygon(Vec2 *verts, int count, const Color4F &fillColor, float borderWidth, const Color4F &borderColor)
+{
+    CCASSERT(count >= 0, "invalid count value");
+
+    struct ExtrudeVerts {Vec2 offset, n;};
+	struct ExtrudeVerts* extrude = (struct ExtrudeVerts*)malloc(sizeof(struct ExtrudeVerts)*count);
+	memset(extrude, 0, sizeof(struct ExtrudeVerts)*count);
+	
+	for (int i = 0; i < count; i++)
+    {
+		Vec2 v0 = __v2f(verts[(i-1+count)%count]);
+		Vec2 v1 = __v2f(verts[i]);
+		Vec2 v2 = __v2f(verts[(i+1)%count]);
+        
+		Vec2 n1 = v2fnormalize(v2fperp(v2fsub(v1, v0)));
+		Vec2 n2 = v2fnormalize(v2fperp(v2fsub(v2, v1)));
+		
+		Vec2 offset = v2fmult(v2fadd(n1, n2), 1.0/(v2fdot(n1, n2) + 1.0));
+        struct ExtrudeVerts tmp = {offset, n2};
+		extrude[i] = tmp;
+	}
+	
+	bool outline = (borderColor.a > 0.0 && borderWidth > 0.0);
+	
+	auto triangle_count = 3*count - 2;
+	auto vertex_count = 3*triangle_count;
+    ensureCapacity(vertex_count);
+	
+	V2F_C4B_T2F_Triangle *triangles = (V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount);
+	V2F_C4B_T2F_Triangle *cursor = triangles;
+	
+	float inset = (outline == false ? 0.5 : 0.0);
+	for (int i = 0; i < count-2; i++)
+    {
+		Vec2 v0 = v2fsub(__v2f(verts[0  ]), v2fmult(extrude[0  ].offset, inset));
+		Vec2 v1 = v2fsub(__v2f(verts[i+1]), v2fmult(extrude[i+1].offset, inset));
+		Vec2 v2 = v2fsub(__v2f(verts[i+2]), v2fmult(extrude[i+2].offset, inset));
+		
+        V2F_C4B_T2F_Triangle tmp = {
+            {v0, Color4B(fillColor), __t(v2fzero)},
+            {v1, Color4B(fillColor), __t(v2fzero)},
+            {v2, Color4B(fillColor), __t(v2fzero)},
+        };
+
+		*cursor++ = tmp;
+	}
+	
+	for(int i = 0; i < count; i++)
+    {
+		int j = (i+1)%count;
+		Vec2 v0 = __v2f(verts[i]);
+		Vec2 v1 = __v2f(verts[j]);
+		
+		Vec2 n0 = extrude[i].n;
+		
+		Vec2 offset0 = extrude[i].offset;
+		Vec2 offset1 = extrude[j].offset;
+		
+		if(outline)
+        {
+			Vec2 inner0 = v2fsub(v0, v2fmult(offset0, borderWidth));
+			Vec2 inner1 = v2fsub(v1, v2fmult(offset1, borderWidth));
+			Vec2 outer0 = v2fadd(v0, v2fmult(offset0, borderWidth));
+			Vec2 outer1 = v2fadd(v1, v2fmult(offset1, borderWidth));
+			
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             V2F_C4B_T2F_Triangle tmp1 = {
                 {inner0, Color4B(borderColor), __t(v2fneg(n0))},
                 {inner1, Color4B(borderColor), __t(v2fneg(n0))},
                 {outer1, Color4B(borderColor), __t(n0)}
             };
+<<<<<<< HEAD
             *cursor++ = tmp1;
             
+=======
+			*cursor++ = tmp1;
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             V2F_C4B_T2F_Triangle tmp2 = {
                 {inner0, Color4B(borderColor), __t(v2fneg(n0))},
                 {outer0, Color4B(borderColor), __t(n0)},
                 {outer1, Color4B(borderColor), __t(n0)}
             };
+<<<<<<< HEAD
             *cursor++ = tmp2;
         }
         
@@ -888,11 +1175,46 @@ void DrawNode::drawSolidCircle(const Vec2& center, float radius, float angle, un
 void DrawNode::drawSolidCircle( const Vec2& center, float radius, float angle, unsigned int segments, const Color4F& color)
 {
     drawSolidCircle(center, radius, angle, segments, 1.0f, 1.0f, color);
+=======
+			*cursor++ = tmp2;
+		}
+        else {
+			Vec2 inner0 = v2fsub(v0, v2fmult(offset0, 0.5));
+			Vec2 inner1 = v2fsub(v1, v2fmult(offset1, 0.5));
+			Vec2 outer0 = v2fadd(v0, v2fmult(offset0, 0.5));
+			Vec2 outer1 = v2fadd(v1, v2fmult(offset1, 0.5));
+			
+            V2F_C4B_T2F_Triangle tmp1 = {
+                {inner0, Color4B(fillColor), __t(v2fzero)},
+                {inner1, Color4B(fillColor), __t(v2fzero)},
+                {outer1, Color4B(fillColor), __t(n0)}
+            };
+			*cursor++ = tmp1;
+
+            V2F_C4B_T2F_Triangle tmp2 = {
+                {inner0, Color4B(fillColor), __t(v2fzero)},
+                {outer0, Color4B(fillColor), __t(n0)},
+                {outer1, Color4B(fillColor), __t(n0)}
+            };
+			*cursor++ = tmp2;
+		}
+	}
+	
+	_bufferCount += vertex_count;
+	
+	_dirty = true;
+
+    free(extrude);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void DrawNode::drawTriangle(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, const Color4F &color)
 {
+<<<<<<< HEAD
     unsigned int vertex_count = 3;
+=======
+    unsigned int vertex_count = 2*3;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ensureCapacity(vertex_count);
 
     Color4B col = Color4B(color);
@@ -908,19 +1230,85 @@ void DrawNode::drawTriangle(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, cons
     _dirty = true;
 }
 
+<<<<<<< HEAD
 void DrawNode::drawQuadraticBezier(const Vec2& from, const Vec2& control, const Vec2& to, unsigned int segments, const Color4F &color)
 {
     drawQuadBezier(from, control, to, segments, color);
+=======
+void DrawNode::drawCubicBezier(const Vec2& from, const Vec2& control1, const Vec2& control2, const Vec2& to, unsigned int segments, const Color4F &color)
+{
+    unsigned int vertex_count = (segments + 1) * 3;
+    ensureCapacity(vertex_count);
+
+    Tex2F texCoord = Tex2F(0.0, 0.0);
+    Color4B col = Color4B(color);
+    Vec2 vertex;
+    Vec2 firstVertex = Vec2(from.x, from.y);
+    Vec2 lastVertex = Vec2(to.x, to.y);
+
+    float t = 0;
+    for(unsigned int i = segments + 1; i > 0; i--)
+    {
+        float x = powf(1 - t, 3) * from.x + 3.0f * powf(1 - t, 2) * t * control1.x + 3.0f * (1 - t) * t * t * control2.x + t * t * t * to.x;
+        float y = powf(1 - t, 3) * from.y + 3.0f * powf(1 - t, 2) * t * control1.y + 3.0f * (1 - t) * t * t * control2.y + t * t * t * to.y;
+        vertex = Vec2(x, y);
+
+        V2F_C4B_T2F a = {firstVertex, col, texCoord };
+        V2F_C4B_T2F b = {lastVertex, col, texCoord };
+        V2F_C4B_T2F c = {vertex, col, texCoord };
+        V2F_C4B_T2F_Triangle triangle = {a, b, c};
+        ((V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount))[0] = triangle;
+
+        lastVertex = vertex;
+        t += 1.0f / segments;
+        _bufferCount += 3;
+    }
+    _dirty = true;
+}
+
+void DrawNode::drawQuadraticBezier(const Vec2& from, const Vec2& control, const Vec2& to, unsigned int segments, const Color4F &color)
+{
+    unsigned int vertex_count = (segments + 1) * 3;
+    ensureCapacity(vertex_count);
+
+    Tex2F texCoord = Tex2F(0.0, 0.0);
+    Color4B col = Color4B(color);
+    Vec2 vertex;
+    Vec2 firstVertex = Vec2(from.x, from.y);
+    Vec2 lastVertex = Vec2(to.x, to.y);
+
+    float t = 0;
+    for(unsigned int i = segments + 1; i > 0; i--)
+    {
+        float x = powf(1 - t, 2) * from.x + 2.0f * (1 - t) * t * control.x + t * t * to.x;
+        float y = powf(1 - t, 2) * from.y + 2.0f * (1 - t) * t * control.y + t * t * to.y;
+        vertex = Vec2(x, y);
+
+        V2F_C4B_T2F a = {firstVertex, col, texCoord };
+        V2F_C4B_T2F b = {lastVertex, col, texCoord };
+        V2F_C4B_T2F c = {vertex, col, texCoord };
+        V2F_C4B_T2F_Triangle triangle = {a, b, c};
+        ((V2F_C4B_T2F_Triangle *)(_buffer + _bufferCount))[0] = triangle;
+
+        lastVertex = vertex;
+        t += 1.0f / segments;
+        _bufferCount += 3;
+    }
+    _dirty = true;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void DrawNode::clear()
 {
     _bufferCount = 0;
     _dirty = true;
+<<<<<<< HEAD
     _bufferCountGLLine = 0;
     _dirtyGLLine = true;
     _bufferCountGLPoint = 0;
     _dirtyGLPoint = true;
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 const BlendFunc& DrawNode::getBlendFunc() const

@@ -27,6 +27,7 @@ THE SOFTWARE.
 
 #include "ui/UIWidget.h"
 #include "2d/CCTextFieldTTF.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 
 NS_CC_BEGIN
@@ -34,10 +35,15 @@ NS_CC_BEGIN
  * @addtogroup ui
  * @{
  */
+=======
+
+NS_CC_BEGIN
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace ui {
 
 /**
+<<<<<<< HEAD
  * @brief A helper class which inherit from @see `TextFieldTTF` and implements the @see `TextFieldDelegate` protocol.
  * It is mainly be used internally by @see `UITextField` class.
  * @js NA
@@ -54,10 +60,20 @@ public:
     /**
      * Default destructor
      */
+=======
+ *  @js NA
+ *  @lua NA
+ */
+class UICCTextField: public TextFieldTTF, public TextFieldDelegate
+{
+public:
+    UICCTextField();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ~UICCTextField();
     
     virtual void onEnter() override;
     
+<<<<<<< HEAD
     /**
      * Create a UICCTextField intance with a placeholder, a fontName and a fontSize.
      *@param placeholder Placeholder in string.
@@ -205,6 +221,43 @@ public:
      *
      * @return True if delete backward is enabled, false otherwise.
      */
+=======
+    // static
+    static UICCTextField* create(const std::string& placeholder, const std::string& fontName, float fontSize);
+    
+    // CCTextFieldDelegate
+    virtual bool onTextFieldAttachWithIME(TextFieldTTF *pSender) override;
+    virtual bool onTextFieldDetachWithIME(TextFieldTTF * pSender) override;
+    virtual bool onTextFieldInsertText(TextFieldTTF * pSender, const char * text, size_t nLen) override;
+    virtual bool onTextFieldDeleteBackward(TextFieldTTF * pSender, const char * delText, size_t nLen) override;
+    
+    void insertText(const char* text, size_t len);
+    void deleteBackward();
+    
+    void openIME();
+    void closeIME();
+    
+    void setMaxLengthEnabled(bool enable);
+    bool isMaxLengthEnabled()const;
+    void setMaxLength(int length);
+    int getMaxLength()const;
+    int getCharCount()const;
+    
+    void setPasswordEnabled(bool enable);
+    bool isPasswordEnabled()const;
+    void setPasswordStyleText(const std::string& styleText);
+    void setPasswordText(const std::string& text);
+    
+    void setAttachWithIME(bool attach);
+    bool getAttachWithIME()const;
+    void setDetachWithIME(bool detach);
+    bool getDetachWithIME()const;
+    
+    void setInsertText(bool insert);
+    bool getInsertText()const;
+    
+    void setDeleteBackward(bool deleteBackward);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool getDeleteBackward()const;
 protected:
     bool _maxLengthEnabled;
@@ -217,10 +270,13 @@ protected:
     bool _deleteBackward;
 };
 
+<<<<<<< HEAD
 /**
  * TextField event type.
  * @deprecated Use @see `TextField::EventType` instead.
  */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef enum
 {
     TEXTFIELD_EVENT_ATTACH_WITH_IME,
@@ -229,6 +285,7 @@ typedef enum
     TEXTFIELD_EVENT_DELETE_BACKWARD,
 }TextFiledEventType;
 
+<<<<<<< HEAD
 /**
  * A callback which would be called when a TextField event happens.
  * @deprecated Use @see `ccTextFieldCallback` instead.
@@ -244,14 +301,27 @@ typedef void (Ref::*SEL_TextFieldEvent)(Ref*, TextFiledEventType);
  * @lua NA
  */
 class CC_GUI_DLL TextField : public Widget
+=======
+typedef void (Ref::*SEL_TextFieldEvent)(Ref*, TextFiledEventType);
+#define textfieldeventselector(_SELECTOR) (SEL_TextFieldEvent)(&_SELECTOR)
+
+/** class UITextField : public Widget
+*   @js NA
+*   @lua NA
+*/
+class TextField : public Widget
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
     DECLARE_CLASS_GUI_INFO
     
 public:
+<<<<<<< HEAD
     /**
      * TextField event type.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class EventType
     {
         ATTACH_WITH_IME,
@@ -259,6 +329,7 @@ public:
         INSERT_TEXT,
         DELETE_BACKWARD,
     };
+<<<<<<< HEAD
     /**
      * A callback which would be called when a TextField event happens.
      */
@@ -485,10 +556,50 @@ public:
      *
      * @return A password style text.
      */
+=======
+    typedef std::function<void(Ref*, EventType)> ccTextFieldCallback;
+    
+    TextField();
+    virtual ~TextField();
+    static TextField* create();
+    static TextField* create(const std::string& placeholder,
+                             const std::string& fontName,
+                             int fontSize);
+    void setTouchSize(const Size &size);
+    Size getTouchSize()const;
+    void setTouchAreaEnabled(bool enable);
+    virtual bool hitTest(const Vec2 &pt);
+    
+    void setPlaceHolder(const std::string& value);
+    const std::string& getPlaceHolder()const;
+    
+    void setFontSize(int size);
+    int getFontSize()const;
+    void setFontName(const std::string& name);
+    const std::string& getFontName()const;
+    
+    virtual void didNotSelectSelf();
+    
+    void setText(const std::string& text);
+    const std::string& getStringValue()const;
+    
+    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
+    
+    void setMaxLengthEnabled(bool enable);
+    bool isMaxLengthEnabled()const;
+    void setMaxLength(int length);
+
+    int getMaxLength()const;
+    int getStringLength() const;
+    void setPasswordEnabled(bool enable);
+    bool isPasswordEnabled()const;
+    void setPasswordStyleText(const char* styleText);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const char* getPasswordStyleText()const;
     
     virtual void update(float dt) override;
     
+<<<<<<< HEAD
     /**
      * @brief Query whether the IME is attached or not.
      *
@@ -557,12 +668,27 @@ public:
      * Add a event listener to TextField, when some predefined event happens, the callback will be called.
      *@param callback A callback function with type of `ccTextFieldCallback`.
      */
+=======
+    bool getAttachWithIME()const;
+    void setAttachWithIME(bool attach);
+    bool getDetachWithIME()const;
+    void setDetachWithIME(bool detach);
+    
+    bool getInsertText()const;
+    void setInsertText(bool insertText);
+    
+    bool getDeleteBackward()const;
+    void setDeleteBackward(bool deleteBackward);
+    
+    CC_DEPRECATED_ATTRIBUTE void addEventListenerTextField(Ref* target, SEL_TextFieldEvent selecor);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void addEventListener(const ccTextFieldCallback& callback);
     
     /**
      * Returns the "class name" of widget.
      */
     virtual std::string getDescription() const override;
+<<<<<<< HEAD
     
     /**
      * @brief Get the the renderer size in auto mode.
@@ -600,6 +726,16 @@ public:
      *
      * @param alignment A alignment arguments in @see `TextVAlignment`.
      */
+=======
+
+    virtual const Size& getVirtualRendererSize() const override;
+    virtual Node* getVirtualRenderer() override;
+    void attachWithIME();
+    virtual void onEnter() override;
+    
+    void setTextAreaSize(const Size &size);
+    void setTextHorizontalAlignment(TextHAlignment alignment);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setTextVerticalAlignment(TextVAlignment alignment);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -656,8 +792,11 @@ private:
 
 }
 
+<<<<<<< HEAD
 // end of ui group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__TextField__) */

@@ -1,6 +1,7 @@
 
 
 #include "TextFieldReader.h"
+<<<<<<< HEAD
 
 #include "ui/UITextField.h"
 #include "cocostudio/CocoLoader.h"
@@ -12,6 +13,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UITextField.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -28,7 +36,11 @@ namespace cocostudio
     static const char* P_PasswordEnable = "passwordEnable";
     static const char* P_PasswordStyleText = "passwordStyleText";
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(TextFieldReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(TextFieldReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     TextFieldReader::TextFieldReader()
     {
@@ -44,16 +56,23 @@ namespace cocostudio
     {
         if (!instanceTextFieldReader)
         {
+<<<<<<< HEAD
             instanceTextFieldReader = new (std::nothrow) TextFieldReader();
+=======
+            instanceTextFieldReader = new TextFieldReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceTextFieldReader;
     }
     
+<<<<<<< HEAD
     void TextFieldReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceTextFieldReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void TextFieldReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode* cocoNode)
     {
         this->beginSetBasicProperties(widget);
@@ -74,7 +93,11 @@ namespace cocostudio
             else if(key == P_PlaceHolder){
                 textField->setPlaceHolder(value);
             }else if(key == P_Text){
+<<<<<<< HEAD
                 textField->setString(value);
+=======
+                textField->setText(value);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             }else if(key == P_FontSize){
                 textField->setFontSize(valueToInt(value));
             }else if(key == P_FontName){
@@ -107,6 +130,7 @@ namespace cocostudio
         {
             textField->setPlaceHolder(DICTOOL->getStringValue_json(options, P_PlaceHolder,"input words here"));
         }
+<<<<<<< HEAD
         textField->setString(DICTOOL->getStringValue_json(options, P_Text,"Text Tield"));
        
         textField->setFontSize(DICTOOL->getIntValue_json(options, P_FontSize,20));
@@ -118,6 +142,14 @@ namespace cocostudio
             textField->setFontName(fontFilePath);
         else
             textField->setFontName(fontName);
+=======
+        textField->setText(DICTOOL->getStringValue_json(options, P_Text,"Text Tield"));
+       
+        textField->setFontSize(DICTOOL->getIntValue_json(options, P_FontSize,20));
+    
+       
+        textField->setFontName(DICTOOL->getStringValue_json(options, P_FontName,"微软雅黑"));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         bool tsw = DICTOOL->checkObjectExist_json(options, P_TouchSizeWidth);
         bool tsh = DICTOOL->checkObjectExist_json(options, P_TouchSizeHeight);
@@ -149,6 +181,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> TextFieldReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -366,4 +399,7 @@ namespace cocostudio
         return textField;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

@@ -25,6 +25,7 @@
 #ifndef __CC_EVENT_DISPATCHER_H__
 #define __CC_EVENT_DISPATCHER_H__
 
+<<<<<<< HEAD
 #include <functional>
 #include <string>
 #include <unordered_map>
@@ -40,6 +41,18 @@
  * @addtogroup base
  * @{
  */
+=======
+#include "base/CCPlatformMacros.h"
+#include "base/CCEventListener.h"
+#include "base/CCEvent.h"
+#include "CCStdC.h"
+
+#include <functional>
+#include <string>
+#include <unordered_map>
+#include <list>
+#include <vector>
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -49,20 +62,33 @@ class Node;
 class EventCustom;
 class EventListenerCustom;
 
+<<<<<<< HEAD
 /** @class EventDispatcher
 * @brief This class manages event listener subscriptions
+=======
+/**
+This class manages event listener subscriptions
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 and event dispatching.
 
 The EventListener list is managed in such a way that
 event listeners can be added and removed even
 from within an EventListener, while events are being
 dispatched.
+<<<<<<< HEAD
 @js NA
 */
 class CC_DLL EventDispatcher : public Ref
 {
 public:
     // Adds event listener.
+=======
+*/
+class EventDispatcher : public Ref
+{
+public:
+    // Adds event listener
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** Adds a event listener for a specified event with the priority of scene graph.
      *  @param listener The listener of a specified event.
@@ -82,9 +108,13 @@ public:
 
     /** Adds a Custom event listener.
      It will use a fixed priority of 1.
+<<<<<<< HEAD
      * @param eventName A given name of the event.
      * @param callback A given callback method that associated the event name.
      * @return the generated event. Needed in order to remove the event from the dispather
+=======
+     @return the generated event. Needed in order to remove the event from the dispather
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     EventListenerCustom* addCustomEventListener(const std::string &eventName, const std::function<void(EventCustom*)>& callback);
 
@@ -92,12 +122,17 @@ public:
     
     // Removes event listener
     
+<<<<<<< HEAD
     /** Remove a listener.
      *
+=======
+    /** Remove a listener
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *  @param listener The specified event listener which needs to be removed.
      */
     void removeEventListener(EventListener* listener);
 
+<<<<<<< HEAD
     /** Removes all listeners with the same event listener type.
      *
      * @param listenerType A given event listener type which needs to be removed.
@@ -119,12 +154,25 @@ public:
 
     /** Removes all listeners.
      */
+=======
+    /** Removes all listeners with the same event listener type */
+    void removeEventListenersForType(EventListener::Type listenerType);
+
+    /** Removes all listeners which are associated with the specified target. */
+    void removeEventListenersForTarget(Node* target, bool recursive = false);
+    
+    /** Removes all custom listeners with the same event name */
+    void removeCustomEventListeners(const std::string& customEventName);
+
+    /** Removes all listeners */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void removeAllEventListeners();
 
     /////////////////////////////////////////////
     
     // Pauses / Resumes event listener
     
+<<<<<<< HEAD
     /** Pauses all listeners which are associated the specified target.
      *
      * @param target A given target node.
@@ -137,10 +185,17 @@ public:
      * @param target A given target node.
      * @param recursive True if resume recursively, the default value is false.
      */
+=======
+    /** Pauses all listeners which are associated the specified target. */
+    void pauseEventListenersForTarget(Node* target, bool recursive = false);
+    
+    /** Resumes all listeners which are associated the specified target. */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void resumeEventListenersForTarget(Node* target, bool recursive = false);
     
     /////////////////////////////////////////////
     
+<<<<<<< HEAD
     /** Sets listener's priority with fixed value.
      * 
      * @param listener A given listener.
@@ -158,10 +213,20 @@ public:
      *
      * @return True if dispatching events is enabled.
      */
+=======
+    /** Sets listener's priority with fixed value. */
+    void setPriority(EventListener* listener, int fixedPriority);
+
+    /** Whether to enable dispatching events */
+    void setEnabled(bool isEnabled);
+
+    /** Checks whether dispatching events is enabled */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool isEnabled() const;
 
     /////////////////////////////////////////////
     
+<<<<<<< HEAD
     /** Dispatches the event.
      *  Also removes all EventListeners marked for deletion from the
      *  event dispatcher list.
@@ -175,15 +240,30 @@ public:
      * @param eventName The name of the event which needs to be dispatched.
      * @param optionalUserData The optional user data, it's a void*, the default value is nullptr.
      */
+=======
+    /** Dispatches the event
+     *  Also removes all EventListeners marked for deletion from the
+     *  event dispatcher list.
+     */
+    void dispatchEvent(Event* event);
+
+    /** Dispatches a Custom Event with a event name an optional user data */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void dispatchCustomEvent(const std::string &eventName, void *optionalUserData = nullptr);
 
     /////////////////////////////////////////////
     
+<<<<<<< HEAD
     /** Constructor of EventDispatcher.
      */
     EventDispatcher();
     /** Destructor of EventDispatcher.
      */
+=======
+    /** Constructor of EventDispatcher */
+    EventDispatcher();
+    /** Destructor of EventDispatcher */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ~EventDispatcher();
 
 #if CC_NODE_DEBUG_VERIFY_EVENT_LISTENERS && COCOS2D_DEBUG > 0
@@ -326,7 +406,10 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __CC_EVENT_DISPATCHER_H__

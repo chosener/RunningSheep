@@ -4,7 +4,10 @@
 #include <string>
 #include <vector>
 #include "PluginProtocol.h"
+<<<<<<< HEAD
 #include "AgentManager.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace pluginx;
 
@@ -13,7 +16,11 @@ JSObject *jsb_PluginParam_prototype;
 
 bool js_pluginx_protocols_PluginParam_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+	jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	bool ok = true;
 
 	JSObject *obj = NULL;
@@ -22,7 +29,11 @@ bool js_pluginx_protocols_PluginParam_constructor(JSContext *cx, uint32_t argc, 
     do {
         if (argc == 2) {
             int arg0;
+<<<<<<< HEAD
             ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+=======
+            ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (!ok) { ok = true; break; }
 
             switch (arg0)
@@ -30,14 +41,22 @@ bool js_pluginx_protocols_PluginParam_constructor(JSContext *cx, uint32_t argc, 
             case cocos2d::plugin::PluginParam::kParamTypeInt:
                 {
                     int arg1;
+<<<<<<< HEAD
                     ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+=======
+                    ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     if (ok) { cobj = new cocos2d::plugin::PluginParam(arg1); }
                 }
                 break;
             case cocos2d::plugin::PluginParam::kParamTypeFloat:
                 {
                    	double arg1;
+<<<<<<< HEAD
         			ok &= JS::ToNumber(cx, args.get(1), &arg1);
+=======
+        			ok &= JS::ToNumber(cx, JS::RootedValue(cx, argv[1]), &arg1);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         			if (ok) { 
             			float tempArg = arg1;
             			cobj = new cocos2d::plugin::PluginParam(tempArg);
@@ -46,21 +65,33 @@ bool js_pluginx_protocols_PluginParam_constructor(JSContext *cx, uint32_t argc, 
                 break;
             case cocos2d::plugin::PluginParam::kParamTypeBool:
                 {
+<<<<<<< HEAD
                     bool arg1 = JS::ToBoolean(args.get(1));
+=======
+                    bool arg1 = JS::ToBoolean(JS::RootedValue(cx, argv[1]));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         			cobj = new cocos2d::plugin::PluginParam(arg1);
                 }
                 break;
             case cocos2d::plugin::PluginParam::kParamTypeString:
                 {
                     const char* arg1;
+<<<<<<< HEAD
         			std::string arg1_tmp; ok &= jsval_to_std_string(cx, args.get(1), &arg1_tmp); arg1 = arg1_tmp.c_str();
+=======
+        			std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         			if (ok) { cobj = new cocos2d::plugin::PluginParam(arg1); }
                 }
                 break;
             case cocos2d::plugin::PluginParam::kParamTypeStringMap:
                 {
            	        StringMap arg1;
+<<<<<<< HEAD
             		ok &= jsval_to_StringMap(cx, args.get(1), &arg1);
+=======
+            		ok &= jsval_to_StringMap(cx, argv[1], &arg1);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 			        if (ok) { cobj = new cocos2d::plugin::PluginParam(arg1); }
                 }
                 break;
@@ -76,14 +107,22 @@ bool js_pluginx_protocols_PluginParam_constructor(JSContext *cx, uint32_t argc, 
 			assert(typeMapIter != _js_global_type_map.end());
             typeClass = typeMapIter->second;
 			assert(typeClass);
+<<<<<<< HEAD
             obj = JS_NewObject(cx, typeClass->jsclass, JS::RootedObject(cx, typeClass->proto), JS::RootedObject(cx, typeClass->parentProto));
+=======
+			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 			js_proxy_t *proxy;
 			JS_NEW_PROXY(proxy, cobj, obj);
         }
     } while (0);
 
 	if (cobj) {
+<<<<<<< HEAD
 		args.rval().set(OBJECT_TO_JSVAL(obj));
+=======
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		return true;
 	}
 	JS_ReportError(cx, "wrong number of arguments");
@@ -108,16 +147,27 @@ void js_pluginx_protocols_PluginParam_finalize(JSFreeOp *fop, JSObject *obj) {
 
 static bool js_pluginx_protocols_PluginParam_ctor(JSContext *cx, uint32_t argc, jsval *vp)
 {
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::plugin::PluginParam *nobj = new cocos2d::plugin::PluginParam();
     js_proxy_t* p;
     JS_NEW_PROXY(p, nobj, obj);
+<<<<<<< HEAD
     args.rval().setUndefined();
     return true;
 }
 
 void js_register_pluginx_protocols_PluginParam(JSContext *cx, JS::HandleObject global) {
+=======
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return true;
+}
+
+void js_register_pluginx_protocols_PluginParam(JSContext *cx, JSObject *global) {
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	jsb_PluginParam_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_PluginParam_class->name = "PluginParam";
 	jsb_PluginParam_class->addProperty = JS_PropertyStub;
@@ -131,7 +181,11 @@ void js_register_pluginx_protocols_PluginParam(JSContext *cx, JS::HandleObject g
 	jsb_PluginParam_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
 
 	static JSPropertySpec properties[] = {
+<<<<<<< HEAD
 		JS_PS_END
+=======
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	};
 
 	JSFunctionSpec *funcs = NULL;
@@ -140,7 +194,11 @@ void js_register_pluginx_protocols_PluginParam(JSContext *cx, JS::HandleObject g
 
 	jsb_PluginParam_prototype = JS_InitClass(
 		cx, global,
+<<<<<<< HEAD
         JS::NullPtr(), // parent proto
+=======
+		NULL, // parent proto
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		jsb_PluginParam_class,
 		js_pluginx_protocols_PluginParam_constructor, 0, // constructor
 		properties,
@@ -168,7 +226,11 @@ void js_register_pluginx_protocols_PluginParam(JSContext *cx, JS::HandleObject g
 
 bool js_pluginx_PluginProtocol_callFuncWithParam(JSContext *cx, uint32_t argc, jsval *vp)
 {
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool ok = true;
     JSObject *obj = JS_THIS_OBJECT(cx, vp);
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
@@ -177,11 +239,19 @@ bool js_pluginx_PluginProtocol_callFuncWithParam(JSContext *cx, uint32_t argc, j
     
  	if (argc > 0) {
  	    std::string strName;
+<<<<<<< HEAD
  	    ok &= jsval_to_std_string(cx, args.get(0), &strName);
  		std::vector<cocos2d::plugin::PluginParam*> params;
  		uint32_t i = 1;
  		while (i < argc) {
  			JSObject *tmpObj = args.get(1).toObjectOrNull();
+=======
+ 	    ok &= jsval_to_std_string(cx, argv[0], &strName);
+ 		std::vector<cocos2d::plugin::PluginParam*> params;
+ 		uint32_t i = 1;
+ 		while (i < argc) {
+ 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[i]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (tmpObj == NULL)
                 break;
 
@@ -194,7 +264,11 @@ bool js_pluginx_PluginProtocol_callFuncWithParam(JSContext *cx, uint32_t argc, j
 
         cobj->callFuncWithParam(strName.c_str(), params);
  
+<<<<<<< HEAD
         args.rval().setUndefined();
+=======
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  		return true;
  	}
     JS_ReportError(cx, "wrong number of arguments");
@@ -204,15 +278,26 @@ bool js_pluginx_PluginProtocol_callFuncWithParam(JSContext *cx, uint32_t argc, j
 bool js_pluginx_PluginProtocol_callStringFuncWithParam(JSContext *cx, uint32_t argc, jsval *vp)
 {
     bool ok = true;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
 	if (argc > 0) {
 	    std::string strName;
 	    ok &= jsval_to_std_string(cx, args.get(0), &strName);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+	if (argc > 0) {
+	    std::string strName;
+	    ok &= jsval_to_std_string(cx, argv[0], &strName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 		std::vector<cocos2d::plugin::PluginParam*> params;
 		uint32_t i = 1;
 		while (i < argc) {
+<<<<<<< HEAD
             JSObject *tmpObj = args.get(i).toObjectOrNull();
+=======
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[i]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (tmpObj == NULL)
                 break;
 
@@ -229,7 +314,11 @@ bool js_pluginx_PluginProtocol_callStringFuncWithParam(JSContext *cx, uint32_t a
         std::string ret = cobj->callStringFuncWithParam(strName.c_str(), params);
 		jsval jsret;
 		jsret = std_string_to_jsval(cx, ret);
+<<<<<<< HEAD
 		args.rval().set(jsret);
+=======
+		JS_SET_RVAL(cx, vp, jsret);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		return true;
 	}
     JS_ReportError(cx, "wrong number of arguments");
@@ -239,15 +328,26 @@ bool js_pluginx_PluginProtocol_callStringFuncWithParam(JSContext *cx, uint32_t a
 bool js_pluginx_PluginProtocol_callIntFuncWithParam(JSContext *cx, uint32_t argc, jsval *vp)
 {
     bool ok = true;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
 	if (argc > 0) {
 	    std::string strName;
 	    ok &= jsval_to_std_string(cx, args.get(0), &strName);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+	if (argc > 0) {
+	    std::string strName;
+	    ok &= jsval_to_std_string(cx, argv[0], &strName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 		std::vector<cocos2d::plugin::PluginParam*> params;
 		uint32_t i = 1;
 		while (i < argc) {
+<<<<<<< HEAD
             JSObject *tmpObj = args.get(i).toObjectOrNull();
+=======
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[i]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (tmpObj == NULL)
                 break;
 
@@ -264,7 +364,11 @@ bool js_pluginx_PluginProtocol_callIntFuncWithParam(JSContext *cx, uint32_t argc
         int ret = cobj->callIntFuncWithParam(strName.c_str(), params);
 		jsval jsret;
 		jsret = int32_to_jsval(cx, ret);
+<<<<<<< HEAD
 		args.rval().set(jsret);
+=======
+		JS_SET_RVAL(cx, vp, jsret);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		return true;
 	}
     JS_ReportError(cx, "wrong number of arguments");
@@ -274,15 +378,26 @@ bool js_pluginx_PluginProtocol_callIntFuncWithParam(JSContext *cx, uint32_t argc
 bool js_pluginx_PluginProtocol_callFloatFuncWithParam(JSContext *cx, uint32_t argc, jsval *vp)
 {
     bool ok = true;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
 	if (argc > 0) {
 	    std::string strName;
 	    ok &= jsval_to_std_string(cx, args.get(0), &strName);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+	if (argc > 0) {
+	    std::string strName;
+	    ok &= jsval_to_std_string(cx, argv[0], &strName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 		std::vector<cocos2d::plugin::PluginParam*> params;
 		uint32_t i = 1;
 		while (i < argc) {
+<<<<<<< HEAD
             JSObject *tmpObj = args.get(i).toObjectOrNull();
+=======
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[i]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (tmpObj == NULL)
                 break;
 
@@ -299,7 +414,11 @@ bool js_pluginx_PluginProtocol_callFloatFuncWithParam(JSContext *cx, uint32_t ar
         float ret = cobj->callFloatFuncWithParam(strName.c_str(), params);
 		jsval jsret;
 		jsret = DOUBLE_TO_JSVAL(ret);
+<<<<<<< HEAD
 		args.rval().set(jsret);
+=======
+		JS_SET_RVAL(cx, vp, jsret);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		return true;
 	}
     JS_ReportError(cx, "wrong number of arguments");
@@ -309,15 +428,26 @@ bool js_pluginx_PluginProtocol_callFloatFuncWithParam(JSContext *cx, uint32_t ar
 bool js_pluginx_PluginProtocol_callBoolFuncWithParam(JSContext *cx, uint32_t argc, jsval *vp)
 {
     bool ok = true;
+<<<<<<< HEAD
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
 	if (argc > 0) {
 	    std::string strName;
 	    ok &= jsval_to_std_string(cx, args.get(0), &strName);
+=======
+    jsval *argv = JS_ARGV(cx, vp);
+	if (argc > 0) {
+	    std::string strName;
+	    ok &= jsval_to_std_string(cx, argv[0], &strName);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 		std::vector<cocos2d::plugin::PluginParam*> params;
 		uint32_t i = 1;
 		while (i < argc) {
+<<<<<<< HEAD
             JSObject *tmpObj = args.get(i).toObjectOrNull();
+=======
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[i]);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (tmpObj == NULL)
                 break;
 
@@ -334,7 +464,11 @@ bool js_pluginx_PluginProtocol_callBoolFuncWithParam(JSContext *cx, uint32_t arg
         bool ret = cobj->callBoolFuncWithParam(strName.c_str(), params);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
+<<<<<<< HEAD
 		args.rval().set(jsret);
+=======
+		JS_SET_RVAL(cx, vp, jsret);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		return true;
 	}
     JS_ReportError(cx, "wrong number of arguments");

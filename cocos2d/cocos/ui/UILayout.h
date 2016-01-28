@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __LAYOUT_H__
 
 #include "ui/UIWidget.h"
+<<<<<<< HEAD
 #include "ui/GUIExport.h"
 #include "renderer/CCCustomCommand.h"
 #include "renderer/CCGroupCommand.h"
@@ -34,12 +35,18 @@ THE SOFTWARE.
  * @addtogroup ui
  * @{
  */
+=======
+#include "renderer/CCCustomCommand.h"
+#include "renderer/CCGroupCommand.h"
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class DrawNode;
 class LayerColor;
 class LayerGradient;
 
+<<<<<<< HEAD
 
 namespace ui {
     
@@ -92,12 +99,36 @@ public:
     virtual void doLayout() = 0;
 };
 
+=======
+namespace ui {
+    
+class LayoutManager;
+
+
+class LayoutProtocol
+{
+public:
+    LayoutProtocol(){}
+    virtual ~LayoutProtocol(){}
+    
+    virtual LayoutManager* createLayoutManager() = 0;
+    virtual Size getLayoutContentSize()const = 0;
+    virtual const Vector<Node*>& getLayoutElements()const = 0;
+    virtual void doLayout() = 0;
+};
+
+/**
+ *  @js NA
+ *  @lua NA
+ */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
 #ifdef RELATIVE
 #undef RELATIVE
 #endif
 #endif
 
+<<<<<<< HEAD
 /**
  *@brief A container for holding a few child widgets. 
  *
@@ -111,14 +142,20 @@ public:
  *
  */
 class CC_GUI_DLL Layout : public Widget, public LayoutProtocol
+=======
+class Layout : public Widget, public LayoutProtocol
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
     DECLARE_CLASS_GUI_INFO
     
 public:
+<<<<<<< HEAD
     /**
      * Layout type, default is ABSOLUTE.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class Type
     {
         ABSOLUTE,
@@ -127,18 +164,24 @@ public:
         RELATIVE
     };
     
+<<<<<<< HEAD
     /**
      * Clipping Type, default is STENCIL.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class ClippingType
     {
         STENCIL,
         SCISSOR
     };
     
+<<<<<<< HEAD
     /**
      * Background color type, default is NONE.
      */
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class BackGroundColorType
     {
         NONE,
@@ -148,19 +191,26 @@ public:
     
     /**
      * Default constructor
+<<<<<<< HEAD
      * @js ctor
      * @lua new
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Layout();
     
     /**
      * Default destructor
+<<<<<<< HEAD
      * @js NA
      * @lua NA
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~Layout();
     
     /**
+<<<<<<< HEAD
      * Create a empty layout.
      */
     static Layout* create();
@@ -170,17 +220,37 @@ public:
      *
      * @param fileName image file path.
      * @param texType @see TextureResType. 
+=======
+     * Allocates and initializes a layout.
+     */
+    static Layout* create();
+    
+    //background
+    /**
+     * Sets a background image for layout
+     *
+     * @param fileName image file path.
+     *
+     * @param texType @see TextureResType. TextureResType::LOCAL means local file, TextureResType::PLIST means sprite frame.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void setBackGroundImage(const std::string& fileName,TextureResType texType = TextureResType::LOCAL);
     
     /**
+<<<<<<< HEAD
      * Sets a background image capinsets for layout, it only affects the scale9 enabled background image
      *
      * @param capInsets  The capInsets in Rect.
+=======
+     * Sets a background image capinsets for layout, if the background image is a scale9 render.
+     *
+     * @param capinsets of background image.
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *
      */
     void setBackGroundImageCapInsets(const Rect& capInsets);
     
+<<<<<<< HEAD
     /**
      * Query background image's capInsets size.
      *@return The background image capInsets.
@@ -297,6 +367,74 @@ public:
      * Get the opacity of layout's background image.
      * @return The opacity of layout's background image.
      */
+=======
+    const Rect& getBackGroundImageCapInsets()const;
+    
+    /**
+     * Sets Color Type for layout.
+     *
+     * @param type   @see LayoutBackGroundColorType.
+     */
+    void setBackGroundColorType(BackGroundColorType type);
+    
+    BackGroundColorType getBackGroundColorType()const;
+    
+    /**
+     * Sets background iamge use scale9 renderer.
+     *
+     * @param enabled   true that use scale9 renderer, false otherwise.
+     */
+    void setBackGroundImageScale9Enabled(bool enabled);
+    
+    bool isBackGroundImageScale9Enabled()const;
+    
+    /**
+     * Sets background color for layout, if color type is BackGroundColorType::SOLIDE
+     *
+     * @param color
+     */
+    void setBackGroundColor(const Color3B &color);
+    
+    const Color3B& getBackGroundColor()const;
+    
+    /**
+     * Sets background color for layout, if color type is BackGroundColorType::GRADIENT
+     *
+     * @param start color
+     *
+     * @param end color
+     */
+    void setBackGroundColor(const Color3B &startColor, const Color3B &endColor);
+    
+    const Color3B& getBackGroundStartColor()const;
+    
+    const Color3B& getBackGroundEndColor()const;
+    
+    /**
+     * Sets background opacity layout.
+     *
+     * @param opacity
+     */
+    void setBackGroundColorOpacity(GLubyte opacity);
+    
+    GLubyte getBackGroundColorOpacity()const;
+    
+    /**
+     * Sets background color vector for layout, if color type is BackGroundColorType::GRADIENT
+     *
+     * @param vector
+     */
+    void setBackGroundColorVector(const Vec2 &vector);
+    
+    const Vec2& getBackGroundColorVector()const;
+    
+    void setBackGroundImageColor(const Color3B& color);
+    
+    void setBackGroundImageOpacity(GLubyte opacity);
+    
+    const Color3B& getBackGroundImageColor()const;
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GLubyte getBackGroundImageOpacity()const;
     
     /**
@@ -312,6 +450,7 @@ public:
     const Size& getBackGroundImageTextureSize() const;
     
     /**
+<<<<<<< HEAD
      * Toggle layout clipping.
      *
      * If you do need clipping, you pass true to this function.
@@ -333,6 +472,18 @@ public:
      *
      * @see `setClippingType(ClippingType)`
      */
+=======
+     * Changes if layout can clip it's content and child.
+     *
+     * If you really need this, please enable it. But it would reduce the rendering efficiency. 
+     *
+     * @param clipping enabled.
+     */
+    virtual void setClippingEnabled(bool enabled);
+    
+    void setClippingType(ClippingType type);
+    
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ClippingType getClippingType()const;
     
     /**
@@ -347,6 +498,7 @@ public:
      */
     virtual std::string getDescription() const override;
     
+<<<<<<< HEAD
     /**
      * Change the layout type.
      *@param type Layout type.
@@ -362,17 +514,34 @@ public:
     
     virtual void addChild(Node* child)override;
     virtual void addChild(Node * child, int localZOrder)override;
+=======
+
+    virtual void setLayoutType(Type type);
+    
+    virtual  Type getLayoutType() const;
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Adds a child to the container with z order and tag
      *
      * If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called immediately.
      *
      * @param child     A child node
+<<<<<<< HEAD
      * @param localZOrder    Z order for drawing priority. Please refer to setLocalZOrder(int)
      * @param tag       A interger to identify the node easily. Please refer to setTag(int)
      */
     virtual void addChild(Node* child, int localZOrder, int tag) override;
     virtual void addChild(Node* child, int localZOrder, const std::string &name) override;
+=======
+     * @param zOrder    Z order for drawing priority. Please refer to setLocalZOrder(int)
+     * @param tag       A interger to identify the node easily. Please refer to setTag(int)
+     */
+    virtual void addChild(Node* child)override;
+    virtual void addChild(Node * child, int localZOrder)override;
+    virtual void addChild(Node* child, int zOrder, int tag) override;
+    virtual void addChild(Node* child, int zOrder, const std::string &name) override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
 
@@ -393,6 +562,7 @@ public:
      */
     virtual void removeAllChildrenWithCleanup(bool cleanup) override;
 
+<<<<<<< HEAD
     /**
      * force refresh widget layout
      */
@@ -411,6 +581,12 @@ public:
     /**
      * @lua NA
      */
+=======
+    
+    void requestDoLayout();
+    
+    virtual void onEnter() override;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void onExit() override;
     
     /**
@@ -437,7 +613,11 @@ public:
     /**
      *  When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.
      *  If the widget is not in a layout, it will return itself
+<<<<<<< HEAD
      *@param direction the direction to look for the next focused widget in a layout
+=======
+     *@param dir the direction to look for the next focused widget in a layout
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *@param current  the current focused widget
      *@return the next focused widget in a layout
      */
@@ -596,18 +776,29 @@ protected:
     bool checkFocusEnabledChild()const;
     
 protected:
+<<<<<<< HEAD
     
     //background
     bool _backGroundScale9Enabled;
     Scale9Sprite* _backGroundImage;
+=======
+    bool _clippingEnabled;
+    
+    //background
+    bool _backGroundScale9Enabled;
+    Node* _backGroundImage;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string _backGroundImageFileName;
     Rect _backGroundImageCapInsets;
     BackGroundColorType _colorType;
     TextureResType _bgImageTexType;
+<<<<<<< HEAD
     Size _backGroundImageTextureSize;
     Color3B _backGroundImageColor;
     GLubyte _backGroundImageOpacity;
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     LayerColor* _colorRender;
     LayerGradient* _gradientRender;
     Color3B _cColor;
@@ -615,15 +806,23 @@ protected:
     Color3B _gEndColor;
     Vec2 _alongVector;
     GLubyte _cOpacity;
+<<<<<<< HEAD
     
     //clipping
     bool _clippingEnabled;
+=======
+    Size _backGroundImageTextureSize;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Type _layoutType;
     ClippingType _clippingType;
     DrawNode* _clippingStencil;
     bool _scissorRectDirty;
     Rect _clippingRect;
     Layout* _clippingParent;
+<<<<<<< HEAD
+=======
+    bool _doLayoutDirty;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool _clippingRectDirty;
     
     //clipping
@@ -641,7 +840,14 @@ protected:
     GLboolean _currentAlphaTestEnabled;
     GLenum _currentAlphaTestFunc;
     GLclampf _currentAlphaTestRef;
+<<<<<<< HEAD
  
+=======
+    
+    
+    Color3B _backGroundImageColor;
+    GLubyte _backGroundImageOpacity;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     GLint _mask_layer_le;
     GroupCommand _groupCommand;
@@ -651,9 +857,12 @@ protected:
     CustomCommand _beforeVisitCmdScissor;
     CustomCommand _afterVisitCmdScissor;
     
+<<<<<<< HEAD
     bool _doLayoutDirty;
     bool _isInterceptTouch;
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     //whether enable loop focus or not
     bool _loopFocus;
     //on default, it will pass the focus to the next nearest widget
@@ -664,6 +873,9 @@ protected:
     
 }
 NS_CC_END
+<<<<<<< HEAD
 // end of ui group
 /// @}
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__Layout__) */

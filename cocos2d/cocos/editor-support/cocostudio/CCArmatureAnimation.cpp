@@ -36,7 +36,11 @@ namespace cocostudio {
 
 ArmatureAnimation *ArmatureAnimation::create(Armature *armature)
 {
+<<<<<<< HEAD
     ArmatureAnimation *pArmatureAnimation = new (std::nothrow) ArmatureAnimation();
+=======
+    ArmatureAnimation *pArmatureAnimation = new ArmatureAnimation();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pArmatureAnimation && pArmatureAnimation->init(armature))
     {
         pArmatureAnimation->autorelease();
@@ -153,7 +157,11 @@ void ArmatureAnimation::setSpeedScale(float speedScale)
         bone->getTween()->setProcessScale(_processScale);
         if (bone->getChildArmature())
         {
+<<<<<<< HEAD
             bone->getChildArmature()->getAnimation()->setSpeedScale(_processScale);
+=======
+            bone->getChildArmature()->getAnimation()->setProcessScale(_processScale);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
 }
@@ -228,7 +236,11 @@ void ArmatureAnimation::play(const std::string& animationName, int durationTo,  
 
             if (bone->getChildArmature())
             {
+<<<<<<< HEAD
                 bone->getChildArmature()->getAnimation()->setSpeedScale(_processScale);
+=======
+                bone->getChildArmature()->getAnimation()->setProcessScale(_processScale);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             }
         }
         else
@@ -491,7 +503,11 @@ void ArmatureAnimation::frameEvent(Bone *bone, const std::string& frameEventName
 {
     if ((_frameEventTarget && _frameEventCallFunc) || _frameEventListener)
     {
+<<<<<<< HEAD
         FrameEvent *frameEvent = new (std::nothrow) FrameEvent();
+=======
+        FrameEvent *frameEvent = new FrameEvent();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         frameEvent->bone = bone;
         frameEvent->frameEventName = frameEventName;
         frameEvent->originFrameIndex = originFrameIndex;
@@ -506,7 +522,11 @@ void ArmatureAnimation::movementEvent(Armature *armature, MovementEventType move
 {
     if ((_movementEventTarget && _movementEventCallFunc) || _movementEventListener)
     {
+<<<<<<< HEAD
         MovementEvent *movementEvent = new (std::nothrow) MovementEvent();
+=======
+        MovementEvent *movementEvent = new MovementEvent();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         movementEvent->armature = armature;
         movementEvent->movementType = movementType;
         movementEvent->movementID = movementID;

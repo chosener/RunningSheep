@@ -27,7 +27,10 @@ THE SOFTWARE.
 
 #include "2d/CCNode.h"
 #include "cocostudio/CCArmatureDefine.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d {
     class GroupCommand;
@@ -35,7 +38,11 @@ namespace cocos2d {
 
 namespace cocostudio {
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL BatchNode : public cocos2d::Node
+=======
+class BatchNode : public cocos2d::Node
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static BatchNode *create();

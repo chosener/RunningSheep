@@ -25,6 +25,7 @@
 #ifndef __cocos2d_libs__CCCustomEvent__
 #define __cocos2d_libs__CCCustomEvent__
 
+<<<<<<< HEAD
 #include <string>
 #include "base/CCEvent.h"
 
@@ -64,6 +65,25 @@ public:
      *
      * @return The name of the event.
      */
+=======
+#include "base/CCEvent.h"
+
+NS_CC_BEGIN
+
+class EventCustom : public Event
+{
+public:
+    /** Constructor */
+    EventCustom(const std::string& eventName);
+    
+    /** Sets user data */
+    inline void setUserData(void* data) { _userData = data; };
+    
+    /** Gets user data */
+    inline void* getUserData() const { return _userData; };
+    
+    /** Gets event name */
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline const std::string& getEventName() const { return _eventName; };
 protected:
     void* _userData;       ///< User data
@@ -72,7 +92,10 @@ protected:
 
 NS_CC_END
 
+<<<<<<< HEAD
 // end of base group
 /// @}
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCCustomEvent__) */

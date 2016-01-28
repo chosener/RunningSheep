@@ -28,6 +28,7 @@ THE SOFTWARE.
 #include "CCComBase.h"
 #include "2d/CCComponent.h"
 #include "base/CCValue.h"
+<<<<<<< HEAD
 #include "cocostudio/CocosStudioExport.h"
 
 namespace cocostudio {
@@ -36,6 +37,15 @@ class CC_STUDIO_DLL ComAttribute : public cocos2d::Component
 {
     DECLARE_CLASS_COMPONENT_INFO
 public:
+=======
+
+namespace cocostudio {
+
+class ComAttribute : public cocos2d::Component
+{
+    DECLARE_CLASS_COMPONENT_INFO
+protected:
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js ctor
      */

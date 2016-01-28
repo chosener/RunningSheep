@@ -32,11 +32,14 @@ THE SOFTWARE.
 #include <ppltasks.h>
 #include <sstream>
 
+<<<<<<< HEAD
 #if CC_TARGET_PLATFORM != CC_PLATFORM_WP8
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 #endif
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 using namespace Windows::Graphics::Display;
@@ -100,6 +103,7 @@ std::string PlatformStringToString(Platform::String^ s) {
 	return std::string(t.begin(),t.end());
 }
 
+<<<<<<< HEAD
 Platform::String^ PlatformStringFromString(const std::string& s)
 {
     std::wstring ws(CCUtf8ToUnicode(s.c_str()));
@@ -107,6 +111,8 @@ Platform::String^ PlatformStringFromString(const std::string& s)
 }
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // Method to convert a length in device-independent pixels (DIPs) to a length in physical pixels.
 float ConvertDipsToPixels(float dips)
 {
@@ -118,12 +124,18 @@ float getScaledDPIValue(float v) {
 	auto dipFactor = DisplayProperties::LogicalDpi / 96.0f;
 	return v * dipFactor;
 }
+<<<<<<< HEAD
 #endif
 
 
 void CC_DLL CCLogIPAddresses()
 {
 #ifndef WP8_SHADER_COMPILER
+=======
+
+void CC_DLL CCLogIPAddresses()
+{
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     auto hostnames = NetworkInformation::GetHostNames();
     int length = hostnames->Size;
 
@@ -133,10 +145,16 @@ void CC_DLL CCLogIPAddresses()
         if (hn->IPInformation != nullptr)
         {
             std::string s = PlatformStringToString(hn->DisplayName);
+<<<<<<< HEAD
             log("IP Address: %s:", s.c_str());
         }
     }
 #endif
+=======
+            CCLog("IP Address: %s:", s.c_str());
+        }
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 std::string CC_DLL getDeviceIPAddresses()
@@ -158,6 +176,7 @@ std::string CC_DLL getDeviceIPAddresses()
     return result.str();
 }
 
+<<<<<<< HEAD
 #if CC_TARGET_PLATFORM != CC_PLATFORM_WP8
 Platform::Object^ findXamlElement(Platform::Object^ parent, Platform::String^ name)
 {
@@ -255,6 +274,8 @@ bool replaceXamlElement(Platform::Object^ parent, Platform::Object^ add, Platfor
 }
 #endif
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 

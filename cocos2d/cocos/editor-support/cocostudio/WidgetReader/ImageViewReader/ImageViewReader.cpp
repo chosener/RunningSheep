@@ -1,6 +1,7 @@
 
 
 #include "ImageViewReader.h"
+<<<<<<< HEAD
 
 #include "ui/UIImageView.h"
 #include "cocostudio/CocoLoader.h"
@@ -13,6 +14,13 @@
 USING_NS_CC;
 using namespace ui;
 using namespace flatbuffers;
+=======
+#include "ui/UIImageView.h"
+#include "cocostudio/CocoLoader.h"
+
+USING_NS_CC;
+using namespace ui;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio
 {
@@ -28,7 +36,11 @@ namespace cocostudio
     
     static ImageViewReader* instanceImageViewReader = nullptr;
     
+<<<<<<< HEAD
     IMPLEMENT_CLASS_NODE_READER_INFO(ImageViewReader)
+=======
+    IMPLEMENT_CLASS_WIDGET_READER_INFO(ImageViewReader)
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     ImageViewReader::ImageViewReader()
     {
@@ -44,16 +56,23 @@ namespace cocostudio
     {
         if (!instanceImageViewReader)
         {
+<<<<<<< HEAD
             instanceImageViewReader = new (std::nothrow) ImageViewReader();
+=======
+            instanceImageViewReader = new ImageViewReader();
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
         return instanceImageViewReader;
     }
     
+<<<<<<< HEAD
     void ImageViewReader::destroyInstance()
     {
         CC_SAFE_DELETE(instanceImageViewReader);
     }
     
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void ImageViewReader::setPropsFromBinary(cocos2d::ui::Widget *widget, CocoLoader *cocoLoader, stExpCocoNode *cocoNode)
     {
         WidgetReader::setPropsFromBinary(widget, cocoLoader, cocoNode);
@@ -122,6 +141,7 @@ namespace cocostudio
         
         const rapidjson::Value& imageFileNameDic = DICTOOL->getSubDictionary_json(options, P_FileNameData);
         int imageFileNameType = DICTOOL->getIntValue_json(imageFileNameDic, P_ResourceType);
+<<<<<<< HEAD
         const std::string& imageFilePath = DICTOOL->getStringValue_json(imageFileNameDic, P_Path);
 
         if (!imageFilePath.empty()) {
@@ -129,6 +149,11 @@ namespace cocostudio
         	imageView->loadTexture(imageFileName, (Widget::TextureResType)imageFileNameType);
         }
                 
+=======
+        std::string imageFileName = this->getResourcePath(imageFileNameDic, P_Path, (Widget::TextureResType)imageFileNameType);
+        imageView->loadTexture(imageFileName, (Widget::TextureResType)imageFileNameType);
+        
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         
         bool scale9EnableExist = DICTOOL->checkObjectExist_json(options, P_Scale9Enable);
         bool scale9Enable = false;
@@ -158,6 +183,7 @@ namespace cocostudio
         
         
         WidgetReader::setColorPropsFromJsonDictionary(widget, options);
+<<<<<<< HEAD
     }        
     
     Offset<Table> ImageViewReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
@@ -414,4 +440,7 @@ namespace cocostudio
         return 1;
     }
     
+=======
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }

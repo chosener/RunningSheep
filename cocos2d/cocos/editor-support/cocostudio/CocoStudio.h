@@ -45,6 +45,10 @@ THE SOFTWARE.
 #include "cocostudio/CCArmatureDataManager.h"
 #include "cocostudio/CCArmatureDefine.h"
 #include "cocostudio/CCDataReaderHelper.h"
+<<<<<<< HEAD
+=======
+#include "cocostudio/CCSpriteFrameCacheHelper.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "cocostudio/CCTransformHelp.h"
 #include "cocostudio/CCUtilMath.h"
 #include "cocostudio/CCComBase.h"
@@ -57,10 +61,15 @@ THE SOFTWARE.
 #include "cocostudio/CCSGUIReader.h"
 #include "cocostudio/CCSSceneReader.h"
 #include "cocostudio/TriggerBase.h"
+<<<<<<< HEAD
+=======
+#include "cocostudio/ActionTimeline/CCNodeReader.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "cocostudio/ActionTimeline/CCActionTimelineCache.h"
 #include "cocostudio/ActionTimeline/CCFrame.h"
 #include "cocostudio/ActionTimeline/CCTimeLine.h"
 #include "cocostudio/ActionTimeline/CCActionTimeline.h"
+<<<<<<< HEAD
 #include "cocostudio/ActionTimeline/CCActionTimelineNode.h"
 #include "cocostudio/CocosStudioExport.h"
 #include "cocostudio/ActionTimeline/CSLoader.h"
@@ -71,5 +80,7 @@ namespace cocostudio
 {
     void CC_STUDIO_DLL destroyCocosStudio();
 }
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif

@@ -147,7 +147,11 @@ long
 /**
  * @method logEvent
  * @param {char} arg0
+<<<<<<< HEAD
  * @param {map_object} arg1
+=======
+ * @param {MapObject} arg1
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 logEvent : function (
 char, 
@@ -192,6 +196,35 @@ char
 plugin.ProtocolIAP = {
 
 /**
+<<<<<<< HEAD
+ * @method onPayResult
+ * @param {cc.plugin::PayResultCode} arg0
+ * @param {char} arg1
+ */
+onPayResult : function (
+payresultcode, 
+char 
+=======
+ * @method payForProduct
+ * @param {MapObject} arg0
+ */
+payForProduct : function (
+map 
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
+)
+{
+},
+
+/**
+<<<<<<< HEAD
+ * @method getCallback
+ * @return {function}
+ */
+getCallback : function (
+)
+{
+    return std::function<void (int, std::basic_string<char> &)>;
+=======
  * @method onPayResult
  * @param {cc.plugin::PayResultCode} arg0
  * @param {char} arg1
@@ -201,21 +234,16 @@ payresultcode,
 char 
 )
 {
-},
-
-/**
- * @method getCallback
- * @return {function}
- */
-getCallback : function (
-)
-{
-    return std::function<void (int, std::basic_string<char> &)>;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 },
 
 /**
  * @method configDeveloperInfo
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 configDeveloperInfo : function (
 map 
@@ -232,7 +260,11 @@ plugin.ProtocolAds = {
 
 /**
  * @method showAds
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @param {cc.plugin::ProtocolAds::AdsPos} arg1
  */
 showAds : function (
@@ -244,7 +276,11 @@ adspos
 
 /**
  * @method hideAds
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 hideAds : function (
 map 
@@ -261,6 +297,7 @@ queryPoints : function (
 },
 
 /**
+<<<<<<< HEAD
  * @method getCallback
  * @return {function}
  */
@@ -271,6 +308,8 @@ getCallback : function (
 },
 
 /**
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @method spendPoints
  * @param {int} arg0
  */
@@ -282,7 +321,11 @@ int
 
 /**
  * @method configDeveloperInfo
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 configDeveloperInfo : function (
 map 
@@ -290,6 +333,19 @@ map
 {
 },
 
+<<<<<<< HEAD
+=======
+/**
+ * @method getAdsListener
+ * @return {cc.plugin::AdsListener}
+ */
+getAdsListener : function (
+)
+{
+    return cc.plugin::AdsListener;
+},
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 /**
@@ -310,6 +366,7 @@ char
 },
 
 /**
+<<<<<<< HEAD
  * @method getCallback
  * @return {function}
  */
@@ -317,11 +374,24 @@ getCallback : function (
 )
 {
     return std::function<void (int, std::basic_string<char> &)>;
+=======
+ * @method share
+ * @param {MapObject} arg0
+ */
+share : function (
+map 
+)
+{
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 },
 
 /**
  * @method configDeveloperInfo
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 configDeveloperInfo : function (
 map 
@@ -355,6 +425,7 @@ showAchievements : function (
 },
 
 /**
+<<<<<<< HEAD
  * @method getCallback
  * @return {function}
  */
@@ -362,11 +433,26 @@ getCallback : function (
 )
 {
     return std::function<void (int, std::basic_string<char> &)>;
+=======
+ * @method submitScore
+ * @param {char} arg0
+ * @param {long} arg1
+ */
+submitScore : function (
+char, 
+long 
+)
+{
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 },
 
 /**
  * @method configDeveloperInfo
+<<<<<<< HEAD
  * @param {map_object} arg0
+=======
+ * @param {MapObject} arg0
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 configDeveloperInfo : function (
 map 
@@ -374,6 +460,7 @@ map
 {
 },
 
+<<<<<<< HEAD
 };
 
 /**
@@ -396,11 +483,19 @@ getCallback : function (
  * @param {map_object} arg0
  */
 configDeveloperInfo : function (
+=======
+/**
+ * @method unlockAchievement
+ * @param {MapObject} arg0
+ */
+unlockAchievement : function (
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 map 
 )
 {
 },
 
+<<<<<<< HEAD
 /**
  * @method isLoggedIn
  * @return {bool}
@@ -561,6 +656,23 @@ float,
 map 
 )
 {
+=======
+};
+
+/**
+ * @class ProtocolUser
+ */
+plugin.ProtocolUser = {
+
+/**
+ * @method isLogined
+ * @return {bool}
+ */
+isLogined : function (
+)
+{
+    return false;
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 },
 
 /**
@@ -572,6 +684,7 @@ logout : function (
 },
 
 /**
+<<<<<<< HEAD
  * @method getSDKVersion
  * @return {String}
  */
@@ -590,12 +703,19 @@ getSDKVersion : function (
 logPurchase : function(
 float,
 str,
+=======
+ * @method configDeveloperInfo
+ * @param {MapObject} arg0
+ */
+configDeveloperInfo : function (
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 map 
 )
 {
 },
 
 /**
+<<<<<<< HEAD
  * @method isLoggedIn
  * @return {bool}
  */
@@ -622,11 +742,26 @@ map
  * @return {String}
  */
 getAccessToken : function (
+=======
+ * @method login
+ */
+login : function (
+)
+{
+},
+
+/**
+ * @method getSessionID
+ * @return {String}
+ */
+getSessionID : function (
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 )
 {
     return ;
 },
 
+<<<<<<< HEAD
 /**
  * @method destroyInstance
  */
@@ -645,4 +780,6 @@ getInstanceJs : function (
     return cc.plugin::FacebookAgent;
 },
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };

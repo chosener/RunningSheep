@@ -24,6 +24,10 @@ THE SOFTWARE.
 #ifndef __TRIGGERMNG_H__
 #define __TRIGGERMNG_H__
 
+<<<<<<< HEAD
+=======
+#include "cocos2d.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "CocoStudio.h"
 
 namespace cocos2d {
@@ -35,7 +39,11 @@ namespace cocostudio {
 
 class TriggerObj;
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL ArmatureMovementDispatcher : public cocos2d::Ref
+=======
+class ArmatureMovementDispatcher : public cocos2d::Ref
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 	ArmatureMovementDispatcher(void);
@@ -50,7 +58,11 @@ private:
 
 };
 
+<<<<<<< HEAD
 class CC_STUDIO_DLL TriggerMng
+=======
+class TriggerMng
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     TriggerMng(void);

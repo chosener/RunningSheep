@@ -8,6 +8,7 @@ if [ ! $(command -v apt-get) ]; then
   exit 0
 fi
 
+<<<<<<< HEAD
 #install g++-4.9
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
@@ -15,18 +16,28 @@ sudo apt-get update
 #try to remove glfw2
 sudo apt-get remove libglfw2
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 DEPENDS='libx11-dev'
 DEPENDS+=' libxmu-dev'
 DEPENDS+=' libglu1-mesa-dev'
 DEPENDS+=' libgl2ps-dev'
 DEPENDS+=' libxi-dev'
+<<<<<<< HEAD
 DEPENDS+=' g++-4.9'
+=======
+DEPENDS+=' g++'
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 DEPENDS+=' libzip-dev'
 DEPENDS+=' libpng12-dev'
 DEPENDS+=' libcurl4-gnutls-dev'
 DEPENDS+=' libfontconfig1-dev'
 DEPENDS+=' libsqlite3-dev'
+<<<<<<< HEAD
 DEPENDS+=' libglew-dev'
+=======
+DEPENDS+=' libglew*-dev'
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 DEPENDS+=' libssl-dev'
 
 MISSING=
@@ -37,6 +48,7 @@ for i in $DEPENDS; do
     fi
 done
 
+<<<<<<< HEAD
 
 if [ -f /usr/bin/g++ ];then
 sudo rm /usr/bin/g++
@@ -44,6 +56,8 @@ echo "remove old g++"
 fi
 sudo ln -s /usr/bin/g++-4.9 /usr/bin/g++
 
+=======
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 if [ -n "$MISSING" ]; then
     TXTCOLOR_DEFAULT="\033[0;m"
     TXTCOLOR_GREEN="\033[0;32m"

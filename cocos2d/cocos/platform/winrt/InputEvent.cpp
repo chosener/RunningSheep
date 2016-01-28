@@ -24,6 +24,7 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "InputEvent.h"
+<<<<<<< HEAD
 #include "CCWinRTUtils.h"
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
@@ -32,10 +33,19 @@ THE SOFTWARE.
 #include "CCGLViewImpl-winrt.h"
 #endif
 
+=======
+#include "CCGLView.h"
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCEventAcceleration.h"
 
 NS_CC_BEGIN
 
+<<<<<<< HEAD
+=======
+using namespace PhoneDirect3DXamlAppComponent;
+
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 AccelerometerEvent::AccelerometerEvent(const Acceleration& event)
     : m_event(event)
 {
@@ -61,6 +71,7 @@ void PointerEvent::execute()
     switch(m_type)
     {
     case PointerEventType::PointerPressed:
+<<<<<<< HEAD
         GLViewImpl::sharedOpenGLView()->OnPointerPressed(m_args.Get());
         break;
     case PointerEventType::PointerMoved:
@@ -68,6 +79,15 @@ void PointerEvent::execute()
         break;           
     case PointerEventType::PointerReleased:
         GLViewImpl::sharedOpenGLView()->OnPointerReleased(m_args.Get());
+=======
+        GLView::sharedOpenGLView()->OnPointerPressed(m_args.Get());
+        break;
+    case PointerEventType::PointerMoved:
+        GLView::sharedOpenGLView()->OnPointerMoved(m_args.Get());
+        break;           
+    case PointerEventType::PointerReleased:
+        GLView::sharedOpenGLView()->OnPointerReleased(m_args.Get());
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         break;
     }
 }
@@ -90,6 +110,7 @@ void KeyboardEvent::execute()
     {
     case Cocos2dKeyEvent::Text:
     {
+<<<<<<< HEAD
         std::wstring w(m_text.Get()->Data());
         std::u16string  s16(w.begin(),w.end());
         std::string utf8String;
@@ -98,6 +119,13 @@ void KeyboardEvent::execute()
         break;
     }
 
+=======
+        char szUtf8[8] = { 0 };
+        int nLen = WideCharToMultiByte(CP_UTF8, 0, (LPCWSTR) m_text.Get()->Data(), 1, szUtf8, sizeof(szUtf8), NULL, NULL);
+        IMEDispatcher::sharedDispatcher()->dispatchInsertText(szUtf8, nLen);
+        break;
+    }
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     default:
         switch (m_type)
         {
@@ -108,6 +136,10 @@ void KeyboardEvent::execute()
             IMEDispatcher::sharedDispatcher()->dispatchDeleteBackward();
             break;
         case Cocos2dKeyEvent::Enter:
+<<<<<<< HEAD
+=======
+            //SetFocus(false);
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             IMEDispatcher::sharedDispatcher()->dispatchInsertText("\n", 1);
             break;
         default:
@@ -125,6 +157,7 @@ BackButtonEvent::BackButtonEvent()
 
 void BackButtonEvent::execute()
 {
+<<<<<<< HEAD
     GLViewImpl::sharedOpenGLView()->OnBackKeyPress();
 }
 
@@ -153,6 +186,11 @@ void UIEditBoxEvent::execute()
         m_handler.Get()->Invoke(m_sender.Get(), m_text.Get());
     }
 }
+=======
+    GLView::sharedOpenGLView()->OnBackKeyPress();
+}
+
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

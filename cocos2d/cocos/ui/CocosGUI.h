@@ -48,6 +48,7 @@ THE SOFTWARE.
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ui/UIVideoPlayer.h"
 #endif
+<<<<<<< HEAD
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ui/UIWebView.h"
 #endif
@@ -76,5 +77,17 @@ CC_GUI_DLL const char* CocosGUIVersion();
 NS_CC_END
 // end of ui group
 /// @}
+=======
+#include "ui/UIDeprecated.h"
+
+
+NS_CC_BEGIN
+namespace ui {
+
+const char* CocosGUIVersion();
+
+}
+NS_CC_END
+>>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__CocosGUITest__Cocos__) */
