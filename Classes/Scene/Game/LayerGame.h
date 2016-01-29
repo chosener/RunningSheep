@@ -36,6 +36,8 @@ private:
     void initTest();
     
     void onSheepGo(Node* sender, Touch* touch, Event* e);
+    
+    void addSheep(int line);
 };
 
 #endif /* defined(__MagicTouch__LayerGame__) */

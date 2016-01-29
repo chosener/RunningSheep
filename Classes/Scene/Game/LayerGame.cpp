@@ -146,6 +146,12 @@ void LayerGame::initTest()
     sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_CY);
     this->addChild(sheepWhite,5);
 }
+void LayerGame::addSheep(int line)
+{
+    SheepWhite* sheepWhite = SheepWhite::createWithFrameAnim("images/game/goldBig.png");
+    sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_BOTTOM + 120*line + 60);
+    this->addChild(sheepWhite,5);
+}
 void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
 {
     DLog::d("sheep running");
@@ -157,27 +163,32 @@ void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
         case 10:
         {
             DLog::d("run",line);
+            addSheep(line);
         }
             break;
         case 11:
         {
             DLog::d("run",line);
+            addSheep(line);
         }
             break;
         case 12:
         {
             DLog::d("run",line);
+            addSheep(line);
         }
             break;
         case 13:
         {
             DLog::d("run",line);
+            addSheep(line);
         }
             break;
         case 14:
         {
             
             DLog::d("run",line);
+            addSheep(line);
         }
             break;
         
