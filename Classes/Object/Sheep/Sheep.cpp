@@ -43,7 +43,7 @@ void Sheep::update(float dt)
     
     setPositionX(pos.x + 3.0f);
     
-    if(!DISPLAY_RECT.intersectsRect(this->m_rectCollide));
+    if(!DISPLAY_RECT.intersectsRect(this->m_rectCollide))
     {
         this->release();
     }

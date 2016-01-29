@@ -323,6 +323,7 @@
   jni/../../Classes/Scene/Game/../../Framework/GameTouchNode.h \
   jni/../../Classes/Scene/Game/../../Framework/TouchSprite.h \
   jni/../../Classes/Scene/Game/../../Framework/GlobalEnum.h \
+  jni/../../Classes/Scene/Game/../../Framework/FrameAnim.h \
   jni/../../Classes/Scene/Game/../../Framework/../System/Debug/DLog.h \
   jni/../../Classes/Scene/Game/../../Framework/../Scene/Start/LayerStart.h \
   jni/../../Classes/Scene/Game/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
@@ -977,6 +978,8 @@ jni/../../Classes/Scene/Game/../../Framework/GameTouchNode.h:
 jni/../../Classes/Scene/Game/../../Framework/TouchSprite.h:
 
 jni/../../Classes/Scene/Game/../../Framework/GlobalEnum.h:
+
+jni/../../Classes/Scene/Game/../../Framework/FrameAnim.h:
 
 jni/../../Classes/Scene/Game/../../Framework/../System/Debug/DLog.h:
 

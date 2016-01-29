@@ -322,6 +322,7 @@
   jni/../../Classes/Object/Sheep/../../Framework/GameTouchNode.h \
   jni/../../Classes/Object/Sheep/../../Framework/TouchSprite.h \
   jni/../../Classes/Object/Sheep/../../Framework/GlobalEnum.h \
+  jni/../../Classes/Object/Sheep/../../Framework/FrameAnim.h \
   jni/../../Classes/Object/Sheep/../../Framework/../System/Debug/DLog.h \
   jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/LayerStart.h \
   jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
@@ -975,6 +976,8 @@ jni/../../Classes/Object/Sheep/../../Framework/GameTouchNode.h:
 jni/../../Classes/Object/Sheep/../../Framework/TouchSprite.h:
 
 jni/../../Classes/Object/Sheep/../../Framework/GlobalEnum.h:
+
+jni/../../Classes/Object/Sheep/../../Framework/FrameAnim.h:
 
 jni/../../Classes/Object/Sheep/../../Framework/../System/Debug/DLog.h:
 

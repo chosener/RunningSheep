@@ -144,7 +144,7 @@ void LayerGame::initTest()
 {
     SheepWhite* sheepWhite = SheepWhite::createWithFrameAnim("images/game/goldBig.png");
     sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_CY);
-    this->addChild(sheepWhite);
+    this->addChild(sheepWhite,5);
 }
 void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
 {
