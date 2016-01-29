@@ -25,39 +25,6 @@
 #ifndef __CCMESHSKIN_H__
 #define __CCMESHSKIN_H__
 
-<<<<<<< HEAD
-#include "3d/CCBundle3DData.h"
-#include "base/CCRef.h"
-#include "base/CCVector.h"
-#include "math/CCMath.h"
-
-
-NS_CC_BEGIN
-
-/**
- * @addtogroup _3d
- * @{
- */
-
-class Bone3D;
-class Skeleton3D;
-
-/**
- * @brief MeshSkin, A class maintain a collection of bones that affect Mesh vertex.
- * And it is responsible for computing matrix palletes that used by skin mesh rendering.
- * @js NA
- * @lua NA
- */
-class CC_DLL MeshSkin: public Ref
-{
-    friend class Mesh;
-public:
-    
-    /**create a new meshskin if do not want to share meshskin*/
-    static MeshSkin* create(Skeleton3D* skeleton, const std::string& filename, const std::string& name);
-    
-    static MeshSkin* create(Skeleton3D* skeleton, const std::vector<std::string>& boneNames, const std::vector<Mat4>& invBindPose);
-=======
 #include <unordered_map>
 
 #include "3d/CCBundle3DData.h"
@@ -221,7 +188,6 @@ public:
     
     /**create a new meshskin if do not want to share meshskin*/
     static MeshSkin* create(const std::string& filename, const std::string& name);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**get total bone count, skin bone + node bone*/
     ssize_t getBoneCount() const;
@@ -230,13 +196,10 @@ public:
     Bone3D* getBoneByIndex(unsigned int index) const;
     Bone3D* getBoneByName(const std::string& id) const;
     
-<<<<<<< HEAD
-=======
     /**get & set root bone*/
     Bone3D* getRootBone() const;
     void setRootBone(Bone3D* bone);
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**get bone index*/
     int getBoneIndex(Bone3D* bone) const;
     
@@ -246,13 +209,8 @@ public:
     /**getSkinBoneCount() * 3*/
     ssize_t getMatrixPaletteSize() const;
     
-<<<<<<< HEAD
-    /**get root bone of the skin*/
-    Bone3D* getRootBone() const;
-=======
     /**refresh bone world matrix*/
     void updateBoneMatrix();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     
@@ -260,30 +218,15 @@ CC_CONSTRUCTOR_ACCESS:
     
     ~MeshSkin();
     
-<<<<<<< HEAD
-=======
     /**init from skin data*/
     bool initFromSkinData(const SkinData& skindata);
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**remove all bones*/
     void removeAllBones();
     
     /**add skin bone*/
     void addSkinBone(Bone3D* bone);
     
-<<<<<<< HEAD
-    /** get inverse bind pose */
-    const Mat4& getInvBindPose(const Bone3D* bone);
-    
-protected:
-    
-    Vector<Bone3D*>    _skinBones; // bones with skin
-    std::vector<Mat4>  _invBindPoses; //inverse bind pose of bone
-
-    Bone3D* _rootBone;
-    Skeleton3D*     _skeleton; //skeleton the skin refered
-=======
     /**add Node bone*/
     void addNodeBone(Bone3D* bone);
     
@@ -293,7 +236,6 @@ protected:
     Vector<Bone3D*> _nodeBones; //bones without skin, only used to compute transform of children
 
     Bone3D* _rootBone;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     // Pointer to the array of palette matrices.
     // This array is passed to the vertex shader as a uniform.
@@ -302,10 +244,6 @@ protected:
     Vec4* _matrixPalette;
 };
 
-<<<<<<< HEAD
-// end of 3d group
-/// @}
-=======
 /**
  * MeshSkinData Cache
  */
@@ -333,7 +271,6 @@ protected:
     
     std::unordered_map<std::string, SkinData> _skinDatas; //cached skindatas
 };
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

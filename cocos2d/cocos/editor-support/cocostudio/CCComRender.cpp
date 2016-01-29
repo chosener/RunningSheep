@@ -165,11 +165,7 @@ bool ComRender::serialize(void* r)
 			else if(strcmp(className, "CCParticleSystemQuad") == 0 && filePath.find(".plist") != filePath.npos)
 			{
 				_render = CCParticleSystemQuad::create(filePath.c_str());
-<<<<<<< HEAD
-				_render->setPosition(0.0f, 0.0f);
-=======
 				_render->setPosition(Point(0.0f, 0.0f));
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 				_render->retain();
                 
                 ret = true;
@@ -214,15 +210,6 @@ bool ComRender::serialize(void* r)
 				}
 				else if (file_extension == ".CSB")
 				{
-<<<<<<< HEAD
-                    std::string binaryFilePath = FileUtils::getInstance()->fullPathForFilename(filePath.c_str());
-                    auto fileData = FileUtils::getInstance()->getDataFromFile(binaryFilePath);
-                    auto fileDataBytes = fileData.getBytes();
-                    CC_BREAK_IF(fileData.isNull());
-                    CocoLoader tCocoLoader;
-                    if (tCocoLoader.ReadCocoBinBuff((char*)fileDataBytes))
-                    {
-=======
 					ssize_t size = 0;
 					unsigned char *pBytes = nullptr;
 					std::string binaryFilePath = FileUtils::getInstance()->fullPathForFilename(filePath.c_str());
@@ -231,7 +218,6 @@ bool ComRender::serialize(void* r)
 					CocoLoader tCocoLoader;
 					if (tCocoLoader.ReadCocoBinBuff((char*)pBytes))
 					{
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 						stExpCocoNode *tpRootCocoNode = tCocoLoader.GetRootCocoNode();
 						rapidjson::Type tType = tpRootCocoNode->GetType(&tCocoLoader);
 						if (rapidjson::kObjectType  == tType)
@@ -359,11 +345,7 @@ bool ComRender::serialize(void* r)
 
 ComRender* ComRender::create(void)
 {
-<<<<<<< HEAD
-    ComRender * ret = new (std::nothrow) ComRender();
-=======
     ComRender * ret = new ComRender();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret != nullptr && ret->init())
     {
         ret->autorelease();
@@ -377,11 +359,7 @@ ComRender* ComRender::create(void)
 
 ComRender* ComRender::create(cocos2d::Node *node, const char *comName)
 {
-<<<<<<< HEAD
-    ComRender * ret = new (std::nothrow) ComRender(node, comName);
-=======
     ComRender * ret = new ComRender(node, comName);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret != nullptr && ret->init())
     {
         ret->autorelease();

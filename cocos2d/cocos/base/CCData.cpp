@@ -24,13 +24,10 @@
  ****************************************************************************/
 
 #include "base/CCData.h"
-<<<<<<< HEAD
-=======
 #include "platform/CCCommon.h"
 #include "base/ccMacros.h"
 
 #include <string>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -103,11 +100,7 @@ ssize_t Data::getSize() const
     return _size;
 }
 
-<<<<<<< HEAD
-void Data::copy(const unsigned char* bytes, const ssize_t size)
-=======
 void Data::copy(unsigned char* bytes, const ssize_t size)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     clear();
     

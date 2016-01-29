@@ -29,28 +29,13 @@
 #include <vector>
 
 #include "base/CCRef.h"
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-=======
 #include "base/CCPlatformMacros.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCConsole.h"
 
 NS_CC_BEGIN
 
 /**
-<<<<<<< HEAD
- * @addtogroup _3d
- * @{
- */
-
-/**
- * @brief BundleReader is an interface for reading sequence of bytes.
- * @js NA
- * @lua NA
-=======
  * BundleReader is an interface for reading sequence of bytes.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 class BundleReader: public cocos2d::Ref
 {
@@ -70,11 +55,7 @@ public:
      * @param lpbuffer The data buffer pointer
      * @param length The data buffer size
      */
-<<<<<<< HEAD
-    void init(char* buffer, ssize_t length);
-=======
     void init(char* lpbuffer, ssize_t length);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Reads an array of elements.
@@ -106,11 +87,7 @@ public:
     /**
      * Returns the position of the file pointer.
      */
-<<<<<<< HEAD
-    ssize_t tell();
-=======
     long int tell();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the position of the file pointer.
@@ -132,23 +109,6 @@ public:
      * first read length, then read string text
      */
     std::string readString();
-<<<<<<< HEAD
-
-    /**
-     * Read the matrix.
-     * @note the matrix type must be the 4*4 float matrix
-     */
-    bool readMatrix(float* m);
-
-private:
-    ssize_t _position;
-    ssize_t  _length;
-    char* _buffer;
-};
-
-/// @cond 
-
-=======
     bool readMatrix(float* m);
 
 private:
@@ -157,7 +117,6 @@ private:
     char* m_buffer;
 };
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /**
 * template read routines
 */
@@ -237,13 +196,6 @@ inline bool BundleReader::readArray<std::string>(unsigned int *length, std::vect
     return true;
 }
 
-<<<<<<< HEAD
-/// @endcond
-
-// end of 3d group
-/// @}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

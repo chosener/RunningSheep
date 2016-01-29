@@ -48,36 +48,6 @@ THE SOFTWARE.
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ui/UIVideoPlayer.h"
 #endif
-<<<<<<< HEAD
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "ui/UIWebView.h"
-#endif
-#include "ui/UIDeprecated.h"
-#include "ui/GUIExport.h"
-#include "ui/UIScale9Sprite.h"
-#include "ui/UIEditBox/UIEditBox.h"
-#include "ui/UILayoutComponent.h"
-
-/**
- * @addtogroup ui
- * @{
- */
-NS_CC_BEGIN
-namespace ui {
-
-
-/**
- * Get current cocos GUI module version string.
- *@return A string representation of GUI module version number
- */
-CC_GUI_DLL const char* CocosGUIVersion();
-
-}
-
-NS_CC_END
-// end of ui group
-/// @}
-=======
 #include "ui/UIDeprecated.h"
 
 
@@ -88,6 +58,5 @@ const char* CocosGUIVersion();
 
 }
 NS_CC_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__CocosGUITest__Cocos__) */

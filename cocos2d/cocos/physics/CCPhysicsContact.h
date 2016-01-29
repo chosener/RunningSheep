@@ -40,17 +40,11 @@ class PhysicsShape;
 class PhysicsBody;
 class PhysicsWorld;
 
-<<<<<<< HEAD
-typedef Vec2 Vect;
-
-typedef struct CC_DLL PhysicsContactData
-=======
 class PhysicsContactInfo;
 
 typedef Vec2 Vect;
 
 typedef struct PhysicsContactData
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     static const int POINT_MAX = 4;
     Vec2 points[POINT_MAX];
@@ -63,22 +57,9 @@ typedef struct PhysicsContactData
 }PhysicsContactData;
 
 /**
-<<<<<<< HEAD
- * @addtogroup core
- * @{
- */
-
-/**
- * @brief Contact infomation. 
- 
- * It will created automatically when two shape contact with each other. And it will destoried automatically when two shape separated.
- */
-class CC_DLL PhysicsContact : public EventCustom
-=======
  * @brief Contact infomation. it will created automatically when two shape contact with each other. and it will destoried automatically when two shape separated.
  */
 class PhysicsContact : public EventCustom
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     
@@ -91,36 +72,6 @@ public:
         SEPERATE
     };
     
-<<<<<<< HEAD
-    /** Get contact shape A. */
-    inline PhysicsShape* getShapeA() const { return _shapeA; }
-    
-    /** Get contact shape B. */
-    inline PhysicsShape* getShapeB() const { return _shapeB; }
-    
-    /** Get contact data. */
-    inline const PhysicsContactData* getContactData() const { return _contactData; }
-    
-    /** Get previous contact data */
-    inline const PhysicsContactData* getPreContactData() const { return _preContactData; }
-    
-    /** 
-     * Get data. 
-     * @lua NA
-     */
-    inline void* getData() const { return _data; }
-    
-    /**
-     * @brief Set data to contact. 
-     
-     * You must manage the memory yourself, Generally you can set data at contact begin, and distory it at contact seperate.
-     *
-     * @lua NA
-     */
-    inline void setData(void* data) { _data = data; }
-
-    /** Get the event code */
-=======
     /** get contact shape A. */
     inline PhysicsShape* getShapeA() const { return _shapeA; }
     /** get contact shape B. */
@@ -136,7 +87,6 @@ public:
      */
     inline void setData(void* data) { _data = data; }
     /** get the event code */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventCode getEventCode() const { return _eventCode; };
 
 private:
@@ -162,10 +112,7 @@ private:
     PhysicsShape* _shapeA;
     PhysicsShape* _shapeB;
     EventCode _eventCode;
-<<<<<<< HEAD
-=======
     PhysicsContactInfo* _info;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool _notificationEnable;
     bool _result;
     
@@ -179,27 +126,6 @@ private:
     friend class PhysicsWorld;
 };
 
-<<<<<<< HEAD
-/**
- * @brief Presolve value generated when onContactPreSolve called.
- */
-class CC_DLL PhysicsContactPreSolve
-{
-public:
-    /** Get restitution between two bodies.*/
-    float getRestitution() const;
-    /** Get friction between two bodies.*/
-    float getFriction() const;
-    /** Get surface velocity between two bodies.*/
-    Vec2 getSurfaceVelocity() const;
-    /** Set the restitution.*/
-    void setRestitution(float restitution);
-    /** Set the friction.*/
-    void setFriction(float friction);
-    /** Set the surface velocity.*/
-    void setSurfaceVelocity(const Vect& velocity);
-    /** Ignore the rest of the contact presolve and postsolve callbacks. */
-=======
 /*
  * @brief presolve value generated when onContactPreSolve called.
  */
@@ -219,7 +145,6 @@ public:
     /** set the surface velocity*/
     void setSurfaceVelocity(const Vect& velocity);
     /** ignore the rest of the contact presolve and postsolve callbacks */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void ignore();
     
 private:
@@ -232,19 +157,6 @@ private:
     friend class EventListenerPhysicsContact;
 };
 
-<<<<<<< HEAD
-/**
- * @brief Postsolve value generated when onContactPostSolve called.
- */
-class CC_DLL PhysicsContactPostSolve
-{
-public:
-    /** Get restitution between two bodies.*/
-    float getRestitution() const;
-    /** Get friction between two bodies.*/
-    float getFriction() const;
-    /** Get surface velocity between two bodies.*/
-=======
 /*
  * @brief postsolve value generated when onContactPostSolve called.
  */
@@ -256,7 +168,6 @@ public:
     /** get friction between two bodies*/
     float getFriction() const;
     /** get surface velocity between two bodies*/
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Vec2 getSurfaceVelocity() const;
     
 private:
@@ -269,22 +180,6 @@ private:
     friend class EventListenerPhysicsContact;
 };
 
-<<<<<<< HEAD
-/** Contact listener. It will recive all the contact callbacks. */
-class CC_DLL EventListenerPhysicsContact : public EventListenerCustom
-{
-public:
-    /** Create the listener. */
-    static EventListenerPhysicsContact* create();
-    
-    /** Check the listener is available.
-
-     *@return Ture if there's one available callback function at least, false if there's no one.
-     */
-    virtual bool checkAvailable() override;
-    
-    /** Clone an object from this listener.*/
-=======
 /* contact listener. it will recive all the contact callbacks. */
 class EventListenerPhysicsContact : public EventListenerCustom
 {
@@ -292,38 +187,16 @@ public:
     /** create the listener */
     static EventListenerPhysicsContact* create();
     virtual bool checkAvailable() override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual EventListenerPhysicsContact* clone() override;
     
 protected:
     /**
-<<<<<<< HEAD
-     * It will be call when two body have contact.
-     * if return false, it will not invoke callbacks.
-=======
      * it will be call when two body have contact.
      * if return false, it will not invoke callbacks
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual bool hitTest(PhysicsShape* shapeA, PhysicsShape* shapeB);
     
 public:
-<<<<<<< HEAD
-    /**
-     * @brief It will called at two shapes start to contact, and only call it once.
-     */
-    std::function<bool(PhysicsContact& contact)> onContactBegin;
-    /**
-     * @brief Two shapes are touching during this step. Return false from the callback to make world ignore the collision this step or true to process it normally. Additionally, you may override collision values, restitution, or surface velocity values.
-     */
-    std::function<bool(PhysicsContact& contact, PhysicsContactPreSolve& solve)> onContactPreSolve;
-    /**
-     * @brief Two shapes are touching and their collision response has been processed. You can retrieve the collision impulse or kinetic energy at this time if you want to use it to calculate sound volumes or damage amounts. See cpArbiter for more info
-     */
-    std::function<void(PhysicsContact& contact, const PhysicsContactPostSolve& solve)> onContactPostSolve;
-    /**
-     * @brief It will called at two shapes separated, and only call it once.
-=======
     /*
      * @brief it will called at two shapes start to contact, and only call it once.
      */
@@ -338,7 +211,6 @@ public:
     std::function<void(PhysicsContact& contact, const PhysicsContactPostSolve& solve)> onContactPostSolve;
     /*
      * @brief it will called at two shapes separated, and only call it once.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * onContactBegin and onContactSeperate will called in pairs.
      */
     std::function<void(PhysicsContact& contact)> onContactSeperate;
@@ -354,17 +226,6 @@ protected:
     friend class PhysicsWorld;
 };
 
-<<<<<<< HEAD
-/** This event listener only be called when bodyA and bodyB have contacts. */
-class CC_DLL EventListenerPhysicsContactWithBodies : public EventListenerPhysicsContact
-{
-public:
-    /** Create the listener. */
-    static EventListenerPhysicsContactWithBodies* create(PhysicsBody* bodyA, PhysicsBody* bodyB);
-    
-    virtual bool hitTest(PhysicsShape* shapeA, PhysicsShape* shapeB) override;
-
-=======
 /** this event listener only be called when bodyA and bodyB have contacts */
 class EventListenerPhysicsContactWithBodies : public EventListenerPhysicsContact
 {
@@ -372,7 +233,6 @@ public:
     static EventListenerPhysicsContactWithBodies* create(PhysicsBody* bodyA, PhysicsBody* bodyB);
     
     virtual bool hitTest(PhysicsShape* shapeA, PhysicsShape* shapeB) override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual EventListenerPhysicsContactWithBodies* clone() override;
     
 protected:
@@ -384,18 +244,10 @@ protected:
     virtual ~EventListenerPhysicsContactWithBodies();
 };
 
-<<<<<<< HEAD
-/** This event listener only be called when shapeA and shapeB have contacts. */
-class CC_DLL EventListenerPhysicsContactWithShapes : public EventListenerPhysicsContact
-{
-public:
-    /** Create the listener. */
-=======
 /** this event listener only be called when shapeA and shapeB have contacts */
 class EventListenerPhysicsContactWithShapes : public EventListenerPhysicsContact
 {
 public:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static EventListenerPhysicsContactWithShapes* create(PhysicsShape* shapeA, PhysicsShape* shapeB);
     
     virtual bool hitTest(PhysicsShape* shapeA, PhysicsShape* shapeB) override;
@@ -410,18 +262,10 @@ protected:
     virtual ~EventListenerPhysicsContactWithShapes();
 };
 
-<<<<<<< HEAD
-/** This event listener only be called when shapeA or shapeB is in the group your specified */
-class CC_DLL EventListenerPhysicsContactWithGroup : public EventListenerPhysicsContact
-{
-public:
-    /** Create the listener. */
-=======
 /** this event listener only be called when shapeA or shapeB is in the group your specified */
 class EventListenerPhysicsContactWithGroup : public EventListenerPhysicsContact
 {
 public:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static EventListenerPhysicsContactWithGroup* create(int group);
     
     virtual bool hitTest(PhysicsShape* shapeA, PhysicsShape* shapeB) override;
@@ -435,11 +279,6 @@ protected:
     virtual ~EventListenerPhysicsContactWithGroup();
 };
 
-<<<<<<< HEAD
-/** @} */
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // CC_USE_PHYSICS

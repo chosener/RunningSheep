@@ -30,10 +30,6 @@ THE SOFTWARE.
 #include "cocostudio/CCTween.h"
 #include "cocostudio/CCDecorativeDisplay.h"
 #include "cocostudio/CCDisplayManager.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCNode.h"
 #include "math/CCMath.h"
 
@@ -41,11 +37,7 @@ namespace cocostudio {
 
 class Armature;
 
-<<<<<<< HEAD
-class CC_STUDIO_DLL Bone : public cocos2d::Node
-=======
 class Bone : public cocos2d::Node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**

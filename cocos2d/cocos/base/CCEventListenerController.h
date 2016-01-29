@@ -26,44 +26,19 @@
 #ifndef __cocos2d_libs__EventListenerController__
 #define __cocos2d_libs__EventListenerController__
 
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-#include "base/CCEventListener.h"
-
-/**
- * @addtogroup base
- * @{
- */
-
-=======
 #include "base/CCPlatformMacros.h"
 #include "base/CCEventListener.h"
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class Event;
 class Controller;
 
-<<<<<<< HEAD
-/** @class EventListenerController
- * @param Controller event listener.
- * @js NA
- */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class EventListenerController : public EventListener
 {
 public:
     static const std::string LISTENER_ID;
     
-<<<<<<< HEAD
-    /** Create a controller event listener.
-     *
-     * @return An autoreleased EventListenerController object.
-     */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	static EventListenerController* create();
     
     /// Overrides
@@ -85,10 +60,4 @@ protected:
 
 NS_CC_END
 
-<<<<<<< HEAD
-// end of base group
-/// @}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__EventListenerController__) */

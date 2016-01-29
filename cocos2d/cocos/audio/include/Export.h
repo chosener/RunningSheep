@@ -29,23 +29,12 @@ THE SOFTWARE.
     #include <FBaseConfig.h>
     #define EXPORT_DLL  _EXPORT_
 #elif defined(_WIN32)
-<<<<<<< HEAD
-    #if defined(CC_STATIC)
-        #define EXPORT_DLL
-    #else
-        #if defined(_EXPORT_DLL_)
-            #define EXPORT_DLL      __declspec(dllexport)    
-        #else         /* use a DLL library */
-            #define EXPORT_DLL     __declspec(dllimport)
-        #endif
-=======
     #if defined(_EXPORT_DLL_)
     #define EXPORT_DLL//     __declspec(dllexport)
     #elif defined(IGNORE_EXPORT)
     #define EXPORT_DLL
     #else         /* use a DLL library */
     #define EXPORT_DLL//     __declspec(dllimport)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     #endif
 #else
     #if defined(_SHARED_)

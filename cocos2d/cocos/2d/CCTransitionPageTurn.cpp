@@ -26,24 +26,18 @@ THE SOFTWARE.
 
 #include "2d/CCTransitionPageTurn.h"
 #include "base/CCDirector.h"
-<<<<<<< HEAD
-=======
 #include "2d/CCActionInterval.h"
 #include "2d/CCActionInstant.h"
 #include "2d/CCActionGrid.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCActionPageTurn3D.h"
 #include "2d/CCNodeGrid.h"
 #include "renderer/CCRenderer.h"
 
 NS_CC_BEGIN
 
-<<<<<<< HEAD
-=======
 float TransitionPageTurn::POLYGON_OFFSET_FACTOR = -20.f;
 float TransitionPageTurn::POLYGON_OFFSET_UNITS = -20.f;
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 TransitionPageTurn::TransitionPageTurn()
 {
     _inSceneProxy = NodeGrid::create();
@@ -62,11 +56,7 @@ TransitionPageTurn::~TransitionPageTurn()
 /** creates a base transition with duration and incoming scene */
 TransitionPageTurn * TransitionPageTurn::create(float t, Scene *scene, bool backwards)
 {
-<<<<<<< HEAD
-    TransitionPageTurn * transition = new (std::nothrow) TransitionPageTurn();
-=======
     TransitionPageTurn * transition = new TransitionPageTurn();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     transition->initWithDuration(t,scene,backwards);
     transition->autorelease();
     return transition;
@@ -75,11 +65,7 @@ TransitionPageTurn * TransitionPageTurn::create(float t, Scene *scene, bool back
 /** initializes a transition with duration and incoming scene */
 bool TransitionPageTurn::initWithDuration(float t, Scene *scene, bool backwards)
 {
-<<<<<<< HEAD
-    // FIXME:: needed before [super init]
-=======
     // XXX: needed before [super init]
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _back = backwards;
 
     if (TransitionScene::initWithDuration(t, scene))
@@ -94,8 +80,6 @@ void TransitionPageTurn::sceneOrder()
     _isInSceneOnTop = _back;
 }
 
-<<<<<<< HEAD
-=======
 void TransitionPageTurn::onEnablePolygonOffset()
 {
     glEnable(GL_POLYGON_OFFSET_FILL);
@@ -108,20 +92,12 @@ void TransitionPageTurn::onDisablePolygonOffset()
     glPolygonOffset(0, 0);
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void TransitionPageTurn::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
     Scene::draw(renderer, transform, flags);
     
     if( _isInSceneOnTop ) {
         _outSceneProxy->visit(renderer, transform, flags);
-<<<<<<< HEAD
-        _inSceneProxy->visit(renderer, transform, flags);
-    } else {
-        _inSceneProxy->visit(renderer, transform, flags);
-        _outSceneProxy->visit(renderer, transform, flags);
-        
-=======
         _enableOffsetCmd.init(_globalZOrder);
         _enableOffsetCmd.func = CC_CALLBACK_0(TransitionPageTurn::onEnablePolygonOffset, this);
         renderer->addCommand(&_enableOffsetCmd);
@@ -141,7 +117,6 @@ void TransitionPageTurn::draw(Renderer *renderer, const Mat4 &transform, uint32_
         _disableOffsetCmd.init(_globalZOrder);
         _disableOffsetCmd.func = CC_CALLBACK_0(TransitionPageTurn::onDisablePolygonOffset, this);
         renderer->addCommand(&_disableOffsetCmd);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 }
 

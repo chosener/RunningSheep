@@ -11,48 +11,8 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-<<<<<<< HEAD
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
-
-# _COCOS_HEADER_ANDROID_BEGIN
-# _COCOS_HEADER_ANDROID_END
-
-
-LOCAL_STATIC_LIBRARIES := cocos2dx_static
-
-# _COCOS_LIB_ANDROID_BEGIN
-# _COCOS_LIB_ANDROID_END
-=======
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Framework/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Framework/GameComponents/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Scene/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/MainMenu/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Debug/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Effects/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Music/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
-
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Sms/*.cpp)
-LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
@@ -66,16 +26,10 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 # LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
 # LOCAL_WHOLE_STATIC_LIBRARIES += cocos_extension_static
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,.)
-<<<<<<< HEAD
-
-# _COCOS_LIB_IMPORT_ANDROID_BEGIN
-# _COCOS_LIB_IMPORT_ANDROID_END
-=======
 $(call import-module,audio/android)
 
 # $(call import-module,Box2D)
@@ -84,4 +38,3 @@ $(call import-module,audio/android)
 # $(call import-module,editor-support/cocostudio)
 # $(call import-module,network)
 # $(call import-module,extensions)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType path stroker (specification).                               */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2002-2006, 2008, 2009, 2011-2012, 2014 by                    */
-=======
 /*  Copyright 2002-2006, 2008, 2009, 2011 by                               */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -50,41 +46,6 @@ FT_BEGIN_HEADER
   *    This can be useful to generate `bordered' glyph, i.e., glyphs
   *    displayed with a coloured (and anti-aliased) border around their
   *    shape.
-<<<<<<< HEAD
-  *
-  * @order:
-  *    FT_Stroker
-  *
-  *    FT_Stroker_LineJoin
-  *    FT_Stroker_LineCap
-  *    FT_StrokerBorder
-  *
-  *    FT_Outline_GetInsideBorder
-  *    FT_Outline_GetOutsideBorder
-  *
-  *    FT_Glyph_Stroke
-  *    FT_Glyph_StrokeBorder
-  *
-  *    FT_Stroker_New
-  *    FT_Stroker_Set
-  *    FT_Stroker_Rewind
-  *    FT_Stroker_ParseOutline
-  *    FT_Stroker_Done
-  *
-  *    FT_Stroker_BeginSubPath
-  *    FT_Stroker_EndSubPath
-  *
-  *    FT_Stroker_LineTo
-  *    FT_Stroker_ConicTo
-  *    FT_Stroker_CubicTo
-  *
-  *    FT_Stroker_GetBorderCounts
-  *    FT_Stroker_ExportBorder
-  *    FT_Stroker_GetCounts
-  *    FT_Stroker_Export
-  *
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   */
 
 
@@ -94,11 +55,7 @@ FT_BEGIN_HEADER
   *   FT_Stroker
   *
   * @description:
-<<<<<<< HEAD
-  *   Opaque handle to a path stroker object.
-=======
   *   Opaque handler to a path stroker object.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   */
   typedef struct FT_StrokerRec_*  FT_Stroker;
 
@@ -128,35 +85,16 @@ FT_BEGIN_HEADER
    *     miter limit is exceeded.  The outer edges of the strokes
    *     for the two segments are extended until they meet at an
    *     angle.  If the segments meet at too sharp an angle (such
-<<<<<<< HEAD
-   *     that the miter would extend from the intersection of the
-   *     segments a distance greater than the product of the miter
-   *     limit value and the border radius), then a bevel join (see
-   *     above) is used instead.  This prevents long spikes being
-   *     created.  FT_STROKER_LINEJOIN_MITER_FIXED generates a miter
-=======
    *     that the miter would extend from the intersection of the 
    *     segments a distance greater than the product of the miter 
    *     limit value and the border radius), then a bevel join (see 
    *     above) is used instead.  This prevents long spikes being 
    *     created.  FT_STROKER_LINEJOIN_MITER_FIXED generates a miter 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *     line join as used in PostScript and PDF.
    *
    *   FT_STROKER_LINEJOIN_MITER_VARIABLE ::
    *   FT_STROKER_LINEJOIN_MITER ::
    *     Used to render mitered line joins, with variable bevels if
-<<<<<<< HEAD
-   *     the miter limit is exceeded.  The intersection of the
-   *     strokes is clipped at a line perpendicular to the bisector
-   *     of the angle between the strokes, at the distance from the
-   *     intersection of the segments equal to the product of the
-   *     miter limit value and the border radius.  This prevents
-   *     long spikes being created.
-   *     FT_STROKER_LINEJOIN_MITER_VARIABLE generates a mitered line
-   *     join as used in XPS.  FT_STROKER_LINEJOIN_MITER is an alias
-   *     for FT_STROKER_LINEJOIN_MITER_VARIABLE, retained for
-=======
    *     the miter limit is exceeded.  The intersection of the 
    *     strokes is clipped at a line perpendicular to the bisector 
    *     of the angle between the strokes, at the distance from the 
@@ -166,7 +104,6 @@ FT_BEGIN_HEADER
    *     FT_STROKER_LINEJOIN_MITER_VARIABLE generates a mitered line 
    *     join as used in XPS.  FT_STROKER_LINEJOIN_MITER is an alias 
    *     for FT_STROKER_LINEJOIN_MITER_VARIABLE, retained for 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *     backwards compatibility.
    */
   typedef enum  FT_Stroker_LineJoin_
@@ -334,20 +271,11 @@ FT_BEGIN_HEADER
    *   miter_limit ::
    *     The miter limit for the FT_STROKER_LINEJOIN_MITER_FIXED and
    *     FT_STROKER_LINEJOIN_MITER_VARIABLE line join styles,
-<<<<<<< HEAD
-   *     expressed as 16.16 fixed-point value.
-=======
    *     expressed as 16.16 fixed point value.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @note:
    *   The radius is expressed in the same units as the outline
    *   coordinates.
-<<<<<<< HEAD
-   *
-   *   This function calls @FT_Stroker_Rewind automatically.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    */
   FT_EXPORT( void )
   FT_Stroker_Set( FT_Stroker           stroker,
@@ -642,17 +570,10 @@ FT_BEGIN_HEADER
    *   receive all new data.
    *
    *   When an outline, or a sub-path, is `closed', the stroker generates
-<<<<<<< HEAD
-   *   two independent `border' outlines, named `left' and `right'.
-   *
-   *   When the outline, or a sub-path, is `opened', the stroker merges
-   *   the `border' outlines with caps.  The `left' border receives all
-=======
    *   two independent `border' outlines, named `left' and `right'
    *
    *   When the outline, or a sub-path, is `opened', the stroker merges
    *   the `border' outlines with caps. The `left' border receives all
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *   points, while the `right' border becomes empty.
    *
    *   Use the function @FT_Stroker_Export instead if you want to
@@ -761,14 +682,6 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   The source glyph is untouched in case of error.
-<<<<<<< HEAD
-   *
-   *   Adding stroke may yield a significantly wider and taller glyph
-   *   depending on how large of a radius was used to stroke the glyph.  You
-   *   may need to manually adjust horizontal and vertical advance amounts
-   *   to account for this added size.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    */
   FT_EXPORT( FT_Error )
   FT_Glyph_Stroke( FT_Glyph    *pglyph,
@@ -806,14 +719,6 @@ FT_BEGIN_HEADER
    *
    * @note:
    *   The source glyph is untouched in case of error.
-<<<<<<< HEAD
-   *
-   *   Adding stroke may yield a significantly wider and taller glyph
-   *   depending on how large of a radius was used to stroke the glyph.  You
-   *   may need to manually adjust horizontal and vertical advance amounts
-   *   to account for this added size.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    */
   FT_EXPORT( FT_Error )
   FT_Glyph_StrokeBorder( FT_Glyph    *pglyph,
@@ -821,11 +726,7 @@ FT_BEGIN_HEADER
                          FT_Bool      inside,
                          FT_Bool      destroy );
 
-<<<<<<< HEAD
-  /* */
-=======
  /* */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 FT_END_HEADER
 

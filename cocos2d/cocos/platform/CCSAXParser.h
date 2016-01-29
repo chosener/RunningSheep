@@ -23,14 +23,8 @@
 
 #ifndef __CCSAXPARSER_H__
 #define __CCSAXPARSER_H__
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-#include "platform/CCPlatformConfig.h"
-=======
 
 #include "base/CCPlatformConfig.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCCommon.h"
 #include <string>
 
@@ -121,8 +115,4 @@ public:
 
 NS_CC_END
 
-<<<<<<< HEAD
-/// @endcond
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif //__CCSAXPARSER_H__

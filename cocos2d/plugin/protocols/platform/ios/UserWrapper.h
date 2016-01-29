@@ -29,35 +29,12 @@ typedef enum {
     kLoginFailed,
     kLogoutSucceed,
 } UserActionResult;
-<<<<<<< HEAD
-typedef enum {
-    kPermissionSucceed = 0,
-    kPermissionFailed,
-} UserPermissionResult;
-typedef enum {
-    kGraphResultSuccess = 0,
-    kGraphResultFail,
-    kGraphResultCancel,
-    kGraphResultTimeout,
-} GraphResult;
-typedef enum {
-    kPermissionListSuccessd = 0,
-    kPermissionListFailed = 0,
-} PermissionListResult;
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 @interface UserWrapper : NSObject
 {
     
 }
 
 + (void) onActionResult:(id) obj withRet:(UserActionResult) ret withMsg:(NSString*) msg;
-<<<<<<< HEAD
-+ (void) onPermissionsResult:(id)obj withRet:(int)ret withMsg:(NSString *)msg;
-+ (void) onGraphResult:(id) result withRet:(GraphResult)ret withMsg:(NSString *)msg withCallback:(int)cbid;
-+ (void)onPermissionListResult:(id)obj withRet:(PermissionListResult )ret withMsg:(NSString *)msg;
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 @end

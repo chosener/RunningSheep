@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
 set(COCOS_MATH_SRC
-
-=======
-set(COCOS_MATH_SRC
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	math/CCAffineTransform.cpp
 	math/CCGeometry.cpp
 	math/CCVertex.cpp
@@ -15,10 +9,5 @@ set(COCOS_MATH_SRC
 	math/Vec2.cpp
 	math/Vec3.cpp
 	math/Vec4.cpp
-<<<<<<< HEAD
-
-)
-=======
 )
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

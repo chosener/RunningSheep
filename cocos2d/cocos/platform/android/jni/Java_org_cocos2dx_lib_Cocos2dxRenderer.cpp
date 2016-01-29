@@ -2,10 +2,6 @@
 #include "base/CCDirector.h"
 #include "base/CCEventType.h"
 #include "base/CCEventCustom.h"
-<<<<<<< HEAD
-#include "base/CCEventDispatcher.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "../CCApplication.h"
 #include "platform/CCFileUtils.h"
 #include "JniHelper.h"
@@ -20,17 +16,9 @@ extern "C" {
     }
 
     JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnPause() {
-<<<<<<< HEAD
-        if (Director::getInstance()->getOpenGLView()) {
-                Application::getInstance()->applicationDidEnterBackground();
-                cocos2d::EventCustom backgroundEvent(EVENT_COME_TO_BACKGROUND);
-                cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(&backgroundEvent);
-        }
-=======
         Application::getInstance()->applicationDidEnterBackground();
         cocos2d::EventCustom backgroundEvent(EVENT_COME_TO_BACKGROUND);
         cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(&backgroundEvent);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnResume() {

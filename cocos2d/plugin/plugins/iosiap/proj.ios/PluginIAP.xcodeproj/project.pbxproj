@@ -226,13 +226,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/IOSIAP.dst;
-<<<<<<< HEAD
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/panda/Documents/FacebookSDK,
-				);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IOSIAP/PluginIAP-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -242,11 +235,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PluginIAP;
 				SKIP_INSTALL = YES;
-<<<<<<< HEAD
-				VALID_ARCHS = "armv7 arm64 i386";
-=======
 				VALID_ARCHS = "armv7 armv7s arm64";
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 			};
 			name = Debug;
 		};
@@ -254,13 +243,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/IOSIAP.dst;
-<<<<<<< HEAD
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/panda/Documents/FacebookSDK,
-				);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IOSIAP/PluginIAP-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -270,11 +252,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PluginIAP;
 				SKIP_INSTALL = YES;
-<<<<<<< HEAD
-				VALID_ARCHS = "armv7 arm64 i386";
-=======
 				VALID_ARCHS = "armv7 armv7s arm64";
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 			};
 			name = Release;
 		};

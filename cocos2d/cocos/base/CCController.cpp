@@ -23,15 +23,6 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-#include "base/CCController.h"
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
-#include "base/CCEventDispatcher.h"
-#include "base/CCEventController.h"
-#include "base/CCDirector.h"
-=======
 #include "CCController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -41,7 +32,6 @@
 #include "CCEventController.h"
 #include "CCEventListenerController.h"
 #include "CCDirector.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -71,15 +61,9 @@ void Controller::init()
     }
 
     _eventDispatcher = Director::getInstance()->getEventDispatcher();
-<<<<<<< HEAD
-    _connectEvent = new (std::nothrow) EventController(EventController::ControllerEventType::CONNECTION, this, false);
-    _keyEvent = new (std::nothrow) EventController(EventController::ControllerEventType::BUTTON_STATUS_CHANGED, this, 0);
-    _axisEvent = new (std::nothrow) EventController(EventController::ControllerEventType::AXIS_STATUS_CHANGED, this, 0);
-=======
     _connectEvent = new EventController(EventController::ControllerEventType::CONNECTION, this, false);
     _keyEvent = new EventController(EventController::ControllerEventType::BUTTON_STATUS_CHANGED, this, 0);
     _axisEvent = new EventController(EventController::ControllerEventType::AXIS_STATUS_CHANGED, this, 0);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 const Controller::KeyStatus& Controller::getKeyStatus(int keyCode)

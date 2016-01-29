@@ -25,27 +25,11 @@ THE SOFTWARE.
 #ifndef __AUTORELEASEPOOL_H__
 #define __AUTORELEASEPOOL_H__
 
-<<<<<<< HEAD
-=======
 #include <stack>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <vector>
 #include <string>
 #include "base/CCRef.h"
 
-<<<<<<< HEAD
-/**
- * @addtogroup base
- * @{
- */
-NS_CC_BEGIN
-
-
-/**
- * A pool for managing autorlease objects.
- * @js NA
- */
-=======
 NS_CC_BEGIN
 
 /**
@@ -53,16 +37,11 @@ NS_CC_BEGIN
  * @{
  */
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL AutoreleasePool
 {
 public:
     /**
-<<<<<<< HEAD
-     * @warning Don't create an autorelease pool in heap, create it in stack.
-=======
      * @warn Don't create an auto release pool in heap, create it in stack.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -70,14 +49,6 @@ public:
     
     /**
      * Create an autorelease pool with specific name. This name is useful for debugging.
-<<<<<<< HEAD
-     * @warning Don't create an autorelease pool in heap, create it in stack.
-     * @js NA
-     * @lua NA
-     *
-     * @param name The name of created autorelease pool.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     AutoreleasePool(const std::string &name);
     
@@ -88,15 +59,6 @@ public:
     ~AutoreleasePool();
 
     /**
-<<<<<<< HEAD
-     * Add a given object to this autorelease pool.
-     *
-     * The same object may be added several times to an autorelease pool. When the
-     * pool is destructed, the object's `Ref::release()` method will be called
-     * the same times as it was added.
-     *
-     * @param object    The object to be added into the autorelease pool.
-=======
      * Add a given object to this pool.
      *
      * The same object may be added several times to the same pool; When the
@@ -104,7 +66,6 @@ public:
      * for each time it was added.
      *
      * @param object    The object to add to the pool.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -113,13 +74,8 @@ public:
     /**
      * Clear the autorelease pool.
      *
-<<<<<<< HEAD
-     * It will invoke each element's `release()` function.
-     *
-=======
      * Ref::release() will be called for each time the managed object is
      * added to the pool.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -127,49 +83,22 @@ public:
     
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     /**
-<<<<<<< HEAD
-     * Whether the autorelease pool is doing `clear` operation.
-     *
-     * @return True if autorelase pool is clearning, false if not.
-     *
-     * @js NA
-     * @lua NA
-=======
      * Whether the pool is doing `clear` operation.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     bool isClearing() const { return _isClearing; };
 #endif
     
     /**
-<<<<<<< HEAD
-     * Checks whether the autorelease pool contains the specified object.
-     *
-     * @param object The object to be checked.
-     * @return True if the autorelease pool contains the object, false if not
-     * @js NA
-     * @lua NA
-=======
      * Checks whether the pool contains the specified object.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     bool contains(Ref* object) const;
 
     /**
-<<<<<<< HEAD
-     * Dump the objects that are put into the autorelease pool. It is used for debugging.
-=======
      * Dump the objects that are put into autorelease pool. It is used for debugging.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *
      * The result will look like:
      * Object pointer address     object id     reference count
      *
-<<<<<<< HEAD
-     * @js NA
-     * @lua NA
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     void dump();
     
@@ -194,21 +123,6 @@ private:
 #endif
 };
 
-<<<<<<< HEAD
-// end of base group
-/** @} */
-
-/**
- * @cond
- */
-class CC_DLL PoolManager
-{
-public:
-
-    CC_DEPRECATED_ATTRIBUTE static PoolManager* sharedPoolManager() { return getInstance(); }
-    static PoolManager* getInstance();
-    
-=======
 class CC_DLL PoolManager
 {
 public:
@@ -223,7 +137,6 @@ public:
      * @js NA
      * @lua NA
      */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_DEPRECATED_ATTRIBUTE static void purgePoolManager() { destroyInstance(); }
     static void destroyInstance();
     
@@ -235,14 +148,10 @@ public:
 
     bool isObjectInPools(Ref* obj) const;
 
-<<<<<<< HEAD
-
-=======
     /**
      * @js NA
      * @lua NA
      */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     friend class AutoreleasePool;
     
 private:
@@ -256,15 +165,9 @@ private:
     
     std::vector<AutoreleasePool*> _releasePoolStack;
 };
-<<<<<<< HEAD
-/**
- * @endcond
- */
-=======
 
 // end of base_nodes group
 /// @}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_END
 

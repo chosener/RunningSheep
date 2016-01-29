@@ -5,20 +5,6 @@ import java.io.FileInputStream;
 
 public class GameControllerUtils {
 
-<<<<<<< HEAD
-    public static void ensureDirectoryExist(String path){
-        
-        File sdkDir = new File(path);
-        if(!sdkDir.exists()){
-            sdkDir.mkdirs();
-        }
-    }
-    
-    public static String readJsonFile(String filePath) {
-
-        File file = new File(filePath);     
-        
-=======
 	public static void ensureDirectoryExist(String path){
 		
 		File sdkDir = new File(path);
@@ -31,7 +17,6 @@ public class GameControllerUtils {
 
 		File file = new File(filePath);		
 		
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (!file.exists()){
             return null;
         }

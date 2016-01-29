@@ -16,29 +16,9 @@
 
 NS_CC_BEGIN
 
-<<<<<<< HEAD
-/**
- * @addtogroup _3d
- * @{
- */
-
-/**
- * @brief .obj file Loader
- * @js NA
- * @lua NA
- **/
 class ObjLoader
 {
 public:
-
-    /**
-     * model's material struct
-     **/
-=======
-class ObjLoader
-{
-public:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     typedef struct
     {
         std::string name;
@@ -61,23 +41,11 @@ public:
         std::map<std::string, std::string> unknown_parameter;
     } material_t;
     
-<<<<<<< HEAD
-    /**
-     * model's indices struct
-     **/
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     typedef struct
     {
         std::vector<unsigned short>   indices;
     } mesh_t;
     
-<<<<<<< HEAD
-    /**
-     * model's shape struct
-     **/
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     typedef struct
     {
         std::string  name;
@@ -85,12 +53,6 @@ public:
         mesh_t       mesh;
     } shape_t;
     
-<<<<<<< HEAD
-    /**
-     * model's shapes struct
-     **/
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     typedef struct
     {
         std::vector<float>          positions;
@@ -108,21 +70,11 @@ public:
         }
     }shapes_t;
     
-<<<<<<< HEAD
-    /**
-     * Loads .obj from a file.
-     * @param shapes will be filled with parsed shape data
-     * @param filename the .obj file path .
-     * @param mtl_basepath It's optional, and used for base path for .mtl file
-     * @return The function returns error string, return empty string when loading .obj success.
-    */
-=======
     /// Loads .obj from a file.
     /// 'shapes' will be filled with parsed shape data
     /// The function returns error string.
     /// Returns empty string when loading .obj success.
     /// 'mtl_basepath' is optional, and used for base path for .mtl file.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static std::string LoadObj(
                         shapes_t& shapes,   // [output]
                         const char* filename,
@@ -130,12 +82,6 @@ public:
 
 };
 
-<<<<<<< HEAD
-// end of 3d group
-/// @}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif  // _TINY_OBJ_LOADER_H

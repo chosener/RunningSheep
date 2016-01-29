@@ -36,11 +36,7 @@ namespace cocostudio {
 Bone *Bone::create()
 {
 
-<<<<<<< HEAD
-    Bone *pBone = new (std::nothrow) Bone();
-=======
     Bone *pBone = new Bone();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pBone && pBone->init())
     {
         pBone->autorelease();
@@ -54,11 +50,7 @@ Bone *Bone::create()
 Bone *Bone::create(const std::string& name)
 {
 
-<<<<<<< HEAD
-    Bone *pBone = new (std::nothrow) Bone();
-=======
     Bone *pBone = new Bone();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pBone && pBone->init(name))
     {
         pBone->autorelease();
@@ -82,11 +74,7 @@ Bone::Bone()
 //    _worldTransform = AffineTransformMake(1, 0, 0, 1, 0, 0);
     _worldTransform = Mat4::IDENTITY;
     _boneTransformDirty = true;
-<<<<<<< HEAD
-    _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
-=======
     _blendFunc = BlendFunc::ALPHA_NON_PREMULTIPLIED;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _blendDirty = false;
     _worldInfo = nullptr;
 
@@ -122,23 +110,6 @@ bool Bone::init(const std::string& name)
         _name = name;
 
         CC_SAFE_DELETE(_tweenData);
-<<<<<<< HEAD
-        _tweenData = new (std::nothrow) FrameData();
-
-        CC_SAFE_DELETE(_tween);
-        _tween = new (std::nothrow) Tween();
-        _tween->init(this);
-
-        CC_SAFE_DELETE(_displayManager);
-        _displayManager = new (std::nothrow) DisplayManager();
-        _displayManager->init(this);
-
-        CC_SAFE_DELETE(_worldInfo);
-        _worldInfo = new (std::nothrow) BaseData();
-
-        CC_SAFE_DELETE(_boneData);
-        _boneData  = new (std::nothrow) BoneData();
-=======
         _tweenData = new FrameData();
 
         CC_SAFE_DELETE(_tween);
@@ -154,7 +125,6 @@ bool Bone::init(const std::string& name)
 
         CC_SAFE_DELETE(_boneData);
         _boneData  = new BoneData();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         bRet = true;
     }
@@ -218,22 +188,6 @@ void Bone::update(float delta)
 
     if (_boneTransformDirty)
     {
-<<<<<<< HEAD
-        _worldInfo->copy(_tweenData);
-        if (_dataVersion >= VERSION_COMBINED)
-        {
-            TransformHelp::nodeConcat(*_worldInfo, *_boneData);
-            _worldInfo->scaleX -= 1;
-            _worldInfo->scaleY -= 1;
-        }
-
-        _worldInfo->x = _worldInfo->x + _position.x;
-        _worldInfo->y = _worldInfo->y + _position.y;
-        _worldInfo->scaleX = _worldInfo->scaleX * _scaleX;
-        _worldInfo->scaleY = _worldInfo->scaleY * _scaleY;
-        _worldInfo->skewX = _worldInfo->skewX + _skewX + CC_DEGREES_TO_RADIANS(_rotationZ_X);
-        _worldInfo->skewY = _worldInfo->skewY + _skewY - CC_DEGREES_TO_RADIANS(_rotationZ_Y);
-=======
         if (_dataVersion >= VERSION_COMBINED)
         {
             TransformHelp::nodeConcat(*_tweenData, *_boneData);
@@ -249,7 +203,6 @@ void Bone::update(float delta)
         _worldInfo->scaleY = _tweenData->scaleY * _scaleY;
         _worldInfo->skewX = _tweenData->skewX + _skewX + _rotationZ_X;
         _worldInfo->skewY = _tweenData->skewY + _skewY - _rotationZ_Y;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         if(_parentBone)
         {

@@ -30,11 +30,7 @@ NS_CC_BEGIN
 
 ActionTween* ActionTween::create(float duration, const std::string& key, float from, float to)
 {
-<<<<<<< HEAD
-    ActionTween* ret = new (std::nothrow) ActionTween();
-=======
     ActionTween* ret = new ActionTween();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithDuration(duration, key, from, to))
     {
         ret->autorelease();
@@ -61,19 +57,11 @@ bool ActionTween::initWithDuration(float duration, const std::string& key, float
 
 ActionTween *ActionTween::clone() const
 {
-<<<<<<< HEAD
-    // no copy constructor    
-    auto a = new (std::nothrow) ActionTween();
-    a->initWithDuration(_duration, _key.c_str(), _from, _to);
-    a->autorelease();
-    return a;
-=======
 	// no copy constructor	
 	auto a = new ActionTween();
 	a->initWithDuration(_duration, _key.c_str(), _from, _to);
 	a->autorelease();
 	return a;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ActionTween::startWithTarget(Node *target)

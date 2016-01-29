@@ -27,11 +27,7 @@ THE SOFTWARE.
 #include <android/log.h>
 #include <string>
 #include "JniHelper.h"
-<<<<<<< HEAD
-#include "CCFileUtils-android.h"
-=======
 #include "CCFileUtilsAndroid.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "android/asset_manager_jni.h"
 #include "deprecated/CCString.h"
 #include "Java_org_cocos2dx_lib_Cocos2dxHelper.h"
@@ -213,33 +209,6 @@ void disableAccelerometerJni() {
     }
 }
 
-<<<<<<< HEAD
-void setKeepScreenOnJni(bool value) {
-    JniMethodInfo t;
-    
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "setKeepScreenOn", "(Z)V")) {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID, value);
-        
-        t.env->DeleteLocalRef(t.classID);
-    }
-}
-
-extern bool openURLJNI(const char* url) {
-    JniMethodInfo t;
-    
-    bool ret = false;
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "openURL", "(Ljava/lang/String;)Z")) {
-        jstring stringArg = t.env->NewStringUTF(url);
-        ret = t.env->CallStaticBooleanMethod(t.classID, t.methodID, stringArg);
-        
-        t.env->DeleteLocalRef(t.classID);
-        t.env->DeleteLocalRef(stringArg);
-    }
-    return ret;
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // functions for UserDefault
 bool getBoolForKeyJNI(const char* key, bool defaultValue)
 {

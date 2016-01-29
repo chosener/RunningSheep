@@ -1,10 +1,6 @@
 /****************************************************************************
  Copyright (c) 2013      Zynga Inc.
-<<<<<<< HEAD
- Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -30,14 +26,8 @@
 #ifndef _FontFreetype_h_
 #define _FontFreetype_h_
 
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-#include "CCFont.h"
-=======
 #include "CCFont.h"
 #include "base/CCData.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <string>
 #include <ft2build.h>
@@ -55,10 +45,7 @@
 #undef internal
 #endif
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class CC_DLL FontFreeType : public Font
@@ -105,11 +92,6 @@ private:
     float             _outlineSize;
 };
 
-<<<<<<< HEAD
-/// @endcond
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif

@@ -1,11 +1,6 @@
 /****************************************************************************
-<<<<<<< HEAD
- Copyright (c) 2014      PlayFirst Inc.
- Copyright (c) 2014-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2014     PlayFirst Inc.
  Copyright (c) 2014     Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -30,10 +25,6 @@
 
 #ifndef __CC_REF_PTR_H__
 #define __CC_REF_PTR_H__
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "base/CCRef.h"
 #include "base/ccMacros.h"
@@ -316,8 +307,4 @@ template<class T, class U> RefPtr<T> dynamic_pointer_cast(const RefPtr<U> & r)
 
 NS_CC_END
 
-<<<<<<< HEAD
-/// @endcond
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif  // __CC_REF_PTR_H__

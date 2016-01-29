@@ -7,11 +7,7 @@
 
 namespace cocosbuilder {
 
-<<<<<<< HEAD
-class CC_DLL CCBSequenceProperty : public cocos2d::Ref
-=======
 class CCBSequenceProperty : public cocos2d::Ref
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**

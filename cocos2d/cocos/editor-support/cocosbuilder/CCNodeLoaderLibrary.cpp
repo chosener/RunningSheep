@@ -83,11 +83,7 @@ static NodeLoaderLibrary * sSharedNodeLoaderLibrary = nullptr;
 
 NodeLoaderLibrary * NodeLoaderLibrary::getInstance() {
     if(sSharedNodeLoaderLibrary == nullptr) {
-<<<<<<< HEAD
-        sSharedNodeLoaderLibrary = new (std::nothrow) NodeLoaderLibrary();
-=======
         sSharedNodeLoaderLibrary = new NodeLoaderLibrary();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         sSharedNodeLoaderLibrary->registerDefaultNodeLoaders();
     }

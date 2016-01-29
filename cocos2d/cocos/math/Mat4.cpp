@@ -414,16 +414,8 @@ void Mat4::add(float scalar)
 void Mat4::add(float scalar, Mat4* dst)
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::addMatrix(col, scalar, dst->col);
-#else
-    MathUtil::addMatrix(m, scalar, dst->m);
-#endif
-=======
 
     MathUtil::addMatrix(m, scalar, dst->m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Mat4::add(const Mat4& mat)
@@ -434,16 +426,8 @@ void Mat4::add(const Mat4& mat)
 void Mat4::add(const Mat4& m1, const Mat4& m2, Mat4* dst)
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::addMatrix(m1.col, m2.col, dst->col);
-#else
-    MathUtil::addMatrix(m1.m, m2.m, dst->m);
-#endif
-=======
 
     MathUtil::addMatrix(m1.m, m2.m, dst->m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool Mat4::decompose(Vec3* scale, Quaternion* rotation, Vec3* translation) const
@@ -716,16 +700,8 @@ void Mat4::multiply(float scalar, Mat4* dst) const
 void Mat4::multiply(const Mat4& m, float scalar, Mat4* dst)
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::multiplyMatrix(m.col, scalar, dst->col);
-#else
-    MathUtil::multiplyMatrix(m.m, scalar, dst->m);
-#endif
-=======
 
     MathUtil::multiplyMatrix(m.m, scalar, dst->m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Mat4::multiply(const Mat4& mat)
@@ -736,29 +712,13 @@ void Mat4::multiply(const Mat4& mat)
 void Mat4::multiply(const Mat4& m1, const Mat4& m2, Mat4* dst)
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::multiplyMatrix(m1.col, m2.col, dst->col);
-#else
-    MathUtil::multiplyMatrix(m1.m, m2.m, dst->m);
-#endif
-=======
 
     MathUtil::multiplyMatrix(m1.m, m2.m, dst->m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Mat4::negate()
 {
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::negateMatrix(col, col);
-#else
     MathUtil::negateMatrix(m, m);
-#endif
-=======
-    MathUtil::negateMatrix(m, m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Mat4 Mat4::getNegated() const
@@ -910,13 +870,6 @@ void Mat4::subtract(const Mat4& mat)
 void Mat4::subtract(const Mat4& m1, const Mat4& m2, Mat4* dst)
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::subtractMatrix(m1.col, m2.col, dst->col);
-#else
-    MathUtil::subtractMatrix(m1.m, m2.m, dst->m);
-#endif
-=======
 
     MathUtil::subtractMatrix(m1.m, m2.m, dst->m);
 }
@@ -930,7 +883,6 @@ void Mat4::transformPoint(Vec3* point) const
 void Mat4::transformPoint(const Vec3& point, Vec3* dst) const
 {
     transformVector(point.x, point.y, point.z, 1.0f, dst);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Mat4::transformVector(Vec3* vector) const
@@ -960,16 +912,8 @@ void Mat4::transformVector(Vec4* vector) const
 void Mat4::transformVector(const Vec4& vector, Vec4* dst) const
 {
     GP_ASSERT(dst);
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::transformVec4(col, vector.v, dst->v);
-#else
-    MathUtil::transformVec4(m, (const float*) &vector, (float*)dst);
-#endif
-=======
 
     MathUtil::transformVec4(m, (const float*) &vector, (float*)dst);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Mat4::translate(float x, float y, float z)
@@ -996,15 +940,7 @@ void Mat4::translate(const Vec3& t, Mat4* dst) const
 
 void Mat4::transpose()
 {
-<<<<<<< HEAD
-#ifdef __SSE__
-    MathUtil::transposeMatrix(col, col);
-#else
     MathUtil::transposeMatrix(m, m);
-#endif
-=======
-    MathUtil::transposeMatrix(m, m);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Mat4 Mat4::getTransposed() const

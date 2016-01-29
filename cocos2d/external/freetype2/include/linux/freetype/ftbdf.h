@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType API for accessing BDF-specific strings (specification).     */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2002-2004, 2006, 2009, 2014 by                               */
-=======
 /*  Copyright 2002, 2003, 2004, 2006, 2009 by                              */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -57,11 +53,7 @@ FT_BEGIN_HEADER
   /**********************************************************************
    *
    * @enum:
-<<<<<<< HEAD
-   *    BDF_PropertyType
-=======
    *    FT_PropertyType
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @description:
    *    A list of BDF property types.
@@ -114,12 +106,7 @@ FT_BEGIN_HEADER
   *      The property type.
   *
   *    u.atom ::
-<<<<<<< HEAD
-  *      The atom string, if type is @BDF_PROPERTY_TYPE_ATOM.  May be
-  *      NULL, indicating an empty string.
-=======
   *      The atom string, if type is @BDF_PROPERTY_TYPE_ATOM.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   *
   *    u.integer ::
   *      A signed integer, if type is @BDF_PROPERTY_TYPE_INTEGER.
@@ -212,11 +199,7 @@ FT_BEGIN_HEADER
                        const char*       prop_name,
                        BDF_PropertyRec  *aproperty );
 
-<<<<<<< HEAD
-  /* */
-=======
  /* */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 FT_END_HEADER
 

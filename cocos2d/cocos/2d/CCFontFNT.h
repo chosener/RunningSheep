@@ -1,10 +1,6 @@
 /****************************************************************************
  Copyright (c) 2013      Zynga Inc.
-<<<<<<< HEAD
- Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -30,22 +26,13 @@
 #ifndef _CCFontFNT_h_
 #define _CCFontFNT_h_
 
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "CCFont.h"
 
 NS_CC_BEGIN
 
 class BMFontConfiguration;
 
-<<<<<<< HEAD
-class CC_DLL FontFNT : public Font
-=======
 class FontFNT : public Font
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
 public:
@@ -76,11 +63,6 @@ private:
     
 };
 
-<<<<<<< HEAD
-/// @endcond
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__cocos2d_libs__CCFontFNT__) */

@@ -27,20 +27,12 @@ THE SOFTWARE.
 
 #include "CCFrame.h"
 #include "CCTimelineMacro.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_TIMELINE_BEGIN
 
 class ActionTimeline;
 
-<<<<<<< HEAD
-class CC_STUDIO_DLL Timeline : public cocos2d::Ref
-=======
 class  Timeline : public cocos2d::Ref
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static Timeline* create();

@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    Tags for TrueType and OpenType tables (specification only).          */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2001, 2004, 2005, 2007, 2008, 2013 by                   */
-=======
 /*  Copyright 1996-2001, 2004, 2005, 2007, 2008 by                         */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -44,11 +40,6 @@ FT_BEGIN_HEADER
 #define TTAG_bhed  FT_MAKE_TAG( 'b', 'h', 'e', 'd' )
 #define TTAG_bloc  FT_MAKE_TAG( 'b', 'l', 'o', 'c' )
 #define TTAG_bsln  FT_MAKE_TAG( 'b', 's', 'l', 'n' )
-<<<<<<< HEAD
-#define TTAG_CBDT  FT_MAKE_TAG( 'C', 'B', 'D', 'T' )
-#define TTAG_CBLC  FT_MAKE_TAG( 'C', 'B', 'L', 'C' )
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define TTAG_CFF   FT_MAKE_TAG( 'C', 'F', 'F', ' ' )
 #define TTAG_CID   FT_MAKE_TAG( 'C', 'I', 'D', ' ' )
 #define TTAG_cmap  FT_MAKE_TAG( 'c', 'm', 'a', 'p' )
@@ -95,10 +86,6 @@ FT_BEGIN_HEADER
 #define TTAG_post  FT_MAKE_TAG( 'p', 'o', 's', 't' )
 #define TTAG_prep  FT_MAKE_TAG( 'p', 'r', 'e', 'p' )
 #define TTAG_prop  FT_MAKE_TAG( 'p', 'r', 'o', 'p' )
-<<<<<<< HEAD
-#define TTAG_sbix  FT_MAKE_TAG( 's', 'b', 'i', 'x' )
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define TTAG_sfnt  FT_MAKE_TAG( 's', 'f', 'n', 't' )
 #define TTAG_SING  FT_MAKE_TAG( 'S', 'I', 'N', 'G' )
 #define TTAG_trak  FT_MAKE_TAG( 't', 'r', 'a', 'k' )
@@ -110,10 +97,6 @@ FT_BEGIN_HEADER
 #define TTAG_VDMX  FT_MAKE_TAG( 'V', 'D', 'M', 'X' )
 #define TTAG_vhea  FT_MAKE_TAG( 'v', 'h', 'e', 'a' )
 #define TTAG_vmtx  FT_MAKE_TAG( 'v', 'm', 't', 'x' )
-<<<<<<< HEAD
-#define TTAG_wOFF  FT_MAKE_TAG( 'w', 'O', 'F', 'F' )
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 FT_END_HEADER

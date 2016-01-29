@@ -16,13 +16,6 @@
 // version 0.9.0: Initial
 //
 
-<<<<<<< HEAD
-#include "CCObjLoader.h"
-
-#include <fstream>
-#include <sstream>
-
-=======
 #include <cstdlib>
 #include <cstring>
 #include <cassert>
@@ -34,7 +27,6 @@
 #include <sstream>
 
 #include "CCObjLoader.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCFileUtils.h"
 #include "base/ccUtils.h"
 
@@ -175,11 +167,7 @@ static ssize_t updateVertex( std::map<vertex_index, ssize_t>& vertexCache, std::
         return it->second;
     }
     
-<<<<<<< HEAD
-    assert(in_positions.size() > static_cast<size_t>(3*i.v_idx+2));
-=======
     assert(in_positions.size() > (3*i.v_idx+2));
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     positions.push_back(in_positions[3*i.v_idx+0]);
     positions.push_back(in_positions[3*i.v_idx+1]);
@@ -307,11 +295,7 @@ std::string LoadMtl ( std::map<std::string, ObjLoader::material_t>& material_map
         filepath = std::string(filename);
     }
     
-<<<<<<< HEAD
-    std::istringstream ifs(FileUtils::getInstance()->getStringFromFile(filepath));
-=======
     std::ifstream ifs(filepath.c_str());
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (!ifs) 
     {
         err << "Cannot open file [" << filepath << "]" << std::endl;
@@ -635,11 +619,6 @@ std::string ObjLoader::LoadObj(shapes_t& shapes, const char* filename, const cha
         // use mtl
         if ((0 == strncmp(token, "usemtl", 6)) && isSpace((token[6])))
         {
-<<<<<<< HEAD
-            exportFaceGroupToShape(vertexCache, shapes, v, vn, vt, faceGroup, material, name);
-            faceGroup.clear();
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             
             char namebuf[4096];
             token += 7;

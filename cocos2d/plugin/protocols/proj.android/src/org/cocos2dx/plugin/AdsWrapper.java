@@ -94,11 +94,7 @@ public class AdsWrapper {
 		});
 	}
 	private native static void nativeOnAdsResult(String className, int code, String msg);
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	public static void onPlayerGetPoints(InterfaceAds adapter, int points) {
 		final int curPoints = points;
 		final InterfaceAds curAdapter = adapter;

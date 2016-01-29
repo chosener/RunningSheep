@@ -25,22 +25,12 @@ THE SOFTWARE.
 #ifndef __CC_APPLICATION_WINRT_H__
 #define __CC_APPLICATION_WINRT_H__
 
-<<<<<<< HEAD
-#include "platform/CCPlatformConfig.h"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-
-#include "platform/CCStdC.h"
-#include "platform/CCCommon.h"
-#include "platform/CCApplicationProtocol.h"
-#include "platform/winrt/InputEvent.h"
-=======
 #include "base/CCPlatformConfig.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 
 #include "CCStdC.h"
 #include "platform/CCCommon.h"
 #include "platform/CCApplicationProtocol.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <string>
 
 NS_CC_BEGIN
@@ -72,25 +62,6 @@ public:
      @brief Get target platform
      */
     virtual Platform getTargetPlatform() override;
-<<<<<<< HEAD
-    
-    /**
-     @brief Open url in default browser
-     @param String with url to open.
-     @return true if the resource located by the URL was successfully opened; otherwise false.
-     */
-    virtual bool openURL(const std::string &url);
-
-    /**
-    @brief Set the callback responsible for opening a URL.
-    @param del The delegate that will handle opening a URL. We can't pass back a Platform::String due to name clash.
-    */
-    void SetXamlOpenURLDelegate(const std::function<void(::Platform::String^)>& del)
-    {
-        m_openURLDelegate = del;
-    }
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      *  Sets the Resource root path.
@@ -116,11 +87,6 @@ protected:
     std::string         m_resourceRootPath;
     std::string         m_startupScriptFilename;
 
-<<<<<<< HEAD
-    std::function<void(::Platform::String^)> m_openURLDelegate;
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static Application * sm_pSharedApplication;
 };
 

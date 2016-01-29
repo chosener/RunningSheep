@@ -23,16 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-<<<<<<< HEAD
-#include "2d/CCTextFieldTTF.h"
-
-#include "base/CCDirector.h"
-=======
 #include "CCTextFieldTTF.h"
 
 #include "base/CCDirector.h"
 #include "CCGLView.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -62,13 +56,8 @@ TextFieldTTF::TextFieldTTF()
 , _charCount(0)
 , _inputText("")
 , _placeHolder("")   // prevent Label initWithString assertion
-<<<<<<< HEAD
-, _colorText(Color4B::WHITE)
-, _secureTextEntry(false)
-=======
 , _secureTextEntry(false)
 , _colorText(Color4B::WHITE)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     _colorSpaceHolder.r = _colorSpaceHolder.g = _colorSpaceHolder.b = 127;
     _colorSpaceHolder.a = 255;
@@ -84,11 +73,7 @@ TextFieldTTF::~TextFieldTTF()
 
 TextFieldTTF * TextFieldTTF::textFieldWithPlaceHolder(const std::string& placeholder, const Size& dimensions, TextHAlignment alignment, const std::string& fontName, float fontSize)
 {
-<<<<<<< HEAD
-    TextFieldTTF *ret = new (std::nothrow) TextFieldTTF();
-=======
     TextFieldTTF *ret = new TextFieldTTF();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(ret && ret->initWithPlaceHolder("", dimensions, alignment, fontName, fontSize))
     {
         ret->autorelease();
@@ -104,11 +89,7 @@ TextFieldTTF * TextFieldTTF::textFieldWithPlaceHolder(const std::string& placeho
 
 TextFieldTTF * TextFieldTTF::textFieldWithPlaceHolder(const std::string& placeholder, const std::string& fontName, float fontSize)
 {
-<<<<<<< HEAD
-    TextFieldTTF *ret = new (std::nothrow) TextFieldTTF();
-=======
     TextFieldTTF *ret = new TextFieldTTF();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(ret && ret->initWithPlaceHolder("", fontName, fontSize))
     {
         ret->autorelease();
@@ -159,21 +140,10 @@ bool TextFieldTTF::attachWithIME()
     if (ret)
     {
         // open keyboard
-<<<<<<< HEAD
-        auto pGlView = Director::getInstance()->getOpenGLView();
-        if (pGlView)
-        {
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8 && CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
-            pGlView->setIMEKeyboardState(true);
-#else
-            pGlView->setIMEKeyboardState(true, _inputText);
-#endif
-=======
         GLView * pGlView = Director::getInstance()->getOpenGLView();
         if (pGlView)
         {
             pGlView->setIMEKeyboardState(true);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
     return ret;
@@ -185,21 +155,10 @@ bool TextFieldTTF::detachWithIME()
     if (ret)
     {
         // close keyboard
-<<<<<<< HEAD
-        auto glView = Director::getInstance()->getOpenGLView();
-        if (glView)
-        {
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8 && CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
-            glView->setIMEKeyboardState(false);
-#else
-            glView->setIMEKeyboardState(false, "");
-#endif
-=======
         GLView * glView = Director::getInstance()->getOpenGLView();
         if (glView)
         {
             glView->setIMEKeyboardState(false);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
     }
     return ret;
@@ -274,11 +233,7 @@ void TextFieldTTF::deleteBackward()
 
     if (_delegate && _delegate->onTextFieldDeleteBackward(this, _inputText.c_str() + len - deleteLen, static_cast<int>(deleteLen)))
     {
-<<<<<<< HEAD
-        // delegate doesn't want to delete backwards
-=======
         // delegate doesn't wan't to delete backwards
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         return;
     }
 
@@ -305,13 +260,7 @@ const std::string& TextFieldTTF::getContentText()
 void TextFieldTTF::setTextColor(const Color4B &color)
 {
     _colorText = color;
-<<<<<<< HEAD
-    if (_inputText.length() > 0) {
-        Label::setTextColor(_colorText);
-    }
-=======
     Label::setTextColor(_colorText);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void TextFieldTTF::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
@@ -334,24 +283,11 @@ void TextFieldTTF::setColorSpaceHolder(const Color3B& color)
     _colorSpaceHolder.g = color.g;
     _colorSpaceHolder.b = color.b;
     _colorSpaceHolder.a = 255;
-<<<<<<< HEAD
-    if (0 == _inputText.length())
-    {
-        Label::setTextColor(_colorSpaceHolder);
-    }
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void TextFieldTTF::setColorSpaceHolder(const Color4B& color)
 {
     _colorSpaceHolder = color;
-<<<<<<< HEAD
-    if (0 == _inputText.length()) {
-        Label::setTextColor(_colorSpaceHolder);
-    }
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -386,11 +322,7 @@ void TextFieldTTF::setString(const std::string &text)
     }
 
     // if there is no input text, display placeholder instead
-<<<<<<< HEAD
-    if (0 == _inputText.length())
-=======
     if (! _inputText.length())
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         Label::setTextColor(_colorSpaceHolder);
         Label::setString(_placeHolder);
@@ -412,11 +344,7 @@ const std::string& TextFieldTTF::getString() const
 void TextFieldTTF::setPlaceHolder(const std::string& text)
 {
     _placeHolder = text;
-<<<<<<< HEAD
-    if (0 == _inputText.length())
-=======
     if (! _inputText.length())
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         Label::setTextColor(_colorSpaceHolder);
         Label::setString(_placeHolder);

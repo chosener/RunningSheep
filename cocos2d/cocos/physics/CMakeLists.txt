@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-
-set(COCOS_PHYSICS_SRC
-
-  physics/CCPhysicsBody.cpp
-  physics/CCPhysicsContact.cpp
-  physics/CCPhysicsJoint.cpp
-  physics/CCPhysicsShape.cpp
-  physics/CCPhysicsWorld.cpp
-
-)
-=======
 set(COCOS_PHYSICS_SRC
   physics/chipmunk/CCPhysicsContactInfo_chipmunk.cpp
   physics/chipmunk/CCPhysicsJointInfo_chipmunk.cpp
@@ -23,4 +11,3 @@ set(COCOS_PHYSICS_SRC
   physics/CCPhysicsWorld.cpp
 )
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

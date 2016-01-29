@@ -43,10 +43,7 @@ bool LayerMainMenu::init()
     
     this->addChild(label, 1);
     
-<<<<<<< HEAD
-    return true;
-}
-=======
+
     this->initView();
     
     return true;
@@ -85,5 +82,3 @@ void LayerMainMenu::onGameStart(Node* sender, Touch* touch, Event* e)
 }
 
 
-
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

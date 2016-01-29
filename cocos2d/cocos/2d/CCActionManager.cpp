@@ -28,10 +28,6 @@ THE SOFTWARE.
 
 #include "2d/CCActionManager.h"
 #include "2d/CCNode.h"
-<<<<<<< HEAD
-#include "2d/CCAction.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCScheduler.h"
 #include "base/ccMacros.h"
 #include "base/ccCArray.h"
@@ -290,43 +286,9 @@ void ActionManager::removeActionByTag(int tag, Node *target)
     }
 }
 
-<<<<<<< HEAD
-void ActionManager::removeAllActionsByTag(int tag, Node *target)
-{
-    CCASSERT(tag != Action::INVALID_TAG, "");
-    CCASSERT(target != nullptr, "");
-    
-    tHashElement *element = nullptr;
-    HASH_FIND_PTR(_targets, &target, element);
-    
-    if (element)
-    {
-        auto limit = element->actions->num;
-        for (int i = 0; i < limit;)
-        {
-            Action *action = (Action*)element->actions->arr[i];
-            
-            if (action->getTag() == (int)tag && action->getOriginalTarget() == target)
-            {
-                removeActionAtIndex(i, element);
-                --limit;
-            }
-            else
-            {
-                ++i;
-            }
-        }
-    }
-}
-
-// get
-
-// FIXME: Passing "const O *" instead of "const O&" because HASH_FIND_IT requries the address of a pointer
-=======
 // get
 
 // XXX: Passing "const O *" instead of "const O&" because HASH_FIND_IT requries the address of a pointer
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // and, it is not possible to get the address of a reference
 Action* ActionManager::getActionByTag(int tag, const Node *target) const
 {
@@ -350,11 +312,7 @@ Action* ActionManager::getActionByTag(int tag, const Node *target) const
                 }
             }
         }
-<<<<<<< HEAD
-        //CCLOG("cocos2d : getActionByTag(tag = %d): Action not found", tag);
-=======
         CCLOG("cocos2d : getActionByTag(tag = %d): Action not found", tag);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else
     {
@@ -364,11 +322,7 @@ Action* ActionManager::getActionByTag(int tag, const Node *target) const
     return nullptr;
 }
 
-<<<<<<< HEAD
-// FIXME: Passing "const O *" instead of "const O&" because HASH_FIND_IT requries the address of a pointer
-=======
 // XXX: Passing "const O *" instead of "const O&" because HASH_FIND_IT requries the address of a pointer
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // and, it is not possible to get the address of a reference
 ssize_t ActionManager::getNumberOfRunningActionsInTarget(const Node *target) const
 {

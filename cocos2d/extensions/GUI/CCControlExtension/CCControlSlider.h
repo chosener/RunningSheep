@@ -32,10 +32,6 @@
 
 #include "CCControl.h"
 #include "CCInvocation.h"
-<<<<<<< HEAD
-#include "extensions/ExtensionExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -46,11 +42,7 @@ NS_CC_EXT_BEGIN
  * @{
  */
 
-<<<<<<< HEAD
-class CC_EX_DLL ControlSlider: public Control
-=======
 class ControlSlider: public Control
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**
@@ -84,10 +76,6 @@ public:
             Sprite* selectedThumbSprite);
     /**
      * @js ctor
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ControlSlider();
     /**
@@ -118,19 +106,11 @@ public:
     virtual bool initWithSprites(Sprite * backgroundSprite, Sprite* progressSprite, Sprite* thumbSprite,
             Sprite* selectedThumbSprite);
 
-<<<<<<< HEAD
-    virtual void needsLayout() override;
-
-    virtual void setMaximumValue(float val);
-    virtual void setEnabled(bool enabled) override;
-    virtual bool isTouchInside(Touch * touch) override;
-=======
     virtual void needsLayout();
 
     virtual void setMaximumValue(float val);
     virtual void setEnabled(bool enabled);
     virtual bool isTouchInside(Touch * touch);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Vec2 locationFromTouch(Touch* touch);
     virtual void setValue(float val);
     virtual void setMinimumValue(float val);
@@ -140,15 +120,9 @@ protected:
     void sliderMoved(Vec2 location);
     void sliderEnded(Vec2 location);
 
-<<<<<<< HEAD
-    virtual bool onTouchBegan(Touch* touch, Event* pEvent) override;
-    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) override;
-=======
     virtual bool onTouchBegan(Touch* touch, Event* pEvent);
     virtual void onTouchMoved(Touch *pTouch, Event *pEvent);
     virtual void onTouchEnded(Touch *pTouch, Event *pEvent);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /** Returns the value for the given location. */
     float valueForLocation(Vec2 location);

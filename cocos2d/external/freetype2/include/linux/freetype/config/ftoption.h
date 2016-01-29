@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    User-selectable configuration macros (specification only).           */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2014 by                                                 */
-=======
 /*  Copyright 1996-2011 by                                                 */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -42,15 +38,9 @@ FT_BEGIN_HEADER
   /*    library from a single source directory.                            */
   /*                                                                       */
   /*  - You can put a copy of this file in your build directory, more      */
-<<<<<<< HEAD
-  /*    precisely in `$BUILD/config/ftoption.h', where `$BUILD' is the     */
-  /*    name of a directory that is included _before_ the FreeType include */
-  /*    path during compilation.                                           */
-=======
   /*    precisely in `$BUILD/freetype/config/ftoption.h', where `$BUILD'   */
   /*    is the name of a directory that is included _before_ the FreeType  */
   /*    include path during compilation.                                   */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    The default FreeType Makefiles and Jamfiles use the build          */
   /*    directory `builds/<system>' by default, but you can easily change  */
@@ -61,11 +51,7 @@ FT_BEGIN_HEADER
   /*    locate this file during the build.  For example,                   */
   /*                                                                       */
   /*      #define FT_CONFIG_OPTIONS_H  <myftoptions.h>                     */
-<<<<<<< HEAD
-  /*      #include <config/ftheader.h>                                     */
-=======
   /*      #include <freetype/config/ftheader.h>                            */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    will use `$BUILD/myftoptions.h' instead of this file for macro     */
   /*    definitions.                                                       */
@@ -73,15 +59,9 @@ FT_BEGIN_HEADER
   /*    Note also that you can similarly pre-define the macro              */
   /*    FT_CONFIG_MODULES_H used to locate the file listing of the modules */
   /*    that are statically linked to the library at compile time.  By     */
-<<<<<<< HEAD
-  /*    default, this file is <config/ftmodule.h>.                         */
-  /*                                                                       */
-  /* We highly recommend using the third method whenever possible.         */
-=======
   /*    default, this file is <freetype/config/ftmodule.h>.                */
   /*                                                                       */
   /*  We highly recommend using the third method whenever possible.        */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*************************************************************************/
 
@@ -236,36 +216,6 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
-<<<<<<< HEAD
-  /* PNG bitmap support.                                                   */
-  /*                                                                       */
-  /*   FreeType now handles loading color bitmap glyphs in the PNG format. */
-  /*   This requires help from the external libpng library.  Uncompressed  */
-  /*   color bitmaps do not need any external libraries and will be        */
-  /*   supported regardless of this configuration.                         */
-  /*                                                                       */
-  /*   Define this macro if you want to enable this `feature'.             */
-  /*                                                                       */
-/* #define FT_CONFIG_OPTION_USE_PNG */
-
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* HarfBuzz support.                                                     */
-  /*                                                                       */
-  /*   FreeType uses the HarfBuzz library to improve auto-hinting of       */
-  /*   OpenType fonts.  If available, many glyphs not directly addressable */
-  /*   by a font's character map will be hinted also.                      */
-  /*                                                                       */
-  /*   Define this macro if you want to enable this `feature'.             */
-  /*                                                                       */
-/* #define FT_CONFIG_OPTION_USE_HARFBUZZ */
-
-
-  /*************************************************************************/
-  /*                                                                       */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* DLL export compilation                                                */
   /*                                                                       */
   /*   When compiling FreeType as a DLL, some systems/compilers need a     */
@@ -564,11 +514,7 @@ FT_BEGIN_HEADER
   /* does not contain any glyph name though.                               */
   /*                                                                       */
   /* Accessing SFNT names is done through the functions declared in        */
-<<<<<<< HEAD
-  /* `ftsnames.h'.                                                         */
-=======
   /* `freetype/ftsnames.h'.                                                */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
 #define TT_CONFIG_OPTION_SFNT_NAMES
 
@@ -614,31 +560,6 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
-<<<<<<< HEAD
-  /* Define TT_CONFIG_OPTION_SUBPIXEL_HINTING if you want to compile       */
-  /* EXPERIMENTAL subpixel hinting support into the TrueType driver.  This */
-  /* replaces the native TrueType hinting mechanism when anything but      */
-  /* FT_RENDER_MODE_MONO is requested.                                     */
-  /*                                                                       */
-  /* Enabling this causes the TrueType driver to ignore instructions under */
-  /* certain conditions.  This is done in accordance with the guide here,  */
-  /* with some minor differences:                                          */
-  /*                                                                       */
-  /*  http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx */
-  /*                                                                       */
-  /* By undefining this, you only compile the code necessary to hint       */
-  /* TrueType glyphs with native TT hinting.                               */
-  /*                                                                       */
-  /*   This option requires TT_CONFIG_OPTION_BYTECODE_INTERPRETER to be    */
-  /*   defined.                                                            */
-  /*                                                                       */
-/* #define TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-
-
-  /*************************************************************************/
-  /*                                                                       */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* If you define TT_CONFIG_OPTION_UNPATENTED_HINTING, a special version  */
   /* of the TrueType bytecode interpreter is used that doesn't implement   */
   /* any of the patented opcodes and algorithms.  The patents related to   */
@@ -748,11 +669,7 @@ FT_BEGIN_HEADER
 
   /*************************************************************************/
   /*                                                                       */
-<<<<<<< HEAD
-  /* T1_MAX_DICT_DEPTH is the maximum depth of nest dictionaries and       */
-=======
   /* T1_MAX_DICT_DEPTH is the maximal depth of nest dictionaries and       */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* arrays in the Type 1 stream (see t1load.c).  A minimum of 4 is        */
   /* required.                                                             */
   /*                                                                       */
@@ -799,52 +716,6 @@ FT_BEGIN_HEADER
   /*************************************************************************/
   /*************************************************************************/
   /****                                                                 ****/
-<<<<<<< HEAD
-  /****         C F F   D R I V E R    C O N F I G U R A T I O N        ****/
-  /****                                                                 ****/
-  /*************************************************************************/
-  /*************************************************************************/
-
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* Using CFF_CONFIG_OPTION_DARKENING_PARAMETER_{X,Y}{1,2,3,4} it is      */
-  /* possible to set up the default values of the four control points that */
-  /* define the stem darkening behaviour of the (new) CFF engine.  For     */
-  /* more details please read the documentation of the                     */
-  /* `darkening-parameters' property of the cff driver module (file        */
-  /* `ftcffdrv.h'), which allows the control at run-time.                  */
-  /*                                                                       */
-  /* Do *not* undefine these macros!                                       */
-  /*                                                                       */
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_X1   500
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y1   400
-
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_X2  1000
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y2   275
-
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_X3  1667
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y3   275
-
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_X4  2333
-#define CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y4     0
-
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* CFF_CONFIG_OPTION_OLD_ENGINE controls whether the pre-Adobe CFF       */
-  /* engine gets compiled into FreeType.  If defined, it is possible to    */
-  /* switch between the two engines using the `hinting-engine' property of */
-  /* the cff driver module.                                                */
-  /*                                                                       */
-/* #define CFF_CONFIG_OPTION_OLD_ENGINE */
-
-
-  /*************************************************************************/
-  /*************************************************************************/
-  /****                                                                 ****/
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /****    A U T O F I T   M O D U L E    C O N F I G U R A T I O N     ****/
   /****                                                                 ****/
   /*************************************************************************/
@@ -881,12 +752,6 @@ FT_BEGIN_HEADER
 
 
   /*
-<<<<<<< HEAD
-   * This macro is obsolete.  Support has been removed in FreeType
-   * version 2.5.
-   */
-/* #define FT_CONFIG_OPTION_OLD_INTERNALS */
-=======
    * Define this variable if you want to keep the layout of internal
    * structures that was used prior to FreeType 2.2.  This also compiles in
    * a few obsolete functions to avoid linking problems on typical Unix
@@ -918,7 +783,6 @@ FT_BEGIN_HEADER
 #ifdef FT_CONFIG_OPTION_OLD_INTERNALS
 #define FT_MAX_CHARMAP_CACHEABLE 15
 #endif
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
   /*
@@ -932,38 +796,6 @@ FT_BEGIN_HEADER
 #define  TT_USE_BYTECODE_INTERPRETER
 #endif
 
-<<<<<<< HEAD
-
-  /*
-   * Check CFF darkening parameters.  The checks are the same as in function
-   * `cff_property_set' in file `cffdrivr.c'.
-   */
-#if CFF_CONFIG_OPTION_DARKENING_PARAMETER_X1 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X2 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X3 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X4 < 0   || \
-                                                      \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y1 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y2 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y3 < 0   || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y4 < 0   || \
-                                                      \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X1 >        \
-      CFF_CONFIG_OPTION_DARKENING_PARAMETER_X2     || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X2 >        \
-      CFF_CONFIG_OPTION_DARKENING_PARAMETER_X3     || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_X3 >        \
-      CFF_CONFIG_OPTION_DARKENING_PARAMETER_X4     || \
-                                                      \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y1 > 500 || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y2 > 500 || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y3 > 500 || \
-    CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y4 > 500
-#error "Invalid CFF darkening parameters!"
-#endif
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 

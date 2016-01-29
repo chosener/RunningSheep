@@ -31,11 +31,7 @@ CCBFile::CCBFile():_CCBFileNode(nullptr) {}
 
 CCBFile* CCBFile::create()
 {
-<<<<<<< HEAD
-    CCBFile *ret = new (std::nothrow) CCBFile();
-=======
     CCBFile *ret = new CCBFile();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (ret)
     {
@@ -144,11 +140,7 @@ const std::string& CCBReader::getCCBRootPath() const
 bool CCBReader::init()
 {
     // Setup action manager
-<<<<<<< HEAD
-    CCBAnimationManager *pActionManager = new (std::nothrow) CCBAnimationManager();
-=======
     CCBAnimationManager *pActionManager = new CCBAnimationManager();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     setAnimationManager(pActionManager);
     pActionManager->release();
     
@@ -485,11 +477,7 @@ float CCBReader::readFloat()
             {
                 /* using a memcpy since the compiler isn't
                  * doing the float ptr math correctly on device.
-<<<<<<< HEAD
-                 * TODO: still applies in C++ ? */
-=======
                  * TODO still applies in C++ ? */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 unsigned char* pF = (this->_bytes + this->_currentByte);
                 float f = 0;
                 
@@ -573,11 +561,7 @@ Node * CCBReader::readNodeGraph(Node * pParent)
         
         for (int j = 0; j < numProps; ++j)
         {
-<<<<<<< HEAD
-            CCBSequenceProperty *seqProp = new (std::nothrow) CCBSequenceProperty();
-=======
             CCBSequenceProperty *seqProp = new CCBSequenceProperty();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             seqProp->autorelease();
             
             seqProp->setName(readCachedString().c_str());
@@ -747,11 +731,7 @@ Node * CCBReader::readNodeGraph(Node * pParent)
 
 CCBKeyframe* CCBReader::readKeyframe(PropertyType type)
 {
-<<<<<<< HEAD
-    CCBKeyframe *keyframe = new (std::nothrow) CCBKeyframe();
-=======
     CCBKeyframe *keyframe = new CCBKeyframe();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     keyframe->autorelease();
     
     keyframe->setTime(readFloat());
@@ -855,11 +835,7 @@ bool CCBReader::readCallbackKeyframesForSeq(CCBSequence* seq)
     int numKeyframes = readInt(false);
     if(!numKeyframes) return true;
     
-<<<<<<< HEAD
-    CCBSequenceProperty* channel = new (std::nothrow) CCBSequenceProperty();
-=======
     CCBSequenceProperty* channel = new CCBSequenceProperty();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     channel->autorelease();
 
     for(int i = 0; i < numKeyframes; ++i) {
@@ -873,11 +849,7 @@ bool CCBReader::readCallbackKeyframesForSeq(CCBSequence* seq)
         valueVector.push_back(Value(callbackName));
         valueVector.push_back(Value(callbackType));
         
-<<<<<<< HEAD
-        CCBKeyframe* keyframe = new (std::nothrow) CCBKeyframe();
-=======
         CCBKeyframe* keyframe = new CCBKeyframe();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         keyframe->autorelease();
         
         keyframe->setTime(time);
@@ -902,11 +874,7 @@ bool CCBReader::readSoundKeyframesForSeq(CCBSequence* seq) {
     int numKeyframes = readInt(false);
     if(!numKeyframes) return true;
     
-<<<<<<< HEAD
-    CCBSequenceProperty* channel = new (std::nothrow) CCBSequenceProperty();
-=======
     CCBSequenceProperty* channel = new CCBSequenceProperty();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     channel->autorelease();
 
     for(int i = 0; i < numKeyframes; ++i) {
@@ -923,11 +891,7 @@ bool CCBReader::readSoundKeyframesForSeq(CCBSequence* seq) {
         vec.push_back(Value(pan));
         vec.push_back(Value(gain));
         
-<<<<<<< HEAD
-        CCBKeyframe* keyframe = new (std::nothrow) CCBKeyframe();
-=======
         CCBKeyframe* keyframe = new CCBKeyframe();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         keyframe->setTime(time);
         keyframe->setValue(Value(vec));
         channel->getKeyframes().pushBack(keyframe);
@@ -952,11 +916,7 @@ bool CCBReader::readSequences()
     
     for (int i = 0; i < numSeqs; i++)
     {
-<<<<<<< HEAD
-        CCBSequence *seq = new (std::nothrow) CCBSequence();
-=======
         CCBSequence *seq = new CCBSequence();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         seq->autorelease();
         
         seq->setDuration(readFloat());

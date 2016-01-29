@@ -25,15 +25,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-
-NS_CC_BEGIN
-
-CC_DLL const char* cocos2dVersion()
-{
-    return "cocos2d-x 3.6";
-=======
 #include "base/CCPlatformMacros.h"
 
 NS_CC_BEGIN
@@ -41,7 +32,6 @@ NS_CC_BEGIN
 const char* cocos2dVersion()
 {
     return "cocos2d-x 3.2";
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END

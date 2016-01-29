@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType simple types definitions (specification only).              */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2002, 2004, 2006-2009, 2012-2014 by                     */
-=======
 /*  Copyright 1996-2001, 2002, 2004, 2006, 2007, 2008 by                   */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -61,11 +57,6 @@ FT_BEGIN_HEADER
   /*    FT_UInt16                                                          */
   /*    FT_Int32                                                           */
   /*    FT_UInt32                                                          */
-<<<<<<< HEAD
-  /*    FT_Int64                                                           */
-  /*    FT_UInt64                                                          */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    FT_Short                                                           */
   /*    FT_UShort                                                          */
   /*    FT_Long                                                            */
@@ -87,13 +78,7 @@ FT_BEGIN_HEADER
   /*    FT_F2Dot14                                                         */
   /*    FT_UnitVector                                                      */
   /*    FT_F26Dot6                                                         */
-<<<<<<< HEAD
-  /*    FT_Data                                                            */
   /*                                                                       */
-  /*    FT_MAKE_TAG                                                        */
-=======
-  /*                                                                       */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*    FT_Generic                                                         */
   /*    FT_Generic_Finalizer                                               */
@@ -270,11 +255,7 @@ FT_BEGIN_HEADER
   /*    FT_F2Dot14                                                         */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    A signed 2.14 fixed-point type used for unit vectors.              */
-=======
   /*    A signed 2.14 fixed float type used for unit vectors.              */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   typedef signed short  FT_F2Dot14;
 
@@ -285,11 +266,7 @@ FT_BEGIN_HEADER
   /*    FT_F26Dot6                                                         */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    A signed 26.6 fixed-point type used for vectorial pixel            */
-=======
   /*    A signed 26.6 fixed float type used for vectorial pixel            */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    coordinates.                                                       */
   /*                                                                       */
   typedef signed long  FT_F26Dot6;
@@ -301,11 +278,7 @@ FT_BEGIN_HEADER
   /*    FT_Fixed                                                           */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    This type is used to store 16.16 fixed-point values, like scaling  */
-=======
   /*    This type is used to store 16.16 fixed float values, like scaling  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    values or matrix coefficients.                                     */
   /*                                                                       */
   typedef signed long  FT_Fixed;
@@ -389,11 +362,7 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* <Description>                                                         */
   /*    A simple structure used to store a 2x2 matrix.  Coefficients are   */
-<<<<<<< HEAD
-  /*    in 16.16 fixed-point format.  The computation performed is:        */
-=======
   /*    in 16.16 fixed float format.  The computation performed is:        */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*       {                                                               */
   /*          x' = x*xx + y*xy                                             */
@@ -449,11 +418,7 @@ FT_BEGIN_HEADER
   /*    details of usage.                                                  */
   /*                                                                       */
   /* <Input>                                                               */
-<<<<<<< HEAD
-  /*    The address of the FreeType object that is under finalization.     */
-=======
   /*    The address of the FreeType object which is under finalization.    */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    Its client data is accessed through its `generic' field.           */
   /*                                                                       */
   typedef void  (*FT_Generic_Finalizer)(void*  object);
@@ -469,11 +434,7 @@ FT_BEGIN_HEADER
   /*    variety of FreeType core objects.  For example, a text layout API  */
   /*    might want to associate a glyph cache to a given size object.      */
   /*                                                                       */
-<<<<<<< HEAD
-  /*    Some FreeType object contains a `generic' field, of type           */
-=======
   /*    Most FreeType object contains a `generic' field, of type           */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    FT_Generic, which usage is left to client applications and font    */
   /*    servers.                                                           */
   /*                                                                       */
@@ -505,13 +466,8 @@ FT_BEGIN_HEADER
   /*    FT_MAKE_TAG                                                        */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    This macro converts four-letter tags that are used to label        */
-  /*    TrueType tables into an unsigned long, to be used within FreeType. */
-=======
   /*    This macro converts four-letter tags which are used to label       */
   /*    TrueType tables into an unsigned long to be used within FreeType.  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Note>                                                                */
   /*    The produced values *must* be 32-bit integers.  Don't redefine     */
@@ -611,30 +567,6 @@ FT_BEGIN_HEADER
 
   } FT_ListRec;
 
-<<<<<<< HEAD
-  /* */
-
-
-#define FT_IS_EMPTY( list )  ( (list).head == 0 )
-#define FT_BOOL( x )  ( (FT_Bool)( x ) )
-
-  /* concatenate C tokens */
-#define FT_ERR_XCAT( x, y )  x ## y
-#define FT_ERR_CAT( x, y )   FT_ERR_XCAT( x, y )
-
-  /* see `ftmoderr.h' for descriptions of the following macros */
-
-#define FT_ERR( e )  FT_ERR_CAT( FT_ERR_PREFIX, e )
-
-#define FT_ERROR_BASE( x )    ( (x) & 0xFF )
-#define FT_ERROR_MODULE( x )  ( (x) & 0xFF00U )
-
-#define FT_ERR_EQ( x, e )                                        \
-          ( FT_ERROR_BASE( x ) == FT_ERROR_BASE( FT_ERR( e ) ) )
-#define FT_ERR_NEQ( x, e )                                       \
-          ( FT_ERROR_BASE( x ) != FT_ERROR_BASE( FT_ERR( e ) ) )
-
-=======
 
   /* */
 
@@ -647,7 +579,6 @@ FT_BEGIN_HEADER
 #define FT_ERROR_MODULE( x )  ( (x) & 0xFF00U )
 
 #define FT_BOOL( x )  ( (FT_Bool)( x ) )
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 FT_END_HEADER
 

@@ -25,19 +25,6 @@
 #ifndef __CCEVENTLISTENER_H__
 #define __CCEVENTLISTENER_H__
 
-<<<<<<< HEAD
-#include <functional>
-#include <string>
-#include <memory>
-
-#include "platform/CCPlatformMacros.h"
-#include "base/CCRef.h"
-
-/**
- * @addtogroup base
- * @{
- */
-=======
 #include "base/CCPlatformMacros.h"
 #include "base/CCRef.h"
 
@@ -45,24 +32,12 @@
 #include <string>
 #include <memory>
 #include <set>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 class Event;
 class Node;
 
-<<<<<<< HEAD
-/** @class EventListener
- *  @brief The base class of event listener.
- *  If you need custom listener which with different callback, you need to inherit this class.
- *  For instance, you could refer to EventListenerAcceleration, EventListenerKeyboard, EventListenerTouchOneByOne, EventListenerCustom.
- */
-class CC_DLL EventListener : public Ref
-{
-public:
-    /** Type Event type.*/
-=======
 /**
  *  The base class of event listener.
  *  If you need custom listener which with different callback, you need to inherit this class.
@@ -71,7 +46,6 @@ public:
 class EventListener : public Ref
 {
 public:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class Type
     {
         UNKNOWN,
@@ -81,62 +55,14 @@ public:
         MOUSE,
         ACCELERATION,
         FOCUS,
-<<<<<<< HEAD
-		GAME_CONTROLLER,
-=======
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 		GAME_CONTROLLER,
 #endif
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         CUSTOM
     };
 
     typedef std::string ListenerID;
 
-<<<<<<< HEAD
-CC_CONSTRUCTOR_ACCESS:
-    /**
-     * Constructor
-     * @js ctor
-     */
-    EventListener();
-
-    /** 
-     * Initializes event with type and callback function
-     * @js NA
-     */
-    bool init(Type t, const ListenerID& listenerID, const std::function<void(Event*)>& callback);
-public:
-    /** Destructor.
-     * @js NA 
-     */
-    virtual ~EventListener();
-
-    /** Checks whether the listener is available.
-     * 
-     * @return True if the listener is available.
-     */
-    virtual bool checkAvailable() = 0;
-
-    /** Clones the listener, its subclasses have to override this method.
-     */
-    virtual EventListener* clone() = 0;
-
-    /** Enables or disables the listener.
-     * @note Only listeners with `enabled` state will be able to receive events.
-     *        When an listener was initialized, it's enabled by default.
-     *        An event listener can receive events when it is enabled and is not paused.
-     *        paused state is always false when it is a fixed priority listener.
-     *
-     * @param enabled True if enables the listener.
-     */
-    inline void setEnabled(bool enabled) { _isEnabled = enabled; };
-
-    /** Checks whether the listener is enabled.
-     *
-     * @return True if the listenrt is enabled.
-     */
-=======
 protected:
     /** Constructor */
     EventListener();
@@ -162,7 +88,6 @@ public:
     inline void setEnabled(bool enabled) { _isEnabled = enabled; };
 
     /** Checks whether the listener is enabled */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline bool isEnabled() const { return _isEnabled; };
 
 protected:
@@ -233,10 +158,4 @@ protected:
 
 NS_CC_END
 
-<<<<<<< HEAD
-// end of base group
-/// @}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __CCEVENTLISTENER_H__

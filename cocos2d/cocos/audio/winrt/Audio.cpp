@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-/*
-* cocos2d-x   http://www.cocos2d-x.org
-*
-* Copyright (c) 2010-2011 - cocos2d-x community
-* 
-* Portions Copyright (c) Microsoft Open Technologies, Inc.
-* All Rights Reserved
-* 
-* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. 
-* You may obtain a copy of the License at 
-* 
-* http://www.apache.org/licenses/LICENSE-2.0 
-* 
-* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
-* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-* See the License for the specific language governing permissions and limitations under the License.
-*/
-
-#include "Audio.h"
-#include "MediaStreamer.h"
-//#include "CCCommon.h"
-
-inline void ThrowIfFailed(HRESULT hr)
-{
-    if (FAILED(hr))
-    {
-        // Set a breakpoint on this line to catch DX API errors.
-=======
 //// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
 //// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 //// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
@@ -71,7 +42,6 @@ static inline void ThrowIfFailed(HRESULT hr)
     if (FAILED(hr))
     {
         // Set a breakpoint on this line to catch DirectX API errors
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         throw Platform::Exception::CreateException(hr);
     }
 }
@@ -85,23 +55,14 @@ void AudioEngineCallbacks::Initialize(Audio *audio)
 // to be closed down and restarted.  The error code is given in error.
 void  _stdcall AudioEngineCallbacks::OnCriticalError(HRESULT Error)
 {
-<<<<<<< HEAD
-    UNUSED_PARAM(Error);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     m_audio->SetEngineExperiencedCriticalError();
 };
 
 Audio::Audio() :
     m_backgroundID(0),
-<<<<<<< HEAD
-	m_soundEffctVolume(1.0f),
-	m_backgroundMusicVolume(1.0f)
-=======
     m_soundEffctVolume(1.0),
 	m_backgroundMusicVolume(1.0f)
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 
@@ -259,15 +220,8 @@ void Audio::StopBackgroundMusic(bool bReleaseData)
 
     StopSoundEffect(m_backgroundID);
 
-<<<<<<< HEAD
-    if (bReleaseData){
-        UnloadSoundEffect(m_backgroundID);
-        RemoveFromList(m_backgroundID);
-    }
-=======
     if (bReleaseData)
         UnloadSoundEffect(m_backgroundID);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Audio::PauseBackgroundMusic()
@@ -374,12 +328,9 @@ void Audio::PlaySoundEffect(unsigned int sound)
 		m_soundEffects[sound].m_soundEffectSourceVoice->SubmitSourceBuffer(&m_soundEffects[sound].m_audioBuffer)
 		);
 
-<<<<<<< HEAD
-=======
 	XAUDIO2_BUFFER buf = {0};
 	XAUDIO2_VOICE_STATE state = {0};
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (m_engineExperiencedCriticalError) {
         // If there's an error, then we'll recreate the engine on the next render pass
         return;
@@ -475,12 +426,7 @@ void Audio::PauseAllSoundEffects()
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
-<<<<<<< HEAD
-        if (iter->first != m_backgroundID)
-            PauseSoundEffect(iter->first);
-=======
         PauseSoundEffect(iter->first);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	}
 }
 
@@ -493,20 +439,11 @@ void Audio::ResumeAllSoundEffects()
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
-<<<<<<< HEAD
-        if (iter->first != m_backgroundID)
-            ResumeSoundEffect(iter->first);
-	}
-}
-
-void Audio::StopAllSoundEffects(bool bReleaseData)
-=======
         ResumeSoundEffect(iter->first);
 	}
 }
 
 void Audio::StopAllSoundEffects()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     if (m_engineExperiencedCriticalError) {
         return;
@@ -515,32 +452,8 @@ void Audio::StopAllSoundEffects()
     EffectList::iterator iter;
 	for (iter = m_soundEffects.begin(); iter != m_soundEffects.end(); iter++)
 	{
-<<<<<<< HEAD
-        if (iter->first != m_backgroundID){
-            StopSoundEffect(iter->first);
-            if (bReleaseData)
-            {
-                UnloadSoundEffect(iter->first);  
-            }            
-        }
-	}
-    if (bReleaseData)
-    {
-        for (iter = m_soundEffects.begin(); iter != m_soundEffects.end();)
-        {
-            if (iter->first != m_backgroundID){                
-                m_soundEffects.erase(iter++);
-            }
-            else
-            {
-                iter++;
-            }
-        }
-    }  
-=======
         StopSoundEffect(iter->first);
 	}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool Audio::IsSoundEffectStarted(unsigned int sound)
@@ -551,74 +464,15 @@ bool Audio::IsSoundEffectStarted(unsigned int sound)
     return m_soundEffects[sound].m_soundEffectStarted;
 }
 
-<<<<<<< HEAD
-std::wstring CCUtf8ToUnicode(const char * pszUtf8Str)
-{
-    std::wstring ret;
-    do
-    {
-        if (! pszUtf8Str) break;
-        size_t len = strlen(pszUtf8Str);
-        if (len <= 0) break;
-		++len;
-        wchar_t * pwszStr = new wchar_t[len];
-        if (! pwszStr) break;
-        pwszStr[len - 1] = 0;
-        MultiByteToWideChar(CP_UTF8, 0, pszUtf8Str, len, pwszStr, len);
-        ret = pwszStr;
-
-		if(pwszStr) { 
-			delete[] (pwszStr); 
-			(pwszStr) = 0; 
-		}
-
-
-    } while (0);
-    return ret;
-}
-
-std::string CCUnicodeToUtf8(const wchar_t* pwszStr)
-{
-	std::string ret;
-	do
-	{
-		if(! pwszStr) break;
-		size_t len = wcslen(pwszStr);
-		if (len <= 0) break;
-		
-		char * pszUtf8Str = new char[len*3 + 1];
-		WideCharToMultiByte(CP_UTF8, 0, pwszStr, len+1, pszUtf8Str, len*3 + 1, 0, 0);
-		ret = pszUtf8Str;
-				
-		if(pszUtf8Str) { 
-			delete[] (pszUtf8Str); 
-			(pszUtf8Str) = 0; 
-		}
-	}while(0);
-
-	return ret;
-}
-
-void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
-{
-=======
 void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
 {
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (m_engineExperiencedCriticalError) {
         return;
     }
 
     int sound = Hash(pszFilePath);
 
-<<<<<<< HEAD
-	MediaStreamer mediaStreamer;
-	mediaStreamer.Initialize(CCUtf8ToUnicode(pszFilePath).c_str());
-	m_soundEffects[sound].m_soundID = sound;	
-	
-	uint32 bufferLength = mediaStreamer.GetMaxStreamLengthInBytes();
-=======
 	if (m_soundEffects.end() != m_soundEffects.find(sound))
     {
        return;
@@ -643,7 +497,6 @@ void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
 		m_soundEffects[sound].m_soundEffectBufferData = NULL;
 	}
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	m_soundEffects[sound].m_soundEffectBufferData = new byte[bufferLength];
 	mediaStreamer.ReadAll(m_soundEffects[sound].m_soundEffectBufferData, bufferLength, &m_soundEffects[sound].m_soundEffectBufferLength);
 
@@ -696,11 +549,6 @@ void Audio::UnloadSoundEffect(const char* pszFilePath)
     int sound = Hash(pszFilePath);
 
     UnloadSoundEffect(sound);
-<<<<<<< HEAD
-
-    RemoveFromList(sound);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Audio::UnloadSoundEffect(unsigned int sound)
@@ -714,23 +562,6 @@ void Audio::UnloadSoundEffect(unsigned int sound)
 
     m_soundEffects[sound].m_soundEffectSourceVoice->DestroyVoice();
 
-<<<<<<< HEAD
-    if(m_soundEffects[sound].m_soundEffectBufferData)
-        delete [] m_soundEffects[sound].m_soundEffectBufferData;
-
-    m_soundEffects[sound].m_soundEffectBufferData = nullptr;
-	m_soundEffects[sound].m_soundEffectSourceVoice = nullptr;
-	m_soundEffects[sound].m_soundEffectStarted = false;
-    ZeroMemory(&m_soundEffects[sound].m_audioBuffer, sizeof(m_soundEffects[sound].m_audioBuffer));    
-}
-
-void Audio::RemoveFromList( unsigned int sound )
-{
-    m_soundEffects.erase(sound);
-}
-
-
-=======
 	if (m_soundEffects[sound].m_soundEffectBufferData)
 	{
 		delete[] m_soundEffects[sound].m_soundEffectBufferData;
@@ -743,4 +574,3 @@ void Audio::RemoveFromList( unsigned int sound )
 
     m_soundEffects.erase(sound);
 }
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

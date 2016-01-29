@@ -31,12 +31,8 @@ http://slick.cokeandcode.com/demos/hiero.jnlp (Free, Java)
 http://www.angelcode.com/products/bmfont/ (Free, Windows only)
 
 ****************************************************************************/
-<<<<<<< HEAD
-#include "2d/CCLabelBMFont.h"
-=======
 #include "CCLabelBMFont.h"
 #include "2d/CCDrawingPrimitives.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "deprecated/CCString.h"
 #include "2d/CCSprite.h"
 
@@ -58,11 +54,7 @@ NS_CC_BEGIN
 
 LabelBMFont * LabelBMFont::create()
 {
-<<<<<<< HEAD
-    LabelBMFont * pRet = new (std::nothrow) LabelBMFont();
-=======
     LabelBMFont * pRet = new LabelBMFont();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pRet)
     {
         pRet->autorelease();
@@ -75,11 +67,7 @@ LabelBMFont * LabelBMFont::create()
 //LabelBMFont - Creation & Init
 LabelBMFont *LabelBMFont::create(const std::string& str, const std::string& fntFile, float width /* = 0 */, TextHAlignment alignment /* = TextHAlignment::LEFT */,const Vec2& imageOffset /* = Vec2::ZERO */)
 {
-<<<<<<< HEAD
-    LabelBMFont *ret = new (std::nothrow) LabelBMFont();
-=======
     LabelBMFont *ret = new LabelBMFont();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(ret && ret->initWithString(str, fntFile, width, alignment,imageOffset))
     {
         ret->autorelease();
@@ -111,14 +99,6 @@ LabelBMFont::LabelBMFont()
     this->addChild(_label);
     this->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _cascadeOpacityEnabled = true;
-<<<<<<< HEAD
-    
-#if CC_LABELBMFONT_DEBUG_DRAW
-    _debugDrawNode = DrawNode::create();
-    addChild(_debugDrawNode);
-#endif
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 LabelBMFont::~LabelBMFont()
@@ -224,21 +204,11 @@ const Size& LabelBMFont::getContentSize() const
 
 Rect LabelBMFont::getBoundingBox() const
 {
-<<<<<<< HEAD
-    return Node::getBoundingBox();
-=======
     return _label->getBoundingBox();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 #if CC_LABELBMFONT_DEBUG_DRAW
 void LabelBMFont::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
-<<<<<<< HEAD
-    Node::draw(renderer, transform, _transformUpdated);
-
-    _debugDrawNode->clear();
-    auto size = getContentSize();
-=======
     Node::draw(renderer, transform, transformUpdated);
 
     _customDebugDrawCommand.init(_globalZOrder);
@@ -254,7 +224,6 @@ void LabelBMFont::drawDebugData(const Mat4& transform, bool transformUpdated)
 
     auto size = getContentSize();
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Vec2 vertices[4]=
     {
         Vec2::ZERO,
@@ -262,14 +231,10 @@ void LabelBMFont::drawDebugData(const Mat4& transform, bool transformUpdated)
         Vec2(size.width, size.height),
         Vec2(0, size.height)
     };
-<<<<<<< HEAD
-    _debugDrawNode->drawPoly(vertices, 4, true, Color4F(1.0, 1.0, 1.0, 1.0));
-=======
     
     DrawPrimitives::drawPoly(vertices, 4, true);
 
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 #endif
 

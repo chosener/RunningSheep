@@ -24,10 +24,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-<<<<<<< HEAD
-#include "2d/CCFastTMXTiledMap.h"
-#include "2d/CCFastTMXLayer.h"
-=======
 #include "CCFastTMXTiledMap.h"
 
 #include <algorithm>
@@ -35,7 +31,6 @@ THE SOFTWARE.
 #include "CCTMXXMLParser.h"
 #include "CCFastTMXLayer.h"
 #include "CCSprite.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "deprecated/CCString.h"
 
 NS_CC_BEGIN
@@ -45,11 +40,7 @@ namespace experimental {
 
 TMXTiledMap * TMXTiledMap::create(const std::string& tmxFile)
 {
-<<<<<<< HEAD
-    TMXTiledMap *ret = new (std::nothrow) TMXTiledMap();
-=======
     TMXTiledMap *ret = new TMXTiledMap();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret->initWithTMXFile(tmxFile))
     {
         ret->autorelease();
@@ -61,11 +52,7 @@ TMXTiledMap * TMXTiledMap::create(const std::string& tmxFile)
 
 TMXTiledMap* TMXTiledMap::createWithXML(const std::string& tmxString, const std::string& resourcePath)
 {
-<<<<<<< HEAD
-    TMXTiledMap *ret = new (std::nothrow) TMXTiledMap();
-=======
     TMXTiledMap *ret = new TMXTiledMap();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret->initWithXML(tmxString, resourcePath))
     {
         ret->autorelease();
@@ -151,11 +138,7 @@ TMXTilesetInfo * TMXTiledMap::tilesetForLayer(TMXLayerInfo *layerInfo, TMXMapInf
                     //    gid = CFSwapInt32( gid );
                     /* We support little endian.*/
                     
-<<<<<<< HEAD
-                    // FIXME: gid == 0 --> empty tile
-=======
                     // XXX: gid == 0 --> empty tile
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     if( gid != 0 )
                     {
                         // Optimization: quick return

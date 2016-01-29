@@ -7,11 +7,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
-<<<<<<< HEAD
- * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.
-=======
  * Copyright (C) 1998 - 2010, Daniel Stenberg, <daniel@haxx.se>, et al.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -531,12 +527,7 @@
 /* ===================================== */
 
 #elif defined(__GNUC__)
-<<<<<<< HEAD
-#  if defined(__ILP32__) || \
-      defined(__i386__) || defined(__ppc__) || defined(__arm__) || defined(__sparc__)
-=======
 #  if defined(__i386__) || defined(__ppc__)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #    define CURL_SIZEOF_LONG           4
 #    define CURL_TYPEOF_CURL_OFF_T     long long
 #    define CURL_FORMAT_CURL_OFF_T     "lld"
@@ -545,12 +536,7 @@
 #    define CURL_SIZEOF_CURL_OFF_T     8
 #    define CURL_SUFFIX_CURL_OFF_T     LL
 #    define CURL_SUFFIX_CURL_OFF_TU    ULL
-<<<<<<< HEAD
-#  elif defined(__LP64__) || \
-        defined(__x86_64__) || defined(__ppc64__) || defined(__sparc64__)
-=======
 #  elif defined(__x86_64__) || defined(__ppc64__)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #    define CURL_SIZEOF_LONG           8
 #    define CURL_TYPEOF_CURL_OFF_T     long
 #    define CURL_FORMAT_CURL_OFF_T     "ld"

@@ -33,11 +33,7 @@ void AnimationCurve<componentSize>::evaluate(float time, float* dst, EvaluateTyp
         break;
         case EvaluateType::INT_NEAR:
         {
-<<<<<<< HEAD
-            float* src = fabs(t) > 0.5f ? toValue : fromValue;
-=======
             float* src = t > 0.5f ? toValue : fromValue;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             memcpy(dst, src, _componentSizeByte);
         }
         break;
@@ -76,11 +72,7 @@ template <int componentSize>
 AnimationCurve<componentSize>* AnimationCurve<componentSize>::create(float* keytime, float* value, int count)
 {
     int floatSize = sizeof(float);
-<<<<<<< HEAD
-    AnimationCurve* curve = new (std::nothrow) AnimationCurve();
-=======
     AnimationCurve* curve = new AnimationCurve();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     curve->_keytime = new float[count];
     memcpy(curve->_keytime, keytime, count * floatSize);
     
@@ -111,13 +103,8 @@ float AnimationCurve<componentSize>::getEndTime() const
 
 template <int componentSize>
 AnimationCurve<componentSize>::AnimationCurve()
-<<<<<<< HEAD
-: _value(nullptr)
-, _keytime(nullptr)
-=======
 : _keytime(nullptr)
 , _value(nullptr)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _count(0)
 , _componentSizeByte(0)
 , _evaluateFun(nullptr)
@@ -127,13 +114,8 @@ AnimationCurve<componentSize>::AnimationCurve()
 template <int componentSize>
 AnimationCurve<componentSize>::~AnimationCurve()
 {
-<<<<<<< HEAD
-    CC_SAFE_DELETE_ARRAY(_keytime);
-    CC_SAFE_DELETE_ARRAY(_value);
-=======
     CC_SAFE_DELETE(_keytime);
     CC_SAFE_DELETE(_value);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 template <int componentSize>

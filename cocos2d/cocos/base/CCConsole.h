@@ -1,9 +1,5 @@
 /****************************************************************************
-<<<<<<< HEAD
- Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  http://www.cocos2d-x.org
 
@@ -26,15 +22,9 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-#ifndef __CCCONSOLE_H__
-#define __CCCONSOLE_H__
-/// @cond DO_NOT_SHOW
-=======
 
 #ifndef __CCCONSOLE_H__
 #define __CCCONSOLE_H__
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if defined(_MSC_VER) || defined(__MINGW32__)
 #include <BaseTsd.h>
@@ -59,12 +49,8 @@ typedef SSIZE_T ssize_t;
 
 #include "base/CCRef.h"
 #include "base/ccMacros.h"
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-=======
 #include "base/CCPlatformMacros.h"
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -86,10 +72,7 @@ void CC_DLL log(const char * format, ...) CC_FORMAT_PRINTF(1, 2);
  ```
  */
 
-<<<<<<< HEAD
-=======
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL Console
     : public Ref
 {
@@ -119,16 +102,6 @@ public:
     void addCommand(const Command& cmd);
     /** log something in the console */
     void log(const char *buf);
-<<<<<<< HEAD
-
-    /**
-     * set bind address
-     *
-     * @address : 127.0.0.1
-     */
-    void setBindAddress(const std::string &address);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
 protected:
     void loop();
@@ -150,10 +123,6 @@ protected:
     void commandDirector(int fd, const std::string &args);
     void commandTouch(int fd, const std::string &args);
     void commandUpload(int fd);
-<<<<<<< HEAD
-    void commandAllocator(int fd, const std::string &args);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // file descriptor: socket, console, etc.
     int _listenfd;
     int _maxfd;
@@ -175,22 +144,11 @@ protected:
     std::vector<std::string> _DebugStrings;
 
     intptr_t _touchId;
-<<<<<<< HEAD
-
-    std::string _bindAddress;
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Console);
 };
 
-<<<<<<< HEAD
-NS_CC_END
-
-/// @endcond
-=======
 #endif /* #if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT) */
 NS_CC_END
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__CCCONSOLE_H__) */

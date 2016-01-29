@@ -26,25 +26,16 @@ THE SOFTWARE.
 #ifndef __EFFECTS_CCGRABBER_H__
 #define __EFFECTS_CCGRABBER_H__
 
-<<<<<<< HEAD
-#include "base/CCRef.h"
-#include "platform/CCGL.h"
-=======
 #include "base/CCConfiguration.h"
 #include "base/CCRef.h"
 #include "CCGL.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 class Texture2D;
 
 /**
-<<<<<<< HEAD
- * @addtogroup _2d
-=======
  * @addtogroup effects
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
@@ -53,33 +44,17 @@ class Grabber : public Ref
 {
 public:
     /**
-<<<<<<< HEAD
-    Constructor.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js ctor
      */
     Grabber(void);
     /**
-<<<<<<< HEAD
-    Destructor.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     ~Grabber(void);
-<<<<<<< HEAD
-    /**Init the grab structure, will set the texture as the FBO color attachment.*/
-    void grab(Texture2D *texture);
-    /**Begin capture the screen, which will save the old FBO, clear color, and set the new FBO, clear the background.*/
-    void beforeRender(Texture2D *texture);
-    /**After capture, will reset the old FBO and clear color.*/
-=======
 
     void grab(Texture2D *texture);
     void beforeRender(Texture2D *texture);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void afterRender(Texture2D *texture);
 
 protected:

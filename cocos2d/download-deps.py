@@ -3,19 +3,10 @@
 #
 # ./download-deps.py
 #
-<<<<<<< HEAD
-# Downloads Cocos2D-x 3rd party dependencies from github:
-# https://github.com/cocos2d/cocos2d-x-3rd-party-libs-bin) and extracts the zip
-# file
-#
-# Having the dependencies outside the official cocos2d-x repo helps prevent
-# bloating the repo.
-=======
 # Download Cocos2D-X resources from github (https://github.com/cocos2d/cocos2d-x-3rd-party-libs-bin) and extract from ZIP
 #
 # Helps prevent repo bloat due to large binary files since they can
 # be hosted separately.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #
 
 """****************************************************************************
@@ -43,12 +34,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************"""
 
-<<<<<<< HEAD
-import os.path
-import zipfile
-=======
 import os.path,zipfile
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 import shutil
 import sys
 import traceback
@@ -62,19 +48,6 @@ from sys import stdout
 from distutils.errors import DistutilsError
 from distutils.dir_util import copy_tree, remove_tree
 
-<<<<<<< HEAD
-
-class UnrecognizedFormat:
-    def __init__(self, prompt):
-        self._prompt = prompt
-
-    def __str__(self):
-        return self._prompt
-
-
-class CocosZipInstaller(object):
-    def __init__(self, workpath, config_path, version_path, remote_version_key=None):
-=======
 class UnrecognizedFormat:
     def __init__(self, prompt):
         self._prompt = prompt
@@ -83,7 +56,6 @@ class UnrecognizedFormat:
 
 class CocosZipInstaller(object):
     def __init__(self, workpath, config_path, version_path, remote_version_key = None):
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         self._workpath = workpath
         self._config_path = config_path
         self._version_path = version_path
@@ -92,13 +64,6 @@ class CocosZipInstaller(object):
 
         self._current_version = data["version"]
         self._repo_name = data["repo_name"]
-<<<<<<< HEAD
-        try:
-            self._move_dirs = data["move_dirs"]
-        except:
-            self._move_dirs = None
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         self._filename = self._current_version + '.zip'
         self._url = data["repo_parent"] + self._repo_name + '/archive/' + self._filename
         self._zip_file_size = int(data["zip_file_size"])
@@ -107,11 +72,7 @@ class CocosZipInstaller(object):
 
         try:
             data = self.load_json_file(version_path)
-<<<<<<< HEAD
-            if remote_version_key is None:
-=======
             if remote_version_key == None:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 self._remote_version = data["version"]
             else:
                 self._remote_version = data[remote_version_key]
@@ -152,11 +113,7 @@ class CocosZipInstaller(object):
         file_size_dl = 0
         block_sz = 8192
         block_size_per_second = 0
-<<<<<<< HEAD
-        old_time = time()
-=======
         old_time=time()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         while True:
             buffer = u.read(block_sz)
@@ -218,11 +175,7 @@ class CocosZipInstaller(object):
                 else:
                     # file
                     data = z.read(info.filename)
-<<<<<<< HEAD
-                    f = open(target, 'wb')
-=======
                     f = open(target,'wb')
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     try:
                         f.write(data)
                     finally:
@@ -235,16 +188,6 @@ class CocosZipInstaller(object):
             z.close()
             print("==> Extraction done!")
 
-<<<<<<< HEAD
-    def ask_to_delete_downloaded_zip_file(self):
-        ret = self.get_input_value("==> Do you want to keep '%s'? So you don't have to download it later. (yes/no): " % self._filename)
-        ret = ret.strip()
-        if ret != 'yes' and ret != 'y' and ret != 'no' and ret != 'n':
-            print("==> Cache the dependency libraries by default")
-            return False
-        else:
-            return True if ret == 'no' or ret == 'n' else False
-=======
 
     def ask_to_delete_downloaded_zip_file(self):
         ret = self.get_input_value("==> Whether to delete '%s' file? It may be reused when you execute this script next time! (yes/no): " % self._filename)
@@ -254,7 +197,6 @@ class CocosZipInstaller(object):
             return self.ask_to_delete_downloaded_zip_file()
         else:
             return True if ret == 'yes' else False
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     def download_zip_file(self):
         if not os.path.isfile(self._filename):
@@ -288,11 +230,7 @@ class CocosZipInstaller(object):
             data = json.load(data_file)
         return data
 
-<<<<<<< HEAD
-    def run(self, workpath, folder_for_extracting, remove_downloaded, force_update, download_only):
-=======
     def run(self, folder_for_extracting, remove_downloaded, force_update, download_only):
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if not force_update and not self.need_to_update():
             print("==> Not need to update!")
             return
@@ -308,24 +246,11 @@ class CocosZipInstaller(object):
             if not os.path.exists(folder_for_extracting):
                 os.mkdir(folder_for_extracting)
             distutils.dir_util.copy_tree(self._extracted_folder_name, folder_for_extracting)
-<<<<<<< HEAD
-            if self._move_dirs is not None:
-                for srcDir in self._move_dirs.keys():
-                    distDir = os.path.join( os.path.join(workpath, self._move_dirs[srcDir]), srcDir)
-                    if os.path.exists(distDir):
-                        shutil.rmtree(distDir)
-                    shutil.move( os.path.join(folder_for_extracting, srcDir), distDir)
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             print("==> Cleaning...")
             if os.path.exists(self._extracted_folder_name):
                 shutil.rmtree(self._extracted_folder_name)
             if os.path.isfile(self._filename):
-<<<<<<< HEAD
-                if remove_downloaded is not None:
-=======
                 if remove_downloaded != None:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     if remove_downloaded == 'yes':
                         os.remove(self._filename)
                 elif self.ask_to_delete_downloaded_zip_file():
@@ -343,10 +268,6 @@ def _check_python_version():
 
     return True
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 def main():
     workpath = os.path.dirname(os.path.realpath(__file__))
 
@@ -372,9 +293,6 @@ def main():
     print("==> Prepare to download external libraries!")
     external_path = os.path.join(workpath, 'external')
     installer = CocosZipInstaller(workpath, os.path.join(workpath, 'external', 'config.json'), os.path.join(workpath, 'external', 'version.json'), "prebuilt_libs_version")
-<<<<<<< HEAD
-    installer.run(workpath, external_path, opts.remove_downloaded, opts.force_update, opts.download_only)
-=======
     installer.run(external_path, opts.remove_downloaded, opts.force_update, opts.download_only)
 
     print("=======================================================")
@@ -382,7 +300,6 @@ def main():
     runtime_path = os.path.join(workpath, 'templates', 'lua-template-runtime', 'runtime')
     installer = CocosZipInstaller(workpath, os.path.join(runtime_path, 'config.json'), os.path.join(runtime_path, 'version.json'))
     installer.run(runtime_path, opts.remove_downloaded, opts.force_update, opts.download_only)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 # -------------- main --------------
 if __name__ == '__main__':

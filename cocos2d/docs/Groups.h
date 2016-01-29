@@ -1,14 +1,5 @@
 /**
 @defgroup actions           Actions
-<<<<<<< HEAD
-@defgroup _2d               2D Nodes
-@defgroup _3d               3D Nodes
-@defgroup core              Core
-@defgroup base              Base
-@defgroup support           Support
-@defgroup ui                UI Nodes
-@defgroup lua               Lua Binding
-=======
 @defgroup data_structures   Data Structures
 @defgroup base_nodes        Base Nodes
 @defgroup effects           Effects
@@ -31,5 +22,4 @@
 @defgroup sprite_nodes      Sprite Nodes        
 @defgroup textures          Textures
 @defgroup tilemap_parallax_nodes    TileMap, Parallax
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */

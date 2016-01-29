@@ -7,11 +7,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
-<<<<<<< HEAD
- * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.
-=======
  * Copyright (C) 1998 - 2007, Daniel Stenberg, <daniel@haxx.se>, et al.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -68,11 +64,6 @@ typedef enum {
   CURLM_INTERNAL_ERROR,  /* this is a libcurl bug */
   CURLM_BAD_SOCKET,      /* the passed in socket argument did not match */
   CURLM_UNKNOWN_OPTION,  /* curl_multi_setopt() with unsupported option */
-<<<<<<< HEAD
-  CURLM_ADDED_ALREADY,   /* an easy handle already added to a multi handle was
-                            attempted to get added - again */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   CURLM_LAST
 } CURLMcode;
 
@@ -98,22 +89,6 @@ struct CURLMsg {
 };
 typedef struct CURLMsg CURLMsg;
 
-<<<<<<< HEAD
-/* Based on poll(2) structure and values.
- * We don't use pollfd and POLL* constants explicitly
- * to cover platforms without poll(). */
-#define CURL_WAIT_POLLIN    0x0001
-#define CURL_WAIT_POLLPRI   0x0002
-#define CURL_WAIT_POLLOUT   0x0004
-
-struct curl_waitfd {
-  curl_socket_t fd;
-  short events;
-  short revents; /* not supported yet */
-};
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*
  * Name:    curl_multi_init()
  *
@@ -158,23 +133,6 @@ CURL_EXTERN CURLMcode curl_multi_fdset(CURLM *multi_handle,
                                        fd_set *exc_fd_set,
                                        int *max_fd);
 
-<<<<<<< HEAD
-/*
- * Name:     curl_multi_wait()
- *
- * Desc:     Poll on all fds within a CURLM set as well as any
- *           additional fds passed to the function.
- *
- * Returns:  CURLMcode type, general multi error code.
- */
-CURL_EXTERN CURLMcode curl_multi_wait(CURLM *multi_handle,
-                                      struct curl_waitfd extra_fds[],
-                                      unsigned int extra_nfds,
-                                      int timeout_ms,
-                                      int *ret);
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  /*
   * Name:    curl_multi_perform()
   *
@@ -353,34 +311,6 @@ typedef enum {
   /* maximum number of entries in the connection cache */
   CINIT(MAXCONNECTS, LONG, 6),
 
-<<<<<<< HEAD
-  /* maximum number of (pipelining) connections to one host */
-  CINIT(MAX_HOST_CONNECTIONS, LONG, 7),
-
-  /* maximum number of requests in a pipeline */
-  CINIT(MAX_PIPELINE_LENGTH, LONG, 8),
-
-  /* a connection with a content-length longer than this
-     will not be considered for pipelining */
-  CINIT(CONTENT_LENGTH_PENALTY_SIZE, OFF_T, 9),
-
-  /* a connection with a chunk length longer than this
-     will not be considered for pipelining */
-  CINIT(CHUNK_LENGTH_PENALTY_SIZE, OFF_T, 10),
-
-  /* a list of site names(+port) that are blacklisted from
-     pipelining */
-  CINIT(PIPELINING_SITE_BL, OBJECTPOINT, 11),
-
-  /* a list of server types that are blacklisted from
-     pipelining */
-  CINIT(PIPELINING_SERVER_BL, OBJECTPOINT, 12),
-
-  /* maximum number of open connections in total */
-  CINIT(MAX_TOTAL_CONNECTIONS, LONG, 13),
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   CURLMOPT_LASTENTRY /* the last unused */
 } CURLMoption;
 

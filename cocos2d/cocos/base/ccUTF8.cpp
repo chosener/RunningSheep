@@ -23,11 +23,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-#include "base/ccUTF8.h"
-=======
 #include "ccUTF8.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "platform/CCCommon.h"
 #include "base/CCConsole.h"
 #include "ConvertUTF.h"

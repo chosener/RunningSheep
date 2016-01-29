@@ -27,15 +27,6 @@ THE SOFTWARE.
 #include "2d/CCRenderTexture.h"
 
 #include "base/ccUtils.h"
-<<<<<<< HEAD
-#include "platform/CCFileUtils.h"
-#include "base/CCEventType.h"
-#include "base/CCConfiguration.h"
-#include "base/CCDirector.h"
-#include "base/CCEventListenerCustom.h"
-#include "base/CCEventDispatcher.h"
-#include "renderer/CCRenderer.h"
-=======
 #include "platform/CCImage.h"
 #include "platform/CCFileUtils.h"
 #include "2d/CCGrid.h"
@@ -53,22 +44,13 @@ THE SOFTWARE.
 #include "renderer/CCCustomCommand.h"
 
 #include "CCGL.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 NS_CC_BEGIN
 
 // implementation RenderTexture
 RenderTexture::RenderTexture()
-<<<<<<< HEAD
-: _keepMatrix(false)
-, _rtTextureRect(Rect::ZERO)
-, _fullRect(Rect::ZERO)
-, _fullviewPort(Rect::ZERO)
-, _FBO(0)
-=======
 : _FBO(0)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _depthRenderBufffer(0)
 , _oldFBO(0)
 , _texture(0)
@@ -81,14 +63,10 @@ RenderTexture::RenderTexture()
 , _clearStencil(0)
 , _autoDraw(false)
 , _sprite(nullptr)
-<<<<<<< HEAD
-, _saveFileCallback(nullptr)
-=======
 , _keepMatrix(false)
 , _rtTextureRect(Rect::ZERO)
 , _fullRect(Rect::ZERO)
 , _fullviewPort(Rect::ZERO)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 #if CC_ENABLE_CACHE_TEXTURE_DATA
     // Listen this event to save render texture before come to background.
@@ -171,11 +149,7 @@ void RenderTexture::listenToForeground(EventCustom *event)
 
 RenderTexture * RenderTexture::create(int w, int h, Texture2D::PixelFormat eFormat)
 {
-<<<<<<< HEAD
-    RenderTexture *ret = new (std::nothrow) RenderTexture();
-=======
     RenderTexture *ret = new RenderTexture();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if(ret && ret->initWithWidthAndHeight(w, h, eFormat))
     {
@@ -188,11 +162,7 @@ RenderTexture * RenderTexture::create(int w, int h, Texture2D::PixelFormat eForm
 
 RenderTexture * RenderTexture::create(int w ,int h, Texture2D::PixelFormat eFormat, GLuint uDepthStencilFormat)
 {
-<<<<<<< HEAD
-    RenderTexture *ret = new (std::nothrow) RenderTexture();
-=======
     RenderTexture *ret = new RenderTexture();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if(ret && ret->initWithWidthAndHeight(w, h, eFormat, uDepthStencilFormat))
     {
@@ -205,11 +175,7 @@ RenderTexture * RenderTexture::create(int w ,int h, Texture2D::PixelFormat eForm
 
 RenderTexture * RenderTexture::create(int w, int h)
 {
-<<<<<<< HEAD
-    RenderTexture *ret = new (std::nothrow) RenderTexture();
-=======
     RenderTexture *ret = new RenderTexture();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if(ret && ret->initWithWidthAndHeight(w, h, Texture2D::PixelFormat::RGBA8888, 0))
     {
@@ -264,11 +230,7 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
         memset(data, 0, dataLen);
         _pixelFormat = format;
 
-<<<<<<< HEAD
-        _texture = new (std::nothrow) Texture2D();
-=======
         _texture = new Texture2D();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         if (_texture)
         {
             _texture->initWithData(data, dataLen, (Texture2D::PixelFormat)_pixelFormat, powW, powH, Size((float)w, (float)h));
@@ -282,11 +244,7 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
         
         if (Configuration::getInstance()->checkForGLExtension("GL_QCOM"))
         {
-<<<<<<< HEAD
-            _textureCopy = new (std::nothrow) Texture2D();
-=======
             _textureCopy = new Texture2D();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             if (_textureCopy)
             {
                 _textureCopy->initWithData(data, dataLen, (Texture2D::PixelFormat)_pixelFormat, powW, powH, Size((float)w, (float)h));
@@ -397,11 +355,7 @@ void RenderTexture::beginWithClear(float r, float g, float b, float a, float dep
     Director::getInstance()->getRenderer()->addCommand(&_beginWithClearCommand);
 }
 
-<<<<<<< HEAD
-//TODO: find a better way to clear the screen, there is no need to rebind render buffer there.
-=======
 //TODO find a better way to clear the screen, there is no need to rebind render buffer there.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void RenderTexture::clear(float r, float g, float b, float a)
 {
     this->beginWithClear(r, g, b, a);
@@ -438,21 +392,12 @@ void RenderTexture::clearStencil(int stencilValue)
 void RenderTexture::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
     // override visit.
-<<<<<<< HEAD
-    // Don't call visit on its children
-    if (!_visible || !isVisitableByVisitingCamera())
-    {
-        return;
-    }
-    
-=======
 	// Don't call visit on its children
     if (!_visible)
     {
         return;
     }
 	
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     uint32_t flags = processParentFlags(parentTransform, parentFlags);
 
     Director* director = Director::getInstance();
@@ -467,65 +412,36 @@ void RenderTexture::visit(Renderer *renderer, const Mat4 &parentTransform, uint3
     
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 
-<<<<<<< HEAD
-    // FIX ME: Why need to set _orderOfArrival to 0??
-    // Please refer to https://github.com/cocos2d/cocos2d-x/pull/6920
-    // setOrderOfArrival(0);
-}
-
-bool RenderTexture::saveToFile(const std::string& filename, bool isRGBA, std::function<void (RenderTexture*, const std::string&)> callback)
-=======
     _orderOfArrival = 0;
 }
 
 bool RenderTexture::saveToFile(const std::string& filename, bool isRGBA)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     std::string basename(filename);
     std::transform(basename.begin(), basename.end(), basename.begin(), ::tolower);
     
     if (basename.find(".png") != std::string::npos)
     {
-<<<<<<< HEAD
-        return saveToFile(filename, Image::Format::PNG, isRGBA, callback);
-=======
         return saveToFile(filename, Image::Format::PNG, isRGBA);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else if (basename.find(".jpg") != std::string::npos)
     {
         if (isRGBA) CCLOG("RGBA is not supported for JPG format.");
-<<<<<<< HEAD
-        return saveToFile(filename, Image::Format::JPG, false, callback);
-=======
         return saveToFile(filename, Image::Format::JPG, false);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else
     {
         CCLOG("Only PNG and JPG format are supported now!");
     }
     
-<<<<<<< HEAD
-    return saveToFile(filename, Image::Format::JPG, false, callback);
-}
-
-bool RenderTexture::saveToFile(const std::string& fileName, Image::Format format, bool isRGBA, std::function<void (RenderTexture*, const std::string&)> callback)
-=======
     return saveToFile(filename, Image::Format::JPG, false);
 }
 bool RenderTexture::saveToFile(const std::string& fileName, Image::Format format, bool isRGBA)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     CCASSERT(format == Image::Format::JPG || format == Image::Format::PNG,
              "the image can only be saved as JPG or PNG format");
     if (isRGBA && format == Image::Format::JPG) CCLOG("RGBA is not supported for JPG format");
     
-<<<<<<< HEAD
-    _saveFileCallback = callback;
-    
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::string fullpath = FileUtils::getInstance()->getWritablePath() + fileName;
     _saveToFileCommand.init(_globalZOrder);
     _saveToFileCommand.func = CC_CALLBACK_0(RenderTexture::onSaveToFile, this, fullpath, isRGBA);
@@ -541,14 +457,7 @@ void RenderTexture::onSaveToFile(const std::string& filename, bool isRGBA)
     {
         image->saveToFile(filename.c_str(), !isRGBA);
     }
-<<<<<<< HEAD
-    if(_saveFileCallback)
-    {
-        _saveFileCallback(this, filename);
-    }
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_SAFE_DELETE(image);
 }
 
@@ -572,15 +481,6 @@ Image* RenderTexture::newImage(bool fliimage)
 
     GLubyte *buffer = nullptr;
     GLubyte *tempData = nullptr;
-<<<<<<< HEAD
-    Image *image = new (std::nothrow) Image();
-
-    do
-    {
-        CC_BREAK_IF(! (buffer = new (std::nothrow) GLubyte[savedBufferWidth * savedBufferHeight * 4]));
-
-        if(! (tempData = new (std::nothrow) GLubyte[savedBufferWidth * savedBufferHeight * 4]))
-=======
     Image *image = new Image();
 
     do
@@ -588,7 +488,6 @@ Image* RenderTexture::newImage(bool fliimage)
         CC_BREAK_IF(! (buffer = new GLubyte[savedBufferWidth * savedBufferHeight * 4]));
 
         if(! (tempData = new GLubyte[savedBufferWidth * savedBufferHeight * 4]))
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         {
             delete[] buffer;
             buffer = nullptr;
@@ -598,11 +497,7 @@ Image* RenderTexture::newImage(bool fliimage)
         glGetIntegerv(GL_FRAMEBUFFER_BINDING, &_oldFBO);
         glBindFramebuffer(GL_FRAMEBUFFER, _FBO);
 
-<<<<<<< HEAD
-        // TODO: move this to configration, so we don't check it every time
-=======
         //TODO move this to configration, so we don't check it every time
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         /*  Certain Qualcomm Andreno gpu's will retain data in memory after a frame buffer switch which corrupts the render to the texture. The solution is to clear the frame buffer before rendering to the texture. However, calling glClear has the unintended result of clearing the current texture. Create a temporary texture to overcome this. At the end of RenderTexture::begin(), switch the attached texture to the second one, call glClear, and then switch back to the original texture. This solution is unnecessary for other devices as they don't have the same issue with switching frame buffers.
          */
         if (Configuration::getInstance()->checkForGLExtension("GL_QCOM"))
@@ -659,13 +554,8 @@ void RenderTexture::onBegin()
         director->setProjection(director->getProjection());
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
-<<<<<<< HEAD
-        auto modifiedProjection = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
-        modifiedProjection = GLViewImpl::sharedOpenGLView()->getReverseOrientationMatrix() * modifiedProjection;
-=======
         Mat4 modifiedProjection = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
         modifiedProjection = CCEGLView::sharedOpenGLView()->getReverseOrientationMatrix() * modifiedProjection;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION,modifiedProjection);
 #endif
 
@@ -683,13 +573,8 @@ void RenderTexture::onBegin()
     else
     {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
-<<<<<<< HEAD
-        auto modifiedProjection = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
-        modifiedProjection = GLViewImpl::sharedOpenGLView()->getReverseOrientationMatrix() * modifiedProjection;
-=======
         Mat4 modifiedProjection = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
         modifiedProjection = CCEGLView::sharedOpenGLView()->getReverseOrientationMatrix() * modifiedProjection;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, modifiedProjection);
 #endif
     }
@@ -712,11 +597,7 @@ void RenderTexture::onBegin()
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &_oldFBO);
     glBindFramebuffer(GL_FRAMEBUFFER, _FBO);
 
-<<<<<<< HEAD
-    // TODO: move this to configration, so we don't check it every time
-=======
     //TODO move this to configration, so we don't check it every time
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /*  Certain Qualcomm Andreno gpu's will retain data in memory after a frame buffer switch which corrupts the render to the texture. The solution is to clear the frame buffer before rendering to the texture. However, calling glClear has the unintended result of clearing the current texture. Create a temporary texture to overcome this. At the end of RenderTexture::begin(), switch the attached texture to the second one, call glClear, and then switch back to the original texture. This solution is unnecessary for other devices as they don't have the same issue with switching frame buffers.
      */
     if (Configuration::getInstance()->checkForGLExtension("GL_QCOM"))

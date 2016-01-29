@@ -30,54 +30,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 
 public class Cocos2dxTypefaces {
-<<<<<<< HEAD
-    // ===========================================================
-    // Constants
-    // ===========================================================
-
-    // ===========================================================
-    // Fields
-    // ===========================================================
-
-    private static final HashMap<String, Typeface> sTypefaceCache = new HashMap<String, Typeface>();
-
-    // ===========================================================
-    // Constructors
-    // ===========================================================
-
-    // ===========================================================
-    // Getter & Setter
-    // ===========================================================
-
-    // ===========================================================
-    // Methods for/from SuperClass/Interfaces
-    // ===========================================================
-
-    // ===========================================================
-    // Methods
-    // ===========================================================
-
-    public static synchronized Typeface get(final Context context, final String assetName) {
-        if (!Cocos2dxTypefaces.sTypefaceCache.containsKey(assetName)) {
-            Typeface typeface = null;
-            if (assetName.startsWith("/"))
-            {
-                typeface = Typeface.createFromFile(assetName);
-            }
-            else
-            {
-                typeface = Typeface.createFromAsset(context.getAssets(), assetName);
-            }
-            Cocos2dxTypefaces.sTypefaceCache.put(assetName, typeface);
-        }
-
-        return Cocos2dxTypefaces.sTypefaceCache.get(assetName);
-    }
-
-    // ===========================================================
-    // Inner and Anonymous Classes
-    // ===========================================================
-=======
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -124,6 +76,5 @@ public class Cocos2dxTypefaces {
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }

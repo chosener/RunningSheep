@@ -29,11 +29,7 @@
 #include <vector>
 
 #include "platform/CCFileUtils.h"
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-=======
 #include "base/CCPlatformMacros.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccTypes.h"
 
 NS_CC_BEGIN
@@ -53,13 +49,8 @@ public:
     bool init();
     virtual std::string getWritablePath() const;
     virtual bool isAbsolutePath(const std::string& strPath) const;
-<<<<<<< HEAD
-    virtual std::string  getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath) const override;
-    virtual std::string getFullPathForDirectoryAndFilename(const std::string& strDirectory, const std::string& strFilename) const override;
-=======
     virtual std::string  getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath) override;
     virtual std::string getFullPathForDirectoryAndFilename(const std::string& strDirectory, const std::string& strFilename) override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	virtual std::string getStringFromFile(const std::string& filename) override;
 	static std::string getAppPath();
 

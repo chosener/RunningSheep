@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/* ftconfig.h.  Generated from ftconfig.in by configure.  */
-/***************************************************************************/
-/*                                                                         */
-/*  ftconfig.in                                                            */
-/*                                                                         */
-/*    UNIX-specific configuration file (specification only).               */
-/*                                                                         */
-/*  Copyright 1996-2004, 2006-2009, 2011, 2013, 2014 by                    */
-=======
 /***************************************************************************/
 /*                                                                         */
 /*  ftconfig.h                                                             */
@@ -15,7 +5,6 @@
 /*    ANSI-specific configuration file (specification only).               */
 /*                                                                         */
 /*  Copyright 1996-2004, 2006-2008, 2010-2011 by                           */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -38,15 +27,6 @@
   /* Note however that if some specific modifications are needed, we       */
   /* advise you to place a modified copy in your build directory.          */
   /*                                                                       */
-<<<<<<< HEAD
-  /* The build directory is usually `builds/<system>', and contains        */
-  /* system-specific files that are always included first when building    */
-  /* the library.                                                          */
-  /*                                                                       */
-  /*************************************************************************/
-
-
-=======
   /* The build directory is usually `freetype/builds/<system>', and        */
   /* contains system-specific files that are always included first when    */
   /* building the library.                                                 */
@@ -55,7 +35,6 @@
   /*                                                                       */
   /*************************************************************************/
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #ifndef __FTCONFIG_H__
 #define __FTCONFIG_H__
 
@@ -74,23 +53,11 @@ FT_BEGIN_HEADER
   /* These macros can be toggled to suit a specific system.  The current   */
   /* ones are defaults used to compile FreeType in an ANSI C environment   */
   /* (16bit compilers are also supported).  Copy this file to your own     */
-<<<<<<< HEAD
-  /* `builds/<system>' directory, and edit it to port the engine.          */
-=======
   /* `freetype/builds/<system>' directory, and edit it to port the engine. */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*************************************************************************/
 
 
-<<<<<<< HEAD
-#define HAVE_UNISTD_H 1
-#define HAVE_FCNTL_H 1
-#define HAVE_STDINT_H 1
-
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* There are systems (like the Texas Instruments 'C54x) where a `char' */
   /* has 16 bits.  ANSI C says that sizeof(char) is always 1.  Since an  */
   /* `int' has 16 bits also for this system, sizeof(int) gives 1 which   */
@@ -104,25 +71,6 @@ FT_BEGIN_HEADER
 #endif
 
 
-<<<<<<< HEAD
-/* #undef FT_USE_AUTOCONF_SIZEOF_TYPES */
-#ifdef FT_USE_AUTOCONF_SIZEOF_TYPES
-
-#define SIZEOF_INT 4
-#define SIZEOF_LONG 8
-#define FT_SIZEOF_INT  SIZEOF_INT
-#define FT_SIZEOF_LONG SIZEOF_LONG
-
-#else /* !FT_USE_AUTOCONF_SIZEOF_TYPES */
-
-  /* Following cpp computation of the bit length of int and long */
-  /* is copied from default include/config/ftconfig.h.           */
-  /* If any improvement is required for this file, it should be  */
-  /* applied to the original header file for the builders that   */
-  /* does not use configure script.                              */
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* The size of an `int' type.  */
 #if                                 FT_UINT_MAX == 0xFFFFUL
 #define FT_SIZEOF_INT  (16 / FT_CHAR_BIT)
@@ -146,13 +94,9 @@ FT_BEGIN_HEADER
 #error "Unsupported size of `long' type!"
 #endif
 
-<<<<<<< HEAD
-#endif /* !FT_USE_AUTOCONF_SIZEOF_TYPES */
-=======
 
   /* Preferred alignment of data */
 #define FT_ALIGNMENT  8
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
   /* FT_UNUSED is a macro used to indicate that a given parameter is not  */
@@ -180,12 +124,8 @@ FT_BEGIN_HEADER
   /*   This is the only necessary change, so it is defined here instead    */
   /*   providing a new configuration file.                                 */
   /*                                                                       */
-<<<<<<< HEAD
-#if defined( __APPLE__ ) || ( defined( __MWERKS__ ) && defined( macintosh ) )
-=======
 #if ( defined( __APPLE__ ) && !defined( DARWIN_NO_CARBON ) ) || \
     ( defined( __MWERKS__ ) && defined( macintosh )        )
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* no Carbon frameworks for 64bit 10.4.x */
   /* AvailabilityMacros.h is available since Mac OS X 10.2,        */
   /* so guess the system version by maximum errno before inclusion */
@@ -195,13 +135,9 @@ FT_BEGIN_HEADER
 #endif
 #if defined( __LP64__ ) && \
     ( MAC_OS_X_VERSION_MIN_REQUIRED <= MAC_OS_X_VERSION_10_4 )
-<<<<<<< HEAD
-#undef FT_MACINTOSH
-=======
 #define DARWIN_NO_CARBON 1
 #else
 #define FT_MACINTOSH 1
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
 #elif defined( __SC__ ) || defined( __MRC__ )
@@ -214,17 +150,6 @@ FT_BEGIN_HEADER
 #endif
 
 
-<<<<<<< HEAD
-  /* Fix compiler warning with sgi compiler */
-#if defined( __sgi ) && !defined( __GNUC__ )
-#if defined( _COMPILER_VERSION ) && ( _COMPILER_VERSION >= 730 )
-#pragma set woff 3505
-#endif
-#endif
-
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*************************************************************************/
   /*                                                                       */
   /* <Section>                                                             */
@@ -282,51 +207,16 @@ FT_BEGIN_HEADER
   /*                                                                       */
   typedef unsigned XXX  FT_UInt32;
 
-<<<<<<< HEAD
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Type>                                                                */
-  /*    FT_Int64                                                           */
-  /*                                                                       */
-  /*    A typedef for a 64bit signed integer type.  The size depends on    */
-  /*    the configuration.  Only defined if there is real 64bit support;   */
-  /*    otherwise, it gets emulated with a structure (if necessary).       */
-  /*                                                                       */
-  typedef signed XXX  FT_Int64;
-
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* <Type>                                                                */
-  /*    FT_UInt64                                                          */
-  /*                                                                       */
-  /*    A typedef for a 64bit unsigned integer type.  The size depends on  */
-  /*    the configuration.  Only defined if there is real 64bit support;   */
-  /*    otherwise, it gets emulated with a structure (if necessary).       */
-  /*                                                                       */
-  typedef unsigned XXX  FT_UInt64;
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 #endif
 
-<<<<<<< HEAD
-#if FT_SIZEOF_INT == 4
-=======
 #if FT_SIZEOF_INT == (32 / FT_CHAR_BIT)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   typedef signed int      FT_Int32;
   typedef unsigned int    FT_UInt32;
 
-<<<<<<< HEAD
-#elif FT_SIZEOF_LONG == 4
-=======
 #elif FT_SIZEOF_LONG == (32 / FT_CHAR_BIT)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   typedef signed long     FT_Int32;
   typedef unsigned long   FT_UInt32;
@@ -337,20 +227,12 @@ FT_BEGIN_HEADER
 
 
   /* look up an integer type that is at least 32 bits */
-<<<<<<< HEAD
-#if FT_SIZEOF_INT >= 4
-=======
 #if FT_SIZEOF_INT >= (32 / FT_CHAR_BIT)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   typedef int            FT_Fast;
   typedef unsigned int   FT_UFast;
 
-<<<<<<< HEAD
-#elif FT_SIZEOF_LONG >= 4
-=======
 #elif FT_SIZEOF_LONG >= (32 / FT_CHAR_BIT)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   typedef long           FT_Fast;
   typedef unsigned long  FT_UFast;
@@ -360,30 +242,6 @@ FT_BEGIN_HEADER
 
   /* determine whether we have a 64-bit int type for platforms without */
   /* Autoconf                                                          */
-<<<<<<< HEAD
-#if FT_SIZEOF_LONG == 8
-
-  /* FT_LONG64 must be defined if a 64-bit type is available */
-#define FT_LONG64
-#define FT_INT64   long
-#define FT_UINT64  unsigned long
-
-  /*************************************************************************/
-  /*                                                                       */
-  /* A 64-bit data type may create compilation problems if you compile     */
-  /* in strict ANSI mode.  To avoid them, we disable other 64-bit data     */
-  /* types if __STDC__ is defined.  You can however ignore this rule       */
-  /* by defining the FT_CONFIG_OPTION_FORCE_INT64 configuration macro.     */
-  /*                                                                       */
-#elif !defined( __STDC__ ) || defined( FT_CONFIG_OPTION_FORCE_INT64 )
-
-#if defined( _MSC_VER ) && _MSC_VER >= 900  /* Visual C++ (and Intel C++) */
-
-  /* this compiler provides the __int64 type */
-#define FT_LONG64
-#define FT_INT64   __int64
-#define FT_UINT64  unsigned __int64
-=======
 #if FT_SIZEOF_LONG == (64 / FT_CHAR_BIT)
 
   /* FT_LONG64 must be defined if a 64-bit type is available */
@@ -395,7 +253,6 @@ FT_BEGIN_HEADER
   /* this compiler provides the __int64 type */
 #define FT_LONG64
 #define FT_INT64  __int64
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #elif defined( __BORLANDC__ )  /* Borland C++ */
 
@@ -404,12 +261,7 @@ FT_BEGIN_HEADER
 
   /* this compiler provides the __int64 type */
 #define FT_LONG64
-<<<<<<< HEAD
-#define FT_INT64   __int64
-#define FT_UINT64  unsigned __int64
-=======
 #define FT_INT64  __int64
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #elif defined( __WATCOMC__ )   /* Watcom C++ */
 
@@ -418,30 +270,12 @@ FT_BEGIN_HEADER
 #elif defined( __MWERKS__ )    /* Metrowerks CodeWarrior */
 
 #define FT_LONG64
-<<<<<<< HEAD
-#define FT_INT64   long long int
-#define FT_UINT64  unsigned long long int
-=======
 #define FT_INT64  long long int
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #elif defined( __GNUC__ )
 
   /* GCC provides the `long long' type */
 #define FT_LONG64
-<<<<<<< HEAD
-#define FT_INT64   long long int
-#define FT_UINT64  unsigned long long int
-
-#endif /* _MSC_VER */
-
-#endif /* FT_SIZEOF_LONG == 8 */
-
-#ifdef FT_LONG64
-  typedef FT_INT64   FT_Int64;
-  typedef FT_UINT64  FT_UInt64;
-#endif
-=======
 #define FT_INT64  long long int
 
 #endif /* FT_SIZEOF_LONG == (64 / FT_CHAR_BIT) */
@@ -465,7 +299,6 @@ FT_BEGIN_HEADER
 #endif /* __STDC__ */
 
 #endif /* FT_LONG64 && !FT_CONFIG_OPTION_FORCE_INT64 */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #define FT_BEGIN_STMNT  do {
@@ -473,8 +306,6 @@ FT_BEGIN_HEADER
 #define FT_DUMMY_STMNT  FT_BEGIN_STMNT FT_END_STMNT
 
 
-<<<<<<< HEAD
-=======
 #ifndef  FT_CONFIG_OPTION_NO_ASSEMBLER
   /* Provide assembler fragments for performance-critical functions. */
   /* These must be defined `static __inline__' with GCC.             */
@@ -616,7 +447,6 @@ FT_BEGIN_HEADER
 #endif
 
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #ifdef FT_MAKE_OPTION_SINGLE_OBJECT
 
 #define FT_LOCAL( x )      static  x
@@ -634,12 +464,6 @@ FT_BEGIN_HEADER
 
 #endif /* FT_MAKE_OPTION_SINGLE_OBJECT */
 
-<<<<<<< HEAD
-#define FT_LOCAL_ARRAY( x )      extern const  x
-#define FT_LOCAL_ARRAY_DEF( x )  const  x
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifndef FT_BASE
 

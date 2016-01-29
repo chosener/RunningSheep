@@ -1,11 +1,7 @@
 #ifndef _MCI_PLAYER_WIN32_H_
 #define _MCI_PLAYER_WIN32_H_
 
-<<<<<<< HEAD
-#include "platform/CCStdC.h"
-=======
 #include "CCStdC.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <mmsystem.h>
 #include <string>
 using namespace std;

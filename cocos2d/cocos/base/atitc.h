@@ -1,9 +1,5 @@
 /****************************************************************************
-<<<<<<< HEAD
- Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2013 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
  http://www.cocos2d-x.org
  
@@ -26,19 +22,11 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-#ifndef COCOS2DX_PLATFORM_THIRDPARTY_ATITC_
-#define COCOS2DX_PLATFORM_THIRDPARTY_ATITC_
-/// @cond DO_NOT_SHOW
-
-#include "platform/CCStdC.h"
-=======
 
 #ifndef COCOS2DX_PLATFORM_THIRDPARTY_ATITC_
 #define COCOS2DX_PLATFORM_THIRDPARTY_ATITC_
 
 #include "CCStdC.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 enum class ATITCDecodeFlag
 {
@@ -55,11 +43,6 @@ void atitc_decode(uint8_t *encode_data,
                   ATITCDecodeFlag decodeFlag
                   );
 
-<<<<<<< HEAD
-/// @endcond
-#endif /* defined(COCOS2DX_PLATFORM_THIRDPARTY_ATITC_) */
-=======
 
 #endif /* defined(COCOS2DX_PLATFORM_THIRDPARTY_ATITC_) */
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -40,26 +40,15 @@ class Camera;
  * @{
  */
 
-<<<<<<< HEAD
-/**
- *@brief Base class for Camera actions.
- *@ingroup Actions
- */
-=======
 /** 
 @brief Base class for Camera actions
 @ingroup Actions
 */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL ActionCamera : public ActionInterval //<NSCopying> 
 {
 public:
     /**
      * @js ctor
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ActionCamera();
     /**
@@ -73,44 +62,6 @@ public:
     virtual ActionCamera * reverse() const override;
 	virtual ActionCamera *clone() const override;
 
-<<<<<<< HEAD
-    /* Sets the Eye value of the Camera. 
-     * 
-     * @param eye The Eye value of the Camera.
-     * @js NA
-     */
-    void setEye(const Vec3 &eye);
-    void setEye(float x, float y, float z);
-    /* Returns the Eye value of the Camera. 
-     *
-     * @return The Eye value of the Camera.
-     * @js NA
-     */
-    const Vec3& getEye() const { return _eye; }
-    /* Sets the Center value of the Camera. 
-     *
-     * @param center The Center value of the Camera.
-     * @js NA
-     */
-    void setCenter(const Vec3 &center);
-    /* Returns the Center value of the Camera. 
-     *
-     * @return The Center value of the Camera.
-     * @js NA
-     */
-    const Vec3& getCenter() const { return _center; }
-    /* Sets the Up value of the Camera. 
-     *
-     * @param up The Up value of the Camera.
-     * @js NA
-     */
-    void setUp(const Vec3 &up);
-    /* Returns the Up value of the Camera. 
-     *
-     * @return The Up value of the Camera.
-     * @js NA
-     */
-=======
     /* sets the Eye value of the Camera */
     void setEye(const Vec3 &eye);
     void setEye(float x, float y, float z);
@@ -123,7 +74,6 @@ public:
     /* sets the Up value of the Camera */
     void setUp(const Vec3 &up);
     /* Returns the Up value of the Camera */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     const Vec3& getUp() const { return _up; }
 
 protected:
@@ -136,36 +86,6 @@ protected:
     Vec3 _up;
 };
 
-<<<<<<< HEAD
-/** @class OrbitCamera
- *
- * @brief OrbitCamera action.
- * Orbits the camera around the center of the screen using spherical coordinates.
- * @ingroup Actions
- */
-class CC_DLL OrbitCamera : public ActionCamera //<NSCopying> 
-{
-public:
-    /** Creates a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX. 
-     *
-     * @param t Duration in seconds.
-     * @param radius The start radius.
-     * @param deltaRadius The delta radius.
-     * @param angleZ The start Angel in Z.
-     * @param deltaAngleZ The delta angle in Z.
-     * @param angleX The start Angel in X.
-     * @param deltaAngleX The delta angle in X.
-     * @return An OrbitCamera.
-     */
-    static OrbitCamera* create(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
-    
-    /** Positions the camera according to spherical coordinates. 
-     *
-     * @param r The spherical radius.
-     * @param zenith The spherical zenith.
-     * @param azimuth The spherical azimuth.
-     */
-=======
 /** 
 @brief OrbitCamera action
 Orbits the camera around the center of the screen using spherical coordinates
@@ -178,7 +98,6 @@ public:
     static OrbitCamera* create(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
     
     /** positions the camera according to spherical coordinates */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void sphericalRadius(float *r, float *zenith, float *azimuth);
 
     // Overrides
@@ -197,11 +116,7 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~OrbitCamera();
     
-<<<<<<< HEAD
-    /** Initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX. */
-=======
     /** initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithDuration(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
 
 protected:

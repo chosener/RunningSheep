@@ -27,10 +27,6 @@ THE SOFTWARE.
 #include "PluginProtocol.h"
 #include <map>
 #include <string>
-<<<<<<< HEAD
-#include <functional>
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { namespace plugin {
 
@@ -84,11 +80,6 @@ public:
         kPosBottomRight,
     } AdsPos;
 
-<<<<<<< HEAD
-    typedef std::function<void(int, std::string&)> ProtocolAdsCallback;
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     @brief config the application info
     @param devInfo This parameter is the info of aplication,
@@ -125,56 +116,20 @@ public:
     void spendPoints(int points);
 
     /**
-<<<<<<< HEAD
-     @deprecated
-     @brief set the Ads listener
-    */
-    CC_DEPRECATED_ATTRIBUTE inline void setAdsListener(AdsListener* listener)
-=======
      @brief set the Ads listener
     */
     inline void setAdsListener(AdsListener* listener)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         _listener = listener;
     }
 
-<<<<<<< HEAD
-    /**
-     @deprecated
-     @brief set the Ads listener
-    */
-    CC_DEPRECATED_ATTRIBUTE inline AdsListener* getAdsListener()
-=======
     inline AdsListener* getAdsListener()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         return _listener;
     }
 
-<<<<<<< HEAD
-    /**
-     @brief set the Ads callback function
-    */
-    inline void setCallback(ProtocolAdsCallback& cb)
-    {
-    	_callback = cb;
-    }
-
-    /**
-     @brief get the Ads callback function
-    */
-    inline ProtocolAdsCallback getCallback()
-    {
-    	return _callback;
-    }
 protected:
     AdsListener* _listener;
-    ProtocolAdsCallback _callback;
-=======
-protected:
-    AdsListener* _listener;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 }} // namespace cocos2d { namespace plugin {

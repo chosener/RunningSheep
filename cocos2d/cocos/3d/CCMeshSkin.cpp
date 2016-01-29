@@ -23,14 +23,6 @@
  ****************************************************************************/
 
 #include "3d/CCMeshSkin.h"
-<<<<<<< HEAD
-#include "3d/CCSkeleton3D.h"
-#include "3d/CCBundle3D.h"
-#include "3d/CCSkeleton3D.h"
-
-NS_CC_BEGIN
-
-=======
 #include "3d/CCBundle3D.h"
 
 #include "base/ccMacros.h"
@@ -254,15 +246,10 @@ void Bone3D::updateLocalMat()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 static int PALETTE_ROWS = 3;
 
 MeshSkin::MeshSkin()
 : _rootBone(nullptr)
-<<<<<<< HEAD
-, _skeleton(nullptr)
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _matrixPalette(nullptr)
 {
     
@@ -271,26 +258,6 @@ MeshSkin::MeshSkin()
 MeshSkin::~MeshSkin()
 {
     removeAllBones();
-<<<<<<< HEAD
-    CC_SAFE_RELEASE(_skeleton);
-}
-
-MeshSkin* MeshSkin::create(Skeleton3D* skeleton, const std::vector<std::string>& boneNames, const std::vector<Mat4>& invBindPose)
-{
-    auto skin = new (std::nothrow) MeshSkin();
-    skin->_skeleton = skeleton;
-    skeleton->retain();
-    
-    CCASSERT(boneNames.size() == invBindPose.size(), "bone names' num should equals to invBindPose's num");
-    for (const auto& it : boneNames) {
-        auto bone = skeleton->getBoneByName(it);
-        skin->addSkinBone(bone);
-    }
-    skin->_invBindPoses = invBindPose;
-    skin->autorelease();
-    
-    return skin;
-=======
 }
 
 //create a new meshskin if do not want to share meshskin
@@ -355,46 +322,27 @@ bool MeshSkin::initFromSkinData(const SkinData& skindata)
     _rootBone->resetPose();
     
     return true;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ssize_t MeshSkin::getBoneCount() const
 {
-<<<<<<< HEAD
-    return _skinBones.size();
-=======
     return _skinBones.size() + _nodeBones.size();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 //get bone
 Bone3D* MeshSkin::getBoneByIndex(unsigned int index) const
 {
-<<<<<<< HEAD
-    if (static_cast<int>(index) < _skinBones.size())
-        return _skinBones.at(index);
-=======
     if (index < _skinBones.size())
         return _skinBones.at(index);
     index -= _skinBones.size();
     if (index < _nodeBones.size())
         return _nodeBones.at(index);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     return nullptr;
 }
 Bone3D* MeshSkin::getBoneByName(const std::string& id) const
 {
     //search from skin bones
-<<<<<<< HEAD
-    for (const auto& it : _skinBones) {
-        if (it->getName() == id)
-            return it;
-    }
-    return nullptr;
-}
-
-=======
     for (auto it : _skinBones) {
         if (it->getName() == id)
             return it;
@@ -418,7 +366,6 @@ void MeshSkin::setRootBone(Bone3D* joint)
     _rootBone = joint;
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 int MeshSkin::getBoneIndex(Bone3D* bone) const
 {
     int i = 0;
@@ -426,36 +373,17 @@ int MeshSkin::getBoneIndex(Bone3D* bone) const
         if (_skinBones.at(i) == bone)
             return i;
     }
-<<<<<<< HEAD
-
-=======
     int index = 0;
     for (; index < _nodeBones.size(); index++, i++) {
         if (_nodeBones.at(index) == bone)
             return i;
     }
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return -1;
 }
 
 //compute matrix palette used by gpu skin
 Vec4* MeshSkin::getMatrixPalette()
 {
-<<<<<<< HEAD
-    if (_matrixPalette == nullptr)
-    {
-        _matrixPalette = new (std::nothrow) Vec4[_skinBones.size() * PALETTE_ROWS];
-    }
-    int i = 0, paletteIndex = 0;
-    static Mat4 t;
-    for (auto it : _skinBones )
-    {
-        Mat4::multiply(it->getWorldMat(), _invBindPoses[i++], &t);
-        _matrixPalette[paletteIndex++].set(t.m[0], t.m[4], t.m[8], t.m[12]);
-        _matrixPalette[paletteIndex++].set(t.m[1], t.m[5], t.m[9], t.m[13]);
-        _matrixPalette[paletteIndex++].set(t.m[2], t.m[6], t.m[10], t.m[14]);
-    }
-=======
     updateBoneMatrix();
     
     if (_matrixPalette == nullptr)
@@ -467,7 +395,6 @@ Vec4* MeshSkin::getMatrixPalette()
 	{
         it->updateJointMatrix(&_matrixPalette[i++ * PALETTE_ROWS]);
 	}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     return _matrixPalette;
 }
@@ -477,11 +404,6 @@ ssize_t MeshSkin::getMatrixPaletteSize() const
     return _skinBones.size() * PALETTE_ROWS;
 }
 
-<<<<<<< HEAD
-void MeshSkin::removeAllBones()
-{
-    _skinBones.clear();
-=======
 //refresh bone world matrix
 void MeshSkin::updateBoneMatrix()
 {
@@ -493,7 +415,6 @@ void MeshSkin::removeAllBones()
 {
     _skinBones.clear();
     _nodeBones.clear();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_SAFE_DELETE_ARRAY(_matrixPalette);
     CC_SAFE_RELEASE(_rootBone);
 }
@@ -503,30 +424,6 @@ void MeshSkin::addSkinBone(Bone3D* bone)
     _skinBones.pushBack(bone);
 }
 
-<<<<<<< HEAD
-Bone3D* MeshSkin::getRootBone() const
-{
-    Bone3D* root = nullptr;
-    if (_skinBones.size())
-    {
-        root = _skinBones.at(0);
-        while (root->getParentBone()) {
-            root = root->getParentBone();
-        }
-    }
-    return root;
-}
-
-const Mat4& MeshSkin::getInvBindPose(const Bone3D* bone)
-{
-    for (ssize_t i = 0; i < _skinBones.size(); i++) {
-        if (_skinBones.at(i) == bone)
-        {
-            return _invBindPoses.at(i);
-        }
-    }
-    return Mat4::IDENTITY;
-=======
 void MeshSkin::addNodeBone(Bone3D* bone)
 {
     _nodeBones.pushBack(bone);
@@ -580,7 +477,6 @@ MeshSkinDataCache::MeshSkinDataCache()
 MeshSkinDataCache::~MeshSkinDataCache()
 {
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 NS_CC_END

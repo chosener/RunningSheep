@@ -41,22 +41,13 @@ class TextureAtlas;
 class ParticleSystem;
 
 /**
-<<<<<<< HEAD
- * @addtogroup _2d
-=======
  * @addtogroup particle_nodes
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * @{
  */
 
 #define kParticleDefaultCapacity 500
 
-<<<<<<< HEAD
-/** @class ParticleBatchNode
- * @brief ParticleBatchNode is like a batch node: if it contains children, it will draw them in 1 single OpenGL call
-=======
 /** ParticleBatchNode is like a batch node: if it contains children, it will draw them in 1 single OpenGL call
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * (often known as "batch draw").
  *
  * A ParticleBatchNode can reference one and only one texture (one image file, one texture atlas).
@@ -78,56 +69,6 @@ class ParticleSystem;
 class CC_DLL ParticleBatchNode : public Node, public TextureProtocol
 {
 public:
-<<<<<<< HEAD
-    /** Create the particle system with Texture2D, a capacity of particles, which particle system to use.
-     *
-     * @param tex A given texture.
-     * @param capacity A capacity of particles.
-     * @return An autoreleased ParticleBatchNode object.
-     * @js NA
-     */
-    static ParticleBatchNode* createWithTexture(Texture2D *tex, int capacity = kParticleDefaultCapacity);
-
-    /** Create the particle system with the name of a file on disk (for a list of supported formats look at the Texture2D class), a capacity of particles.
-     *
-     * @param fileImage A given file name.
-     * @param capacity A capacity of particles.
-     * @return An autoreleased ParticleBatchNode object.
-     */
-    static ParticleBatchNode* create(const std::string& fileImage, int capacity = kParticleDefaultCapacity);
-
-    /** Inserts a child into the ParticleBatchNode.
-     *
-     * @param system A given particle system.
-     * @param index The insert index.
-     */
-    void insertChild(ParticleSystem* system, int index);
-
-    /** Remove a child of the ParticleBatchNode.
-     *
-     * @param index The index of the child.
-     * @param doCleanup True if all actions and callbacks on this node should be removed, false otherwise.
-     */
-    void removeChildAtIndex(int index, bool doCleanup);
-    void removeAllChildrenWithCleanup(bool doCleanup) override;
-
-    /** Disables a particle by inserting a 0'd quad into the texture atlas.
-     *
-     * @param particleIndex The index of the particle.
-     */
-    void disableParticle(int particleIndex);
-
-    /** Gets the texture atlas used for drawing the quads.
-     *
-     * @return The texture atlas used for drawing the quads.
-     */
-    inline TextureAtlas* getTextureAtlas() const { return _textureAtlas; };
-    
-    /** Sets the texture atlas used for drawing the quads.
-     *
-     * @param atlas The texture atlas used for drawing the quads.
-     */
-=======
     /** initializes the particle system with Texture2D, a capacity of particles, which particle system to use */
     static ParticleBatchNode* createWithTexture(Texture2D *tex, int capacity = kParticleDefaultCapacity);
 
@@ -147,7 +88,6 @@ public:
     inline TextureAtlas* getTextureAtlas() const { return _textureAtlas; };
     
     /** Sets the texture atlas used for drawing the quads */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setTextureAtlas(TextureAtlas* atlas) { _textureAtlas = atlas; };
     
     // Overrides
@@ -209,11 +149,7 @@ private:
     BatchCommand _batchCommand;
 };
 
-<<<<<<< HEAD
-// end of _2d group
-=======
 // end of particle_nodes group
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

@@ -23,24 +23,15 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-#include "base/CCEventFocus.h"
-=======
 #include "CCEventFocus.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 
 EventFocus::EventFocus(ui::Widget *widgetLoseFocus, ui::Widget* widgetGetFocus)
 :Event(Type::FOCUS),
-<<<<<<< HEAD
-_widgetGetFocus(widgetGetFocus),
-_widgetLoseFocus(widgetLoseFocus)
-=======
 _widgetLoseFocus(widgetLoseFocus),
 _widgetGetFocus(widgetGetFocus)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
 }

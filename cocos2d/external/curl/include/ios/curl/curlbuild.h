@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-#if defined(__LP64__) && __LP64__
-#include"curlbuild-64.h"
-#else
-#include"curlbuild-32.h"
-#endif
-=======
 /* include/curl/curlbuild.h.  Generated from curlbuild.h.in by configure.  */
 #ifndef __CURL_CURLBUILD_H
 #define __CURL_CURLBUILD_H
@@ -196,4 +189,3 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
 #define CURL_SUFFIX_CURL_OFF_TU ULL
 
 #endif /* __CURL_CURLBUILD_H */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

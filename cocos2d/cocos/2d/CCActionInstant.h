@@ -28,14 +28,10 @@ THE SOFTWARE.
 #ifndef __CCINSTANT_ACTION_H__
 #define __CCINSTANT_ACTION_H__
 
-<<<<<<< HEAD
-#include <functional>
-=======
 #include <string>
 #include <functional>
 
 #include "CCStdC.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "2d/CCAction.h"
 
 NS_CC_BEGIN
@@ -45,70 +41,16 @@ NS_CC_BEGIN
  * @{
  */
 
-<<<<<<< HEAD
-/** @class ActionInstant
-* @brief Instant actions are immediate actions. They don't have a duration like the IntervalAction actions.
-**/
-=======
 /** 
 @brief Instant actions are immediate actions. They don't have a duration like
 the IntervalAction actions.
 */ 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL ActionInstant : public FiniteTimeAction //<NSCopying>
 {
 public:
     //
     // Overrides
     //
-<<<<<<< HEAD
-    virtual ActionInstant* clone() const override
-    {
-        CC_ASSERT(0);
-        return nullptr;
-    }
-    
-    virtual ActionInstant * reverse() const override
-    {
-        CC_ASSERT(0);
-        return nullptr;
-    }
-
-    virtual bool isDone() const override;
-    /**
-     * @param dt In seconds.
-     */
-    virtual void step(float dt) override;
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-};
-
-/** @class Show
-* @brief Show the node.
-**/
-class CC_DLL Show : public ActionInstant
-{
-public:
-    /** Allocates and initializes the action.
-     *
-     * @return  An autoreleased Show object.
-     */
-    static Show * create();
-
-    //
-    // Overrides
-    //
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual ActionInstant* reverse() const override;
-    virtual Show* clone() const override;
-
-CC_CONSTRUCTOR_ACCESS:
-=======
 	virtual ActionInstant* clone() const override = 0;
     virtual ActionInstant * reverse() const override = 0;
     virtual bool isDone() const override;
@@ -133,7 +75,6 @@ public:
 	virtual Show* clone() const override;
 
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Show(){}
     virtual ~Show(){}
 
@@ -141,46 +82,23 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(Show);
 };
 
-<<<<<<< HEAD
-/** @class Hide
-* @brief Hide the node.
-=======
 /** 
 @brief Hide the node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL Hide : public ActionInstant
 {
 public:
-<<<<<<< HEAD
-    /** Allocates and initializes the action.
-     *
-     * @return An autoreleased Hide object.
-     */
-=======
     /** Allocates and initializes the action */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static Hide * create();
 
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual ActionInstant* reverse() const override;
-    virtual Hide* clone() const override;
-
-CC_CONSTRUCTOR_ACCESS:
-=======
     virtual void update(float time) override;
 	virtual ActionInstant* reverse() const override;
 	virtual Hide* clone() const override;
 
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Hide(){}
     virtual ~Hide(){}
 
@@ -188,45 +106,22 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(Hide);
 };
 
-<<<<<<< HEAD
-/** @class ToggleVisibility
-* @brief Toggles the visibility of a node.
-=======
 /** @brief Toggles the visibility of a node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL ToggleVisibility : public ActionInstant
 {
 public:
-<<<<<<< HEAD
-    /** Allocates and initializes the action.
-     *
-     * @return An autoreleased ToggleVisibility object.
-     */
-=======
     /** Allocates and initializes the action */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static ToggleVisibility * create();
 
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual ToggleVisibility* reverse() const override;
-    virtual ToggleVisibility* clone() const override;
-
-CC_CONSTRUCTOR_ACCESS:
-=======
     virtual void update(float time) override;
 	virtual ToggleVisibility* reverse() const override;
 	virtual ToggleVisibility* clone() const override;
 
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ToggleVisibility(){}
     virtual ~ToggleVisibility(){}
 
@@ -234,35 +129,12 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(ToggleVisibility);
 };
 
-<<<<<<< HEAD
-/** @class RemoveSelf
-* @brief Remove the node.
-=======
 /** 
 @brief Remove the node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL RemoveSelf : public ActionInstant
 {
 public:
-<<<<<<< HEAD
-    /** Create the action.
-     *
-     * @param isNeedCleanUp Is need to clean up, the default value is true.
-     * @return An autoreleased RemoveSelf object.
-     */
-    static RemoveSelf * create(bool isNeedCleanUp = true);
-
-    //
-    // Override
-    //
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual RemoveSelf* clone() const override;
-    virtual RemoveSelf* reverse() const override;
-=======
 	/** create the action */
 	static RemoveSelf * create(bool isNeedCleanUp = true);
 
@@ -272,69 +144,37 @@ public:
 	virtual void update(float time) override;
 	virtual RemoveSelf* clone() const override;
 	virtual RemoveSelf* reverse() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     RemoveSelf() : _isNeedCleanUp(true){}
     virtual ~RemoveSelf(){}
 
-<<<<<<< HEAD
-    /** init the action */
-    bool init(bool isNeedCleanUp);
-
-protected:
-    bool _isNeedCleanUp;
-=======
 	/** init the action */
 	bool init(bool isNeedCleanUp);
 
 protected:
 	bool _isNeedCleanUp;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(RemoveSelf);
 };
 
-<<<<<<< HEAD
-/** @class FlipX
-* @brief Flips the sprite horizontally.
-* @since v0.99.0
-=======
 /** 
 @brief Flips the sprite horizontally
 @since v0.99.0
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL FlipX : public ActionInstant
 {
 public:
-<<<<<<< HEAD
-    /** Create the action.
-     *
-     * @param x Flips the sprite horizontally if true.
-     * @return  An autoreleased FlipX object.
-     */
-=======
     /** create the action */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static FlipX * create(bool x);
 
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual FlipX* reverse() const override;
-    virtual FlipX* clone() const override;
-=======
     virtual void update(float time) override;
 	virtual FlipX* reverse() const override;
 	virtual FlipX* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     FlipX() :_flipX(false) {}
@@ -350,45 +190,22 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(FlipX);
 };
 
-<<<<<<< HEAD
-/** @class FlipY
-* @brief Flips the sprite vertically.
-* @since v0.99.0
-=======
 /** 
 @brief Flips the sprite vertically
 @since v0.99.0
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL FlipY : public ActionInstant
 {
 public:
-<<<<<<< HEAD
-    /** Create the action.
-     *
-     * @param y Flips the sprite vertically if true.
-     * @return An autoreleased FlipY object.
-     */
-=======
     /** create the action */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static FlipY * create(bool y);
 
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual FlipY* reverse() const override;
-    virtual FlipY* clone() const override;
-=======
     virtual void update(float time) override;
 	virtual FlipY* reverse() const override;
 	virtual FlipY* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     FlipY() :_flipY(false) {}
@@ -404,43 +221,21 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(FlipY);
 };
 
-<<<<<<< HEAD
-/** @class Place
-* @brief Places the node in a certain position.
-=======
 /** @brief Places the node in a certain position
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL Place : public ActionInstant //<NSCopying>
 {
 public:
 
-<<<<<<< HEAD
-    /** Creates a Place action with a position.
-     *
-     * @param pos  A certain position.
-     * @return  An autoreleased Place object.
-     */
-=======
     /** creates a Place action with a position */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static Place * create(const Vec2& pos);
 
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual Place* reverse() const override;
-    virtual Place* clone() const override;
-=======
     virtual void update(float time) override;
 	virtual Place* reverse() const override;
 	virtual Place* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     Place(){}
@@ -457,33 +252,11 @@ private:
 };
 
 
-<<<<<<< HEAD
-/** @class CallFunc
-* @brief Calls a 'callback'.
-=======
 /** @brief Calls a 'callback'
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL CallFunc : public ActionInstant //<NSCopying>
 {
 public:
-<<<<<<< HEAD
-    /** Creates the action with the callback of type std::function<void()>.
-     This is the preferred way to create the callback.
-     * When this funtion bound in js or lua ,the input param will be changed.
-     * In js: var create(var func, var this, var [data]) or var create(var func).
-     * In lua:local create(local funcID).
-     *
-     * @param func  A callback function need to be excuted.
-     * @return  An autoreleased CallFunc object.
-     */
-    static CallFunc * create(const std::function<void()>& func);
-
-    /** Creates the action with the callback
-
-     typedef void (Ref::*SEL_CallFunc)();
-     @deprecated Use the std::function API instead.
-=======
 	/** creates the action with the callback of type std::function<void()>.
 	 This is the preferred way to create the callback.
      * When this funtion bound in js or lua ,the input param will be changed
@@ -496,39 +269,20 @@ public:
 
      typedef void (Ref::*SEL_CallFunc)();
 	 @deprecated Use the std::function API instead.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     CC_DEPRECATED_ATTRIBUTE static CallFunc * create(Ref* target, SEL_CallFunc selector);
 
 public:
-<<<<<<< HEAD
-    /** Executes the callback.
-     */
-    virtual void execute();
-
-    /** Get the selector target.
-     *
-     * @return The selector target.
-     */
-=======
     /** executes the callback */
     virtual void execute();
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline Ref* getTargetCallback()
     {
         return _selectorTarget;
     }
 
-<<<<<<< HEAD
-    /** Set the selector target.
-     *
-     * @param sel The selector target.
-     */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     inline void setTargetCallback(Ref* sel)
     {
         if (sel != _selectorTarget)
@@ -541,18 +295,9 @@ public:
     //
     // Overrides
     //
-<<<<<<< HEAD
-    /**
-     * @param time In seconds.
-     */
-    virtual void update(float time) override;
-    virtual CallFunc* reverse() const override;
-    virtual CallFunc* clone() const override;
-=======
     virtual void update(float time) override;
 	virtual CallFunc* reverse() const override;
 	virtual CallFunc* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 CC_CONSTRUCTOR_ACCESS:
     CallFunc()
@@ -563,26 +308,16 @@ CC_CONSTRUCTOR_ACCESS:
     }
     virtual ~CallFunc();
 
-<<<<<<< HEAD
-    /** initializes the action with the callback
-=======
 	/** initializes the action with the callback
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      typedef void (Ref::*SEL_CallFunc)();
      @deprecated Use the std::function API instead.
      */
     CC_DEPRECATED_ATTRIBUTE bool initWithTarget(Ref* target);
     
-<<<<<<< HEAD
-    /** initializes the action with the std::function<void()>
-     * @lua NA
-     */
-=======
 	/** initializes the action with the std::function<void()>
      * @js NA
      * @lua NA
 	 */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool initWithFunction(const std::function<void()>& func);
 
 protected:
@@ -596,47 +331,25 @@ protected:
     };
     
     /** function that will be called */
-<<<<<<< HEAD
-    std::function<void()> _function;
-=======
 	std::function<void()> _function;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(CallFunc);
 };
 
-<<<<<<< HEAD
-/** @class CallFuncN
-* @brief Calls a 'callback' with the node as the first argument. N means Node.
-* @js NA
-=======
 /** 
 @brief Calls a 'callback' with the node as the first argument
 N means Node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 */
 class CC_DLL CallFuncN : public CallFunc
 {
 public:
-<<<<<<< HEAD
-    /** Creates the action with the callback of type std::function<void()>.
-     This is the preferred way to create the callback.
-     *
-     * @param func  A callback function need to be excuted.
-     * @return  An autoreleased CallFuncN object.
-     */
-    static CallFuncN * create(const std::function<void(Node*)>& func);
-
-    /** Creates the action with the callback.
-=======
     /** creates the action with the callback of type std::function<void()>.
 	 This is the preferred way to create the callback.
 	 */
     static CallFuncN * create(const std::function<void(Node*)>& func);
 
     /** creates the action with the callback 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     typedef void (Ref::*SEL_CallFuncN)(Node*);
      @deprecated Use the std::function API instead.
@@ -646,11 +359,7 @@ public:
     //
     // Overrides
     //
-<<<<<<< HEAD
-    virtual CallFuncN* clone() const override;
-=======
 	virtual CallFuncN* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void execute() override;
     
 CC_CONSTRUCTOR_ACCESS:
@@ -675,24 +384,6 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(CallFuncN);
 };
 
-<<<<<<< HEAD
-/** @class __CCCallFuncND
- * @deprecated Please use CallFuncN instead.
- * @brief Calls a 'callback' with the node as the first argument and the 2nd argument is data.
- * ND means: Node and Data. Data is void *, so it could be anything.
- * @js NA
- */
-class CC_DLL  __CCCallFuncND : public CallFunc
-{
-public:
-    /** Creates the action with the callback and the data to pass as an argument.
-     *
-     * @param target    A certain target.
-     * @param selector  The callback need to be excuted.
-     * @param d Data, is void* type.
-     * @return An autoreleased __CCCallFuncND object.
-     */
-=======
 /**
  @deprecated Please use CallFuncN instead.
  @brief Calls a 'callback' with the node as the first argument and the 2nd argument is data
@@ -703,33 +394,21 @@ class CC_DLL  __CCCallFuncND : public CallFunc
 {
 public:
     /** creates the action with the callback and the data to pass as an argument */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_DEPRECATED_ATTRIBUTE static __CCCallFuncND * create(Ref* target, SEL_CallFuncND selector, void* d);
     
     //
     // Overrides
     //
-<<<<<<< HEAD
-    virtual __CCCallFuncND* clone() const override;
-    virtual void execute() override;
-    
-CC_CONSTRUCTOR_ACCESS:
-=======
 	virtual __CCCallFuncND* clone() const override;
     virtual void execute() override;
     
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     __CCCallFuncND() {}
     virtual ~__CCCallFuncND() {}
     
     /** initializes the action with the callback and the data to pass as an argument */
     bool initWithTarget(Ref* target, SEL_CallFuncND selector, void* d);
 
-<<<<<<< HEAD
-protected:
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     SEL_CallFuncND _callFuncND;
     void* _data;
 
@@ -738,57 +417,31 @@ private:
 };
 
 
-<<<<<<< HEAD
-/** @class __CCCallFuncO
- @deprecated Please use CallFuncN instead.
- @brief Calls a 'callback' with an object as the first argument. O means Object.
- @since v0.99.5
- @js NA
-=======
 /**
  @deprecated Please use CallFuncN instead.
  @brief Calls a 'callback' with an object as the first argument.
  O means Object.
  @since v0.99.5
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 
 class CC_DLL __CCCallFuncO : public CallFunc
 {
 public:
-<<<<<<< HEAD
-    /** Creates the action with the callback.
-        typedef void (Ref::*SEL_CallFuncO)(Ref*);
-     *
-     * @param target    A certain target.
-     * @param selector  The callback need to be excuted.
-     * @param object    An object as the callback's first argument.
-     * @return An autoreleased __CCCallFuncO object.
-=======
     /** creates the action with the callback
      
      typedef void (Ref::*SEL_CallFuncO)(Ref*);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE static __CCCallFuncO * create(Ref* target, SEL_CallFuncO selector, Ref* object);
     //
     // Overrides
     //
-<<<<<<< HEAD
-    virtual __CCCallFuncO* clone() const override;
-=======
 	virtual __CCCallFuncO* clone() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void execute() override;
     
     Ref* getObject() const;
     void setObject(Ref* obj);
     
-<<<<<<< HEAD
-CC_CONSTRUCTOR_ACCESS:
-=======
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     __CCCallFuncO();
     virtual ~__CCCallFuncO();
     /** initializes the action with the callback
@@ -797,11 +450,7 @@ protected:
      */
     bool initWithTarget(Ref* target, SEL_CallFuncO selector, Ref* object);
     
-<<<<<<< HEAD
-protected:
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /** object to be passed as argument */
     Ref* _object;
     SEL_CallFuncO _callFuncO;

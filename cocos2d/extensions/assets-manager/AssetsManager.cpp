@@ -22,10 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 #include "AssetsManager.h"
-<<<<<<< HEAD
-=======
 #include "cocos2d.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include <curl/curl.h>
 #include <curl/easy.h>
@@ -40,21 +37,8 @@
 #include <dirent.h>
 #endif
 
-<<<<<<< HEAD
-#include "base/CCDirector.h"
-#include "base/CCScheduler.h"
-#include "base/CCUserDefault.h"
-#include "platform/CCFileUtils.h"
-
-#ifdef MINIZIP_FROM_SYSTEM
-#include <minizip/unzip.h>
-#else // from our embedded sources
-#include "unzip.h"
-#endif
-=======
 
 #include "unzip.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace cocos2d;
 using namespace std;
@@ -175,10 +159,6 @@ bool AssetsManager::checkUpdate()
     curl_easy_setopt(_curl, CURLOPT_NOSIGNAL, 1L);
     curl_easy_setopt(_curl, CURLOPT_LOW_SPEED_LIMIT, LOW_SPEED_LIMIT);
     curl_easy_setopt(_curl, CURLOPT_LOW_SPEED_TIME, LOW_SPEED_TIME);
-<<<<<<< HEAD
-    curl_easy_setopt(_curl, CURLOPT_FOLLOWLOCATION, 1 );
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     res = curl_easy_perform(_curl);
     
     if (res != 0)
@@ -229,11 +209,6 @@ void AssetsManager::downloadAndUncompress()
         if (! uncompress())
         {
             Director::getInstance()->getScheduler()->performFunctionInCocosThread([&, this]{
-<<<<<<< HEAD
-            	UserDefault::getInstance()->setStringForKey(this->keyOfDownloadedVersion().c_str(),"");
-                UserDefault::getInstance()->flush();
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 if (this->_delegate)
                     this->_delegate->onError(ErrorCode::UNCOMPRESS);
             });
@@ -469,20 +444,7 @@ bool AssetsManager::uncompress()
  */
 bool AssetsManager::createDirectory(const char *path)
 {
-<<<<<<< HEAD
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-    return FileUtils::getInstance()->createDirectory(_storagePath.c_str());
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    BOOL ret = CreateDirectoryA(path, nullptr);
-    if (!ret && ERROR_ALREADY_EXISTS != GetLastError())
-    {
-        return false;
-    }
-    return true;
-#else
-=======
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     mode_t processMask = umask(0);
     int ret = mkdir(path, S_IRWXU | S_IRWXG | S_IRWXO);
     umask(processMask);
@@ -490,13 +452,6 @@ bool AssetsManager::createDirectory(const char *path)
     {
         return false;
     }
-<<<<<<< HEAD
-
-    return true;
-#endif
-
-
-=======
     
     return true;
 #else
@@ -507,7 +462,6 @@ bool AssetsManager::createDirectory(const char *path)
 	}
     return true;
 #endif
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void AssetsManager::setSearchPath()
@@ -571,10 +525,6 @@ bool AssetsManager::downLoad()
     curl_easy_setopt(_curl, CURLOPT_NOSIGNAL, 1L);
     curl_easy_setopt(_curl, CURLOPT_LOW_SPEED_LIMIT, LOW_SPEED_LIMIT);
     curl_easy_setopt(_curl, CURLOPT_LOW_SPEED_TIME, LOW_SPEED_TIME);
-<<<<<<< HEAD
-    curl_easy_setopt(_curl, CURLOPT_FOLLOWLOCATION, 1 );
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     res = curl_easy_perform(_curl);
     curl_easy_cleanup(_curl);
@@ -670,13 +620,8 @@ AssetsManager* AssetsManager::create(const char* packageUrl, const char* version
         SuccessCallback successCallback;
     };
 
-<<<<<<< HEAD
-    auto* manager = new (std::nothrow) AssetsManager(packageUrl,versionFileUrl,storagePath);
-    auto* delegate = new (std::nothrow) DelegateProtocolImpl(errorCallback,progressCallback,successCallback);
-=======
     auto* manager = new AssetsManager(packageUrl,versionFileUrl,storagePath);
     auto* delegate = new DelegateProtocolImpl(errorCallback,progressCallback,successCallback);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     manager->setDelegate(delegate);
     manager->_shouldDeleteDelegateWhenExit = true;
     manager->autorelease();
@@ -686,34 +631,19 @@ AssetsManager* AssetsManager::create(const char* packageUrl, const char* version
 void AssetsManager::createStoragePath()
 {
     // Remove downloaded files
-<<<<<<< HEAD
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-    FileUtils::getInstance()->createDirectory(_storagePath.c_str());
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    if ((GetFileAttributesA(_storagePath.c_str())) == INVALID_FILE_ATTRIBUTES)
-    {
-        CreateDirectoryA(_storagePath.c_str(), 0);
-    }
-#else
-    DIR *dir = nullptr;
-=======
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
     DIR *dir = nullptr;
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     dir = opendir (_storagePath.c_str());
     if (!dir)
     {
         mkdir(_storagePath.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
     }
-<<<<<<< HEAD
-=======
 #else    
     if ((GetFileAttributesA(_storagePath.c_str())) == INVALID_FILE_ATTRIBUTES)
     {
         CreateDirectoryA(_storagePath.c_str(), 0);
     }
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 }
 
@@ -723,20 +653,6 @@ void AssetsManager::destroyStoragePath()
     deleteVersion();
     
     // Remove downloaded files
-<<<<<<< HEAD
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-    FileUtils::getInstance()->removeDirectory(_storagePath.c_str());
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    string command = "rd /s /q ";
-    // Path may include space.
-    command += "\"" + _storagePath + "\"";
-    system(command.c_str());
-#else
-    string command = "rm -r ";
-    // Path may include space.
-    command += "\"" + _storagePath + "\"";
-    system(command.c_str());    
-=======
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
     string command = "rm -r ";
     // Path may include space.
@@ -747,7 +663,6 @@ void AssetsManager::destroyStoragePath()
     // Path may include space.
     command += "\"" + _storagePath + "\"";
     system(command.c_str());
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 }
 

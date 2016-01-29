@@ -1,37 +1,9 @@
 /******************************************************************************
-<<<<<<< HEAD
- * Spine Runtimes Software License
- * Version 2.1
-=======
  * Spine Runtime Software License - Version 1.1
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  * 
  * Copyright (c) 2013, Esoteric Software
  * All rights reserved.
  * 
-<<<<<<< HEAD
- * You are granted a perpetual, non-exclusive, non-sublicensable and
- * non-transferable license to install, execute and perform the Spine Runtimes
- * Software (the "Software") solely for internal use. Without the written
- * permission of Esoteric Software (typically granted by licensing Spine), you
- * may not (a) modify, translate, adapt or otherwise create derivative works,
- * improvements of the Software or develop new applications using the Software
- * or (b) remove, delete, alter or obscure any trademarks or any copyright,
- * trademark, patent or other intellectual property or proprietary rights
- * notices on or in the Software, including any copy thereof. Redistributions
- * in binary or source form must include this license and terms.
- * 
- * THIS SOFTWARE IS PROVIDED BY ESOTERIC SOFTWARE "AS IS" AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
- * EVENT SHALL ESOTERIC SOFTARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-=======
  * Redistribution and use in source and binary forms in whole or in part, with
  * or without modification, are permitted provided that the following conditions
  * are met:
@@ -57,7 +29,6 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *****************************************************************************/
 
 #ifndef SPINE_ANIMATIONSTATE_H_
@@ -72,11 +43,7 @@ extern "C" {
 #endif
 
 typedef enum {
-<<<<<<< HEAD
-	SP_ANIMATION_START, SP_ANIMATION_END, SP_ANIMATION_COMPLETE, SP_ANIMATION_EVENT
-=======
 	ANIMATION_START, ANIMATION_END, ANIMATION_COMPLETE, ANIMATION_EVENT
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 } spEventType;
 
 typedef struct spAnimationState spAnimationState;
@@ -86,66 +53,23 @@ typedef void (*spAnimationStateListener) (spAnimationState* state, int trackInde
 
 typedef struct spTrackEntry spTrackEntry;
 struct spTrackEntry {
-<<<<<<< HEAD
-	spAnimationState* const state;
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	spTrackEntry* next;
 	spTrackEntry* previous;
 	spAnimation* animation;
 	int/*bool*/loop;
 	float delay, time, lastTime, endTime, timeScale;
 	spAnimationStateListener listener;
-<<<<<<< HEAD
-	float mixTime, mixDuration, mix;
-
-	void* rendererObject;
-
-#ifdef __cplusplus
-	spTrackEntry() :
-		state(0),
-		next(0),
-		previous(0),
-		animation(0),
-		loop(0),
-		delay(0), time(0), lastTime(0), endTime(0), timeScale(0),
-		listener(0),
-		mixTime(0), mixDuration(0), mix(0),
-		rendererObject(0) {
-	}
-#endif
-=======
 	float mixTime, mixDuration;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 struct spAnimationState {
 	spAnimationStateData* const data;
 	float timeScale;
 	spAnimationStateListener listener;
-<<<<<<< HEAD
-
-	int tracksCount;
-	spTrackEntry** tracks;
-
-	void* rendererObject;
-
-#ifdef __cplusplus
-	spAnimationState() :
-		data(0),
-		timeScale(0),
-		listener(0),
-		tracksCount(0),
-		tracks(0),
-		rendererObject(0) {
-	}
-#endif
-=======
 	void* context;
 
 	int trackCount;
 	spTrackEntry** tracks;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 /* @param data May be 0 for no mixing. */
@@ -174,13 +98,6 @@ spTrackEntry* spAnimationState_getCurrent (spAnimationState* self, int trackInde
 
 #ifdef SPINE_SHORT_NAMES
 typedef spEventType EventType;
-<<<<<<< HEAD
-#define ANIMATION_START SP_ANIMATION_START
-#define ANIMATION_END SP_ANIMATION_END
-#define ANIMATION_COMPLETE SP_ANIMATION_COMPLETE
-#define ANIMATION_EVENT SP_ANIMATION_EVENT
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef spAnimationStateListener AnimationStateListener;
 typedef spTrackEntry TrackEntry;
 typedef spAnimationState AnimationState;

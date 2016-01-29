@@ -26,16 +26,10 @@
 #define _CC_MESHCOMMAND_H_
 
 #include <unordered_map>
-<<<<<<< HEAD
-#include "renderer/CCRenderCommand.h"
-#include "renderer/CCGLProgram.h"
-#include "math/CCMath.h"
-=======
 #include "CCRenderCommand.h"
 #include "renderer/CCGLProgram.h"
 #include "math/CCMath.h"
 #include "CCRenderCommandPool.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -46,25 +40,14 @@ class EventListenerCustom;
 class EventCustom;
 
 //it is a common mesh
-<<<<<<< HEAD
-class CC_DLL MeshCommand : public RenderCommand
-=======
 class MeshCommand : public RenderCommand
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
     MeshCommand();
     ~MeshCommand();
-<<<<<<< HEAD
-    
-    void init(float globalZOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, GLuint vertexBuffer, GLuint indexBuffer, GLenum primitive, GLenum indexFormat, ssize_t indexCount, const Mat4 &mv, uint32_t flags);
-    
-    CC_DEPRECATED_ATTRIBUTE void init(float globalZOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, GLuint vertexBuffer, GLuint indexBuffer, GLenum primitive, GLenum indexType, ssize_t indexCount, const Mat4 &mv);
-=======
 
     void init(float globalOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, GLuint vertexBuffer, GLuint indexBuffer, GLenum primitive, GLenum indexType, ssize_t indexCount, const Mat4 &mv);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     void setCullFaceEnabled(bool enable);
     
@@ -79,38 +62,19 @@ public:
     void setMatrixPalette(const Vec4* matrixPalette) { _matrixPalette = matrixPalette; }
     
     void setMatrixPaletteSize(int size) { _matrixPaletteSize = size; }
-<<<<<<< HEAD
-
-    void setLightMask(unsigned int lightmask) { _lightMask = lightmask; }
-    
-    void setTransparent(bool value);
-    
-    void execute();
-    
-    //used for batch
-=======
     
     void execute();
     
     //used for bath
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void preBatchDraw();
     void batchDraw();
     void postBatchDraw();
     
-<<<<<<< HEAD
-    void genMaterialID(GLuint texID, void* glProgramState, GLuint vertexBuffer, GLuint indexBuffer, const BlendFunc& blend);
-    
-    uint32_t getMaterialID() const { return _materialID; }
-    
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-=======
     void genMaterialID(GLuint texID, void* glProgramState, void* mesh, const BlendFunc& blend);
     
     uint32_t getMaterialID() const { return _materialID; }
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void listenRendererRecreated(EventCustom* event);
 #endif
 
@@ -121,22 +85,12 @@ protected:
     
     // apply renderstate
     void applyRenderState();
-<<<<<<< HEAD
-
-    void setLightUniforms();
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     //restore to all false
     void restoreRenderState();
     
     void MatrixPalleteCallBack( GLProgram* glProgram, Uniform* uniform);
 
-<<<<<<< HEAD
-    void resetLightUniformValues();
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     GLuint _textureID;
     GLProgramState* _glProgramState;
     BlendFunc _blendType;
@@ -164,27 +118,11 @@ protected:
     GLenum _cullFace;
     bool _depthTestEnabled;
     bool _depthWriteEnabled;
-<<<<<<< HEAD
-    bool _forceDepthWrite;
-    
-    bool _renderStateCullFaceEnabled;
-    bool _renderStateDepthTest;
-    GLboolean _renderStateDepthWrite;
-    GLenum    _renderStateCullFace;
-
-    // ModelView transform
-    Mat4 _mv;
-
-    unsigned int _lightMask;
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-=======
 
     // ModelView transform
     Mat4 _mv;
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     EventListenerCustom* _rendererRecreatedListener;
 #endif
 };

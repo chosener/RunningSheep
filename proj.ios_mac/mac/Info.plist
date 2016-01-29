@@ -9,11 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Icon</string>
 	<key>CFBundleIdentifier</key>
-<<<<<<< HEAD
-	<string>com.ds.runningsheep</string>
-=======
 	<string>org.cocos2dx.hellocpp</string>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

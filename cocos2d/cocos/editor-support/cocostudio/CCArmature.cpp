@@ -48,11 +48,7 @@ namespace cocostudio {
 
 Armature *Armature::create()
 {
-<<<<<<< HEAD
-    Armature *armature = new (std::nothrow) Armature();
-=======
     Armature *armature = new Armature();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (armature && armature->init())
     {
         armature->autorelease();
@@ -65,11 +61,7 @@ Armature *Armature::create()
 
 Armature *Armature::create(const std::string& name)
 {
-<<<<<<< HEAD
-    Armature *armature = new (std::nothrow) Armature();
-=======
     Armature *armature = new Armature();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (armature && armature->init(name))
     {
         armature->autorelease();
@@ -81,11 +73,7 @@ Armature *Armature::create(const std::string& name)
 
 Armature *Armature::create(const std::string& name, Bone *parentBone)
 {
-<<<<<<< HEAD
-    Armature *armature = new (std::nothrow) Armature();
-=======
     Armature *armature = new Armature();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (armature && armature->init(name, parentBone))
     {
         armature->autorelease();
@@ -128,21 +116,13 @@ bool Armature::init(const std::string& name)
         removeAllChildren();
 
         CC_SAFE_DELETE(_animation);
-<<<<<<< HEAD
-        _animation = new (std::nothrow) ArmatureAnimation();
-=======
         _animation = new ArmatureAnimation();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _animation->init(this);
 
         _boneDic.clear();
         _topBoneList.clear();
 
-<<<<<<< HEAD
-        _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
-=======
         _blendFunc = BlendFunc::ALPHA_NON_PREMULTIPLIED;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         _name = name;
 
@@ -349,11 +329,7 @@ void Armature::updateOffsetPoint()
     // Set contentsize and Calculate anchor point.
     Rect rect = getBoundingBox();
     setContentSize(rect.size);
-<<<<<<< HEAD
-    _offsetPoint.set(-rect.origin.x, -rect.origin.y);
-=======
     _offsetPoint = Vec2(-rect.origin.x,  -rect.origin.y);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (rect.size.width != 0 && rect.size.height != 0)
     {
         setAnchorPoint(Vec2(_offsetPoint.x / rect.size.width, _offsetPoint.y / rect.size.height));
@@ -365,13 +341,8 @@ void Armature::setAnchorPoint(const Vec2& point)
     if( ! point.equals(_anchorPoint))
     {
         _anchorPoint = point;
-<<<<<<< HEAD
-        _anchorPointInPoints.set(_contentSize.width * _anchorPoint.x - _offsetPoint.x, _contentSize.height * _anchorPoint.y - _offsetPoint.y);
-        _realAnchorPointInPoints.set(_contentSize.width * _anchorPoint.x, _contentSize.height * _anchorPoint.y);
-=======
         _anchorPointInPoints = Vec2(_contentSize.width * _anchorPoint.x - _offsetPoint.x, _contentSize.height * _anchorPoint.y - _offsetPoint.y);
         _realAnchorPointInPoints = Vec2(_contentSize.width * _anchorPoint.x, _contentSize.height * _anchorPoint.y);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _transformDirty = _inverseDirty = true;
     }
 }
@@ -381,14 +352,6 @@ const Vec2& Armature::getAnchorPointInPoints() const
     return _realAnchorPointInPoints;
 }
 
-<<<<<<< HEAD
-const Vec2& Armature::getOffsetPoints() const
-{
-    return _offsetPoint;
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Armature::setAnimation(ArmatureAnimation *animation)
 {
     _animation = animation;
@@ -441,28 +404,13 @@ void Armature::draw(cocos2d::Renderer *renderer, const Mat4 &transform, uint32_t
                 
                 BlendFunc func = bone->getBlendFunc();
                 
-<<<<<<< HEAD
-                if (func.src != BlendFunc::ALPHA_PREMULTIPLIED.src || func.dst != BlendFunc::ALPHA_PREMULTIPLIED.dst)
-=======
                 if (func.src != _blendFunc.src || func.dst != _blendFunc.dst)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 {
                     skin->setBlendFunc(bone->getBlendFunc());
                 }
                 else
                 {
-<<<<<<< HEAD
-                    if (_blendFunc == BlendFunc::ALPHA_PREMULTIPLIED && !skin->getTexture()->hasPremultipliedAlpha())
-                    {
-                        skin->setBlendFunc(_blendFunc.ALPHA_NON_PREMULTIPLIED);
-                    }
-                    else
-                    {
-                        skin->setBlendFunc(_blendFunc);
-                    }
-=======
                     skin->setBlendFunc(_blendFunc);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 }
                 skin->draw(renderer, transform, flags);
             }
@@ -512,11 +460,7 @@ void Armature::onExit()
 void Armature::visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
     // quick return if not visible. children won't be drawn.
-<<<<<<< HEAD
-    if (!_visible || !isVisitableByVisitingCamera())
-=======
     if (!_visible)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         return;
     }
@@ -535,14 +479,8 @@ void Armature::visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, u
     sortAllChildren();
     draw(renderer, _modelViewTransform, flags);
 
-<<<<<<< HEAD
-    // FIX ME: Why need to set _orderOfArrival to 0??
-    // Please refer to https://github.com/cocos2d/cocos2d-x/pull/6920
-    // setOrderOfArrival(0);
-=======
     // reset for next frame
     _orderOfArrival = 0;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 }
@@ -622,11 +560,7 @@ Bone *Armature::getParentBone() const
 
 #if ENABLE_PHYSICS_BOX2D_DETECT || ENABLE_PHYSICS_CHIPMUNK_DETECT
 
-<<<<<<< HEAD
-void Armature::setColliderFilter(ColliderFilter *filter)
-=======
 void CCArmature::setColliderFilter(ColliderFilter *filter)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     for (auto& element : _boneDic)
     {
@@ -635,11 +569,7 @@ void CCArmature::setColliderFilter(ColliderFilter *filter)
 }
 #elif ENABLE_PHYSICS_SAVE_CALCULATED_VERTEX
 
-<<<<<<< HEAD
-void Armature::drawContour()
-=======
 void CCArmature::drawContour()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     for(auto& element : _boneDic)
     {
@@ -657,38 +587,15 @@ void CCArmature::drawContour()
             const std::vector<Vec2> &vertexList = body->getCalculatedVertexList();
 
             unsigned long length = vertexList.size();
-<<<<<<< HEAD
-            Vec2 *points = new (std::nothrow) Vec2[length];
-=======
             Vec2 *points = new Vec2[length];
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             for (unsigned long i = 0; i<length; i++)
             {
                 Vec2 p = vertexList.at(i);
                 points[i].x = p.x;
                 points[i].y = p.y;
             }
-<<<<<<< HEAD
-            
-#if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#elif _MSC_VER >= 1400 //vs 2005 or higher
-#pragma warning (push)
-#pragma warning (disable: 4996)
-#endif
-            
             DrawPrimitives::drawPoly( points, (unsigned int)length, true );
 
-#if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
-#pragma GCC diagnostic warning "-Wdeprecated-declarations"
-#elif _MSC_VER >= 1400 //vs 2005 or higher
-#pragma warning (pop)
-#endif
-            
-=======
-            DrawPrimitives::drawPoly( points, (unsigned int)length, true );
-
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             delete []points;
         }
     }

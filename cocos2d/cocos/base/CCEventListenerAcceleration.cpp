@@ -41,11 +41,7 @@ EventListenerAcceleration::~EventListenerAcceleration()
 
 EventListenerAcceleration* EventListenerAcceleration::create(const std::function<void(Acceleration*, Event*)>& callback)
 {
-<<<<<<< HEAD
-    EventListenerAcceleration* ret = new (std::nothrow) EventListenerAcceleration();
-=======
     EventListenerAcceleration* ret = new EventListenerAcceleration();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->init(callback))
     {
         ret->autorelease();
@@ -76,11 +72,7 @@ bool EventListenerAcceleration::init(const std::function<void(Acceleration*, Eve
 
 EventListenerAcceleration* EventListenerAcceleration::clone()
 {
-<<<<<<< HEAD
-    auto ret = new (std::nothrow) EventListenerAcceleration();
-=======
     auto ret = new EventListenerAcceleration();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (ret && ret->init(onAccelerationEvent))
     {

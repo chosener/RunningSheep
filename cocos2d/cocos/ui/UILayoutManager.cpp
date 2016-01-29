@@ -31,11 +31,7 @@ namespace ui {
 
 LinearHorizontalLayoutManager* LinearHorizontalLayoutManager::create()
 {
-<<<<<<< HEAD
-    LinearHorizontalLayoutManager* exe = new (std::nothrow) LinearHorizontalLayoutManager();
-=======
     LinearHorizontalLayoutManager* exe = new LinearHorizontalLayoutManager();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (exe)
     {
         exe->autorelease();
@@ -92,11 +88,7 @@ void LinearHorizontalLayoutManager::doLayout(LayoutProtocol* layout)
 //LinearVerticalLayoutManager
 LinearVerticalLayoutManager* LinearVerticalLayoutManager::create()
 {
-<<<<<<< HEAD
-    LinearVerticalLayoutManager* exe = new (std::nothrow) LinearVerticalLayoutManager();
-=======
     LinearVerticalLayoutManager* exe = new LinearVerticalLayoutManager();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (exe)
     {
         exe->autorelease();
@@ -143,11 +135,7 @@ void LinearVerticalLayoutManager::doLayout(LayoutProtocol* layout)
                 Margin mg = layoutParameter->getMargin();
                 finalPosX += mg.left;
                 finalPosY -= mg.top;
-<<<<<<< HEAD
-                subWidget->setPosition(finalPosX, finalPosY);
-=======
                 subWidget->setPosition(Vec2(finalPosX, finalPosY));
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 topBoundary = subWidget->getPosition().y - subWidget->getAnchorPoint().y * subWidget->getContentSize().height - mg.bottom;
             }
         }
@@ -158,11 +146,7 @@ void LinearVerticalLayoutManager::doLayout(LayoutProtocol* layout)
 
 RelativeLayoutManager* RelativeLayoutManager::create()
 {
-<<<<<<< HEAD
-    RelativeLayoutManager* exe = new (std::nothrow) RelativeLayoutManager();
-=======
     RelativeLayoutManager* exe = new RelativeLayoutManager();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (exe)
     {
         exe->autorelease();

@@ -11,8 +11,6 @@ CPP_SAMPLES = ['cpp-empty-test', 'cpp-tests', 'game-controller-test']
 LUA_SAMPLES = ['lua-empty-test', 'lua-tests', 'lua-game-controller-test']
 ALL_SAMPLES = CPP_SAMPLES + LUA_SAMPLES
 
-<<<<<<< HEAD
-=======
 def get_num_of_cpu():
     ''' The build process can be accelerated by running multiple concurrent job processes using the -j-option.
     '''
@@ -57,7 +55,6 @@ def check_environment_variables_sdk():
 def select_toolchain_version():
     pass
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 def caculate_built_samples(args):
     ''' Compute the sampels to be built
     'cpp' for short of all cpp tests
@@ -82,17 +79,6 @@ def caculate_built_samples(args):
     targets = set(targets)
     return list(targets)
 
-<<<<<<< HEAD
-def do_build(app_android_root, build_mode):
-     
-    command = 'cocos compile -p android -s %s --ndk-mode %s' % (app_android_root, build_mode) 
-    print command
-
-    if os.system(command) != 0:
-        raise Exception("Build dynamic library for project [ " + app_android_root + " ] fails!")
-
-def build_samples(target, build_mode):
-=======
 def do_build(cocos_root, ndk_root, app_android_root, ndk_build_param,sdk_root,android_platform,build_mode):
 
     ndk_path = os.path.join(ndk_root, "ndk-build")
@@ -208,33 +194,15 @@ def build_samples(target,ndk_build_param,android_platform,build_mode):
         else:
             print 'please use vaild android platform'
             exit(1)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if build_mode is None:
         build_mode = 'debug'
     elif build_mode != 'release':
         build_mode = 'debug'
-<<<<<<< HEAD
-    
-    build_targets = caculate_built_samples(target)
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     app_android_root = ''
 
     target_proj_path_map = {
-<<<<<<< HEAD
-        "cpp-empty-test": "tests/cpp-empty-test",
-        "game-controller-test": "tests/game-controller-test",
-        "cpp-tests": "tests/cpp-tests",
-        "lua-empty-test": "tests/lua-empty-test",
-        "lua-tests": "tests/lua-tests",
-        "lua-game-controller-test": "tests/lua-game-controller-test"
-    }
-
-    cocos_root = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
-
-=======
         "cpp-empty-test": "tests/cpp-empty-test/proj.android",
         "game-controller-test": "tests/game-controller-test/proj.android",
         "cpp-tests": "tests/cpp-tests/proj.android",
@@ -243,7 +211,6 @@ def build_samples(target,ndk_build_param,android_platform,build_mode):
         "lua-game-controller-test": "tests/lua-game-controller-test/project/proj.android"
     }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     for target in build_targets:
         if target in target_proj_path_map:
             app_android_root = os.path.join(cocos_root, target_proj_path_map[target])
@@ -251,12 +218,8 @@ def build_samples(target,ndk_build_param,android_platform,build_mode):
             print 'unknown target: %s' % target
             continue
 
-<<<<<<< HEAD
-        do_build(app_android_root, build_mode)
-=======
         copy_resources(target, app_android_root)
         do_build(cocos_root, ndk_root, app_android_root, ndk_build_param,sdk_root,android_platform,build_mode)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 # -------------- main --------------
 if __name__ == '__main__':
@@ -271,28 +234,14 @@ if __name__ == '__main__':
 
     You can combine these targets like this:
 
-<<<<<<< HEAD
-    python android-build.py cpp-empty-test lua-empty-test
-
-=======
     python android-build.py -p 10 cpp-empty-test lua-empty-test
 
 
     Note: You should install ant to generate apk while building the andriod tests. But it is optional. You can generate apk with eclipse.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     """
 
     parser = OptionParser(usage=usage)
     parser.add_option("-n", "--ndk", dest="ndk_build_param",
-<<<<<<< HEAD
-    help='It is not used anymore, because cocos console does not support it.')
-    parser.add_option("-p", "--platform", dest="android_platform",
-    help='This parameter is not used any more, just keep compatible.')
-    parser.add_option("-b", "--build", dest="build_mode",
-    help='The build mode for java project,debug[default] or release. Get more information,please refer to http://developer.android.com/tools/building/building-cmdline.html')
-    (opts, args) = parser.parse_args()
-    
-=======
     help='Parameter for ndk-build')
     parser.add_option("-p", "--platform", dest="android_platform",
     help='Parameter for android-update. Without the parameter,the script just build dynamic library for the projects. Valid android-platform are:[10|11|12|13|14|15|16|17|18|19]')
@@ -300,17 +249,12 @@ if __name__ == '__main__':
     help='The build mode for java project,debug[default] or release. Get more information,please refer to http://developer.android.com/tools/building/building-cmdline.html')
     (opts, args) = parser.parse_args()
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if len(args) == 0:
         parser.print_help()
         sys.exit(1)
     else:
         try:
-<<<<<<< HEAD
-            build_samples(args, opts.build_mode)
-=======
             build_samples(args, opts.ndk_build_param,opts.android_platform,opts.build_mode)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         except Exception as e:
             print e
             sys.exit(1)

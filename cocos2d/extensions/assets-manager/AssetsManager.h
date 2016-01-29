@@ -29,14 +29,8 @@
 
 #include <mutex>
 
-<<<<<<< HEAD
-#include "2d/CCNode.h"
-#include "extensions/ExtensionMacros.h"
-#include "extensions/ExtensionExport.h"
-=======
 #include "cocos2d.h"
 #include "extensions/ExtensionMacros.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -47,11 +41,7 @@ class AssetsManagerDelegateProtocol;
  *  The updated package should be a zip file. And there should be a file named
  *  version in the server, which contains version code.
  */
-<<<<<<< HEAD
-class CC_EX_DLL AssetsManager : public Node
-=======
 class AssetsManager : public Node
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     enum class ErrorCode
@@ -83,10 +73,6 @@ public:
      * @param versionFileUrl URL of version file. It should contain version code of new package.
      * @param storagePath The path to store downloaded resources.
      * @js NA
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     AssetsManager(const char* packageUrl = NULL, const char* versionFileUrl = NULL, const char* storagePath = NULL);
     /**

@@ -1,11 +1,6 @@
 #!/usr/bin/python
 # build_native.py
 # Build native codes
-<<<<<<< HEAD
-# 
-# Please use cocos console instead
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 import sys
@@ -13,10 +8,6 @@ import os, os.path
 import shutil
 from optparse import OptionParser
 
-<<<<<<< HEAD
-def build(build_mode):
-
-=======
 def get_num_of_cpu():
 	''' The build process can be accelerated by running multiple concurrent job processes using the -j-option.
 	'''
@@ -132,14 +123,10 @@ def build(ndk_build_param,android_platform,build_mode):
     ndk_root = check_environment_variables()
     sdk_root = None
     select_toolchain_version()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
     cocos_root = os.path.join(current_dir, "../cocos2d")
 
-<<<<<<< HEAD
-    app_android_root = os.path.join(current_dir, "../")
-=======
     app_android_root = current_dir
     copy_resources(app_android_root)
     
@@ -150,42 +137,23 @@ def build(ndk_build_param,android_platform,build_mode):
 				else:
 						print 'please use vaild android platform'
 						exit(1)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 		
     if build_mode is None:
     	  build_mode = 'debug'
     elif build_mode != 'release':
         build_mode = 'debug'
     
-<<<<<<< HEAD
-    command = 'cocos compile -p android -s %s -m %s' % (app_android_root, build_mode) 
-    if os.system(command) != 0:
-        raise Exception("Build dynamic library for project [ " + app_android_root + " ] fails!")
-=======
     do_build(cocos_root, ndk_root, app_android_root,ndk_build_param,sdk_root,android_platform,build_mode)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 # -------------- main --------------
 if __name__ == '__main__':
 
     parser = OptionParser()
-<<<<<<< HEAD
-    parser.add_option("-n", "--ndk", dest="ndk_build_param", help='it is not used', action="append")
-    parser.add_option("-p", "--platform", dest="android_platform", 
-    help='it is not used')
-=======
     parser.add_option("-n", "--ndk", dest="ndk_build_param", help='parameter for ndk-build', action="append")
     parser.add_option("-p", "--platform", dest="android_platform", 
     help='parameter for android-update.Without the parameter,the script just build dynamic library for project. Valid android-platform are:[10|11|12|13|14|15|16|17|18|19]')
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     parser.add_option("-b", "--build", dest="build_mode", 
     help='the build mode for java project,debug[default] or release.Get more information,please refer to http://developer.android.com/tools/building/building-cmdline.html')
     (opts, args) = parser.parse_args()
     
-<<<<<<< HEAD
-    print "Please use cocos console instead.\n"
-    
-    build(opts.build_mode)
-=======
     build(opts.ndk_build_param,opts.android_platform,opts.build_mode)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

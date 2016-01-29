@@ -338,11 +338,7 @@ typedef struct _sourceInfo {
 #pragma mark CDAsynchBufferLoader
 
 /** CDAsynchBufferLoader
-<<<<<<< HEAD
- * TODO: ???
-=======
  TODO
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  */
 @interface CDAsynchBufferLoader : NSOperation {
     NSArray *_loadRequests;

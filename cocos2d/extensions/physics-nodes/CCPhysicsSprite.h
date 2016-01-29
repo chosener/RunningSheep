@@ -25,12 +25,6 @@
 
 #include "2d/CCSprite.h"
 #include "extensions/ExtensionMacros.h"
-<<<<<<< HEAD
-#include "extensions/ExtensionExport.h"
-
-#if (CC_ENABLE_CHIPMUNK_INTEGRATION || CC_ENABLE_BOX2D_INTEGRATION)
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 struct cpBody;
 class b2Body;
@@ -48,14 +42,8 @@ NS_CC_EXT_BEGIN
  - Position and rotation are going to updated from the physics body
  - If you update the rotation or position manually, the physics body will be updated
  - You can't enble both Chipmunk support and Box2d support at the same time. Only one can be enabled at compile time
-<<<<<<< HEAD
- * @lua NA
- */
-class CC_EX_DLL PhysicsSprite : public Sprite
-=======
  */
 class PhysicsSprite : public Sprite
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -94,11 +82,7 @@ public:
 
     PhysicsSprite();
 
-<<<<<<< HEAD
-    virtual bool isDirty() const override;
-=======
     virtual bool isDirty() const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /** Keep the sprite's rotation separate from the body. */
     bool isIgnoreBodyRotation() const;
@@ -150,9 +134,4 @@ protected:
 
 NS_CC_EXT_END
 
-<<<<<<< HEAD
-#endif // CC_ENABLE_CHIPMUNK_INTEGRATION || CC_ENABLE_BOX2D_INTEGRATION
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __PHYSICSNODES_CCPHYSICSSPRITE_H__

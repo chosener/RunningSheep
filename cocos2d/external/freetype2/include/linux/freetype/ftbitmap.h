@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType utility functions for bitmaps (specification).              */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2004-2006, 2008, 2013, 2014 by                               */
-=======
 /*  Copyright 2004, 2005, 2006, 2008 by                                    */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -49,13 +45,7 @@ FT_BEGIN_HEADER
   /*    Handling FT_Bitmap objects.                                        */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    This section contains functions for handling @FT_Bitmap objects.   */
-  /*    Note that none of the functions changes the bitmap's `flow' (as    */
-  /*    indicated by the sign of the `pitch' field in `FT_Bitmap').        */
-=======
   /*    This section contains functions for converting FT_Bitmap objects.  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /*************************************************************************/
 
@@ -132,12 +122,6 @@ FT_BEGIN_HEADER
   /*    If you want to embolden the bitmap owned by a @FT_GlyphSlotRec,    */
   /*    you should call @FT_GlyphSlot_Own_Bitmap on the slot first.        */
   /*                                                                       */
-<<<<<<< HEAD
-  /*    Bitmaps in @FT_PIXEL_MODE_GRAY2 and @FT_PIXEL_MODE_GRAY@ format    */
-  /*    are converted to @FT_PIXEL_MODE_GRAY format (i.e., 8bpp).          */
-  /*                                                                       */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   FT_EXPORT( FT_Error )
   FT_Bitmap_Embolden( FT_Library  library,
                       FT_Bitmap*  bitmap,
@@ -151,15 +135,9 @@ FT_BEGIN_HEADER
   /*    FT_Bitmap_Convert                                                  */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    Convert a bitmap object with depth 1bpp, 2bpp, 4bpp, 8bpp or 32bpp */
-  /*    to a bitmap object with depth 8bpp, making the number of used      */
-  /*    bytes line (a.k.a. the `pitch') a multiple of `alignment'.         */
-=======
   /*    Convert a bitmap object with depth 1bpp, 2bpp, 4bpp, or 8bpp to a  */
   /*    bitmap object with depth 8bpp, making the number of used bytes per */
   /*    line (a.k.a. the `pitch') a multiple of `alignment'.               */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                                                                       */
   /* <Input>                                                               */
   /*    library   :: A handle to a library object.                         */

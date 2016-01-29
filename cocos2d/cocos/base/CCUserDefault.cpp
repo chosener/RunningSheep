@@ -406,20 +406,6 @@ void UserDefault::setDataForKey(const char* pKey, const Data& value) {
 
 UserDefault* UserDefault::getInstance()
 {
-<<<<<<< HEAD
-    if (!_userDefault)
-    {
-        initXMLFilePath();
-
-        // only create xml file one time
-        // the file exists after the program exit
-        if ((!isXMLFileExist()) && (!createXMLFile()))
-        {
-            return nullptr;
-        }
-
-        _userDefault = new (std::nothrow) UserDefault();
-=======
     initXMLFilePath();
 
     // only create xml file one time
@@ -432,7 +418,6 @@ UserDefault* UserDefault::getInstance()
     if (! _userDefault)
     {
         _userDefault = new UserDefault();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     return _userDefault;
@@ -443,30 +428,13 @@ void UserDefault::destroyInstance()
     CC_SAFE_DELETE(_userDefault);
 }
 
-<<<<<<< HEAD
-void UserDefault::setDelegate(UserDefault *delegate)
-{
-    if (_userDefault)
-        delete _userDefault;
-
-    _userDefault = delegate;
-}
-
-
-// FIXME:: deprecated
-=======
 // XXX: deprecated
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 UserDefault* UserDefault::sharedUserDefault()
 {
     return UserDefault::getInstance();
 }
 
-<<<<<<< HEAD
-// FIXME:: deprecated
-=======
 // XXX: deprecated
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void UserDefault::purgeSharedUserDefault()
 {
     return UserDefault::destroyInstance();
@@ -474,9 +442,6 @@ void UserDefault::purgeSharedUserDefault()
 
 bool UserDefault::isXMLFileExist()
 {
-<<<<<<< HEAD
-    return FileUtils::getInstance()->isFileExist(_filePath);
-=======
     FILE *fp = fopen(_filePath.c_str(), "r");
 	bool bRet = false;
 
@@ -487,7 +452,6 @@ bool UserDefault::isXMLFileExist()
 	}
 
 	return bRet;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void UserDefault::initXMLFilePath()

@@ -30,20 +30,6 @@
 #include "base/CCEventListenerTouch.h"
 #include "2d/CCActionTween.h"
 #include "extensions/ExtensionMacros.h"
-<<<<<<< HEAD
-#include "extensions/ExtensionExport.h"
-
-/**
- * @addtogroup ui
- * @{
- */
-NS_CC_EXT_BEGIN
-
-
-class ScrollView;
-
-class CC_EX_DLL ScrollViewDelegate
-=======
 
 NS_CC_EXT_BEGIN
 
@@ -55,7 +41,6 @@ NS_CC_EXT_BEGIN
 class ScrollView;
 
 class ScrollViewDelegate
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /**
@@ -80,11 +65,7 @@ public:
  * ScrollView support for cocos2d-x.
  * It provides scroll view functionalities to cocos2d projects natively.
  */
-<<<<<<< HEAD
-class CC_EX_DLL  ScrollView : public Layer, public ActionTweenDelegate
-=======
 class ScrollView : public Layer, public ActionTweenDelegate
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     enum class Direction
@@ -111,10 +92,6 @@ public:
     static ScrollView* create();
     /**
      * @js ctor
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ScrollView();
     /**
@@ -123,11 +100,7 @@ public:
      */
     virtual ~ScrollView();
 
-<<<<<<< HEAD
-    bool init() override;
-=======
     bool init();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Returns a scroll view object
      *
@@ -172,27 +145,6 @@ public:
      * @param dt    The animation duration
      */
     void setZoomScaleInDuration(float s, float dt);
-<<<<<<< HEAD
-
-    /**
-     * Set min scale
-     *
-     * @param minScale min scale
-     */
-    void setMinScale(float minScale) {
-        _minScale = minScale;
-    }
-    /**
-     * Set max scale
-     *
-     * @param maxScale max scale
-     */
-    void setMaxScale(float maxScale) {
-        _maxScale = maxScale;
-    }
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * Returns the current container's minimum offset. You may want this while you animate scrolling by yourself
      */
@@ -210,18 +162,10 @@ public:
     /**
      * Provided to make scroll view compatible with SWLayer's pause method
      */
-<<<<<<< HEAD
-    using Layer::pause;  // fix warning
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void pause(Ref* sender);
     /**
      * Provided to make scroll view compatible with SWLayer's resume method
      */
-<<<<<<< HEAD
-    using Layer::resume; // fix warning
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void resume(Ref* sender);
 
     void setTouchEnabled(bool enabled);
@@ -269,17 +213,10 @@ public:
     bool isClippingToBounds() { return _clippingToBounds; }
     void setClippingToBounds(bool bClippingToBounds) { _clippingToBounds = bClippingToBounds; }
 
-<<<<<<< HEAD
-    virtual bool onTouchBegan(Touch *touch, Event *event) override;
-    virtual void onTouchMoved(Touch *touch, Event *event) override;
-    virtual void onTouchEnded(Touch *touch, Event *event) override;
-    virtual void onTouchCancelled(Touch *touch, Event *event) override;
-=======
     virtual bool onTouchBegan(Touch *touch, Event *event);
     virtual void onTouchMoved(Touch *touch, Event *event);
     virtual void onTouchEnded(Touch *touch, Event *event);
     virtual void onTouchCancelled(Touch *touch, Event *event);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     // Overrides
     virtual void setContentSize(const Size & size) override;
@@ -297,13 +234,7 @@ public:
     /**
      * CCActionTweenDelegate
      */
-<<<<<<< HEAD
-    void updateTweenAction(float value, const std::string& key) override;
-
-    bool hasVisibleParents() const;
-=======
     void updateTweenAction(float value, const std::string& key);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 protected:
     /**
      * Relocates the container at the proper offset, in bounds of max/min offsets.
@@ -343,9 +274,6 @@ protected:
     void handleZoom();
 
     Rect getViewRect();
-<<<<<<< HEAD
-
-=======
     
     /**
      * current zoom scale
@@ -359,7 +287,6 @@ protected:
      * max zoom scale
      */
     float _maxZoomScale;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * scroll view delegate
      */
@@ -438,16 +365,9 @@ protected:
     CustomCommand _afterDrawCommand;
 };
 
-<<<<<<< HEAD
-
-NS_CC_EXT_END
-// end of ui group
-/// @}
-=======
 // end of GUI group
 /// @}
 
 NS_CC_EXT_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* __CCSCROLLVIEW_H__ */

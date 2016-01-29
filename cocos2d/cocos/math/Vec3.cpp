@@ -68,8 +68,6 @@ Vec3::~Vec3()
 {
 }
 
-<<<<<<< HEAD
-=======
 bool Vec3::isZero() const
 {
     return x == 0.0f && y == 0.0f && z == 0.0f;
@@ -80,7 +78,6 @@ bool Vec3::isOne() const
     return x == 1.0f && y == 1.0f && z == 1.0f;
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 float Vec3::angle(const Vec3& v1, const Vec3& v2)
 {
     float dx = v1.y * v2.z - v1.z * v2.y;
@@ -90,8 +87,6 @@ float Vec3::angle(const Vec3& v1, const Vec3& v2)
     return atan2f(sqrt(dx * dx + dy * dy + dz * dz) + MATH_FLOAT_SMALL, dot(v1, v2));
 }
 
-<<<<<<< HEAD
-=======
 void Vec3::add(const Vec3& v)
 {
     x += v.x;
@@ -99,7 +94,6 @@ void Vec3::add(const Vec3& v)
     z += v.z;
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec3::add(const Vec3& v1, const Vec3& v2, Vec3* dst)
 {
     GP_ASSERT(dst);
@@ -202,8 +196,6 @@ float Vec3::dot(const Vec3& v1, const Vec3& v2)
     return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
 
-<<<<<<< HEAD
-=======
 float Vec3::length() const
 {
     return sqrt(x * x + y * y + z * z);
@@ -221,7 +213,6 @@ void Vec3::negate()
     z = -z;
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec3::normalize()
 {
     float n = x * x + y * y + z * z;
@@ -247,8 +238,6 @@ Vec3 Vec3::getNormalized() const
     return v;
 }
 
-<<<<<<< HEAD
-=======
 void Vec3::scale(float scalar)
 {
     x *= scalar;
@@ -293,7 +282,6 @@ void Vec3::subtract(const Vec3& v)
     z -= v.z;
 }
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Vec3::subtract(const Vec3& v1, const Vec3& v2, Vec3* dst)
 {
     GP_ASSERT(dst);
@@ -311,18 +299,10 @@ void Vec3::smooth(const Vec3& target, float elapsedTime, float responseTime)
     }
 }
 
-<<<<<<< HEAD
-const Vec3 Vec3::ZERO(0.0f, 0.0f, 0.0f);
-const Vec3 Vec3::ONE(1.0f, 1.0f, 1.0f);
-const Vec3 Vec3::UNIT_X(1.0f, 0.0f, 0.0f);
-const Vec3 Vec3::UNIT_Y(0.0f, 1.0f, 0.0f);
-const Vec3 Vec3::UNIT_Z(0.0f, 0.0f, 1.0f);
-=======
 const Vec3 Vec3::ZERO = Vec3(0.0f, 0.0f, 0.0f);
 const Vec3 Vec3::ONE = Vec3(1.0f, 1.0f, 1.0f);
 const Vec3 Vec3::UNIT_X = Vec3(1.0f, 0.0f, 0.0f);
 const Vec3 Vec3::UNIT_Y = Vec3(0.0f, 1.0f, 0.0f);
 const Vec3 Vec3::UNIT_Z = Vec3(0.0f, 0.0f, 1.0f);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_MATH_END

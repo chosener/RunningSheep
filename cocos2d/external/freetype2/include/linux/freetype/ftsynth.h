@@ -5,11 +5,7 @@
 /*    FreeType synthesizing code for emboldening and slanting              */
 /*    (specification).                                                     */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2000-2001, 2003, 2006, 2008, 2012, 2013 by                   */
-=======
 /*  Copyright 2000-2001, 2003, 2006, 2008 by                               */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -41,11 +37,7 @@
   /* Main reason for not lifting the functions in this module to a  */
   /* `standard' API is that the used parameters for emboldening and */
   /* slanting are not configurable.  Consider the functions as a    */
-<<<<<<< HEAD
-  /* code resource that should be copied into the application and   */
-=======
   /* code resource which should be copied into the application and  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* adapted to the particular needs.                               */
 
 
@@ -69,14 +61,8 @@ FT_BEGIN_HEADER
   /* taste).  This function is actually a convenience function, providing  */
   /* a wrapper for @FT_Outline_Embolden and @FT_Bitmap_Embolden.           */
   /*                                                                       */
-<<<<<<< HEAD
-  /* For emboldened outlines the height, width, and advance metrics are    */
-  /* increased by the strength of the emboldening.  You can also call      */
-  /* @FT_Outline_Get_CBox to get precise values.                           */
-=======
   /* For emboldened outlines the metrics are estimates only; if you need   */
   /* precise values you should call @FT_Outline_Get_CBox.                  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   FT_EXPORT( void )
   FT_GlyphSlot_Embolden( FT_GlyphSlot  slot );
 
@@ -86,10 +72,6 @@ FT_BEGIN_HEADER
 
   /* */
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 #endif /* __FTSYNTH_H__ */

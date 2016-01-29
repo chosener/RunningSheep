@@ -13,22 +13,6 @@ Developers:
         Reimport of Android IAP for better v3 Support
         Bind Android IAP to Cocos2dActivity.java for handling successful purchase
 
-<<<<<<< HEAD
-    ntotani
-        Add social and user protocol to factory
-	Create Lua bindings
-
-    thomasaw
-        Fix ad placement on iOS 8
-    
-    giuslape
-        Facebook Ads plugin
-
-   please add more here :)
-
-Cocos2d-x can not grow so fast without the active community.
-=======
     please add more here :)
 
 Cocos2d-x can not grow so fast without the active community.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

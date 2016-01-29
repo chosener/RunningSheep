@@ -30,35 +30,14 @@ using namespace cocos2d::plugin;
 
 @implementation ShareWrapper
 
-<<<<<<< HEAD
-+ (void) onShareResult:(id) obj withRet:(int) ret withMsg:(NSString*) msg
-=======
 + (void) onShareResult:(id) obj withRet:(ShareResult) ret withMsg:(NSString*) msg
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     PluginProtocol* pPlugin = PluginUtilsIOS::getPluginPtr(obj);
     ProtocolShare* pShare = dynamic_cast<ProtocolShare*>(pPlugin);
     if (pShare) {
-<<<<<<< HEAD
-        ShareResultListener* listener = pShare->getResultListener();
-        ProtocolShare::ProtocolShareCallback callback = pShare->getCallback();
-        const char* chMsg = [msg UTF8String];
-        if (NULL != listener)
-        {
-            ShareResultCode cRet = (ShareResultCode) ret;
-            listener->onShareResult(cRet, chMsg);
-        }else if (callback)
-        {
-            std::string stdmsg(chMsg);
-            callback(ret, stdmsg);
-        }else{
-            PluginUtilsIOS::outputLog("Can't find the listener of plugin %s", pPlugin->getPluginName());
-        }
-=======
         const char* chMsg = [msg UTF8String];
         ShareResultCode cRet = (ShareResultCode) ret;
         pShare->onShareResult(cRet, chMsg);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     } else {
         PluginUtilsIOS::outputLog("Can't find the C++ object of the Share plugin");
     }

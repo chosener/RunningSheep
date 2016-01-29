@@ -48,12 +48,7 @@ FT_BEGIN_HEADER
   */
 #define FT_PARAM_TAG_UNPATENTED_HINTING  FT_MAKE_TAG( 'u', 'n', 'p', 'a' )
 
-<<<<<<< HEAD
-  /* */
-
-=======
  /* */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 FT_END_HEADER
 

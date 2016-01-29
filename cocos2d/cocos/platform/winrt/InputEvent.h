@@ -30,14 +30,6 @@ THE SOFTWARE.
 #include "InputEventTypes.h"
 #include <agile.h>
 
-<<<<<<< HEAD
-NS_CC_BEGIN
-
-public delegate void Cocos2dEventDelegate(Cocos2dEvent event, Platform::String^ text);
-public delegate void Cocos2dMessageBoxDelegate(Platform::String^  title, Platform::String^ text);
-public delegate void Cocos2dEditBoxDelegate(Platform::String^ strPlaceHolder, Platform::String^ strText, int maxLength, int inputMode, int inputFlag, Windows::Foundation::EventHandler<Platform::String^>^ receiveHandler);
-public delegate void Cocos2dOpenURLDelegate(Platform::String^ url);
-=======
 
 namespace PhoneDirect3DXamlAppComponent
 {
@@ -47,7 +39,6 @@ namespace PhoneDirect3DXamlAppComponent
 }
 
 NS_CC_BEGIN
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 enum PointerEventType
 {
@@ -56,11 +47,7 @@ enum PointerEventType
     PointerReleased,
 };
 
-<<<<<<< HEAD
-class CC_DLL InputEvent
-=======
 class InputEvent
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     InputEvent() {};
@@ -69,11 +56,7 @@ public:
 };
 
 
-<<<<<<< HEAD
-class CC_DLL AccelerometerEvent : public InputEvent
-=======
 class AccelerometerEvent : public InputEvent
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     AccelerometerEvent(const cocos2d::Acceleration& event);
@@ -83,11 +66,7 @@ private:
     cocos2d::Acceleration m_event;
 };
 
-<<<<<<< HEAD
-class CC_DLL PointerEvent : public InputEvent
-=======
 class PointerEvent : public InputEvent
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     PointerEvent(PointerEventType type, Windows::UI::Core::PointerEventArgs^ args);
@@ -99,22 +78,6 @@ private:
     Platform::Agile<Windows::UI::Core::PointerEventArgs> m_args;
 };
 
-<<<<<<< HEAD
-class CC_DLL KeyboardEvent : public InputEvent
-
-{
-public:
-    KeyboardEvent(Cocos2dKeyEvent type);
-    KeyboardEvent(Cocos2dKeyEvent type, Platform::String^ text);
-    virtual void execute();
-
-private:
-    Cocos2dKeyEvent m_type;
-    Platform::Agile<Platform::String> m_text;
-};
-
-class CC_DLL BackButtonEvent : public InputEvent
-=======
 class KeyboardEvent : public InputEvent
 
 {
@@ -129,38 +92,12 @@ private:
 };
 
 class BackButtonEvent : public InputEvent
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     BackButtonEvent();
     virtual void execute();
 };
 
-<<<<<<< HEAD
-class CC_DLL CustomInputEvent : public InputEvent
-{
-public:
-    CustomInputEvent(const std::function<void()>&);
-    virtual void execute();
-private:
-    std::function<void()> m_fun;
-};
-
-class UIEditBoxEvent : public cocos2d::InputEvent
-{
-public:
-    UIEditBoxEvent(Platform::Object^ sender, Platform::String^ text, Windows::Foundation::EventHandler<Platform::String^>^ handle);
-
-    virtual void execute();
-
-private:
-    Platform::Agile<Platform::Object^> m_sender;
-    Platform::Agile<Platform::String^> m_text;
-    Platform::Agile<Windows::Foundation::EventHandler<Platform::String^>^> m_handler;
-};
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // #ifndef __INPUT_EVENT__

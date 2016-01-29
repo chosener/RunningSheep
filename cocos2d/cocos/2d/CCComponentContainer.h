@@ -1,9 +1,5 @@
 /****************************************************************************
-<<<<<<< HEAD
-Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
 Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 http://www.cocos2d-x.org
 
@@ -29,11 +25,6 @@ THE SOFTWARE.
 #ifndef __CC_FRAMEWORK_COMCONTAINER_H__
 #define __CC_FRAMEWORK_COMCONTAINER_H__
 
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCMap.h"
 #include <string>
 
@@ -56,19 +47,9 @@ public:
      * @lua NA
      */
     virtual ~ComponentContainer(void);
-<<<<<<< HEAD
-	/**
-     * @js getComponent
-     */
-	virtual Component* get(const std::string& name) const;
-    virtual bool add(Component *com);
-    virtual bool remove(const std::string& name);
-    virtual bool remove(Component *com);
-=======
     virtual Component* get(const std::string& name) const;
     virtual bool add(Component *com);
     virtual bool remove(const std::string& name);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual void removeAll();
     virtual void visit(float delta);
 public:
@@ -86,8 +67,4 @@ private:
 
 NS_CC_END
 
-<<<<<<< HEAD
-/// @endcond
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif  // __FUNDATION__CCCOMPONENT_H__

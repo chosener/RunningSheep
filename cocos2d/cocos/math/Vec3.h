@@ -1,9 +1,5 @@
 /**
  Copyright 2013 BlackBerry Inc.
-<<<<<<< HEAD
- Copyright (c) 2014-2015 Chukong Technologies
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -27,14 +23,6 @@
 
 #include "math/CCMathBase.h"
 
-<<<<<<< HEAD
-/**
- * @addtogroup base
- * @{
- */
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_MATH_BEGIN
 
 class Mat4;
@@ -49,11 +37,7 @@ class Quaternion;
  * the magnitude of the vector intact. When used as a point,
  * the elements of the vector represent a position in 3D space.
  */
-<<<<<<< HEAD
-class CC_DLL Vec3
-=======
 class Vec3
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -128,22 +112,14 @@ public:
      *
      * @return true if this vector contains all zeros, false otherwise.
      */
-<<<<<<< HEAD
-    inline bool isZero() const;
-=======
     bool isZero() const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Indicates whether this vector contains all ones.
      *
      * @return true if this vector contains all ones, false otherwise.
      */
-<<<<<<< HEAD
-    inline bool isOne() const;
-=======
     bool isOne() const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Returns the angle (in radians) between the specified vectors.
@@ -161,21 +137,7 @@ public:
      *
      * @param v The vector to add.
      */
-<<<<<<< HEAD
-    inline void add(const Vec3& v);
-
-
-    /**
-    * Adds the elements of this vector to the specified values.
-    *
-    * @param xx The add x coordinate.
-    * @param yy The add y coordinate.
-    * @param zz The add z coordinate.
-    */
-    inline void add(float xx, float yy, float zz);
-=======
     void add(const Vec3& v);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Adds the specified vectors and stores the result in dst.
@@ -273,11 +235,7 @@ public:
      * 
      * @see lengthSquared
      */
-<<<<<<< HEAD
-    inline float length() const;
-=======
     float length() const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Returns the squared length of this vector.
@@ -291,20 +249,12 @@ public:
      * 
      * @see length
      */
-<<<<<<< HEAD
-    inline float lengthSquared() const;
-=======
     float lengthSquared() const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Negates this vector.
      */
-<<<<<<< HEAD
-    inline void negate();
-=======
     void negate();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Normalizes this vector.
@@ -320,9 +270,6 @@ public:
     void normalize();
 
     /**
-<<<<<<< HEAD
-     * Get the normalized vector.
-=======
      * Normalizes this vector and stores the result in dst.
      *
      * If the vector already has unit length or if the length
@@ -330,7 +277,6 @@ public:
      * current vector into dst.
      *
      * @param dst The destination vector.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     Vec3 getNormalized() const;
 
@@ -339,11 +285,7 @@ public:
      *
      * @param scalar The scalar value.
      */
-<<<<<<< HEAD
-    inline void scale(float scalar);
-=======
     void scale(float scalar);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the elements of this vector to the specified values.
@@ -352,47 +294,26 @@ public:
      * @param yy The new y coordinate.
      * @param zz The new z coordinate.
      */
-<<<<<<< HEAD
-    inline void set(float xx, float yy, float zz);
-=======
     void set(float xx, float yy, float zz);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the elements of this vector from the values in the specified array.
      *
      * @param array An array containing the elements of the vector in the order x, y, z.
      */
-<<<<<<< HEAD
-    inline void set(const float* array);
-=======
     void set(const float* array);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets the elements of this vector to those in the specified vector.
      *
      * @param v The vector to copy.
      */
-<<<<<<< HEAD
-    inline void set(const Vec3& v);
-=======
     void set(const Vec3& v);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Sets this vector to the directional vector between the specified points.
      */
-<<<<<<< HEAD
-    inline void set(const Vec3& p1, const Vec3& p2);
-
-    /**
-    * Sets the elements of this vector to zero.
-    */
-    inline void setZero();
-=======
     void set(const Vec3& p1, const Vec3& p2);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Subtracts this vector and the specified vector as (this - v)
@@ -400,11 +321,7 @@ public:
      *
      * @param v The vector to subtract.
      */
-<<<<<<< HEAD
-    inline void subtract(const Vec3& v);
-=======
     void subtract(const Vec3& v);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Subtracts the specified vectors and stores the result in dst.
@@ -430,15 +347,6 @@ public:
     void smooth(const Vec3& target, float elapsedTime, float responseTime);
 
     /**
-<<<<<<< HEAD
-     * Linear interpolation between two vectors A and B by alpha which
-     * is in the range [0,1]
-     */
-    inline Vec3 lerp(const Vec3& target, float alpha) const;
-
-    /**
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * Calculates the sum of this vector with the given vector.
      * 
      * Note: this does not modify this vector.
@@ -511,27 +419,6 @@ public:
      */
     inline const Vec3 operator/(float s) const;
 
-<<<<<<< HEAD
-    /** Returns true if the vector's scalar components are all greater
-     that the ones of the vector it is compared against.
-     */
-    inline bool operator < (const Vec3& rhs) const
-    {
-        if (x < rhs.x && y < rhs.y && z < rhs.z)
-            return true;
-        return false;
-    }
-
-    /** Returns true if the vector's scalar components are all smaller
-     that the ones of the vector it is compared against.
-     */
-    inline bool operator >(const Vec3& rhs) const
-    {
-        if (x > rhs.x && y > rhs.y && z > rhs.z)
-            return true;
-        return false;
-    }
-=======
     /**
      * Determines if this vector is less than the given vector.
      * 
@@ -540,7 +427,6 @@ public:
      * @return True if this vector is less than the given vector, false otherwise.
      */
     inline bool operator<(const Vec3& v) const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      * Determines if this vector is equal to the given vector.
@@ -584,14 +470,7 @@ inline const Vec3 operator*(float x, const Vec3& v);
 //typedef Vec3 Point3;
 
 NS_CC_MATH_END
-<<<<<<< HEAD
-/**
- end of base group
- @}
- */
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "Vec3.inl"
 
 #endif // MATH_VEC3_H

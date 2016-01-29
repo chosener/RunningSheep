@@ -44,20 +44,8 @@ extern "C" {
 			{
 				pIAP->onPayResult((PayResultCode) ret, strMsg.c_str());
 			}
-<<<<<<< HEAD
-			else
-			{
-				ProtocolIAP::ProtocolIAPCallback callback = pIAP->getCallback();
-				if(callback)
-					callback(ret, strMsg);
-			}
 		}
 	}
-
-=======
-		}
-	}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 bool ProtocolIAP::_paying = false;
@@ -138,15 +126,6 @@ void ProtocolIAP::payForProduct(TProductInfo info)
     }
 }
 
-<<<<<<< HEAD
-void ProtocolIAP::payForProduct(TProductInfo info, ProtocolIAPCallback cb)
-{
-	_callback = cb;
-	payForProduct(info);
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolIAP::setResultListener(PayResultListener* pListener)
 {
 	_listener = pListener;

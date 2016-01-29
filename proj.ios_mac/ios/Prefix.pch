@@ -6,10 +6,3 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
-<<<<<<< HEAD
-
-#ifdef __cplusplus
-	#include "cocos2d.h"
-#endif
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -25,11 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-<<<<<<< HEAD
-#include "2d/CCTMXObjectGroup.h"
-=======
 #include "CCTMXObjectGroup.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/ccMacros.h"
 
 NS_CC_BEGIN
@@ -38,10 +34,7 @@ NS_CC_BEGIN
 
 TMXObjectGroup::TMXObjectGroup()
     : _groupName("")
-<<<<<<< HEAD
-=======
     , _positionOffset(Vec2::ZERO)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 }
 

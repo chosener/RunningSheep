@@ -28,60 +28,23 @@
 #include "base/CCEventListener.h"
 #include "base/ccTypes.h"
 
-<<<<<<< HEAD
-/**
- * @addtogroup base
- * @{
- */
-
-NS_CC_BEGIN
-
-/** @class EventListenerAcceleration
- * @brief Acceleration event listener.
- * @js NA
- */
-class CC_DLL EventListenerAcceleration : public EventListener
-=======
 NS_CC_BEGIN
 
 class EventListenerAcceleration : public EventListener
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static const std::string LISTENER_ID;
     
-<<<<<<< HEAD
-    /** Create a acceleration EventListener.
-     *
-     * @param callback The acceleration callback method.
-     * @return An autoreleased EventListenerAcceleration object.
-     */
     static EventListenerAcceleration* create(const std::function<void(Acceleration*, Event*)>& callback);
-    
-    /** Destructor.
-     */
-=======
-    static EventListenerAcceleration* create(const std::function<void(Acceleration*, Event*)>& callback);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual ~EventListenerAcceleration();
     
     /// Overrides
     virtual EventListenerAcceleration* clone() override;
     virtual bool checkAvailable() override;
-<<<<<<< HEAD
-    
-CC_CONSTRUCTOR_ACCESS:
-    EventListenerAcceleration();
-    
-    bool init(const std::function<void(Acceleration*, Event* event)>& callback);
-    
-private:
-=======
 private:
     EventListenerAcceleration();
     
     bool init(const std::function<void(Acceleration*, Event* event)>& callback);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     std::function<void(Acceleration*, Event*)> onAccelerationEvent;
     
     friend class LuaEventListenerAcceleration;
@@ -89,10 +52,4 @@ private:
 
 NS_CC_END
 
-<<<<<<< HEAD
-// end of base group
-/// @}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif /* defined(__cocos2d_libs__CCAccelerometerListener__) */

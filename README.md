@@ -1,6 +1,6 @@
 # RunningSheep
 奔跑吧小羊
-<<<<<<< HEAD
+
 ### 官网:[www.isainttech.com](http://www.isainttech.com "Kylin's Blog")
 ### 开发环境
 xcode cocos2d-x 3.2
@@ -12,8 +12,3 @@ xcode cocos2d-x 3.2
 
 ### 备注
 		1.***
-=======
-
-## 开发环境
-xcode cocos2d-x 3.2
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

@@ -28,21 +28,12 @@ THE SOFTWARE.
 
 #include "base/CCIMEDelegate.h"
 
-<<<<<<< HEAD
-/**
- * @addtogroup base
- * @{
- */
-NS_CC_BEGIN
-
-=======
 NS_CC_BEGIN
 
 /**
  * @addtogroup input
  * @{
  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 /**
 @brief    Input Method Edit Message Dispatcher.
@@ -57,20 +48,12 @@ public:
     ~IMEDispatcher();
 
     /**
-<<<<<<< HEAD
-     * @brief Returns the shared IMEDispatcher object for the system.
-=======
      @brief Returns the shared IMEDispatcher object for the system.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     static IMEDispatcher* sharedDispatcher();
 
-<<<<<<< HEAD
-    /**
-     * @brief Dispatches the input text from IME.
-=======
 //     /**
 //     @brief Releases all IMEDelegates from the shared dispatcher.
 //     */
@@ -79,29 +62,20 @@ public:
     /**
      @brief Dispatches the input text from IME.
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchInsertText(const char * text, size_t len);
 
     /**
-<<<<<<< HEAD
-     * @brief Dispatches the delete-backward operation.
-=======
      @brief Dispatches the delete-backward operation.
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchDeleteBackward();
 
     /**
-<<<<<<< HEAD
-     * @brief Get the content text from IMEDelegate, retrieved previously from IME.
-=======
      @brief Get the content text from IMEDelegate, retrieved previously from IME.
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     const std::string& getContentText();
@@ -110,34 +84,22 @@ public:
     // dispatch keyboard notification
     //////////////////////////////////////////////////////////////////////////
     /**
-<<<<<<< HEAD
-=======
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchKeyboardWillShow(IMEKeyboardNotificationInfo& info);
     /**
-<<<<<<< HEAD
-=======
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchKeyboardDidShow(IMEKeyboardNotificationInfo& info);
     /**
-<<<<<<< HEAD
-=======
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchKeyboardWillHide(IMEKeyboardNotificationInfo& info);
     /**
-<<<<<<< HEAD
-=======
      * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @lua NA
      */
     void dispatchKeyboardDidHide(IMEKeyboardNotificationInfo& info);
@@ -146,33 +108,6 @@ protected:
     friend class IMEDelegate;
 
     /**
-<<<<<<< HEAD
-     *@brief Add delegate to receive IME messages.
-     *@param delegate A instance implements IMEDelegate delegate.
-     */
-    void addDelegate(IMEDelegate * delegate);
-
-    /**
-     *@brief Attach the Delegate to the IME.
-     *@param delegate A instance implements IMEDelegate delegate.
-     *@return If the old delegate can detach from the IME, and the new delegate 
-     *       can attach to the IME, return true, otherwise false.
-     */
-    bool attachDelegateWithIME(IMEDelegate * delegate);
-
-    /**
-     * Dettach the delegate to the IME
-     *@see `attachDelegateWithIME(IMEDelegate*)`
-     *@param delegate  A instance implements IMEDelegate delegate.
-     *@return Whether the IME is detached or not.
-     */
-    bool detachDelegateWithIME(IMEDelegate * delegate);
-
-    /**
-     *@brief Remove the delegate from the delegates which receive IME messages.
-     *@param delegate A instance implements the IMEDelegate delegate.
-     */
-=======
     @brief Add delegate to receive IME messages.
     */
     void addDelegate(IMEDelegate * delegate);
@@ -188,7 +123,6 @@ protected:
     /**
     @brief Remove the delegate from the delegates which receive IME messages.
     */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void removeDelegate(IMEDelegate * delegate);
 
 private:
@@ -198,16 +132,9 @@ private:
     Impl * _impl;
 };
 
-<<<<<<< HEAD
-
-NS_CC_END
-// end of base group
-/// @}
-=======
 // end of input group
 /// @}
 
 NS_CC_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif    // __CC_IME_DISPATCHER_H__

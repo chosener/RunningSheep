@@ -35,11 +35,7 @@ NS_CC_BEGIN
 
 SpriteFrame* SpriteFrame::create(const std::string& filename, const Rect& rect)
 {
-<<<<<<< HEAD
-    SpriteFrame *spriteFrame = new (std::nothrow) SpriteFrame();
-=======
     SpriteFrame *spriteFrame = new SpriteFrame();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     spriteFrame->initWithTextureFilename(filename, rect);
     spriteFrame->autorelease();
 
@@ -48,11 +44,7 @@ SpriteFrame* SpriteFrame::create(const std::string& filename, const Rect& rect)
 
 SpriteFrame* SpriteFrame::createWithTexture(Texture2D *texture, const Rect& rect)
 {
-<<<<<<< HEAD
-    SpriteFrame *spriteFrame = new (std::nothrow) SpriteFrame();
-=======
     SpriteFrame *spriteFrame = new SpriteFrame();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     spriteFrame->initWithTexture(texture, rect);
     spriteFrame->autorelease();
     
@@ -61,11 +53,7 @@ SpriteFrame* SpriteFrame::createWithTexture(Texture2D *texture, const Rect& rect
 
 SpriteFrame* SpriteFrame::createWithTexture(Texture2D* texture, const Rect& rect, bool rotated, const Vec2& offset, const Size& originalSize)
 {
-<<<<<<< HEAD
-    SpriteFrame *spriteFrame = new (std::nothrow) SpriteFrame();
-=======
     SpriteFrame *spriteFrame = new SpriteFrame();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     spriteFrame->initWithTexture(texture, rect, rotated, offset, originalSize);
     spriteFrame->autorelease();
 
@@ -74,22 +62,14 @@ SpriteFrame* SpriteFrame::createWithTexture(Texture2D* texture, const Rect& rect
 
 SpriteFrame* SpriteFrame::create(const std::string& filename, const Rect& rect, bool rotated, const Vec2& offset, const Size& originalSize)
 {
-<<<<<<< HEAD
-    SpriteFrame *spriteFrame = new (std::nothrow) SpriteFrame();
-=======
     SpriteFrame *spriteFrame = new SpriteFrame();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     spriteFrame->initWithTextureFilename(filename, rect, rotated, offset, originalSize);
     spriteFrame->autorelease();
 
     return spriteFrame;
 }
 
-<<<<<<< HEAD
-SpriteFrame::SpriteFrame()
-=======
 SpriteFrame::SpriteFrame(void)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 : _rotated(false)
 , _texture(nullptr)
 {
@@ -143,11 +123,7 @@ bool SpriteFrame::initWithTextureFilename(const std::string& filename, const Rec
     return true;
 }
 
-<<<<<<< HEAD
-SpriteFrame::~SpriteFrame()
-=======
 SpriteFrame::~SpriteFrame(void)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     CCLOGINFO("deallocing SpriteFrame: %p", this);
     CC_SAFE_RELEASE(_texture);
@@ -156,11 +132,7 @@ SpriteFrame::~SpriteFrame(void)
 SpriteFrame* SpriteFrame::clone() const
 {
 	// no copy constructor	
-<<<<<<< HEAD
-    SpriteFrame *copy = new (std::nothrow) SpriteFrame();
-=======
     SpriteFrame *copy = new SpriteFrame();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     copy->initWithTextureFilename(_textureFilename.c_str(), _rectInPixels, _rotated, _offsetInPixels, _originalSizeInPixels);
     copy->setTexture(_texture);
     copy->autorelease();
@@ -210,11 +182,7 @@ void SpriteFrame::setTexture(Texture2D * texture)
     }
 }
 
-<<<<<<< HEAD
-Texture2D* SpriteFrame::getTexture()
-=======
 Texture2D* SpriteFrame::getTexture(void)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     if( _texture ) {
         return _texture;
@@ -228,7 +196,4 @@ Texture2D* SpriteFrame::getTexture(void)
 }
 
 NS_CC_END
-<<<<<<< HEAD
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

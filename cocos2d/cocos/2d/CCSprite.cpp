@@ -27,18 +27,6 @@ THE SOFTWARE.
 
 #include "2d/CCSprite.h"
 
-<<<<<<< HEAD
-#include <algorithm>
-
-#include "2d/CCSpriteBatchNode.h"
-#include "2d/CCAnimationCache.h"
-#include "2d/CCSpriteFrame.h"
-#include "2d/CCSpriteFrameCache.h"
-#include "renderer/CCTextureCache.h"
-#include "renderer/CCTexture2D.h"
-#include "renderer/CCRenderer.h"
-#include "base/CCDirector.h"
-=======
 #include <string.h>
 #include <algorithm>
 
@@ -61,7 +49,6 @@ THE SOFTWARE.
 #include "math/CCGeometry.h"
 #include "math/CCAffineTransform.h"
 #include "math/TransformUtils.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #include "deprecated/CCString.h"
 
@@ -74,10 +61,6 @@ NS_CC_BEGIN
 #define RENDER_IN_SUBPIXEL(__ARGS__) (ceil(__ARGS__))
 #endif
 
-<<<<<<< HEAD
-// MARK: create, init, dealloc
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 Sprite* Sprite::createWithTexture(Texture2D *texture)
 {
     Sprite *sprite = new (std::nothrow) Sprite();
@@ -256,11 +239,7 @@ bool Sprite::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         setAnchorPoint(Vec2(0.5f, 0.5f));
         
         // zwoptex default values
-<<<<<<< HEAD
-        _offsetPosition.setZero();
-=======
         _offsetPosition = Vec2::ZERO;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         // clean the Quad
         memset(&_quad, 0, sizeof(_quad));
@@ -293,31 +272,14 @@ bool Sprite::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
 }
 
 Sprite::Sprite(void)
-<<<<<<< HEAD
-: _batchNode(nullptr)
-, _shouldBeHidden(false)
-, _texture(nullptr)
-, _spriteFrame(nullptr)
-, _insideBounds(true)
-{
-#if CC_SPRITE_DEBUG_DRAW
-    _debugDrawNode = DrawNode::create();
-    addChild(_debugDrawNode);
-#endif //CC_SPRITE_DEBUG_DRAW
-=======
 : _shouldBeHidden(false)
 , _texture(nullptr)
 , _insideBounds(true)
 {
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Sprite::~Sprite(void)
 {
-<<<<<<< HEAD
-    CC_SAFE_RELEASE(_spriteFrame);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_SAFE_RELEASE(_texture);
 }
 
@@ -330,11 +292,7 @@ Sprite::~Sprite(void)
  * It's used for creating a default texture when sprite's texture is set to nullptr.
  * Supposing codes as follows:
  *
-<<<<<<< HEAD
- *   auto sp = new (std::nothrow) Sprite();
-=======
  *   auto sp = new Sprite();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  *   sp->init();  // Texture was set to nullptr, in order to make opacity and color to work correctly, we need to create a 2x2 white texture.
  *
  * The test is in "TestCpp/SpriteTest/Sprite without texture".
@@ -349,22 +307,13 @@ static unsigned char cc_2x2_white_image[] = {
 
 #define CC_2x2_WHITE_IMAGE_KEY  "/cc_2x2_white_image"
 
-<<<<<<< HEAD
-// MARK: texture
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Sprite::setTexture(const std::string &filename)
 {
     Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(filename);
     setTexture(texture);
 
     Rect rect = Rect::ZERO;
-<<<<<<< HEAD
-    if (texture)
-        rect.size = texture->getContentSize();
-=======
     rect.size = texture->getContentSize();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     setTextureRect(rect);
 }
 
@@ -383,11 +332,7 @@ void Sprite::setTexture(Texture2D *texture)
         // If texture wasn't in cache, create it from RAW data.
         if (texture == nullptr)
         {
-<<<<<<< HEAD
-            Image* image = new (std::nothrow) Image();
-=======
             Image* image = new Image();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             bool isOK = image->initWithRawData(cc_2x2_white_image, sizeof(cc_2x2_white_image), 2, 2, 8);
             CC_UNUSED_PARAM(isOK);
             CCASSERT(isOK, "The 2x2 empty texture was created unsuccessfully.");
@@ -424,27 +369,11 @@ void Sprite::setTextureRect(const Rect& rect, bool rotated, const Size& untrimme
     setVertexRect(rect);
     setTextureCoords(rect);
 
-<<<<<<< HEAD
-    float relativeOffsetX = _unflippedOffsetPositionFromCenter.x;
-    float relativeOffsetY = _unflippedOffsetPositionFromCenter.y;
-=======
     Vec2 relativeOffset = _unflippedOffsetPositionFromCenter;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // issue #732
     if (_flippedX)
     {
-<<<<<<< HEAD
-        relativeOffsetX = -relativeOffsetX;
-    }
-    if (_flippedY)
-    {
-        relativeOffsetY = -relativeOffsetY;
-    }
-
-    _offsetPosition.x = relativeOffsetX + (_contentSize.width - _rect.size.width) / 2;
-    _offsetPosition.y = relativeOffsetY + (_contentSize.height - _rect.size.height) / 2;
-=======
         relativeOffset.x = -relativeOffset.x;
     }
     if (_flippedY)
@@ -454,7 +383,6 @@ void Sprite::setTextureRect(const Rect& rect, bool rotated, const Size& untrimme
 
     _offsetPosition.x = relativeOffset.x + (_contentSize.width - _rect.size.width) / 2;
     _offsetPosition.y = relativeOffset.y + (_contentSize.height - _rect.size.height) / 2;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     // rendering using batch node
     if (_batchNode)
@@ -467,28 +395,16 @@ void Sprite::setTextureRect(const Rect& rect, bool rotated, const Size& untrimme
         // self rendering
         
         // Atlas: Vertex
-<<<<<<< HEAD
-        float x1 = 0.0f + _offsetPosition.x;
-        float y1 = 0.0f + _offsetPosition.y;
-=======
         float x1 = 0 + _offsetPosition.x;
         float y1 = 0 + _offsetPosition.y;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         float x2 = x1 + _rect.size.width;
         float y2 = y1 + _rect.size.height;
 
         // Don't update Z.
-<<<<<<< HEAD
-        _quad.bl.vertices.set(x1, y1, 0.0f);
-        _quad.br.vertices.set(x2, y1, 0.0f);
-        _quad.tl.vertices.set(x1, y2, 0.0f);
-        _quad.tr.vertices.set(x2, y2, 0.0f);
-=======
         _quad.bl.vertices = Vec3(x1, y1, 0);
         _quad.br.vertices = Vec3(x2, y1, 0);
         _quad.tl.vertices = Vec3(x1, y2, 0);
         _quad.tr.vertices = Vec3(x2, y2, 0);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 }
 
@@ -529,20 +445,12 @@ void Sprite::setTextureCoords(Rect rect)
 
         if (_flippedX)
         {
-<<<<<<< HEAD
-            std::swap(top, bottom);
-=======
             CC_SWAP(top, bottom, float);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         if (_flippedY)
         {
-<<<<<<< HEAD
-            std::swap(left, right);
-=======
             CC_SWAP(left, right, float);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         _quad.bl.texCoords.u = left;
@@ -570,20 +478,12 @@ void Sprite::setTextureCoords(Rect rect)
 
         if(_flippedX)
         {
-<<<<<<< HEAD
-            std::swap(left, right);
-=======
             CC_SWAP(left,right,float);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         if(_flippedY)
         {
-<<<<<<< HEAD
-            std::swap(top, bottom);
-=======
             CC_SWAP(top,bottom,float);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         _quad.bl.texCoords.u = left;
@@ -597,11 +497,6 @@ void Sprite::setTextureCoords(Rect rect)
     }
 }
 
-<<<<<<< HEAD
-// MARK: visit, draw, transform
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Sprite::updateTransform(void)
 {
     CCASSERT(_batchNode, "updateTransform is only valid when Sprite is being rendered using an SpriteBatchNode");
@@ -612,14 +507,7 @@ void Sprite::updateTransform(void)
         // If it is not visible, or one of its ancestors is not visible, then do nothing:
         if( !_visible || ( _parent && _parent != _batchNode && static_cast<Sprite*>(_parent)->_shouldBeHidden) )
         {
-<<<<<<< HEAD
-            _quad.br.vertices.setZero();
-            _quad.tl.vertices.setZero();
-            _quad.tr.vertices.setZero();
-            _quad.bl.vertices.setZero();
-=======
             _quad.br.vertices = _quad.tl.vertices = _quad.tr.vertices = _quad.bl.vertices = Vec3(0,0,0);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _shouldBeHidden = true;
         }
         else
@@ -668,26 +556,15 @@ void Sprite::updateTransform(void)
             float dx = x1 * cr - y2 * sr2 + x;
             float dy = x1 * sr + y2 * cr2 + y;
 
-<<<<<<< HEAD
-            _quad.bl.vertices.set(RENDER_IN_SUBPIXEL(ax), RENDER_IN_SUBPIXEL(ay), _positionZ);
-            _quad.br.vertices.set(RENDER_IN_SUBPIXEL(bx), RENDER_IN_SUBPIXEL(by), _positionZ);
-            _quad.tl.vertices.set(RENDER_IN_SUBPIXEL(dx), RENDER_IN_SUBPIXEL(dy), _positionZ);
-            _quad.tr.vertices.set(RENDER_IN_SUBPIXEL(cx), RENDER_IN_SUBPIXEL(cy), _positionZ);
-=======
             _quad.bl.vertices = Vec3( RENDER_IN_SUBPIXEL(ax), RENDER_IN_SUBPIXEL(ay), _positionZ );
             _quad.br.vertices = Vec3( RENDER_IN_SUBPIXEL(bx), RENDER_IN_SUBPIXEL(by), _positionZ );
             _quad.tl.vertices = Vec3( RENDER_IN_SUBPIXEL(dx), RENDER_IN_SUBPIXEL(dy), _positionZ );
             _quad.tr.vertices = Vec3( RENDER_IN_SUBPIXEL(cx), RENDER_IN_SUBPIXEL(cy), _positionZ );
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         }
 
         // MARMALADE CHANGE: ADDED CHECK FOR nullptr, TO PERMIT SPRITES WITH NO BATCH NODE / TEXTURE ATLAS
         if (_textureAtlas)
-<<<<<<< HEAD
-        {
-=======
 		{
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             _textureAtlas->updateQuad(&_quad, _atlasIndex);
         }
 
@@ -710,36 +587,10 @@ void Sprite::updateTransform(void)
 
 void Sprite::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
-<<<<<<< HEAD
-#if CC_USE_CULLING
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     // Don't do calculate the culling if the transform was not updated
     _insideBounds = (flags & FLAGS_TRANSFORM_DIRTY) ? renderer->checkVisibility(transform, _contentSize) : _insideBounds;
 
     if(_insideBounds)
-<<<<<<< HEAD
-#endif
-    {
-        _quadCommand.init(_globalZOrder, _texture->getName(), getGLProgramState(), _blendFunc, &_quad, 1, transform, flags);
-        renderer->addCommand(&_quadCommand);
-        
-#if CC_SPRITE_DEBUG_DRAW
-        _debugDrawNode->clear();
-        Vec2 vertices[4] = {
-            Vec2( _quad.bl.vertices.x, _quad.bl.vertices.y ),
-            Vec2( _quad.br.vertices.x, _quad.br.vertices.y ),
-            Vec2( _quad.tr.vertices.x, _quad.tr.vertices.y ),
-            Vec2( _quad.tl.vertices.x, _quad.tl.vertices.y ),
-        };
-        _debugDrawNode->drawPoly(vertices, 4, true, Color4F(1.0, 1.0, 1.0, 1.0));
-#endif //CC_SPRITE_DEBUG_DRAW
-    }
-}
-
-// MARK: visit, draw, transform
-
-=======
     {
         _quadCommand.init(_globalZOrder, _texture->getName(), getGLProgramState(), _blendFunc, &_quad, 1, transform);
         renderer->addCommand(&_quadCommand);
@@ -772,7 +623,6 @@ void Sprite::drawDebugData()
 #endif //CC_SPRITE_DEBUG_DRAW
 
 // Node overrides
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void Sprite::addChild(Node *child, int zOrder, int tag)
 {
     CCASSERT(child != nullptr, "Argument must be non-nullptr");
@@ -905,11 +755,7 @@ void Sprite::setDirtyRecursively(bool bValue)
     }
 }
 
-<<<<<<< HEAD
-// FIXME: HACK: optimization
-=======
 // XXX HACK: optimization
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #define SET_DIRTY_RECURSIVELY() {                       \
                     if (! _recursiveDirty) {            \
                         _recursiveDirty = true;         \
@@ -1039,11 +885,7 @@ bool Sprite::isFlippedY(void) const
 }
 
 //
-<<<<<<< HEAD
-// MARK: RGBA protocol
-=======
 // RGBA protocol
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 //
 
 void Sprite::updateColor(void)
@@ -1051,19 +893,11 @@ void Sprite::updateColor(void)
     Color4B color4( _displayedColor.r, _displayedColor.g, _displayedColor.b, _displayedOpacity );
     
     // special opacity for premultiplied textures
-<<<<<<< HEAD
-    if (_opacityModifyRGB)
-    {
-        color4.r *= _displayedOpacity/255.0f;
-        color4.g *= _displayedOpacity/255.0f;
-        color4.b *= _displayedOpacity/255.0f;
-=======
 	if (_opacityModifyRGB)
     {
 		color4.r *= _displayedOpacity/255.0f;
 		color4.g *= _displayedOpacity/255.0f;
 		color4.b *= _displayedOpacity/255.0f;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
     _quad.bl.colors = color4;
@@ -1104,39 +938,20 @@ bool Sprite::isOpacityModifyRGB(void) const
     return _opacityModifyRGB;
 }
 
-<<<<<<< HEAD
-// MARK: Frames
-=======
 // Frames
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void Sprite::setSpriteFrame(const std::string &spriteFrameName)
 {
     SpriteFrameCache *cache = SpriteFrameCache::getInstance();
     SpriteFrame *spriteFrame = cache->getSpriteFrameByName(spriteFrameName);
 
-<<<<<<< HEAD
-    CCASSERT(spriteFrame, std::string("Invalid spriteFrameName :").append(spriteFrameName).c_str());
-=======
     CCASSERT(spriteFrame, "Invalid spriteFrameName");
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     setSpriteFrame(spriteFrame);
 }
 
 void Sprite::setSpriteFrame(SpriteFrame *spriteFrame)
 {
-<<<<<<< HEAD
-    // retain the sprite frame
-    // do not removed by SpriteFrameCache::removeUnusedSpriteFrames
-    if (_spriteFrame != spriteFrame)
-    {
-        CC_SAFE_RELEASE(_spriteFrame);
-        _spriteFrame = spriteFrame;
-        spriteFrame->retain();
-    }
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _unflippedOffsetPositionFromCenter = spriteFrame->getOffset();
 
     Texture2D *texture = spriteFrame->getTexture();
@@ -1184,11 +999,7 @@ SpriteFrame* Sprite::getSpriteFrame() const
                                            CC_SIZE_POINTS_TO_PIXELS(_contentSize));
 }
 
-<<<<<<< HEAD
-SpriteBatchNode* Sprite::getBatchNode() const
-=======
 SpriteBatchNode* Sprite::getBatchNode()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return _batchNode;
 }
@@ -1208,17 +1019,10 @@ void Sprite::setBatchNode(SpriteBatchNode *spriteBatchNode)
         float y1 = _offsetPosition.y;
         float x2 = x1 + _rect.size.width;
         float y2 = y1 + _rect.size.height;
-<<<<<<< HEAD
-        _quad.bl.vertices.set( x1, y1, 0 );
-        _quad.br.vertices.set(x2, y1, 0);
-        _quad.tl.vertices.set(x1, y2, 0);
-        _quad.tr.vertices.set(x2, y2, 0);
-=======
         _quad.bl.vertices = Vec3( x1, y1, 0 );
         _quad.br.vertices = Vec3( x2, y1, 0 );
         _quad.tl.vertices = Vec3( x1, y2, 0 );
         _quad.tr.vertices = Vec3( x2, y2, 0 );
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     } else {
 
@@ -1228,11 +1032,7 @@ void Sprite::setBatchNode(SpriteBatchNode *spriteBatchNode)
     }
 }
 
-<<<<<<< HEAD
-// MARK: Texture protocol
-=======
 // Texture protocol
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void Sprite::updateBlendFunc(void)
 {

@@ -43,8 +43,4 @@ public class ShareWrapper {
 		});
 	}
 	private static native void nativeOnShareResult(String className, int ret, String msg);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

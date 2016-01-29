@@ -26,42 +26,22 @@
 #ifndef __CCEVENT_H__
 #define __CCEVENT_H__
 
-<<<<<<< HEAD
-#include "base/CCRef.h"
-#include "platform/CCPlatformMacros.h"
-
-/**
- * @addtogroup base
- * @{
- */
-=======
 #include <string>
 #include <stdint.h>
 
 #include "base/CCRef.h"
 #include "base/CCPlatformMacros.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
 class Node;
 
-<<<<<<< HEAD
-/** @class Event
- * @brief Base class of all kinds of events.
- */
-class CC_DLL Event : public Ref
-{
-public:
-    /** Type Event type.*/
-=======
 /**
  *   Base class of all kinds of events.
  */
 class Event : public Ref
 {
 public:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     enum class Type
     {
         TOUCH,
@@ -69,39 +49,6 @@ public:
         ACCELERATION,
         MOUSE,
         FOCUS,
-<<<<<<< HEAD
-        GAME_CONTROLLER,
-        CUSTOM
-    };
-    
-CC_CONSTRUCTOR_ACCESS:
-    /** Constructor */
-    Event(Type type);
-public:
-    /** Destructor.
-     */
-    virtual ~Event();
-
-    /** Gets the event type.
-     *
-     * @return The event type.
-     */
-	inline Type getType() const { return _type; };
-    
-    /** Stops propagation for current event.
-     */
-    inline void stopPropagation() { _isStopped = true; };
-    
-    /** Checks whether the event has been stopped.
-     *
-     * @return True if the event has been stopped.
-     */
-    inline bool isStopped() const { return _isStopped; };
-    
-    /** Gets current target of the event.
-     * @return The target with which the event associates.
-     * @note It onlys be available when the event listener is associated with node.
-=======
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         GAME_CONTROLLER,
 #endif
@@ -127,7 +74,6 @@ public:
     /** @brief Gets current target of the event
      *  @return The target with which the event associates.
      *  @note It onlys be available when the event listener is associated with node. 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      *        It returns 0 when the listener is associated with fixed priority.
      */
     inline Node* getCurrentTarget() { return _currentTarget; };
@@ -146,10 +92,5 @@ protected:
 
 NS_CC_END
 
-<<<<<<< HEAD
-// end of base group
-/// @}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __CCEVENT_H__

@@ -39,11 +39,6 @@ extern std::string getFileDirectoryJNI();
 extern void enableAccelerometerJni();
 extern void disableAccelerometerJni();
 extern void setAccelerometerIntervalJni(float interval);
-<<<<<<< HEAD
-extern void setKeepScreenOnJni(bool value);
-extern bool openURLJNI(const char* url);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // functions for UserDefault
 extern bool getBoolForKeyJNI(const char* key, bool defaultValue);
 extern int getIntegerForKeyJNI(const char* key, int defaultValue);

@@ -27,16 +27,6 @@ THE SOFTWARE.
 
 #include "CCComBase.h"
 #include "2d/CCComponent.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-
-namespace cocostudio {
-
-class CC_STUDIO_DLL ComRender : public cocos2d::Component
-{
-    DECLARE_CLASS_COMPONENT_INFO
-CC_CONSTRUCTOR_ACCESS:
-=======
 
 namespace cocostudio {
 
@@ -44,7 +34,6 @@ class ComRender : public cocos2d::Component
 {
     DECLARE_CLASS_COMPONENT_INFO
 protected:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      *  @js ctor
      */

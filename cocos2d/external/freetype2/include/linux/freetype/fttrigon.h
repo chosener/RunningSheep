@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType trigonometric functions (specification).                    */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2001, 2003, 2005, 2007, 2013 by                              */
-=======
 /*  Copyright 2001, 2003, 2005, 2007 by                                    */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -50,11 +46,7 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   This type is used to model angle values in FreeType.  Note that the
-<<<<<<< HEAD
-   *   angle is a 16.16 fixed-point value expressed in degrees.
-=======
    *   angle is a 16.16 fixed float value expressed in degrees.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
   typedef FT_Fixed  FT_Angle;
@@ -114,11 +106,7 @@ FT_BEGIN_HEADER
    *   FT_Sin
    *
    * @description:
-<<<<<<< HEAD
-   *   Return the sinus of a given angle in fixed-point format.
-=======
    *   Return the sinus of a given angle in fixed point format.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @input:
    *   angle ::
@@ -142,11 +130,7 @@ FT_BEGIN_HEADER
    *   FT_Cos
    *
    * @description:
-<<<<<<< HEAD
-   *   Return the cosinus of a given angle in fixed-point format.
-=======
    *   Return the cosinus of a given angle in fixed point format.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @input:
    *   angle ::
@@ -170,11 +154,7 @@ FT_BEGIN_HEADER
    *   FT_Tan
    *
    * @description:
-<<<<<<< HEAD
-   *   Return the tangent of a given angle in fixed-point format.
-=======
    *   Return the tangent of a given angle in fixed point format.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    * @input:
    *   angle ::
@@ -257,11 +237,7 @@ FT_BEGIN_HEADER
    *
    * @input:
    *   angle ::
-<<<<<<< HEAD
-   *     The input angle.
-=======
    *     The address of angle.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
   FT_EXPORT( void )
@@ -283,11 +259,7 @@ FT_BEGIN_HEADER
    *
    * @input:
    *   angle ::
-<<<<<<< HEAD
-   *     The input angle.
-=======
    *     The address of angle.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
   FT_EXPORT( void )

@@ -25,17 +25,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include "2d/CCAnimationCache.h"
-<<<<<<< HEAD
-#include "2d/CCSpriteFrameCache.h"
-#include "platform/CCFileUtils.h"
-=======
 #include "base/ccMacros.h"
 #include "2d/CCAnimation.h"
 #include "2d/CCSpriteFrame.h"
 #include "2d/CCSpriteFrameCache.h"
 #include "platform/CCFileUtils.h"
 #include "deprecated/CCString.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace std;
 
@@ -47,11 +42,7 @@ AnimationCache* AnimationCache::getInstance()
 {
     if (! s_sharedAnimationCache)
     {
-<<<<<<< HEAD
-        s_sharedAnimationCache = new (std::nothrow) AnimationCache();
-=======
         s_sharedAnimationCache = new AnimationCache();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         s_sharedAnimationCache->init();
     }
 

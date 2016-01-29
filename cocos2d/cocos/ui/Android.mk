@@ -25,27 +25,6 @@ UILoadingBar.cpp \
 UISlider.cpp \
 UITextField.cpp \
 UIRichText.cpp \
-<<<<<<< HEAD
-UIHBox.cpp \
-UIVBox.cpp \
-UIRelativeBox.cpp \
-UIVideoPlayer-android.cpp \
-UIDeprecated.cpp \
-UIScale9Sprite.cpp \
-UIWebView.cpp \
-UIWebViewImpl-android.cpp \
-UIEditBox/UIEditBox.cpp \
-UIEditBox/UIEditBoxImpl-android.cpp \
-UILayoutComponent.cpp \
-
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../editor-support
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../editor-support
-
-LOCAL_STATIC_LIBRARIES := cocos_extension_static
-
-include $(BUILD_STATIC_LIBRARY)
-=======
 CCProtectedNode.cpp \
 UIHBox.cpp \
 UIVBox.cpp \
@@ -70,4 +49,3 @@ include $(BUILD_STATIC_LIBRARY)
 
 $(call import-module,extensions)
 $(call import-module,.)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

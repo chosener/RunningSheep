@@ -26,16 +26,7 @@ THE SOFTWARE.
 #define __UILABELBMFONT_H__
 
 #include "ui/UIWidget.h"
-<<<<<<< HEAD
-#include "ui/GUIExport.h"
 
-/**
- * @addtogroup ui
- * @{
- */
-=======
-
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class Label;
@@ -43,16 +34,10 @@ class Label;
 namespace ui {
     
 /**
-<<<<<<< HEAD
- * A widget for displaying BMFont label.
- */    
-class CC_GUI_DLL TextBMFont : public Widget
-=======
 *   @js NA
 *   @lua NA
 */    
 class TextBMFont : public Widget
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     
     DECLARE_CLASS_GUI_INFO
@@ -60,21 +45,11 @@ class TextBMFont : public Widget
 public:
     /**
      * Default constructor
-<<<<<<< HEAD
-     * @js ctor
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     TextBMFont();
     
     /**
      * Default destructor
-<<<<<<< HEAD
-     * @js NA
-     * @lua NA
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~TextBMFont();
     
@@ -105,11 +80,7 @@ public:
      */
     ssize_t getStringLength()const;
 
-<<<<<<< HEAD
-    virtual Size getVirtualRendererSize() const override;
-=======
     virtual const Size& getVirtualRendererSize() const override;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     virtual Node* getVirtualRenderer() override;
     /**
      * Returns the "class name" of widget.
@@ -133,10 +104,5 @@ protected:
     
 }
 NS_CC_END
-<<<<<<< HEAD
-// end of ui group
-/// @}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* defined(__LabelBMFont__) */

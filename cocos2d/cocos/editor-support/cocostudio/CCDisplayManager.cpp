@@ -36,11 +36,7 @@ namespace cocostudio {
 
 DisplayManager *DisplayManager::create(Bone *bone)
 {
-<<<<<<< HEAD
-    DisplayManager *pDisplayManager = new (std::nothrow) DisplayManager();
-=======
     DisplayManager *pDisplayManager = new DisplayManager();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pDisplayManager && pDisplayManager->init(bone))
     {
         pDisplayManager->autorelease();
@@ -384,11 +380,7 @@ bool DisplayManager::containPoint(Vec2 &point)
          *
          */
 
-<<<<<<< HEAD
-        Vec2 outPoint;
-=======
         Vec2 outPoint = Vec2(0, 0);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
         Sprite *sprite = (Sprite *)_currentDecoDisplay->getDisplay();
         sprite = (Sprite *)sprite->getChildByTag(0);
@@ -406,11 +398,7 @@ bool DisplayManager::containPoint(Vec2 &point)
 
 bool DisplayManager::containPoint(float x, float y)
 {
-<<<<<<< HEAD
-    Vec2 p(x, y);
-=======
     Vec2 p = Vec2(x, y);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return containPoint(p);
 }
 

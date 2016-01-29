@@ -14,11 +14,9 @@ public:
     AppDelegate();
     virtual ~AppDelegate();
 
-<<<<<<< HEAD
-    virtual void initGLContextAttrs();
-=======
     //virtual void initGLContextAttrs();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
+
+    //virtual void initGLContextAttrs();
 
     /**
     @brief    Implement Director and Scene init code here.

@@ -23,22 +23,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-<<<<<<< HEAD
-#include "platform/CCPlatformConfig.h"
-=======
 #include "base/CCPlatformConfig.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) ||  (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) 
 
 #include "cocos2d.h"
 #include "platform/CCDevice.h"
 #include "platform/CCFileUtils.h"
 #include "platform/winrt/CCFreeTypeFont.h"
-<<<<<<< HEAD
-#include "platform/CCStdC.h"
-=======
 #include "CCStdC.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 using namespace Windows::Graphics::Display;
 using namespace Windows::Devices::Sensors;
@@ -50,19 +42,8 @@ CCFreeTypeFont sFT;
 
 int Device::getDPI()
 {
-<<<<<<< HEAD
-#if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
 	static const float dipsPerInch = 96.0f;
 	return floor(DisplayProperties::LogicalDpi / dipsPerInch + 0.5f); // Round to nearest integer.
-#elif defined WP8_SHADER_COMPILER
-    return 0;
-#else
-    return cocos2d::GLViewImpl::sharedOpenGLView()->GetDPI();
-#endif
-=======
-	static const float dipsPerInch = 96.0f;
-	return floor(DisplayProperties::LogicalDpi / dipsPerInch + 0.5f); // Round to nearest integer.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 static Accelerometer^ sAccelerometer = nullptr;
@@ -70,37 +51,16 @@ static Accelerometer^ sAccelerometer = nullptr;
 
 void Device::setAccelerometerEnabled(bool isEnabled)
 {
-<<<<<<< HEAD
-#ifndef WP8_SHADER_COMPILER
     static Windows::Foundation::EventRegistrationToken sToken;
     static bool sEnabled = false;
 
-    // we always need to reset the accelerometer
-    if (sAccelerometer)
-    {
-        sAccelerometer->ReadingChanged -= sToken;
-        sAccelerometer = nullptr;
-        sEnabled = false;
-    }
-
-=======
-    static Windows::Foundation::EventRegistrationToken sToken;
-    static bool sEnabled = false;
-
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 	if (isEnabled)
 	{
         sAccelerometer = Accelerometer::GetDefault();
 
         if(sAccelerometer == nullptr)
         {
-<<<<<<< HEAD
-            // It's not a friendly experience and may cause crash.
-            //MessageBox("This device does not have an accelerometer.","Alert");
-            log("This device does not have an accelerometer.");
-=======
 	        MessageBox("This device does not have an accelerometer.","Alert");
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             return;
         }
 
@@ -123,15 +83,9 @@ void Device::setAccelerometerEnabled(bool isEnabled)
 			acc.z = reading->AccelerationZ;
             acc.timestamp = 0;
 
-<<<<<<< HEAD
-            auto orientation = GLViewImpl::sharedOpenGLView()->getDeviceOrientation();
-
-#if (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
-=======
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
             auto orientation = GLView::sharedOpenGLView()->getDeviceOrientation();
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             switch (orientation)
             {
             case DisplayOrientations::Portrait:
@@ -151,11 +105,7 @@ void Device::setAccelerometerEnabled(bool isEnabled)
                 
             case DisplayOrientations::LandscapeFlipped:
  				acc.x = reading->AccelerationY;
-<<<<<<< HEAD
-				acc.y = -reading->AccelerationX;
-=======
 				acc.y = reading->AccelerationX;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     break;
               
             default:
@@ -163,43 +113,6 @@ void Device::setAccelerometerEnabled(bool isEnabled)
 				acc.y = reading->AccelerationY;
                 break;
             }
-<<<<<<< HEAD
-#else // Windows Store App
-            // from http://msdn.microsoft.com/en-us/library/windows/apps/dn440593
-            switch (orientation)
-            {
-            case DisplayOrientations::Portrait:
-                acc.x = reading->AccelerationY;
-                acc.y = -reading->AccelerationX;
-                break;
-
-            case DisplayOrientations::Landscape:
-                acc.x = reading->AccelerationX;
-                acc.y = reading->AccelerationY;
-                break;
-
-            case DisplayOrientations::PortraitFlipped:
-                acc.x = -reading->AccelerationY;
-                acc.y = reading->AccelerationX;
-                break;
-
-            case DisplayOrientations::LandscapeFlipped:
-                acc.x = -reading->AccelerationX;
-                acc.y = -reading->AccelerationY;
-                break;
-
-            default:
-                acc.x = reading->AccelerationY;
-                acc.y = -reading->AccelerationX;
-                break;
-            }
-#endif
-	        std::shared_ptr<cocos2d::InputEvent> event(new AccelerometerEvent(acc));
-            cocos2d::GLViewImpl::sharedOpenGLView()->QueueEvent(event);
-		});
-	}
-#endif
-=======
 #endif
 	        std::shared_ptr<cocos2d::InputEvent> event(new AccelerometerEvent(acc));
             cocos2d::GLView::sharedOpenGLView()->QueueEvent(event);
@@ -216,28 +129,15 @@ void Device::setAccelerometerEnabled(bool isEnabled)
         sEnabled = false;
 	}
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Device::setAccelerometerInterval(float interval)
 {
     if (sAccelerometer)
     {
-<<<<<<< HEAD
-        try {
-            int minInterval = sAccelerometer->MinimumReportInterval;
-            int reqInterval = (int) interval;
-            sAccelerometer->ReportInterval = reqInterval < minInterval ? minInterval : reqInterval;
-        }
-        catch (Platform::COMException^)
-        {
-            CCLOG("Device::setAccelerometerInterval not supported on this device");
-        }
-=======
         int minInterval = sAccelerometer->MinimumReportInterval;
 	    int reqInterval = (int) interval;
         sAccelerometer->ReportInterval = reqInterval < minInterval ? minInterval : reqInterval;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else
     {
@@ -263,13 +163,6 @@ Data Device::getTextureDataForText(const char * text, const FontDefinition& text
     return ret;
 }
 
-<<<<<<< HEAD
-void Device::setKeepScreenOn(bool value)
-{
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif // (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) ||  (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) 

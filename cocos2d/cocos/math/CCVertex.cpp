@@ -69,13 +69,8 @@ void ccVertexLineToPolygon(Vec2 *points, float stroke, Vec2 *vertices, unsigned 
         }
         perpVector = perpVector * stroke;
 
-<<<<<<< HEAD
-        vertices[idx].set(p1.x + perpVector.x, p1.y + perpVector.y);
-        vertices[idx + 1].set(p1.x - perpVector.x, p1.y - perpVector.y);
-=======
         vertices[idx] = Vec2(p1.x+perpVector.x, p1.y+perpVector.y);
         vertices[idx+1] = Vec2(p1.x-perpVector.x, p1.y-perpVector.y);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     }
 

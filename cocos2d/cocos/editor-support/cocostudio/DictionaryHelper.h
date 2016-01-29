@@ -26,10 +26,6 @@ THE SOFTWARE.
 #define __DICTIONARYHELPER_H__
 
 #include "json/document.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #define DICTOOL DictionaryHelper::getInstance()
 
@@ -38,11 +34,7 @@ namespace cocostudio {
  *  @js NA
  *  @lua NA
  */
-<<<<<<< HEAD
-class CC_STUDIO_DLL DictionaryHelper
-=======
 class DictionaryHelper
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     DictionaryHelper();

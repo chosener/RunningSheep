@@ -2,21 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-<<<<<<< HEAD
-LOCAL_MODULE := cocos2dx_internal_static
-
-LOCAL_MODULE_FILENAME := libcocos2dxinternal
-
-ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
-MATHNEONFILE := math/MathUtil.cpp.neon
-else
-MATHNEONFILE := math/MathUtil.cpp
-endif
-=======
 LOCAL_MODULE := cocos2dx_static
 
 LOCAL_MODULE_FILENAME := libcocos2d
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 LOCAL_SRC_FILES := \
 cocos2d.cpp \
@@ -36,13 +24,7 @@ cocos2d.cpp \
 2d/CCAnimation.cpp \
 2d/CCAnimationCache.cpp \
 2d/CCAtlasNode.cpp \
-<<<<<<< HEAD
-2d/CCCamera.cpp \
 2d/CCClippingNode.cpp \
-2d/CCClippingRectangleNode.cpp \
-=======
-2d/CCClippingNode.cpp \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 2d/CCComponent.cpp \
 2d/CCComponentContainer.cpp \
 2d/CCDrawNode.cpp \
@@ -62,10 +44,6 @@ cocos2d.cpp \
 2d/CCLabelTTF.cpp \
 2d/CCLabelTextFormatter.cpp \
 2d/CCLayer.cpp \
-<<<<<<< HEAD
-2d/CCLight.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 2d/CCMenu.cpp \
 2d/CCMenuItem.cpp \
 2d/CCMotionStreak.cpp \
@@ -77,22 +55,12 @@ cocos2d.cpp \
 2d/CCParticleSystem.cpp \
 2d/CCParticleSystemQuad.cpp \
 2d/CCProgressTimer.cpp \
-<<<<<<< HEAD
-2d/CCProtectedNode.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 2d/CCRenderTexture.cpp \
 2d/CCScene.cpp \
 2d/CCSprite.cpp \
 2d/CCSpriteBatchNode.cpp \
 2d/CCSpriteFrame.cpp \
 2d/CCSpriteFrameCache.cpp \
-<<<<<<< HEAD
-2d/MarchingSquare.cpp \
-2d/SpritePolygon.cpp \
-2d/SpritePolygonCache.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 2d/CCTMXLayer.cpp \
 2d/CCFastTMXLayer.cpp \
 2d/CCTMXObjectGroup.cpp \
@@ -105,11 +73,6 @@ cocos2d.cpp \
 2d/CCTransitionPageTurn.cpp \
 2d/CCTransitionProgress.cpp \
 2d/CCTweenFunction.cpp \
-<<<<<<< HEAD
-3d/CCFrustum.cpp \
-3d/CCPlane.cpp \
-platform/CCGLView.cpp \
-=======
 3d/CCAnimate3D.cpp \
 3d/CCAnimation3D.cpp \
 3d/CCBundle3D.cpp \
@@ -120,7 +83,6 @@ platform/CCGLView.cpp \
 3d/CCObjLoader.cpp \
 3d/CCSprite3D.cpp \
 platform/CCGLViewProtocol.cpp \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 platform/CCFileUtils.cpp \
 platform/CCSAXParser.cpp \
 platform/CCThread.cpp \
@@ -128,22 +90,13 @@ platform/CCImage.cpp \
 math/CCAffineTransform.cpp \
 math/CCGeometry.cpp \
 math/CCVertex.cpp \
-<<<<<<< HEAD
-$(MATHNEONFILE) \
-math/Mat4.cpp \
-=======
 math/Mat4.cpp \
 math/MathUtil.cpp \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 math/Quaternion.cpp \
 math/TransformUtils.cpp \
 math/Vec2.cpp \
 math/Vec3.cpp \
 math/Vec4.cpp \
-<<<<<<< HEAD
-base/CCAsyncTaskPool.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 base/CCAutoreleasePool.cpp \
 base/CCConfiguration.cpp \
 base/CCConsole.cpp \
@@ -170,20 +123,12 @@ base/CCEventTouch.cpp \
 base/CCIMEDispatcher.cpp \
 base/CCNS.cpp \
 base/CCProfiling.cpp \
-<<<<<<< HEAD
-base/ccRandom.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 base/CCRef.cpp \
 base/CCScheduler.cpp \
 base/CCScriptSupport.cpp \
 base/CCTouch.cpp \
 base/CCUserDefault.cpp \
-<<<<<<< HEAD
-base/CCUserDefault-android.cpp \
-=======
 base/CCUserDefaultAndroid.cpp \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 base/CCValue.cpp \
 base/TGAlib.cpp \
 base/ZipUtils.cpp \
@@ -195,19 +140,9 @@ base/ccTypes.cpp \
 base/ccUTF8.cpp \
 base/ccUtils.cpp \
 base/etc1.cpp \
-<<<<<<< HEAD
-base/pvr.cpp \
 base/s3tc.cpp \
 base/CCController.cpp \
 base/CCController-android.cpp \
-base/allocator/CCAllocatorDiagnostics.cpp \
-base/allocator/CCAllocatorGlobal.cpp \
-base/allocator/CCAllocatorGlobalNewDelete.cpp \
-=======
-base/s3tc.cpp \
-base/CCController.cpp \
-base/CCController-android.cpp \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 base/ObjectFactory.cpp \
 renderer/CCBatchCommand.cpp \
 renderer/CCCustomCommand.cpp \
@@ -225,14 +160,6 @@ renderer/CCTextureAtlas.cpp \
 renderer/CCTextureCache.cpp \
 renderer/ccGLStateCache.cpp \
 renderer/ccShaders.cpp \
-<<<<<<< HEAD
-renderer/CCVertexIndexBuffer.cpp \
-renderer/CCVertexIndexData.cpp \
-renderer/CCPrimitive.cpp \
-renderer/CCPrimitiveCommand.cpp \
-renderer/CCTrianglesCommand.cpp \
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 deprecated/CCArray.cpp \
 deprecated/CCSet.cpp \
 deprecated/CCString.cpp \
@@ -244,21 +171,6 @@ physics/CCPhysicsContact.cpp \
 physics/CCPhysicsJoint.cpp \
 physics/CCPhysicsShape.cpp \
 physics/CCPhysicsWorld.cpp \
-<<<<<<< HEAD
-../external/ConvertUTF/ConvertUTFWrapper.cpp \
-../external/ConvertUTF/ConvertUTF.c \
-../external/tinyxml2/tinyxml2.cpp \
-../external/unzip/ioapi_mem.cpp \
-../external/unzip/ioapi.cpp \
-../external/unzip/unzip.cpp \
-../external/edtaa3func/edtaa3func.cpp \
-../external/xxhash/xxhash.c \
-../external/poly2tri/common/shapes.cc \
-../external/poly2tri/sweep/advancing_front.cc \
-../external/poly2tri/sweep/cdt.cc \
-../external/poly2tri/sweep/sweep_context.cc \
-../external/poly2tri/sweep/sweep.cc
-=======
 physics/chipmunk/CCPhysicsBodyInfo_chipmunk.cpp \
 physics/chipmunk/CCPhysicsContactInfo_chipmunk.cpp \
 physics/chipmunk/CCPhysicsJointInfo_chipmunk.cpp \
@@ -271,39 +183,20 @@ physics/chipmunk/CCPhysicsWorldInfo_chipmunk.cpp \
 ../external/unzip/unzip.cpp \
 ../external/edtaa3func/edtaa3func.cpp \
 ../external/xxhash/xxhash.c
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/. \
-<<<<<<< HEAD
-                    $(LOCAL_PATH)/.. \
-                    $(LOCAL_PATH)/platform \
-                    $(LOCAL_PATH)/base \
-                    $(LOCAL_PATH)/../external \
-=======
                     $(LOCAL_PATH)/platform/android \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     $(LOCAL_PATH)/../external/tinyxml2 \
                     $(LOCAL_PATH)/../external/unzip \
                     $(LOCAL_PATH)/../external/chipmunk/include/chipmunk \
                     $(LOCAL_PATH)/../external/xxhash \
-<<<<<<< HEAD
-                    $(LOCAL_PATH)/../external/nslog \
-                    $(LOCAL_PATH)/../external/poly2tri \
-                    $(LOCAL_PATH)/../external/poly2tri/common \
-                    $(LOCAL_PATH)/../external/poly2tri/sweep
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH) \
-                    $(LOCAL_PATH)/. \
-                    $(LOCAL_PATH)/platform \
-=======
                     $(LOCAL_PATH)/../external/nslog
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/. \
                     $(LOCAL_PATH)/platform/android \
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                     $(LOCAL_PATH)/../external \
                     $(LOCAL_PATH)/../external/tinyxml2 \
                     $(LOCAL_PATH)/../external/unzip \
@@ -311,30 +204,6 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/../external/edtaa3func \
                     $(LOCAL_PATH)/../external/xxhash \
                     $(LOCAL_PATH)/../external/ConvertUTF \
-<<<<<<< HEAD
-                    $(LOCAL_PATH)/../external/nslog \
-                    $(LOCAL_PATH)/../external/poly2tri \
-                    $(LOCAL_PATH)/../external/poly2tri/common \
-                    $(LOCAL_PATH)/../external/poly2tri/sweep
-
-LOCAL_EXPORT_LDLIBS := -lGLESv2 \
-                       -llog \
-                       -landroid
-
-LOCAL_STATIC_LIBRARIES := cocos_freetype2_static
-LOCAL_STATIC_LIBRARIES += cocos_png_static
-LOCAL_STATIC_LIBRARIES += cocos_jpeg_static
-LOCAL_STATIC_LIBRARIES += cocos_tiff_static
-LOCAL_STATIC_LIBRARIES += cocos_webp_static
-LOCAL_STATIC_LIBRARIES += cocos_chipmunk_static
-LOCAL_STATIC_LIBRARIES += cocos_zlib_static
-
-LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dxandroid_static
-
-# define the macro to compile through support/zip_support/ioapi.c
-LOCAL_CFLAGS   :=  -DUSE_FILE32API
-LOCAL_CFLAGS   +=  -fexceptions
-=======
                     $(LOCAL_PATH)/../external/nslog
 
 
@@ -354,52 +223,12 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dxandroid_static
 
 # define the macro to compile through support/zip_support/ioapi.c
 LOCAL_CFLAGS   :=  -DUSE_FILE32API
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 LOCAL_CPPFLAGS := -Wno-deprecated-declarations -Wno-extern-c-compat
 LOCAL_EXPORT_CFLAGS   := -DUSE_FILE32API
 LOCAL_EXPORT_CPPFLAGS := -Wno-deprecated-declarations -Wno-extern-c-compat
 
 include $(BUILD_STATIC_LIBRARY)
 
-<<<<<<< HEAD
-#==============================================================
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := cocos2dx_static
-LOCAL_MODULE_FILENAME := libcocos2d
-
-LOCAL_STATIC_LIBRARIES := cocostudio_static
-LOCAL_STATIC_LIBRARIES += cocosbuilder_static
-LOCAL_STATIC_LIBRARIES += cocos3d_static
-LOCAL_STATIC_LIBRARIES += spine_static
-LOCAL_STATIC_LIBRARIES += cocos_network_static
-LOCAL_STATIC_LIBRARIES += audioengine_static
-
-include $(BUILD_STATIC_LIBRARY)
-#==============================================================
-$(call import-module,freetype2/prebuilt/android)
-$(call import-module,platform/android)
-$(call import-module,png/prebuilt/android)
-$(call import-module,zlib/prebuilt/android)
-$(call import-module,jpeg/prebuilt/android)
-$(call import-module,tiff/prebuilt/android)
-$(call import-module,webp/prebuilt/android)
-$(call import-module,chipmunk/prebuilt/android)
-$(call import-module,3d)
-$(call import-module,audio/android)
-$(call import-module,editor-support/cocosbuilder)
-$(call import-module,editor-support/cocostudio)
-$(call import-module,editor-support/spine)
-$(call import-module,network)
-$(call import-module,ui)
-$(call import-module,extensions)
-$(call import-module,Box2D)
-$(call import-module,curl/prebuilt/android)
-$(call import-module,websockets/prebuilt/android)
-$(call import-module,flatbuffers)
-=======
 $(call import-module,freetype2/prebuilt/android)
 $(call import-module,chipmunk)
 $(call import-module,platform/android)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

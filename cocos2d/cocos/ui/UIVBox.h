@@ -26,23 +26,6 @@
 #define __UIVBox_H__
 
 #include "ui/UILayout.h"
-<<<<<<< HEAD
-#include "ui/GUIExport.h"
-
-NS_CC_BEGIN
-/**
- * @addtogroup ui
- * @{
- */
-
-namespace ui {
-    
-/**
- * VBox is just a convenient wrapper class for vertical layout type.
- * VBox lays out its children in a single vertical column.
- */
-class CC_GUI_DLL VBox : public Layout{
-=======
 
 NS_CC_BEGIN
 
@@ -51,47 +34,23 @@ namespace ui {
 class VBox : public Layout{
     
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 public:
     
     /**
      * Default constructor
-<<<<<<< HEAD
-     * @js ctor
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     VBox();
     
     /**
      * Default destructor
-<<<<<<< HEAD
-     * @js NA
-     * @lua NA
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~VBox();
     
     /**
-<<<<<<< HEAD
-     * Create a empty VBox instance.
-     * @return A VBox instance pointer.
-     */
-    static VBox* create();
-    
-    /**
-     * Create a VBox with a certain size.
-     *@param size The content size of the layout.
-     *@return A VBox instance pointer.
-     */
-=======
      * Allocates and initializes a VBox.
      */
     static VBox* create();
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static VBox* create(const Size& size);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -102,11 +61,6 @@ CC_CONSTRUCTOR_ACCESS:
     
 }
 
-<<<<<<< HEAD
-// end of ui group
-/// @}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__UIVBox__) */

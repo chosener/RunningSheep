@@ -26,19 +26,11 @@ THE SOFTWARE.
 #ifndef __CC_STD_C_H__
 #define __CC_STD_C_H__
 
-<<<<<<< HEAD
-#include "platform/CCPlatformConfig.h"
-#if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WP8
-
-
-#include "platform/CCPlatformMacros.h"
-=======
 #include "base/CCPlatformConfig.h"
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WP8
 
 
 #include "base/CCPlatformMacros.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include <float.h>
 #include <BaseTsd.h>
 
@@ -91,25 +83,6 @@ typedef SSIZE_T ssize_t;
 
 #include <stdint.h>
 
-<<<<<<< HEAD
-#ifdef WINRT_NO_WINSOCK
-#undef timeval
-struct timeval
-{
-	long tv_sec;		// seconds
-	long tv_usec;    // microSeconds
-}; 
-#else
-// Structure timeval has define in winsock.h, include windows.h for it.
-#define _WINSOCKAPI_
-#include <WinSock2.h>
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN 1
-#include <Windows.h>
-#endif
-#endif
-
-=======
 // Structure timeval has define in winsock.h, include windows.h for it.
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
 #define _WINSOCKAPI_
@@ -129,7 +102,6 @@ struct timeval
 };
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_WP8
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 struct timezone
 {
     int tz_minuteswest;

@@ -25,16 +25,11 @@
 #if CC_USE_PHYSICS
 #include "chipmunk.h"
 
-<<<<<<< HEAD
-#include "CCPhysicsBody.h"
-#include "CCPhysicsHelper.h"
-=======
 #include "physics/CCPhysicsBody.h"
 
 #include "chipmunk/CCPhysicsContactInfo_chipmunk.h"
 #include "chipmunk/CCPhysicsHelper_chipmunk.h"
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCEventCustom.h"
 
 NS_CC_BEGIN
@@ -47,10 +42,7 @@ PhysicsContact::PhysicsContact()
 , _shapeA(nullptr)
 , _shapeB(nullptr)
 , _eventCode(EventCode::NONE)
-<<<<<<< HEAD
-=======
 , _info(nullptr)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 , _notificationEnable(true)
 , _result(true)
 , _data(nullptr)
@@ -63,21 +55,14 @@ PhysicsContact::PhysicsContact()
 
 PhysicsContact::~PhysicsContact()
 {
-<<<<<<< HEAD
-=======
     CC_SAFE_DELETE(_info);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     CC_SAFE_DELETE(_contactData);
     CC_SAFE_DELETE(_preContactData);
 }
 
 PhysicsContact* PhysicsContact::construct(PhysicsShape* a, PhysicsShape* b)
 {
-<<<<<<< HEAD
-    PhysicsContact * contact = new (std::nothrow) PhysicsContact();
-=======
     PhysicsContact * contact = new PhysicsContact();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if(contact && contact->init(a, b))
     {
         return contact;
@@ -93,11 +78,8 @@ bool PhysicsContact::init(PhysicsShape* a, PhysicsShape* b)
     {
         CC_BREAK_IF(a == nullptr || b == nullptr);
         
-<<<<<<< HEAD
-=======
         CC_BREAK_IF(!(_info = new PhysicsContactInfo(this)));
         
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _shapeA = a;
         _shapeB = b;
         
@@ -117,11 +99,7 @@ void PhysicsContact::generateContactData()
     cpArbiter* arb = static_cast<cpArbiter*>(_contactInfo);
     CC_SAFE_DELETE(_preContactData);
     _preContactData = _contactData;
-<<<<<<< HEAD
-    _contactData = new (std::nothrow) PhysicsContactData();
-=======
     _contactData = new PhysicsContactData();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _contactData->count = cpArbiterGetCount(arb);
     for (int i=0; i<_contactData->count && i<PhysicsContactData::POINT_MAX; ++i)
     {
@@ -293,11 +271,7 @@ EventListenerPhysicsContact::~EventListenerPhysicsContact()
 
 EventListenerPhysicsContact* EventListenerPhysicsContact::create()
 {
-<<<<<<< HEAD
-    EventListenerPhysicsContact* obj = new (std::nothrow) EventListenerPhysicsContact();
-=======
     EventListenerPhysicsContact* obj = new EventListenerPhysicsContact();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (obj != nullptr && obj->init())
     {
@@ -348,11 +322,7 @@ EventListenerPhysicsContact* EventListenerPhysicsContact::clone()
 
 EventListenerPhysicsContactWithBodies* EventListenerPhysicsContactWithBodies::create(PhysicsBody* bodyA, PhysicsBody* bodyB)
 {
-<<<<<<< HEAD
-    EventListenerPhysicsContactWithBodies* obj = new (std::nothrow) EventListenerPhysicsContactWithBodies();
-=======
     EventListenerPhysicsContactWithBodies* obj = new EventListenerPhysicsContactWithBodies();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (obj != nullptr && obj->init())
     {
@@ -420,11 +390,7 @@ EventListenerPhysicsContactWithShapes::~EventListenerPhysicsContactWithShapes()
 
 EventListenerPhysicsContactWithShapes* EventListenerPhysicsContactWithShapes::create(PhysicsShape* shapeA, PhysicsShape* shapeB)
 {
-<<<<<<< HEAD
-    EventListenerPhysicsContactWithShapes* obj = new (std::nothrow) EventListenerPhysicsContactWithShapes();
-=======
     EventListenerPhysicsContactWithShapes* obj = new EventListenerPhysicsContactWithShapes();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (obj != nullptr && obj->init())
     {
@@ -478,11 +444,7 @@ EventListenerPhysicsContactWithGroup::~EventListenerPhysicsContactWithGroup()
 
 EventListenerPhysicsContactWithGroup* EventListenerPhysicsContactWithGroup::create(int group)
 {
-<<<<<<< HEAD
-    EventListenerPhysicsContactWithGroup* obj = new (std::nothrow) EventListenerPhysicsContactWithGroup();
-=======
     EventListenerPhysicsContactWithGroup* obj = new EventListenerPhysicsContactWithGroup();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     if (obj != nullptr && obj->init())
     {

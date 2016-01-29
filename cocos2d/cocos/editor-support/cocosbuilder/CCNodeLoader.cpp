@@ -361,11 +361,7 @@ void NodeLoader::parseProperties(Node * pNode, Node * pParent, CCBReader * ccbRe
                 break;
             }
             default:
-<<<<<<< HEAD
-                ASSERT_FAIL_UNEXPECTED_PROPERTYTYPE(static_cast<int>(type));
-=======
                 ASSERT_FAIL_UNEXPECTED_PROPERTYTYPE(type);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 break;
         }
     }
@@ -623,11 +619,7 @@ Animation * NodeLoader::parsePropTypeAnimation(Node * pNode, Node * pParent, CCB
     // know what to do with them, since its pulling from bundle.
     // Eventually this should be handled by a client side asset manager
     // interface which figured out what resources to load.
-<<<<<<< HEAD
-    // TODO: Does this problem exist in C++?
-=======
     // TODO Does this problem exist in C++?
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     animation = CCBReader::lastPathComponent(animation.c_str());
     animationFile = CCBReader::lastPathComponent(animationFile.c_str());
     
@@ -695,11 +687,7 @@ Color4F * NodeLoader::parsePropTypeColor4FVar(Node * pNode, Node * pParent, CCBR
     float blueVar = ccbReader->readFloat();
     float alphaVar = ccbReader->readFloat();
     
-<<<<<<< HEAD
-    Color4F * colors = new (std::nothrow) Color4F[2];
-=======
     Color4F * colors = new Color4F[2];
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     colors[0].r = red;
     colors[0].g = green;
     colors[0].b = blue;
@@ -754,11 +742,7 @@ std::string NodeLoader::parsePropTypeFontTTF(Node * pNode, Node * pParent, CCBRe
 
     // String * ttfEnding = String::create(".ttf");
 
-<<<<<<< HEAD
-    // TODO: Fix me if it is wrong
-=======
     // TODO Fix me if it is wrong
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /* If the fontTTF comes with the ".ttf" extension, prepend the absolute path. 
      * System fonts come without the ".ttf" extension and do not need the path prepended. */
     /*
@@ -814,11 +798,7 @@ BlockData * NodeLoader::parsePropTypeBlock(Node * pNode, Node * pParent, CCBRead
                     if(selMenuHandler == 0) {
                         CCLOG("Skipping selector '%s' since no CCBSelectorResolver is present.", selectorName.c_str());
                     } else {
-<<<<<<< HEAD
-                        BlockData * blockData = new (std::nothrow) BlockData();
-=======
                         BlockData * blockData = new BlockData();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                         blockData->mSELMenuHandler = selMenuHandler;
                         
                         blockData->_target = target;
@@ -902,11 +882,7 @@ BlockControlData * NodeLoader::parsePropTypeBlockControl(Node * pNode, Node * pP
                     }
                     else
                     {
-<<<<<<< HEAD
-                        BlockControlData * blockControlData = new (std::nothrow) BlockControlData();
-=======
                         BlockControlData * blockControlData = new BlockControlData();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                         blockControlData->mSELControlHandler = selControlHandler;
                         
                         blockControlData->_target = target;
@@ -953,11 +929,7 @@ Node * NodeLoader::parsePropTypeCCBFile(Node * pNode, Node * pParent, CCBReader 
 
     auto dataPtr = std::make_shared<Data>(FileUtils::getInstance()->getDataFromFile(path));
     
-<<<<<<< HEAD
-    CCBReader * reader = new (std::nothrow) CCBReader(pCCBReader);
-=======
     CCBReader * reader = new CCBReader(pCCBReader);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     reader->autorelease();
     reader->getAnimationManager()->setRootContainerSize(pParent->getContentSize());
     

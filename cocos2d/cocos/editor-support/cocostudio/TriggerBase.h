@@ -25,18 +25,11 @@ THE SOFTWARE.
 #ifndef __TRIGGEREVENT_H__
 #define __TRIGGEREVENT_H__
 
-<<<<<<< HEAD
-=======
 #include "cocos2d.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "cocostudio/CocoStudio.h"
 #include "base/ObjectFactory.h"
 #include "TriggerObj.h"
 #include "TriggerMng.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #define DECLARE_CLASS_INFO \
@@ -54,11 +47,7 @@ THE SOFTWARE.
         cocos2d::ObjectFactory::TInfo className::Type(#className, &className::createInstance); \
 
 
-<<<<<<< HEAD
-void CC_STUDIO_DLL sendEvent(unsigned int event);
-=======
 void sendEvent(unsigned int event);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 #endif

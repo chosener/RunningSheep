@@ -25,11 +25,8 @@ THE SOFTWARE.
 
 #include "2d/CCFontFreeType.h"
 
-<<<<<<< HEAD
-=======
 #include <stdio.h>
 #include <algorithm>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCDirector.h"
 #include "base/ccUTF8.h"
 #include "platform/CCFileUtils.h"
@@ -99,15 +96,6 @@ FT_Library FontFreeType::getFTLibrary()
 
 FontFreeType::FontFreeType(bool distanceFieldEnabled /* = false */,int outline /* = 0 */)
 : _fontRef(nullptr)
-<<<<<<< HEAD
-, _stroker(nullptr)
-, _distanceFieldEnabled(distanceFieldEnabled)
-, _outlineSize(0.0f)
-{
-    if (outline > 0)
-    {
-        _outlineSize = outline * CC_CONTENT_SCALE_FACTOR();
-=======
 ,_distanceFieldEnabled(distanceFieldEnabled)
 ,_outlineSize(outline)
 ,_stroker(nullptr)
@@ -115,7 +103,6 @@ FontFreeType::FontFreeType(bool distanceFieldEnabled /* = false */,int outline /
     if (_outlineSize > 0)
     {
         _outlineSize *= CC_CONTENT_SCALE_FACTOR();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         FT_Stroker_New(FontFreeType::getFTLibrary(), &_stroker);
         FT_Stroker_Set(_stroker,
             (int)(_outlineSize * 64),
@@ -187,11 +174,7 @@ FontFreeType::~FontFreeType()
 
 FontAtlas * FontFreeType::createFontAtlas()
 {
-<<<<<<< HEAD
-    FontAtlas *atlas = new (std::nothrow) FontAtlas(*this);
-=======
     FontAtlas *atlas = new FontAtlas(*this);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (_usedGlyphs != GlyphCollection::DYNAMIC)
     {
         std::u16string utf16;
@@ -284,11 +267,7 @@ unsigned char* FontFreeType::getGlyphBitmap(unsigned short theChar, long &outWid
         }
         else
         {
-<<<<<<< HEAD
-            if (FT_Load_Glyph(_fontRef,glyphIndex,FT_LOAD_RENDER | FT_LOAD_NO_AUTOHINT))
-=======
             if (FT_Load_Glyph(_fontRef,glyphIndex,FT_LOAD_RENDER))
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
                 break;
         }
 
@@ -351,11 +330,8 @@ unsigned char* FontFreeType::getGlyphBitmap(unsigned short theChar, long &outWid
                 }
             }
 
-<<<<<<< HEAD
-=======
             outRect.origin.x = bbox.xMin >> 6;
             outRect.origin.y = - (bbox.yMax >> 6);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
             xAdvance += 2 * _outlineSize;
             outRect.size.width  =  blendWidth;
             outRect.size.height =  blendHeight;

@@ -27,88 +27,6 @@ THE SOFTWARE.
 #define __CCMOTION_STREAK_H__
 
 #include "base/CCProtocols.h"
-<<<<<<< HEAD
-#include "2d/CCNode.h"
-#include "renderer/CCCustomCommand.h"
-
-NS_CC_BEGIN
-
-class Texture2D;
-
-/**
- * @addtogroup _2d
- * @{
- */
-
-/** @class MotionStreak.
- * @brief Creates a trailing path.
- */
-class CC_DLL MotionStreak : public Node, public TextureProtocol
-{
-public:
-    /** Creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture filename.
-     *
-     * @param fade The fade time, in seconds.
-     * @param minSeg The minimum segments.
-     * @param stroke The width of stroke.
-     * @param color The color of stroke.
-     * @param path The texture file name of stoke.
-     * @return An autoreleased MotionStreak object.
-     */
-    static MotionStreak* create(float fade, float minSeg, float stroke, const Color3B& color, const std::string& path);
-    /** Creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture.
-     * 
-     * @param fade The fade time, in seconds.
-     * @param minSeg The minimum segments.
-     * @param stroke The width of stroke.
-     * @param color The color of stroke.
-     * @param texture The texture name of stoke.
-     * @return An autoreleased MotionStreak object.
-     */
-    static MotionStreak* create(float fade, float minSeg, float stroke, const Color3B& color, Texture2D* texture);
-
-    /** Color used for the tint.
-     *
-     * @param colors The color used for the tint.
-     */
-    void tintWithColor(const Color3B& colors);
-
-    /** Remove all living segments of the ribbon.
-     */
-    void reset();
-
-    /** When fast mode is enabled, new points are added faster but with lower precision. 
-     * 
-     * @return True if fast mode is enabled.
-     */
-    inline bool isFastMode() const { return _fastMode; }
-    /** Sets fast mode or not.
-     *
-     * @param bFastMode True if enabled fast mode.
-     */
-    inline void setFastMode(bool bFastMode) { _fastMode = bFastMode; }
-    /** Get stroke.
-     *
-     * @return float stroke.
-     */
-    inline float getStroke() const { return _stroke; }
-    /** Set stroke.
-     *
-     * @param stroke The width of stroke.
-     */
-    inline void setStroke(float stroke) { _stroke = stroke; }
-
-    /** Is the starting position initialized or not.
-     *
-     * @return True if the starting position is initialized.
-     */
-    inline bool isStartingPositionInitialized() const { return _startingPositionInitialized; }
-    /** Sets the starting position initialized or not.
-     *
-     * @param bStartingPositionInitialized True if initialized the starting position.
-     */
-    inline void setStartingPositionInitialized(bool bStartingPositionInitialized)
-=======
 #include "renderer/CCTexture2D.h"
 #include "base/ccTypes.h"
 #include "2d/CCNode.h"
@@ -150,7 +68,6 @@ public:
 
     inline bool isStartingPositionInitialized() const { return _startingPositionInitialized; }
     inline void setStartingPositionInitialized(bool bStartingPositionInitialized) 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     {
         _startingPositionInitialized = bStartingPositionInitialized; 
     }
@@ -164,20 +81,13 @@ public:
     virtual void setPositionY(float y) override;
     virtual float getPositionX(void) const override;
     virtual float getPositionY(void) const override;
-<<<<<<< HEAD
-    virtual Vec3 getPosition3D() const override;
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     * @js NA
     * @lua NA
     */
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
     /**
-<<<<<<< HEAD
-=======
     * @js NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     * @lua NA
     */
     virtual void update(float delta) override;
@@ -243,11 +153,7 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(MotionStreak);
 };
 
-<<<<<<< HEAD
-// end of _2d group
-=======
 // end of misc_nodes group
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

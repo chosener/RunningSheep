@@ -30,21 +30,9 @@ THE SOFTWARE.
 #include <stdio.h>
 #include <unistd.h>
 
-<<<<<<< HEAD
-#ifdef OPENAL_PLAIN_INCLUDES
-#include <al.h>
-#include <alc.h>
-#include <alut.h>
-#else
 #include <AL/al.h>
 #include <AL/alc.h>
 #include <AL/alut.h>
-#endif
-=======
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alut.h>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "OpenALDecoder.h"
 
 #ifdef ENABLE_MPG123

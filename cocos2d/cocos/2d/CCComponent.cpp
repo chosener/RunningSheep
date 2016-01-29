@@ -23,10 +23,7 @@ THE SOFTWARE.
 ****************************************************************************/
 
 #include "2d/CCComponent.h"
-<<<<<<< HEAD
-=======
 #include "base/CCScriptSupport.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 NS_CC_BEGIN
@@ -113,11 +110,7 @@ bool Component::serialize(void *ar)
 
 Component* Component::create(void)
 {
-<<<<<<< HEAD
-    Component * ret = new (std::nothrow) Component();
-=======
     Component * ret = new Component();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret != nullptr && ret->init())
     {
         ret->autorelease();
@@ -126,11 +119,7 @@ Component* Component::create(void)
     {
         CC_SAFE_DELETE(ret);
     }
-<<<<<<< HEAD
-    return ret;
-=======
 	return ret;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 const std::string& Component::getName() const

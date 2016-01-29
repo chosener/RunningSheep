@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType incremental loading (specification).                        */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 2002, 2003, 2006-2008, 2010, 2014 by                         */
-=======
 /*  Copyright 2002, 2003, 2006, 2007, 2008, 2010 by                        */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -49,11 +45,7 @@ FT_BEGIN_HEADER
    * @description:
    *   This section contains various functions used to perform so-called
    *   `incremental' glyph loading.  This is a mode where all glyphs loaded
-<<<<<<< HEAD
-   *   from a given @FT_Face are provided by the client application.
-=======
    *   from a given @FT_Face are provided by the client application,
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    *   Apart from that, all other tables are loaded normally from the font
    *   file.  This mode is useful when FreeType is used within another
@@ -353,10 +345,6 @@ FT_BEGIN_HEADER
 
   /* */
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 #endif /* __FTINCREM_H__ */

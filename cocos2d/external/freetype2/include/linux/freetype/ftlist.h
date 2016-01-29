@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    Generic list support for FreeType (specification).                   */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2001, 2003, 2007, 2010, 2013, 2014 by                   */
-=======
 /*  Copyright 1996-2001, 2003, 2007, 2010 by                               */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -177,11 +173,7 @@ FT_BEGIN_HEADER
   /*    FT_List_Iterator                                                   */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    An FT_List iterator function that is called during a list parse    */
-=======
   /*    An FT_List iterator function which is called during a list parse   */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    by @FT_List_Iterate.                                               */
   /*                                                                       */
   /* <Input>                                                               */
@@ -208,11 +200,7 @@ FT_BEGIN_HEADER
   /* <Input>                                                               */
   /*    list     :: A handle to the list.                                  */
   /*    iterator :: An iterator function, called on each node of the list. */
-<<<<<<< HEAD
-  /*    user     :: A user-supplied field that is passed as the second     */
-=======
   /*    user     :: A user-supplied field which is passed as the second    */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*                argument to the iterator.                              */
   /*                                                                       */
   /* <Return>                                                              */
@@ -230,11 +218,7 @@ FT_BEGIN_HEADER
   /*    FT_List_Destructor                                                 */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    An @FT_List iterator function that is called during a list         */
-=======
   /*    An @FT_List iterator function which is called during a list        */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    finalization by @FT_List_Finalize to destroy all elements in a     */
   /*    given list.                                                        */
   /*                                                                       */
@@ -264,19 +248,11 @@ FT_BEGIN_HEADER
   /*    list    :: A handle to the list.                                   */
   /*                                                                       */
   /*    destroy :: A list destructor that will be applied to each element  */
-<<<<<<< HEAD
-  /*               of the list.  Set this to NULL if not needed.           */
-  /*                                                                       */
-  /*    memory  :: The current memory object that handles deallocation.    */
-  /*                                                                       */
-  /*    user    :: A user-supplied field that is passed as the last        */
-=======
   /*               of the list.                                            */
   /*                                                                       */
   /*    memory  :: The current memory object which handles deallocation.   */
   /*                                                                       */
   /*    user    :: A user-supplied field which is passed as the last       */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*               argument to the destructor.                             */
   /*                                                                       */
   /* <Note>                                                                */
@@ -289,10 +265,7 @@ FT_BEGIN_HEADER
                     FT_Memory           memory,
                     void*               user );
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

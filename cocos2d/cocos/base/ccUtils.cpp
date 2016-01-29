@@ -32,10 +32,7 @@ THE SOFTWARE.
 #include "renderer/CCRenderer.h"
 #include "platform/CCImage.h"
 #include "platform/CCFileUtils.h"
-<<<<<<< HEAD
-=======
 #include "CCGLView.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -187,61 +184,6 @@ double atof(const char* str)
     
     return ::atof(buf);
 }
-<<<<<<< HEAD
-
-double gettime()
-{
-    struct timeval tv;
-    gettimeofday(&tv, nullptr);
-
-    return (double)tv.tv_sec + (double)tv.tv_usec/1000000;
-}
-
-Rect getCascadeBoundingBox(Node *node)
-{
-    Rect cbb;
-    Size contentSize = node->getContentSize();
-    
-    // check all childrens bounding box, get maximize box
-    Node* child = nullptr;
-    bool merge = false;
-    for(auto object : node->getChildren())
-    {
-        child = dynamic_cast<Node*>(object);
-        if (!child->isVisible()) continue;
-        
-        const Rect box = getCascadeBoundingBox(child);
-        if (box.size.width <= 0 || box.size.height <= 0) continue;
-        
-        if (!merge)
-        {
-            cbb = box;
-            merge = true;
-        }
-        else
-        {
-            cbb.merge(box);
-        }
-    }
-    
-    // merge content size
-    if (contentSize.width > 0 && contentSize.height > 0)
-    {
-        const Rect box = RectApplyAffineTransform(Rect(0, 0, contentSize.width, contentSize.height), node->getNodeToWorldAffineTransform());
-        if (!merge)
-        {
-            cbb = box;
-        }
-        else
-        {
-            cbb.merge(box);
-        }
-    }
-    
-    return cbb;
-}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 }
 

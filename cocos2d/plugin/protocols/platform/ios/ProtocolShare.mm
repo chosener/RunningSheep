@@ -82,26 +82,10 @@ void ProtocolShare::share(TShareInfo info)
     }
 }
 
-<<<<<<< HEAD
-void ProtocolShare::share(TShareInfo &info,ProtocolShareCallback &cb)
-{
-    setCallback(cb);
-    share(info);
-}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolShare::setResultListener(ShareResultListener* pListener)
 {
 	_listener = pListener;
 }
-<<<<<<< HEAD
-    
-ShareResultListener* ProtocolShare::getResultListener()
-{
-    return _listener;
-}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 void ProtocolShare::onShareResult(ShareResultCode ret, const char* msg)
 {

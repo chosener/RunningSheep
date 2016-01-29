@@ -27,10 +27,6 @@ THE SOFTWARE.
 
 #include "math/CCGeometry.h"
 #include "2d/CCActionInterval.h"
-<<<<<<< HEAD
-#include "cocostudio/CocosStudioExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocostudio {
     
@@ -96,11 +92,7 @@ enum class FrameEaseType
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionFrame: public cocos2d::Ref
-=======
 class ActionFrame: public cocos2d::Ref
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 
 public:
@@ -218,11 +210,7 @@ protected:
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionMoveFrame:public ActionFrame
-=======
 class ActionMoveFrame:public ActionFrame
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -266,11 +254,7 @@ protected:
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionScaleFrame:public ActionFrame
-=======
 class ActionScaleFrame:public ActionFrame
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -328,11 +312,7 @@ protected:
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionRotationFrame:public ActionFrame
-=======
 class ActionRotationFrame:public ActionFrame
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -385,11 +365,7 @@ public:
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionFadeFrame:public ActionFrame
-=======
 class ActionFadeFrame:public ActionFrame
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
 
@@ -432,11 +408,7 @@ protected:
 *  @js NA
 *  @lua NA
 */
-<<<<<<< HEAD
-class CC_STUDIO_DLL ActionTintFrame:public ActionFrame
-=======
 class ActionTintFrame:public ActionFrame
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 
 public:

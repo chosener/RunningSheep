@@ -26,77 +26,16 @@
 #ifndef __CCDATA_H__
 #define __CCDATA_H__
 
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-#include <stdint.h> // for ssize_t on android
-#include <string>   // for ssize_t on linux
-#include "platform/CCStdC.h" // for ssize_t on window
-
-/**
- * @addtogroup base
- * @js NA
- * @lua NA
- */
-=======
 #include "base/CCPlatformMacros.h"
 #include <stdint.h> // for ssize_t on android
 #include <string>   // for ssize_t on linux
 #include "CCStdC.h" // for ssize_t on window
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 class CC_DLL Data
 {
 public:
-<<<<<<< HEAD
-    /**
-     * This parameter is defined for convenient reference if a null Data object is needed.
-     */
-    static const Data Null;
-    
-    /**
-     * Constructor of Data.
-     */
-    Data();
-    
-    /**
-     * Copy constructor of Data.
-     */
-    Data(const Data& other);
-    
-    /**
-     * Copy constructor of Data.
-     */
-    Data(Data&& other);
-    
-    /**
-     * Destructor of Data.
-     */
-    ~Data();
-    
-    /**
-     * Overroads of operator=.
-     */
-    Data& operator= (const Data& other);
-    
-    /**
-     * Overroads of operator=.
-     */
-    Data& operator= (Data&& other);
-    
-    /**
-     * Gets internal bytes of Data. It will retrun the pointer directly used in Data, so don't delete it.
-     *
-     * @return Pointer of bytes used internal in Data.
-     */
-    unsigned char* getBytes() const;
-    
-    /**
-     * Gets the size of the bytes.
-     *
-     * @return The size of bytes of Data.
-=======
     static const Data Null;
     
     Data();
@@ -116,7 +55,6 @@ public:
     /**
      * @js NA
      * @lua NA
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ssize_t getSize() const;
     
@@ -125,11 +63,7 @@ public:
      *        Developer should free the pointer after invoking this method.
      *  @see Data::fastSet
      */
-<<<<<<< HEAD
-    void copy(const unsigned char* bytes, const ssize_t size);
-=======
     void copy(unsigned char* bytes, const ssize_t size);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** Fast set the buffer pointer and its size. Please use it carefully.
      *  @param bytes The buffer pointer, note that it have to be allocated by 'malloc' or 'calloc',
@@ -140,23 +74,10 @@ public:
      */
     void fastSet(unsigned char* bytes, const ssize_t size);
     
-<<<<<<< HEAD
-    /** 
-     * Clears data, free buffer and reset data size.
-     */
-    void clear();
-    
-    /** 
-     * Check whether the data is null.
-     *
-     * @return True if the the Data is null, false if not.
-     */
-=======
     /** Clears data, free buffer and reset data size */
     void clear();
     
     /** Check whether the data is null. */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     bool isNull() const;
     
 private:
@@ -167,13 +88,6 @@ private:
     ssize_t _size;
 };
 
-<<<<<<< HEAD
-
 NS_CC_END
 
-/** @} */
-=======
-NS_CC_END
-
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __CCDATA_H__

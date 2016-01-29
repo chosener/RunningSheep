@@ -26,75 +26,31 @@
 #define __UIRelativeBox_H__
 
 #include "ui/UILayout.h"
-<<<<<<< HEAD
-#include "ui/GUIExport.h"
-
-NS_CC_BEGIN
-/**
- * @addtogroup ui
- * @{
- */
-
-namespace ui {
-    
-/**
- *@brief RelativeBox is just a convenient wrapper class for relative layout type.
- * RelativeBox lays out its children relative to a widget or a position.
- */
-class CC_GUI_DLL RelativeBox : public Layout{
-=======
 
 NS_CC_BEGIN
 
 namespace ui {
     
 class RelativeBox : public Layout{
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     
 public:
     
     /**
-<<<<<<< HEAD
-     * Default constructor.
-     * @js ctor
-     * @lua new
-=======
      * Default constructor
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     RelativeBox();
     
     /**
-<<<<<<< HEAD
-     * Default destructor.
-     * @js NA
-     * @lua NA
-=======
      * Default destructor
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     virtual ~RelativeBox();
     
     /**
-<<<<<<< HEAD
-     * Create an empty RelativeBox instance.
-     * @return A RelativeBox instance.
-     */
-    static RelativeBox* create();
-    
-    /**
-     * @brief Create a RelativeBox with a fixed size.
-     *
-     * @param size Size in `Size`.
-     * @return A RelativeBox instance.
-     */
-=======
      * Allocates and initializes a RelativeBox.
      */
     static RelativeBox* create();
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     static RelativeBox* create(const Size& size);
     
 CC_CONSTRUCTOR_ACCESS:
@@ -105,11 +61,6 @@ CC_CONSTRUCTOR_ACCESS:
     
 }
 
-<<<<<<< HEAD
-// end of ui group
-/// @}
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_END
 
 #endif /* defined(__UIRelativeBox__) */

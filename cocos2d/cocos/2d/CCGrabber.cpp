@@ -68,11 +68,7 @@ void Grabber::beforeRender(Texture2D *texture)
     
     // save clear color
     glGetFloatv(GL_COLOR_CLEAR_VALUE, _oldClearColor);
-<<<<<<< HEAD
-    // FIXME: doesn't work with RGB565.
-=======
     // BUG XXX: doesn't work with RGB565.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     glClearColor(0, 0, 0, 0);
 

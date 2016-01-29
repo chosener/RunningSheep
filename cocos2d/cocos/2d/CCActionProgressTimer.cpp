@@ -34,11 +34,7 @@ NS_CC_BEGIN
 
 ProgressTo* ProgressTo::create(float duration, float percent)
 {
-<<<<<<< HEAD
-    ProgressTo *progressTo = new (std::nothrow) ProgressTo();
-=======
     ProgressTo *progressTo = new ProgressTo();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     progressTo->initWithDuration(duration, percent);
     progressTo->autorelease();
 
@@ -59,30 +55,17 @@ bool ProgressTo::initWithDuration(float duration, float percent)
 
 ProgressTo* ProgressTo::clone() const
 {
-<<<<<<< HEAD
-    // no copy constructor    
-    auto a = new (std::nothrow) ProgressTo();
-    a->initWithDuration(_duration, _to);
-    a->autorelease();
-    return a;
-=======
 	// no copy constructor	
 	auto a = new ProgressTo();
     a->initWithDuration(_duration, _to);
 	a->autorelease();
 	return a;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ProgressTo* ProgressTo::reverse() const
 {
-<<<<<<< HEAD
-    CCASSERT(false, "reverse() not supported in ProgressTo");
-    return nullptr;
-=======
 	CCASSERT(false, "reverse() not supported in ProgressTo");
 	return nullptr;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void ProgressTo::startWithTarget(Node *target)
@@ -100,11 +83,7 @@ void ProgressTo::update(float time)
 
 ProgressFromTo* ProgressFromTo::create(float duration, float fromPercentage, float toPercentage)
 {
-<<<<<<< HEAD
-    ProgressFromTo *progressFromTo = new (std::nothrow) ProgressFromTo();
-=======
     ProgressFromTo *progressFromTo = new ProgressFromTo();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     progressFromTo->initWithDuration(duration, fromPercentage, toPercentage);
     progressFromTo->autorelease();
 
@@ -126,19 +105,11 @@ bool ProgressFromTo::initWithDuration(float duration, float fromPercentage, floa
 
 ProgressFromTo* ProgressFromTo::clone() const
 {
-<<<<<<< HEAD
-    // no copy constructor    
-    auto a = new (std::nothrow) ProgressFromTo();
-    a->initWithDuration(_duration, _from, _to);
-    a->autorelease();
-    return a;
-=======
 	// no copy constructor	
 	auto a = new ProgressFromTo();
 	a->initWithDuration(_duration, _from, _to);
 	a->autorelease();
 	return a;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 
@@ -158,7 +129,4 @@ void ProgressFromTo::update(float time)
 }
 
 NS_CC_END
-<<<<<<< HEAD
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

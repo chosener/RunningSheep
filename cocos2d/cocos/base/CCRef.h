@@ -26,33 +26,6 @@ THE SOFTWARE.
 #ifndef __BASE_CCREF_H__
 #define __BASE_CCREF_H__
 
-<<<<<<< HEAD
-#include "platform/CCPlatformMacros.h"
-#include "base/ccConfig.h"
-
-#define CC_REF_LEAK_DETECTION 0
-
-/**
- * @addtogroup base
- * @{
- */
-NS_CC_BEGIN
-
-
-class Ref;
-
-/** 
-  * Interface that defines how to clone an Ref.
-  * @lua NA
-  * @js NA
-  */
-class CC_DLL Clonable
-{
-public:
-    /** Returns a copy of the Ref. */
-    virtual Clonable* clone() const = 0;
-    
-=======
 #include "base/CCPlatformMacros.h"
 #include "base/ccConfig.h"
 
@@ -73,20 +46,14 @@ class CC_DLL Clonable
 public:
     /** returns a copy of the Ref */
     virtual Clonable* clone() const = 0;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      * @js NA
      * @lua NA
      */
     virtual ~Clonable() {};
 
-<<<<<<< HEAD
-    /** Returns a copy of the Ref.
-     * @deprecated Use clone() instead.
-=======
     /** returns a copy of the Ref.
      * @deprecated Use clone() instead
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     CC_DEPRECATED_ATTRIBUTE Ref* copy() const
     {
@@ -96,14 +63,6 @@ public:
     }
 };
 
-<<<<<<< HEAD
-/**
- * Ref is used for reference count manangement. If a class inherits from Ref,
- * then it is easy to be shared in different places.
- * @js NA
- */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL Ref
 {
 public:
@@ -166,11 +125,6 @@ protected:
 
 public:
     /**
-<<<<<<< HEAD
-     * Destructor
-     *
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -192,13 +146,8 @@ public:
     void* _scriptObject;
 #endif
 
-<<<<<<< HEAD
-    // Memory leak diagnostic data (only included when CC_REF_LEAK_DETECTION is defined and its value isn't zero)
-#if CC_REF_LEAK_DETECTION
-=======
     // Memory leak diagnostic data (only included when CC_USE_MEM_LEAK_DETECTION is defined and its value isn't zero)
 #if CC_USE_MEM_LEAK_DETECTION
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 public:
     static void printLeaks();
 #endif
@@ -213,28 +162,6 @@ typedef void (Ref::*SEL_CallFuncO)(Ref*);
 typedef void (Ref::*SEL_MenuHandler)(Ref*);
 typedef void (Ref::*SEL_SCHEDULE)(float);
 
-<<<<<<< HEAD
-#define CC_CALLFUNC_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_CallFunc>(&_SELECTOR)
-#define CC_CALLFUNCN_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_CallFuncN>(&_SELECTOR)
-#define CC_CALLFUNCND_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_CallFuncND>(&_SELECTOR)
-#define CC_CALLFUNCO_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_CallFuncO>(&_SELECTOR)
-#define CC_MENU_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_MenuHandler>(&_SELECTOR)
-#define CC_SCHEDULE_SELECTOR(_SELECTOR) static_cast<cocos2d::SEL_SCHEDULE>(&_SELECTOR)
-
-// Deprecated
-#define callfunc_selector(_SELECTOR) CC_CALLFUNC_SELECTOR(_SELECTOR)
-#define callfuncN_selector(_SELECTOR) CC_CALLFUNCN_SELECTOR(_SELECTOR)
-#define callfuncND_selector(_SELECTOR) CC_CALLFUNCND_SELECTOR(_SELECTOR)
-#define callfuncO_selector(_SELECTOR) CC_CALLFUNCO_SELECTOR(_SELECTOR)
-#define menu_selector(_SELECTOR) CC_MENU_SELECTOR(_SELECTOR)
-#define schedule_selector(_SELECTOR) CC_SCHEDULE_SELECTOR(_SELECTOR)
-
-
-
-NS_CC_END
-// end of base group
-/** @} */
-=======
 #define callfunc_selector(_SELECTOR) static_cast<cocos2d::SEL_CallFunc>(&_SELECTOR)
 #define callfuncN_selector(_SELECTOR) static_cast<cocos2d::SEL_CallFuncN>(&_SELECTOR)
 #define callfuncND_selector(_SELECTOR) static_cast<cocos2d::SEL_CallFuncND>(&_SELECTOR)
@@ -246,6 +173,5 @@ NS_CC_END
 /// @}
 
 NS_CC_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif // __BASE_CCREF_H__

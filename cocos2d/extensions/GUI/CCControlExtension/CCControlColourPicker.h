@@ -37,10 +37,6 @@
 #include "CCControlUtils.h"
 #include "CCControlHuePicker.h"
 #include "CCControlSaturationBrightnessPicker.h"
-<<<<<<< HEAD
-#include "extensions/ExtensionExport.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_EXT_BEGIN
 
@@ -51,20 +47,12 @@ NS_CC_EXT_BEGIN
  * @{
  */
 
-<<<<<<< HEAD
-class CC_EX_DLL ControlColourPicker: public Control
-=======
 class ControlColourPicker: public Control
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     static ControlColourPicker* create();
     /**
      * @js ctor
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ControlColourPicker();
     /**
@@ -75,13 +63,8 @@ public:
 
     virtual bool init() override;
 
-<<<<<<< HEAD
-    virtual void setColor(const Color3B& colorValue) override;
-    virtual void setEnabled(bool bEnabled) override;
-=======
     virtual void setColor(const Color3B& colorValue);
     virtual void setEnabled(bool bEnabled);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     //virtual ~ControlColourPicker();
     void hueSliderValueChanged(Ref * sender, Control::EventType controlEvent);
@@ -90,11 +73,7 @@ public:
 protected:
     void updateControlPicker();
     void updateHueAndControlPicker();
-<<<<<<< HEAD
-    virtual bool onTouchBegan(Touch* touch, Event* pEvent) override;
-=======
     virtual bool onTouchBegan(Touch* touch, Event* pEvent);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     HSV _hsv;
     CC_SYNTHESIZE_RETAIN(ControlSaturationBrightnessPicker*, _colourPicker, colourPicker)

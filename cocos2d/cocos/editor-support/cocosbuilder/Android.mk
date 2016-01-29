@@ -28,17 +28,6 @@ CCScale9SpriteLoader.cpp \
 CCScrollViewLoader.cpp \
 CCSpriteLoader.cpp
 
-<<<<<<< HEAD
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/..
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/.. \
-                    $(LOCAL_PATH)/../../2d \
-                    
-
-LOCAL_STATIC_LIBRARIES := cocos_extension_static
-
-include $(BUILD_STATIC_LIBRARY)
-=======
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/.. \
 $(LOCAL_PATH)/../../..
 
@@ -52,4 +41,3 @@ LOCAL_WHOLE_STATIC_LIBRARIES := cocos_extension_static
 include $(BUILD_STATIC_LIBRARY)
 
 $(call import-module,extensions)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

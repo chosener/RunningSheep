@@ -7,11 +7,7 @@
 /*                                                                         */
 /*    This is _not_ used to retrieve glyph names!                          */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2003, 2006, 2009, 2010, 2013 by                         */
-=======
 /*  Copyright 1996-2001, 2002, 2003, 2006, 2009, 2010 by                   */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -173,11 +169,7 @@ FT_BEGIN_HEADER
    *   A constant used as the tag of @FT_Parameter structures to make
    *   FT_Open_Face() ignore preferred family subfamily names in `name'
    *   table since OpenType version 1.4.  For backwards compatibility with
-<<<<<<< HEAD
-   *   legacy systems that have a 4-face-per-family restriction.
-=======
    *   legacy systems which has 4-face-per-family restriction.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
 #define FT_PARAM_TAG_IGNORE_PREFERRED_FAMILY  FT_MAKE_TAG( 'i', 'g', 'p', 'f' )
@@ -192,11 +184,7 @@ FT_BEGIN_HEADER
    *   A constant used as the tag of @FT_Parameter structures to make
    *   FT_Open_Face() ignore preferred subfamily names in `name' table since
    *   OpenType version 1.4.  For backwards compatibility with legacy
-<<<<<<< HEAD
-   *   systems that have a 4-face-per-family restriction.
-=======
    *   systems which has 4-face-per-family restriction.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *
    */
 #define FT_PARAM_TAG_IGNORE_PREFERRED_SUBFAMILY  FT_MAKE_TAG( 'i', 'g', 'p', 's' )

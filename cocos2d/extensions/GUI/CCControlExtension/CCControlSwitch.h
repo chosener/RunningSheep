@@ -29,11 +29,7 @@
 #define __CCCONTROLSWITCH_H__
 
 #include "CCControl.h"
-<<<<<<< HEAD
-#include "extensions/ExtensionExport.h"
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { class Sprite; }
 namespace cocos2d { class Label; }
@@ -50,11 +46,7 @@ class ControlSwitchSprite;
  */
 
 /** @class ControlSwitch Switch control for Cocos2D. */
-<<<<<<< HEAD
-class CC_EX_DLL ControlSwitch : public Control
-=======
 class ControlSwitch : public Control
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
 public:
     /** Creates a switch with a mask sprite, on/off sprites for on/off states, a thumb sprite and an on/off labels. */
@@ -63,10 +55,6 @@ public:
     static ControlSwitch* create(Sprite *maskSprite, Sprite * onSprite, Sprite * offSprite, Sprite * thumbSprite);
     /**
      * @js ctor
-<<<<<<< HEAD
-     * @lua new
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     ControlSwitch();
     /**
@@ -92,11 +80,7 @@ public:
     void setOn(bool isOn);
     bool isOn(void) const { return _on; }
     bool hasMoved() const { return _moved; }
-<<<<<<< HEAD
-    virtual void setEnabled(bool enabled) override;
-=======
     virtual void setEnabled(bool enabled);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     Vec2 locationFromTouch(Touch* touch);
 

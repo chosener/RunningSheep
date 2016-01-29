@@ -32,14 +32,6 @@ THE SOFTWARE.
 #include <ppltasks.h>
 #include <sstream>
 
-<<<<<<< HEAD
-#if CC_TARGET_PLATFORM != CC_PLATFORM_WP8
-using namespace Windows::UI::Xaml;
-using namespace Windows::UI::Xaml::Controls;
-#endif
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 NS_CC_BEGIN
 
 using namespace Windows::Graphics::Display;
@@ -103,16 +95,6 @@ std::string PlatformStringToString(Platform::String^ s) {
 	return std::string(t.begin(),t.end());
 }
 
-<<<<<<< HEAD
-Platform::String^ PlatformStringFromString(const std::string& s)
-{
-    std::wstring ws(CCUtf8ToUnicode(s.c_str()));
-    return ref new Platform::String(ws.data(), ws.length());
-}
-
-#if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 // Method to convert a length in device-independent pixels (DIPs) to a length in physical pixels.
 float ConvertDipsToPixels(float dips)
 {
@@ -124,18 +106,9 @@ float getScaledDPIValue(float v) {
 	auto dipFactor = DisplayProperties::LogicalDpi / 96.0f;
 	return v * dipFactor;
 }
-<<<<<<< HEAD
-#endif
-
 
 void CC_DLL CCLogIPAddresses()
 {
-#ifndef WP8_SHADER_COMPILER
-=======
-
-void CC_DLL CCLogIPAddresses()
-{
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     auto hostnames = NetworkInformation::GetHostNames();
     int length = hostnames->Size;
 
@@ -145,16 +118,9 @@ void CC_DLL CCLogIPAddresses()
         if (hn->IPInformation != nullptr)
         {
             std::string s = PlatformStringToString(hn->DisplayName);
-<<<<<<< HEAD
-            log("IP Address: %s:", s.c_str());
-        }
-    }
-#endif
-=======
             CCLog("IP Address: %s:", s.c_str());
         }
     }
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 std::string CC_DLL getDeviceIPAddresses()
@@ -176,106 +142,6 @@ std::string CC_DLL getDeviceIPAddresses()
     return result.str();
 }
 
-<<<<<<< HEAD
-#if CC_TARGET_PLATFORM != CC_PLATFORM_WP8
-Platform::Object^ findXamlElement(Platform::Object^ parent, Platform::String^ name)
-{
-    if (parent == nullptr || name == nullptr || name->Length() == 0)
-    {
-        return nullptr;
-    }
-
-    FrameworkElement^ element = dynamic_cast<FrameworkElement^>(parent);
-    if (element == nullptr)
-    {
-        return nullptr;
-    }
-
-    if (element->Name == name)
-    {
-        return element;
-    }
-
-    Panel^ panel = dynamic_cast<Panel^>(element);
-    if (panel == nullptr)
-    {
-        return nullptr;
-    }
-
-    int count = panel->Children->Size;
-    for (int i = 0; i < count; i++)
-    {
-        auto result = findXamlElement(panel->Children->GetAt(i), name);
-        if (result != nullptr)
-        {
-            return result;
-        }
-    }
-
-    return nullptr;
-}
-
-
-bool removeXamlElement(Platform::Object^ parent, Platform::Object^ element)
-{
-    Panel^ panel = dynamic_cast<Panel^>(parent);
-    if (panel == nullptr)
-    {
-        return false;
-    }
-
-    UIElement^ uiElement = dynamic_cast<UIElement^>(element);
-    if (uiElement == nullptr)
-    {
-        return false;
-    }
-
-    unsigned int index;
-    if (!panel->Children->IndexOf(uiElement, &index))
-    {
-        return false;
-    }
-
-    panel->Children->RemoveAt(index);
-
-    return true;
-}
-
-bool replaceXamlElement(Platform::Object^ parent, Platform::Object^ add, Platform::Object^ remove)
-{
-    Panel^ panel = dynamic_cast<Panel^>(parent);
-    if (panel == nullptr)
-    {
-        return false;
-    }
-
-    UIElement^ addElement = dynamic_cast<UIElement^>(add);
-    if (addElement == nullptr)
-    {
-        return false;
-    }
-
-    UIElement^ removeElement = dynamic_cast<UIElement^>(remove);
-    if (removeElement == nullptr)
-    {
-        return false;
-    }
-
-    unsigned int index;
-    if (!panel->Children->IndexOf(removeElement, &index))
-    {
-        return false;
-    }
-
-    panel->Children->RemoveAt(index);
-    panel->Children->InsertAt(index, addElement);
-
-    return true;
-}
-#endif
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 
 

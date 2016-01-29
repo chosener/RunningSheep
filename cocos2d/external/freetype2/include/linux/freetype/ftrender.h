@@ -226,10 +226,7 @@ FT_BEGIN_HEADER
                    FT_UInt        num_params,
                    FT_Parameter*  parameters );
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /* */
 
 

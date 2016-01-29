@@ -27,10 +27,6 @@ THE SOFTWARE.
 #include "PluginProtocol.h"
 #include <map>
 #include <string>
-<<<<<<< HEAD
-#include <functional>
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 namespace cocos2d { namespace plugin {
 
@@ -57,11 +53,6 @@ public:
     ProtocolUser();
     virtual ~ProtocolUser();
 
-<<<<<<< HEAD
-    typedef std::function<void(int, std::string&)> ProtocolUserCallback;
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
     @brief config the application info
     @param devInfo This parameter is the info of aplication,
@@ -75,76 +66,23 @@ public:
      @brief User login
      */
     void login();
-<<<<<<< HEAD
-    void login(ProtocolUserCallback &cb);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      @brief User logout
      */
     void logout();
-<<<<<<< HEAD
-    void logout(ProtocolUserCallback &cb);
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     /**
      @brief Check whether the user logined or not
      */
-<<<<<<< HEAD
-    CC_DEPRECATED_ATTRIBUTE bool isLogined() {return isLoggedIn();}
-
-    bool isLoggedIn();
-=======
     bool isLogined();
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     /**
      @brief Get session ID
      @return If user logined, return value is session ID;
              else return value is empty string.
      */
     std::string getSessionID();
-<<<<<<< HEAD
-    
-    /**
-     @brief get Access Token
-     */
-    std::string getAccessToken();
-
-    /*
-     @deprecated
-     @brief set login callback function
-     */
-    CC_DEPRECATED_ATTRIBUTE inline void setActionListener(UserActionListener* listener)
-    {
-        _listener = listener;
-    }
-    /*
-     @deprecated
-     @brief get login callback function
-     */
-    CC_DEPRECATED_ATTRIBUTE inline UserActionListener* getActionListener()
-    {
-        return _listener;
-    }
-
-    /**
-     @brief set login callback function
-     */
-    inline void setCallback(const ProtocolUserCallback &cb)
-    {
-        _callback = cb;
-    }
-
-    /**
-     @brief get login callback function
-     */
-    inline ProtocolUserCallback& getCallback()
-    {
-        return _callback;
-=======
 
     inline void setActionListener(UserActionListener* listener)
     {
@@ -154,15 +92,10 @@ public:
     inline UserActionListener* getActionListener()
     {
         return _listener;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
 
 protected:
     UserActionListener* _listener;
-<<<<<<< HEAD
-    ProtocolUserCallback _callback;
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 };
 
 }} // namespace cocos2d { namespace plugin {

@@ -157,11 +157,7 @@ SimpleAudioEngine* SimpleAudioEngine::getInstance()
 {
     if (! s_pEngine)
     {
-<<<<<<< HEAD
-        s_pEngine = new (std::nothrow) SimpleAudioEngine();
-=======
         s_pEngine = new SimpleAudioEngine();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     
     return s_pEngine;

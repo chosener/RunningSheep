@@ -29,10 +29,7 @@ THE SOFTWARE.
 #define __SPRITE_CCSPRITE_FRAME_H__
 
 #include "2d/CCNode.h"
-<<<<<<< HEAD
-=======
 #include "base/CCProtocols.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #include "base/CCRef.h"
 #include "math/CCGeometry.h"
 
@@ -41,20 +38,11 @@ NS_CC_BEGIN
 class Texture2D;
 
 /**
-<<<<<<< HEAD
- * @addtogroup _2d
- * @{
- */
-
-/** @class SpriteFrame
- * @brief A SpriteFrame has:
-=======
  * @addtogroup sprite_nodes
  * @{
  */
 
 /** @brief A SpriteFrame has:
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     - texture: A Texture2D that will be used by the Sprite
     - rectangle: A rectangle of the texture
 
@@ -70,145 +58,25 @@ public:
 
     /** Create a SpriteFrame with a texture filename, rect in points.
      It is assumed that the frame was not trimmed.
-<<<<<<< HEAD
-     *
-     * @param filename Texture file name.
-     * @param rect A specified rect.
-     * @return An autoreleased SpriteFrame object.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static SpriteFrame* create(const std::string& filename, const Rect& rect);
     
     /** Create a SpriteFrame with a texture filename, rect, rotated, offset and originalSize in pixels.
      The originalSize is the size in pixels of the frame before being trimmed.
-<<<<<<< HEAD
-     *
-     * @param filename Texture filename
-     * @param rect A specified rect.
-     * @param rotated Is rotated if true.
-     * @param offset A specified offset.
-     * @param originalSize A specified original size.
-     * @return An autoreleased SpriteFrame object.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static SpriteFrame* create(const std::string& filename, const Rect& rect, bool rotated, const Vec2& offset, const Size& originalSize);
     
     /** Create a SpriteFrame with a texture, rect in points.
      It is assumed that the frame was not trimmed.
-<<<<<<< HEAD
-     * @param pobTexture The texture pointer.
-     * @param rect A specified rect.
-     * @return An autoreleased SpriteFrame object.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static SpriteFrame* createWithTexture(Texture2D* pobTexture, const Rect& rect);
 
     /** Create a SpriteFrame with a texture, rect, rotated, offset and originalSize in pixels.
      The originalSize is the size in points of the frame before being trimmed.
-<<<<<<< HEAD
-     * @param pobTexture The texture pointer.
-     * @param rect A specified rect.
-     * @param rotated Is rotated if true.
-     * @param offset A specified offset.
-     * @param originalSize A specified original size.
-     * @return An autoreleased SpriteFrame object.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     static SpriteFrame* createWithTexture(Texture2D* pobTexture, const Rect& rect, bool rotated, const Vec2& offset, const Size& originalSize);
 
     // attributes
-<<<<<<< HEAD
-    /** Get rect of the sprite frame.
-     *
-     * @return The rect of the sprite frame, in pixels.
-     */
-    inline const Rect& getRectInPixels() const { return _rectInPixels; }
-    /** Set rect of the sprite frame.
-     *
-     * @param rectInPixels The rect of the sprite frame, in pixels.
-     */
-    void setRectInPixels(const Rect& rectInPixels);
-
-    /**Is the sprite frame rotated or not.
-     *
-     * @return Is rotated if true.
-     */
-    inline bool isRotated() const { return _rotated; }
-    /** Set rotated of the sprite frame.
-     *
-     * @param rotated Rotated the sprite frame if true.
-     */
-    inline void setRotated(bool rotated) { _rotated = rotated; }
-
-    /** Get rect of the frame.
-     *
-     * @return The rect of the sprite frame.
-     */
-    inline const Rect& getRect() const { return _rect; }
-    /** Set rect of the frame.
-     *
-     * @param rect The rect of the sprite.
-     */
-    void setRect(const Rect& rect);
-
-    /** Get offset of the frame.
-     * 
-     * @return The offset of the sprite frame, in pixels.
-     */
-    const Vec2& getOffsetInPixels() const;
-    /** Set offset of the frame.
-     * 
-     * @param offsetInPixels The offset of the sprite frame, in pixels.
-     */
-    void setOffsetInPixels(const Vec2& offsetInPixels);
-
-    /** Get original size of the trimmed image.
-     *
-     * @return The original size of the trimmed image, in pixels.
-     */
-    inline const Size& getOriginalSizeInPixels() const { return _originalSizeInPixels; }
-    /** Set original size of the trimmed image.
-     *
-     * @param sizeInPixels The original size of the trimmed image, in pixels.
-     */
-    inline void setOriginalSizeInPixels(const Size& sizeInPixels) { _originalSizeInPixels = sizeInPixels; }
-
-    /** Get original size of the trimmed image.
-     *
-     * @return The original size of the trimmed image.
-     */
-    inline const Size& getOriginalSize() const { return _originalSize; }
-    /** Set original size of the trimmed image.
-     *
-     * @param sizeInPixels The original size of the trimmed image.
-     */
-    inline void setOriginalSize(const Size& sizeInPixels) { _originalSize = sizeInPixels; }
-
-    /** Get texture of the frame.
-     *
-     * @return The texture of the sprite frame.
-     */
-    Texture2D* getTexture();
-    /** Set texture of the frame, the texture is retained.
-     *
-     * @param pobTexture The texture of the sprite frame.
-     */
-    void setTexture(Texture2D* pobTexture);
-
-    /** Get offset of the frame.
-     *
-     * @return The offset of the sprite frame.
-     */
-    const Vec2& getOffset() const;
-    /** Set offset of the frame.
-     *
-     * @param offsets The offset of the sprite frame.
-     */
-=======
     inline const Rect& getRectInPixels() const { return _rectInPixels; }
     void setRectInPixels(const Rect& rectInPixels);
 
@@ -241,7 +109,6 @@ public:
     void setTexture(Texture2D* pobTexture);
 
     const Vec2& getOffset(void) const;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setOffset(const Vec2& offsets);
 
     // Overrides
@@ -251,20 +118,12 @@ CC_CONSTRUCTOR_ACCESS:
     /**
      * @lua NA
      */
-<<<<<<< HEAD
-    SpriteFrame();
-=======
     SpriteFrame(void);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /**
      * @lua NA
      */
-<<<<<<< HEAD
-    virtual ~SpriteFrame();
-=======
     virtual ~SpriteFrame(void);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
     /** Initializes a SpriteFrame with a texture, rect in points.
      It is assumed that the frame was not trimmed.
@@ -300,11 +159,7 @@ protected:
     std::string  _textureFilename;
 };
 
-<<<<<<< HEAD
-// end of _2d group
-=======
 // end of sprite_nodes group
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

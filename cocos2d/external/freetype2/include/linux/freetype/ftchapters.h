@@ -1,11 +1,7 @@
 /***************************************************************************/
 /*                                                                         */
 /* This file defines the structure of the FreeType reference.              */
-<<<<<<< HEAD
-/* It is used by the python script that generates the HTML files.          */
-=======
 /* It is used by the python script which generates the HTML files.         */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*                                                                         */
 /***************************************************************************/
 
@@ -19,10 +15,6 @@
 /*    General Remarks                                                      */
 /*                                                                         */
 /* <Sections>                                                              */
-<<<<<<< HEAD
-/*    header_inclusion                                                     */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*    user_allocation                                                      */
 /*                                                                         */
 /***************************************************************************/
@@ -75,25 +67,6 @@
 /***************************************************************************/
 /*                                                                         */
 /* <Chapter>                                                               */
-<<<<<<< HEAD
-/*    module_specific                                                      */
-/*                                                                         */
-/* <Title>                                                                 */
-/*    Controlling FreeType Modules                                         */
-/*                                                                         */
-/* <Sections>                                                              */
-/*    auto_hinter                                                          */
-/*    cff_driver                                                           */
-/*    tt_driver                                                            */
-/*                                                                         */
-/***************************************************************************/
-
-
-/***************************************************************************/
-/*                                                                         */
-/* <Chapter>                                                               */
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*    cache_subsystem                                                      */
 /*                                                                         */
 /* <Title>                                                                 */

@@ -4,11 +4,7 @@
 /*                                                                         */
 /*    FreeType Cache subsystem (specification).                            */
 /*                                                                         */
-<<<<<<< HEAD
-/*  Copyright 1996-2008, 2010, 2013, 2014 by                               */
-=======
 /*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2010 by */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
@@ -160,11 +156,7 @@ FT_BEGIN_HEADER
    * @note:
    *   Never use NULL as a valid @FTC_FaceID.
    *
-<<<<<<< HEAD
-   *   Face IDs are passed by the client to the cache manager that calls,
-=======
    *   Face IDs are passed by the client to the cache manager, which calls,
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
    *   when needed, the @FTC_Face_Requester to translate them into new
    *   @FT_Face objects.
    *
@@ -217,13 +209,6 @@ FT_BEGIN_HEADER
   typedef FT_Error
   (*FTC_Face_Requester)( FTC_FaceID  face_id,
                          FT_Library  library,
-<<<<<<< HEAD
-                         FT_Pointer  req_data,
-                         FT_Face*    aface );
-
-  /* */
-
-=======
                          FT_Pointer  request_data,
                          FT_Face*    aface );
 
@@ -240,7 +225,6 @@ FT_BEGIN_HEADER
                        ( FT_POINTER_TO_ULONG( i ) << 7 ) ) )
 
 #endif /* FT_CONFIG_OPTION_OLD_INTERNALS */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   /*************************************************************************/
   /*************************************************************************/
@@ -397,11 +381,7 @@ FT_BEGIN_HEADER
   /*    should never try to discard it yourself.                           */
   /*                                                                       */
   /*    The @FT_Face object doesn't necessarily have a current size object */
-<<<<<<< HEAD
-  /*    (i.e., face->size can be~0).  If you need a specific `font size',  */
-=======
   /*    (i.e., face->size can be 0).  If you need a specific `font size',  */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    use @FTC_Manager_LookupSize instead.                               */
   /*                                                                       */
   /*    Never change the face's transformation matrix (i.e., never call    */
@@ -725,8 +705,6 @@ FT_BEGIN_HEADER
             (d1)->width   == (d2)->width   && \
             (d1)->flags   == (d2)->flags   )
 
-<<<<<<< HEAD
-=======
 #ifdef FT_CONFIG_OPTION_OLD_INTERNALS
 
   /* this macro is incompatible with LLP64, should not be used */
@@ -738,7 +716,6 @@ FT_BEGIN_HEADER
 
 #endif /* FT_CONFIG_OPTION_OLD_INTERNALS */
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
   /*************************************************************************/
   /*                                                                       */
@@ -746,11 +723,7 @@ FT_BEGIN_HEADER
   /*    FTC_ImageCache                                                     */
   /*                                                                       */
   /* <Description>                                                         */
-<<<<<<< HEAD
-  /*    A handle to a glyph image cache object.  They are designed to      */
-=======
   /*    A handle to an glyph image cache object.  They are designed to     */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
   /*    hold many distinct glyph images while not exceeding a certain      */
   /*    memory threshold.                                                  */
   /*                                                                       */
@@ -1095,11 +1068,6 @@ FT_BEGIN_HEADER
                               FTC_SBit      *sbit,
                               FTC_Node      *anode );
 
-<<<<<<< HEAD
-  /* */
-
-
-=======
 
  /* */
 
@@ -1164,7 +1132,6 @@ FT_BEGIN_HEADER
 
  /* */
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 FT_END_HEADER
 
 #endif /* __FTCACHE_H__ */

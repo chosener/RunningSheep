@@ -70,11 +70,7 @@ ColliderBody::ColliderBody(ContourData *contourData)
     , _contourData(contourData)
 {
     CC_SAFE_RETAIN(_contourData);
-<<<<<<< HEAD
-    _filter = new (std::nothrow) ColliderFilter();
-=======
     _filter = new ColliderFilter();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if ENABLE_PHYSICS_SAVE_CALCULATED_VERTEX
     _calculatedVertexList = Array::create();
@@ -88,11 +84,7 @@ ColliderBody::ColliderBody(ContourData *contourData)
     , _contourData(contourData)
 {
     CC_SAFE_RETAIN(_contourData);
-<<<<<<< HEAD
-    _filter = new (std::nothrow) ColliderFilter();
-=======
     _filter = new ColliderFilter();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #if ENABLE_PHYSICS_SAVE_CALCULATED_VERTEX
     _calculatedVertexList = Array::create();
@@ -131,11 +123,7 @@ ColliderFilter *ColliderBody::getColliderFilter()
 
 ColliderDetector *ColliderDetector::create()
 {
-<<<<<<< HEAD
-    ColliderDetector *pColliderDetector = new (std::nothrow) ColliderDetector();
-=======
     ColliderDetector *pColliderDetector = new ColliderDetector();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pColliderDetector && pColliderDetector->init())
     {
         pColliderDetector->autorelease();
@@ -147,11 +135,7 @@ ColliderDetector *ColliderDetector::create()
 
 ColliderDetector *ColliderDetector::create(Bone *bone)
 {
-<<<<<<< HEAD
-    ColliderDetector *pColliderDetector = new (std::nothrow) ColliderDetector();
-=======
     ColliderDetector *pColliderDetector = new ColliderDetector();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pColliderDetector && pColliderDetector->init(bone))
     {
         pColliderDetector->autorelease();
@@ -184,11 +168,7 @@ bool ColliderDetector::init()
     _colliderBodyList.clear();
 
 #if ENABLE_PHYSICS_BOX2D_DETECT || ENABLE_PHYSICS_CHIPMUNK_DETECT
-<<<<<<< HEAD
-    _filter = new (std::nothrow) ColliderFilter();
-=======
     _filter = new ColliderFilter();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif
 
     return true;
@@ -204,11 +184,7 @@ bool ColliderDetector::init(Bone *bone)
 
 void ColliderDetector::addContourData(ContourData *contourData)
 {
-<<<<<<< HEAD
-    ColliderBody *colliderBody = new (std::nothrow) ColliderBody(contourData);
-=======
     ColliderBody *colliderBody = new ColliderBody(contourData);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _colliderBodyList.pushBack(colliderBody);
     colliderBody->release();
 

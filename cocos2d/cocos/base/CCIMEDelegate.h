@@ -29,23 +29,6 @@ THE SOFTWARE.
 #include <string>
 #include "math/CCGeometry.h"
 
-<<<<<<< HEAD
-/**
- * @addtogroup base
- * @{
- */
-NS_CC_BEGIN
-
-/**
- * A static global empty std::string install.
- */
-extern const std::string CC_DLL STD_STRING_EMPTY;
-
-
-/**
- * Keyboard notification event type.
- */
-=======
 NS_CC_BEGIN
 extern const std::string STD_STRING_EMPTY;
 
@@ -54,7 +37,6 @@ extern const std::string STD_STRING_EMPTY;
  * @{
  */
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 typedef struct
 {
     Rect  begin;              // the soft keyboard rectangle when animation begins
@@ -63,43 +45,22 @@ typedef struct
 } IMEKeyboardNotificationInfo;
 
 /**
-<<<<<<< HEAD
- *@brief    Input method editor delegate.
- */
-=======
 @brief    Input method editor delegate.
 */
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 class CC_DLL IMEDelegate
 {
 public:
     /**
-<<<<<<< HEAD
-     * Default constructor.
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual ~IMEDelegate();
-<<<<<<< HEAD
-    
     /**
-     * Default destructor.
-=======
-    /**
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
     virtual bool attachWithIME();
-<<<<<<< HEAD
-    
     /**
-     * Determine whether the IME is detached or not.
-=======
-    /**
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      * @js NA
      * @lua NA
      */
@@ -190,16 +151,9 @@ protected:
     IMEDelegate();
 };
 
-<<<<<<< HEAD
-
-NS_CC_END
-// end of base group
-/// @}
-=======
 // end of input group
 /// @}
 
 NS_CC_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif    // __CC_IME_DELEGATE_H__

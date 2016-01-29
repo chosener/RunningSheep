@@ -5,17 +5,10 @@ using namespace cocos2d;
 namespace cocosbuilder {
 
 CCBKeyframe::CCBKeyframe()
-<<<<<<< HEAD
-: _object(nullptr)
-, _time(0.0f)
-, _easingType(EasingType::INSTANT)
-, _easingOpt(0.0f)
-=======
 : _time(0.0f)
 , _easingType(EasingType::INSTANT)
 , _easingOpt(0.0f)
 , _object(nullptr)
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {}
 
 CCBKeyframe::~CCBKeyframe()

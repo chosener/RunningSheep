@@ -96,11 +96,7 @@ Speed::~Speed()
 
 Speed* Speed::create(ActionInterval* action, float speed)
 {
-<<<<<<< HEAD
-    Speed *ret = new (std::nothrow) Speed();
-=======
     Speed *ret = new Speed();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (ret && ret->initWithAction(action, speed))
     {
         ret->autorelease();
@@ -112,11 +108,7 @@ Speed* Speed::create(ActionInterval* action, float speed)
 
 bool Speed::initWithAction(ActionInterval *action, float speed)
 {
-<<<<<<< HEAD
-    CCASSERT(action != nullptr, "action must not be NULL");
-=======
     CCASSERT(action != nullptr, "");
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     action->retain();
     _innerAction = action;
     _speed = speed;
@@ -125,19 +117,11 @@ bool Speed::initWithAction(ActionInterval *action, float speed)
 
 Speed *Speed::clone() const
 {
-<<<<<<< HEAD
-    // no copy constructor
-    auto a = new (std::nothrow) Speed();
-    a->initWithAction(_innerAction->clone(), _speed);
-    a->autorelease();
-    return a;
-=======
 	// no copy constructor
 	auto a = new Speed();
 	a->initWithAction(_innerAction->clone(), _speed);
 	a->autorelease();
 	return  a;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Speed::startWithTarget(Node* target)
@@ -164,12 +148,8 @@ bool Speed::isDone() const
 
 Speed *Speed::reverse() const
 {
-<<<<<<< HEAD
-    return Speed::create(_innerAction->reverse(), _speed);
-=======
 
 	return Speed::create(_innerAction->reverse(), _speed);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 void Speed::setInnerAction(ActionInterval *action)
@@ -192,11 +172,7 @@ Follow::~Follow()
 
 Follow* Follow::create(Node *followedNode, const Rect& rect/* = Rect::ZERO*/)
 {
-<<<<<<< HEAD
-    Follow *follow = new (std::nothrow) Follow();
-=======
     Follow *follow = new Follow();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (follow && follow->initWithTarget(followedNode, rect))
     {
         follow->autorelease();
@@ -208,19 +184,11 @@ Follow* Follow::create(Node *followedNode, const Rect& rect/* = Rect::ZERO*/)
 
 Follow* Follow::clone() const
 {
-<<<<<<< HEAD
-    // no copy constructor
-    auto a = new (std::nothrow) Follow();
-    a->initWithTarget(_followedNode, _worldRect);
-    a->autorelease();
-    return a;
-=======
 	// no copy constructor
 	auto a = new Follow();
 	a->initWithTarget(_followedNode, _worldRect);
 	a->autorelease();
 	return a;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 Follow* Follow::reverse() const
@@ -230,18 +198,6 @@ Follow* Follow::reverse() const
 
 bool Follow::initWithTarget(Node *followedNode, const Rect& rect/* = Rect::ZERO*/)
 {
-<<<<<<< HEAD
-    CCASSERT(followedNode != nullptr, "FollowedNode can't be NULL");
- 
-    followedNode->retain();
-    _followedNode = followedNode;
-    _worldRect = rect;
-    _boundarySet = !rect.equals(Rect::ZERO);
-    _boundaryFullyCovered = false;
-
-    Size winSize = Director::getInstance()->getWinSize();
-    _fullScreenSize.set(winSize.width, winSize.height);
-=======
     CCASSERT(followedNode != nullptr, "");
  
     followedNode->retain();
@@ -260,7 +216,6 @@ bool Follow::initWithTarget(Node *followedNode, const Rect& rect/* = Rect::ZERO*
 
     Size winSize = Director::getInstance()->getWinSize();
     _fullScreenSize = Vec2(winSize.width, winSize.height);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _halfScreenSize = _fullScreenSize * 0.5f;
 
     if (_boundarySet)
@@ -300,23 +255,12 @@ void Follow::step(float dt)
     {
         // whole map fits inside a single screen, no need to modify the position - unless map boundaries are increased
         if(_boundaryFullyCovered)
-<<<<<<< HEAD
-        {
-            return;
-        }
-
-        Vec2 tempPos = _halfScreenSize - _followedNode->getPosition();
-
-        _target->setPosition(clampf(tempPos.x, _leftBoundary, _rightBoundary),
-                                   clampf(tempPos.y, _bottomBoundary, _topBoundary));
-=======
             return;
 
         Vec2 tempPos = _halfScreenSize - _followedNode->getPosition();
 
         _target->setPosition(Vec2(clampf(tempPos.x, _leftBoundary, _rightBoundary),
                                    clampf(tempPos.y, _bottomBoundary, _topBoundary)));
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else
     {

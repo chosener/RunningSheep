@@ -30,41 +30,6 @@ THE SOFTWARE.
 namespace cocos2d { namespace plugin {
 
 extern "C" {
-<<<<<<< HEAD
-JNIEXPORT void JNICALL Java_org_cocos2dx_plugin_UserWrapper_nativeOnActionResult(JNIEnv*  env, jobject thiz, jstring className, jint ret, jstring msg)
-{
-    std::string strMsg = PluginJniHelper::jstring2string(msg);
-    std::string strClassName = PluginJniHelper::jstring2string(className);
-    PluginProtocol* pPlugin = PluginUtils::getPluginPtr(strClassName);
-    PluginUtils::outputLog("ProtocolUser", "nativeOnActionResult(), Get plugin ptr : %p", pPlugin);
-    if (pPlugin != NULL)
-    {
-        PluginUtils::outputLog("ProtocolUser", "nativeOnActionResult(), Get plugin name : %s", pPlugin->getPluginName());
-        ProtocolUser* pUser = dynamic_cast<ProtocolUser*>(pPlugin);
-        if (pUser != NULL)
-        {
-            UserActionListener* listener = pUser->getActionListener();
-            if (NULL != listener)
-            {
-                listener->onActionResult(pUser, (UserActionResultCode) ret, strMsg.c_str());
-            }
-            else
-            {
-            	ProtocolUser::ProtocolUserCallback callback = pUser->getCallback();
-            	if(callback)
-				{
-					callback(ret, strMsg);
-				}
-				else
-				{
-					PluginUtils::outputLog("Listener of plugin %s not set correctly", pPlugin->getPluginName());
-				}
-            }
-        }
-    }
-}
-
-=======
 	JNIEXPORT void JNICALL Java_org_cocos2dx_plugin_UserWrapper_nativeOnActionResult(JNIEnv*  env, jobject thiz, jstring className, jint ret, jstring msg)
 	{
 		std::string strMsg = PluginJniHelper::jstring2string(msg);
@@ -89,7 +54,6 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_plugin_UserWrapper_nativeOnActionResult
 			}
 		}
 	}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ProtocolUser::ProtocolUser()
@@ -133,31 +97,12 @@ void ProtocolUser::login()
     PluginUtils::callJavaFunctionWithName(this, "login");
 }
 
-<<<<<<< HEAD
-void ProtocolUser::login(ProtocolUserCallback &cb)
-{
-	_callback = cb;
-	ProtocolUser::login();
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolUser::logout()
 {
     PluginUtils::callJavaFunctionWithName(this, "logout");
 }
 
-<<<<<<< HEAD
-void ProtocolUser::logout(ProtocolUserCallback &cb)
-{
-	_callback = cb;
-	ProtocolUser::logout();
-}
-
-bool ProtocolUser::isLoggedIn()
-=======
 bool ProtocolUser::isLogined()
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 {
     return PluginUtils::callJavaBoolFuncWithName(this, "isLogined");
 }
@@ -167,14 +112,4 @@ std::string ProtocolUser::getSessionID()
     return PluginUtils::callJavaStringFuncWithName(this, "getSessionID");
 }
 
-<<<<<<< HEAD
-std::string ProtocolUser::getAccessToken()
-{
-	return PluginUtils::callJavaStringFuncWithName(this, "getAccessToken");
-}
-
 }} // namespace cocos2d { namespace plugin {
-
-=======
-}} // namespace cocos2d { namespace plugin {
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

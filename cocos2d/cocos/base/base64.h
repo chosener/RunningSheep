@@ -1,10 +1,6 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
-<<<<<<< HEAD
-Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
 Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
  
 http://www.cocos2d-x.org
 
@@ -29,12 +25,6 @@ THE SOFTWARE.
 
 #ifndef __SUPPORT_BASE64_H__
 #define __SUPPORT_BASE64_H__
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-#include "platform/CCPlatformMacros.h"
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,11 +44,7 @@ namespace cocos2d {
  *
  @since v0.8.1
  */
-<<<<<<< HEAD
-int CC_DLL base64Decode(const unsigned char *in, unsigned int inLength, unsigned char **out);
-=======
 int base64Decode(const unsigned char *in, unsigned int inLength, unsigned char **out);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     
 /**
  * Encodes bytes into a 64base encoded memory with terminating '\0' character. 
@@ -68,11 +54,7 @@ int base64Decode(const unsigned char *in, unsigned int inLength, unsigned char *
  *
  @since v2.1.4
  */
-<<<<<<< HEAD
-int CC_DLL base64Encode(const unsigned char *in, unsigned int inLength, char **out);
-=======
 int base64Encode(const unsigned char *in, unsigned int inLength, char **out);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 }//namespace   cocos2d 
 
@@ -80,8 +62,4 @@ int base64Encode(const unsigned char *in, unsigned int inLength, char **out);
 }
 #endif    
 
-<<<<<<< HEAD
-/// @endcond
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __SUPPORT_BASE64_H__

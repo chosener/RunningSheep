@@ -1,10 +1,6 @@
 /****************************************************************************
  Copyright (c) 2013      cocos2d-x.org
-<<<<<<< HEAD
- Copyright (c) 2013-2015 Chukong Technologies Inc.
-=======
  Copyright (c) 2013-2014 Chukong Technologies Inc.
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
  http://www.cocos2d-x.org
 
@@ -27,11 +23,6 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-<<<<<<< HEAD
-/// @cond DO_NOT_SHOW
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /** Add deprecated global functions and variables here
  */
 
@@ -1164,9 +1155,5 @@ CC_DEPRECATED_ATTRIBUTE CC_DLL Vec4* kmVec4Transform(Vec4* pOut, const Vec4* pV,
 
 NS_CC_END
 
-<<<<<<< HEAD
-/// @endcond
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 #endif // __COCOS2D_CCDEPRECATED_H__

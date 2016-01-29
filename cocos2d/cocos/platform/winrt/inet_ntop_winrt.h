@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-#ifndef HEADER_CURL_INET_NTOP_WINRT_H
-#define HEADER_CURL_INET_NTOP_WINRT_H
-=======
 #ifndef HEADER_CURL_INET_NTOP_H
 #define HEADER_CURL_INET_NTOP_H
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -31,15 +26,9 @@
 
  ***************************************************************************/
 
-<<<<<<< HEAD
-#if _MSC_VER < 1900
-char *inet_ntop(int af, const void *addr, char *buf, size_t size);
-#endif
-=======
 
 char *inet_ntop(int af, const void *addr, char *buf, size_t size);
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 #endif /* HEADER_CURL_INET_NTOP_H */
 

@@ -50,11 +50,7 @@ Control::Control()
 
 Control* Control::create()
 {
-<<<<<<< HEAD
-    Control* pRet = new (std::nothrow) Control();
-=======
     Control* pRet = new Control();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (pRet && pRet->init())
     {
         pRet->autorelease();
@@ -268,11 +264,7 @@ Vector<Invocation*>& Control::dispatchListforControlEvent(EventType controlEvent
     // If the invocation list does not exist for the  dispatch table, we create it
     if (iter == _dispatchTable.end())
     {
-<<<<<<< HEAD
-        invocationList = new (std::nothrow) Vector<Invocation*>();
-=======
         invocationList = new Vector<Invocation*>();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _dispatchTable[(int)controlEvent] = invocationList;
     }
     else

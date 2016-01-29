@@ -16,26 +16,3 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include \
                     $(LOCAL_PATH)/../../platform/android
 
 include $(BUILD_STATIC_LIBRARY)
-<<<<<<< HEAD
-
-#new audio engine
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := audioengine_static
-
-LOCAL_MODULE_FILENAME := libaudioengine
-
-LOCAL_SRC_FILES := AudioEngine-inl.cpp \
-                   ../AudioEngine.cpp
-
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../include
-
-LOCAL_EXPORT_LDLIBS := -lOpenSLES
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../include \
-                    $(LOCAL_PATH)/../.. \
-                    $(LOCAL_PATH)/../../platform/android
-
-include $(BUILD_STATIC_LIBRARY)
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896

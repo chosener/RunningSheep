@@ -32,31 +32,6 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 /**
-<<<<<<< HEAD
- * @addtogroup base
- * @{
- */
-
-/** @class Touch
- * @brief Encapsulates the Touch information, such as touch point, id and so on,
- and provides the methods that commonly used.
- */
-class CC_DLL Touch : public Ref
-{
-public:
-    /** 
-     * Dispatch mode, how the touches are dispathced.
-     * @js NA
-     */
-    enum class DispatchMode {
-        ALL_AT_ONCE, /** All at once. */
-        ONE_BY_ONE,  /** One by one. */
-    };
-
-    /** Constructor.
-     * @js ctor
-     */
-=======
  * @addtogroup input
  * @{
  */
@@ -72,56 +47,11 @@ public:
         ONE_BY_ONE,
     };
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Touch() 
         : _id(0),
         _startPointCaptured(false)
     {}
 
-<<<<<<< HEAD
-    /** Returns the current touch location in OpenGL coordinates.
-     *
-     * @return The current touch location in OpenGL coordinates.
-     */
-    Vec2 getLocation() const;
-    /** Returns the previous touch location in OpenGL coordinates.
-     *
-     * @return The previous touch location in OpenGL coordinates.
-     */
-    Vec2 getPreviousLocation() const;
-    /** Returns the start touch location in OpenGL coordinates.
-     *
-     * @return The start touch location in OpenGL coordinates.
-     */
-    Vec2 getStartLocation() const;
-    /** Returns the delta of 2 current touches locations in screen coordinates.
-     *
-     * @return The delta of 2 current touches locations in screen coordinates.
-     */
-    Vec2 getDelta() const;
-    /** Returns the current touch location in screen coordinates.
-     *
-     * @return The current touch location in screen coordinates.
-     */
-    Vec2 getLocationInView() const;
-    /** Returns the previous touch location in screen coordinates. 
-     *
-     * @return The previous touch location in screen coordinates.
-     */
-    Vec2 getPreviousLocationInView() const;
-    /** Returns the start touch location in screen coordinates.
-     *
-     * @return The start touch location in screen coordinates.
-     */
-    Vec2 getStartLocationInView() const;
-    
-    /** Set the touch infomation. It always used to monitor touch event.
-     *
-     * @param id A given id
-     * @param x A given x coordinate.
-     * @param y A given y coordinate.
-     */
-=======
     /** returns the current touch location in OpenGL coordinates */
     Vec2 getLocation() const;
     /** returns the previous touch location in OpenGL coordinates */
@@ -137,7 +67,6 @@ public:
     /** returns the start touch location in screen coordinates */
     Vec2 getStartLocationInView() const;
     
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     void setTouchInfo(int id, float x, float y)
     {
         _id = id;
@@ -148,22 +77,11 @@ public:
         {
             _startPoint = _point;
             _startPointCaptured = true;
-<<<<<<< HEAD
-            _prevPoint = _point;
-        }
-    }
-    /** Get touch id.
-     * @js getId
-     * @lua getId
-     *
-     * @return The id of touch.
-=======
         }
     }
     /**
      * @js getId
      * @lua getId
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
      */
     int getID() const
     {
@@ -178,11 +96,7 @@ private:
     Vec2 _prevPoint;
 };
 
-<<<<<<< HEAD
-// end of base group
-=======
 // end of input group
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 /// @}
 
 NS_CC_END

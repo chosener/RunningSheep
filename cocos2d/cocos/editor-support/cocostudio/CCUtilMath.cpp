@@ -41,11 +41,7 @@ bool isSpriteContainPoint(Sprite *sprite, Vec2 point, Vec2 &outPoint)
 
 bool isSpriteContainPoint(Sprite *sprite, Vec2 point)
 {
-<<<<<<< HEAD
-    Vec2 p;
-=======
     Vec2 p = Vec2(0, 0);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     return isSpriteContainPoint(sprite, point, p);
 }
 

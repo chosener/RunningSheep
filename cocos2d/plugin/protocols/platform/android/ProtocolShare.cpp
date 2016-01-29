@@ -30,38 +30,6 @@ THE SOFTWARE.
 namespace cocos2d { namespace plugin {
 
 extern "C" {
-<<<<<<< HEAD
-    JNIEXPORT void JNICALL Java_org_cocos2dx_plugin_ShareWrapper_nativeOnShareResult(JNIEnv*  env, jobject thiz, jstring className, jint ret, jstring msg)
-    {
-        std::string strMsg = PluginJniHelper::jstring2string(msg);
-        std::string strClassName = PluginJniHelper::jstring2string(className);
-        PluginProtocol* pPlugin = PluginUtils::getPluginPtr(strClassName);
-        PluginUtils::outputLog("ProtocolShare", "nativeOnShareResult(), Get plugin ptr : %p", pPlugin);
-        if (pPlugin != NULL)
-        {
-            PluginUtils::outputLog("ProtocolShare", "nativeOnShareResult(), Get plugin name : %s", pPlugin->getPluginName());
-            ProtocolShare* pShare = dynamic_cast<ProtocolShare*>(pPlugin);
-            if (pShare != NULL)
-            {
-                ShareResultListener* listener = pShare->getResultListener();
-                if (NULL != listener)
-                {
-                    ShareResultCode cRet = (ShareResultCode) ret;
-                    listener->onShareResult(cRet, strMsg.c_str());
-                }else
-                {
-                	ProtocolShare::ProtocolShareCallback callback = pShare->getCallback();
-                	if(callback)
-                		callback(ret, strMsg);
-                	else
-                		PluginUtils::outputLog("ProtocolShare", "Can't find the listener of plugin %s", pPlugin->getPluginName());
-                }
-            }
-
-        }
-    }
-
-=======
 	JNIEXPORT void JNICALL Java_org_cocos2dx_plugin_ShareWrapper_nativeOnShareResult(JNIEnv*  env, jobject thiz, jstring className, jint ret, jstring msg)
 	{
 		std::string strMsg = PluginJniHelper::jstring2string(msg);
@@ -78,7 +46,6 @@ extern "C" {
 			}
 		}
 	}
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 }
 
 ProtocolShare::ProtocolShare()
@@ -148,28 +115,11 @@ void ProtocolShare::share(TShareInfo info)
     }
 }
 
-<<<<<<< HEAD
-void ProtocolShare::share(TShareInfo &info, ProtocolShareCallback &cb)
-{
-	setCallback(cb);
-	share(info);
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolShare::setResultListener(ShareResultListener* pListener)
 {
 	_listener = pListener;
 }
 
-<<<<<<< HEAD
-ShareResultListener* ProtocolShare::getResultListener()
-{
-    return _listener;
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 void ProtocolShare::onShareResult(ShareResultCode ret, const char* msg)
 {
     if (_listener)

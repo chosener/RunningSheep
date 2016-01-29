@@ -25,15 +25,6 @@ THE SOFTWARE.
 ****************************************************************************/
 #include "2d/CCProgressTimer.h"
 
-<<<<<<< HEAD
-#include <algorithm>
-
-#include "base/ccMacros.h"
-#include "base/CCDirector.h"
-#include "2d/CCSprite.h"
-#include "renderer/ccGLStateCache.h"
-#include "renderer/CCRenderer.h"
-=======
 #include "base/ccMacros.h"
 #include "base/CCDirector.h"
 #include "2d/CCDrawingPrimitives.h"
@@ -47,7 +38,6 @@ THE SOFTWARE.
 
 // extern
 #include <float.h>
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -69,11 +59,7 @@ ProgressTimer::ProgressTimer()
 
 ProgressTimer* ProgressTimer::create(Sprite* sp)
 {
-<<<<<<< HEAD
-    ProgressTimer *progressTimer = new (std::nothrow) ProgressTimer();
-=======
     ProgressTimer *progressTimer = new ProgressTimer();
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     if (progressTimer->initWithSprite(sp))
     {
         progressTimer->autorelease();
@@ -177,19 +163,11 @@ Tex2F ProgressTimer::textureCoordFromAlphaPoint(Vec2 alpha)
         return ret;
     }
     V3F_C4B_T2F_Quad quad = _sprite->getQuad();
-<<<<<<< HEAD
-    Vec2 min(quad.bl.texCoords.u,quad.bl.texCoords.v);
-    Vec2 max(quad.tr.texCoords.u,quad.tr.texCoords.v);
-    //  Fix bug #1303 so that progress timer handles sprite frame texture rotation
-    if (_sprite->isTextureRectRotated()) {
-        std::swap(alpha.x, alpha.y);
-=======
     Vec2 min = Vec2(quad.bl.texCoords.u,quad.bl.texCoords.v);
     Vec2 max = Vec2(quad.tr.texCoords.u,quad.tr.texCoords.v);
     //  Fix bug #1303 so that progress timer handles sprite frame texture rotation
     if (_sprite->isTextureRectRotated()) {
         CC_SWAP(alpha.x, alpha.y, float);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     return Tex2F(min.x * (1.f - alpha.x) + max.x * alpha.x, min.y * (1.f - alpha.y) + max.y * alpha.y);
 }
@@ -201,13 +179,8 @@ Vec2 ProgressTimer::vertexFromAlphaPoint(Vec2 alpha)
         return ret;
     }
     V3F_C4B_T2F_Quad quad = _sprite->getQuad();
-<<<<<<< HEAD
-    Vec2 min(quad.bl.vertices.x,quad.bl.vertices.y);
-    Vec2 max(quad.tr.vertices.x,quad.tr.vertices.y);
-=======
     Vec2 min = Vec2(quad.bl.vertices.x,quad.bl.vertices.y);
     Vec2 max = Vec2(quad.tr.vertices.x,quad.tr.vertices.y);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     ret.x = min.x * (1.f - alpha.x) + max.x * alpha.x;
     ret.y = min.y * (1.f - alpha.y) + max.y * alpha.y;
     return ret;
@@ -302,20 +275,12 @@ void ProgressTimer::updateRadial(void)
     //    We find the vector to do a hit detection based on the percentage
     //    We know the first vector is the one @ 12 o'clock (top,mid) so we rotate
     //    from that by the progress angle around the _midpoint pivot
-<<<<<<< HEAD
-    Vec2 topMid(_midpoint.x, 1.f);
-=======
     Vec2 topMid = Vec2(_midpoint.x, 1.f);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     Vec2 percentagePt = topMid.rotateByAngle(_midpoint, angle);
 
 
     int index = 0;
-<<<<<<< HEAD
-    Vec2 hit;
-=======
     Vec2 hit = Vec2::ZERO;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if (alpha == 0.f) {
         //    More efficient since we don't always need to check intersection
@@ -547,11 +512,6 @@ void ProgressTimer::onDraw(const Mat4 &transform, uint32_t flags)
 
     GL::bindTexture2D( _sprite->getTexture()->getName() );
 
-<<<<<<< HEAD
-    glVertexAttribPointer( GLProgram::VERTEX_ATTRIB_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(_vertexData[0]) , &_vertexData[0].vertices);
-    glVertexAttribPointer( GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, sizeof(_vertexData[0]), &_vertexData[0].texCoords);
-    glVertexAttribPointer( GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(_vertexData[0]), &_vertexData[0].colors);
-=======
 #ifdef EMSCRIPTEN
     setGLBufferData((void*) _vertexData, (_vertexDataCount * sizeof(V2F_C4B_T2F)), 0);
 
@@ -568,7 +528,6 @@ void ProgressTimer::onDraw(const Mat4 &transform, uint32_t flags)
     glVertexAttribPointer( GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, sizeof(_vertexData[0]), &_vertexData[0].texCoords);
     glVertexAttribPointer( GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(_vertexData[0]), &_vertexData[0].colors);
 #endif // EMSCRIPTEN
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
     if(_type == Type::RADIAL)
     {
@@ -597,11 +556,7 @@ void ProgressTimer::draw(Renderer *renderer, const Mat4 &transform, uint32_t fla
     if( ! _vertexData || ! _sprite)
         return;
 
-<<<<<<< HEAD
-    _customCommand.init(_globalZOrder, transform, flags);
-=======
     _customCommand.init(_globalZOrder);
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     _customCommand.func = CC_CALLBACK_0(ProgressTimer::onDraw, this, transform, flags);
     renderer->addCommand(&_customCommand);
 }

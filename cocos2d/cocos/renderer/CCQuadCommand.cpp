@@ -27,13 +27,8 @@
 
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCGLProgram.h"
-<<<<<<< HEAD
-#include "xxhash.h"
-#include "CCRenderer.h"
-=======
 #include "renderer/CCGLProgramState.h"
 #include "xxhash.h"
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 
 NS_CC_BEGIN
 
@@ -49,27 +44,6 @@ QuadCommand::QuadCommand()
     _type = RenderCommand::Type::QUAD_COMMAND;
 }
 
-<<<<<<< HEAD
-void QuadCommand::init(float globalOrder, GLuint textureID, GLProgramState* shader, const BlendFunc& blendType, V3F_C4B_T2F_Quad* quads, ssize_t quadCount,
-                       const Mat4& mv, uint32_t flags)
-{
-    CCASSERT(shader, "Invalid GLProgramState");
-    CCASSERT(shader->getVertexAttribsFlags() == 0, "No custom attributes are supported in QuadCommand");
-    
-    RenderCommand::init(globalOrder, mv, flags);
-    
-    _quadsCount = quadCount;
-    _quads = quads;
-    
-    _mv = mv;
-    
-    if( _textureID != textureID || _blendType.src != blendType.src || _blendType.dst != blendType.dst || _glProgramState != shader) {
-        
-        _textureID = textureID;
-        _blendType = blendType;
-        _glProgramState = shader;
-        
-=======
 void QuadCommand::init(float globalOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, V3F_C4B_T2F_Quad* quad, ssize_t quadCount, const Mat4 &mv)
 {
     CCASSERT(glProgramState, "Invalid GLProgramState");
@@ -88,46 +62,26 @@ void QuadCommand::init(float globalOrder, GLuint textureID, GLProgramState* glPr
         _blendType = blendType;
         _glProgramState = glProgramState;
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         generateMaterialID();
     }
 }
 
-<<<<<<< HEAD
-void QuadCommand::init(float globalOrder, GLuint textureID, GLProgramState* shader, const BlendFunc& blendType, V3F_C4B_T2F_Quad* quads, ssize_t quadCount, const Mat4 &mv)
-{
-    init(globalOrder, textureID, shader, blendType, quads, quadCount, mv, 0);
-}
-
-=======
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
 QuadCommand::~QuadCommand()
 {
 }
 
 void QuadCommand::generateMaterialID()
 {
-<<<<<<< HEAD
-    
-    if(_glProgramState->getUniformCount() > 0)
-    {
-        _materialID = Renderer::MATERIAL_ID_DO_NOT_BATCH;
-=======
 
     if(_glProgramState->getUniformCount() > 0)
     {
         _materialID = QuadCommand::MATERIAL_ID_DO_NOT_BATCH;
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
     }
     else
     {
         int glProgram = (int)_glProgramState->getGLProgram()->getProgram();
         int intArray[4] = { glProgram, (int)_textureID, (int)_blendType.src, (int)_blendType.dst};
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
         _materialID = XXH32((const void*)intArray, sizeof(intArray), 0);
     }
 }
@@ -136,16 +90,6 @@ void QuadCommand::useMaterial() const
 {
     //Set texture
     GL::bindTexture2D(_textureID);
-<<<<<<< HEAD
-    
-    //set blend mode
-    GL::blendFunc(_blendType.src, _blendType.dst);
-    
-    _glProgramState->apply(_mv);
-}
-
-NS_CC_END
-=======
 
     //set blend mode
     GL::blendFunc(_blendType.src, _blendType.dst);
@@ -154,4 +98,3 @@ NS_CC_END
 }
 
 NS_CC_END
->>>>>>> b333405ba27397fdac44fd1fa8c67cd20c36e896
