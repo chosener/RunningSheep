@@ -53,6 +53,8 @@ void LayerGame::initView()
     this->initButton();
     
     this->initUI();
+    
+    this->initTest();
 }
 void LayerGame::initBackGround()
 {
@@ -86,12 +88,12 @@ void LayerGame::initBackGround()
 #endif
     
     //--------------------------------------------------
-    Sprite* spLeft = Sprite::create("images/game/left.png");
+    Sprite* spLeft = Sprite::create("images/game/eave.png");
     spLeft->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     spLeft->setPosition(DISPLAY_LEFT,DISPLAY_BOTTOM);
     this->addChild(spLeft,1);
     
-    Sprite* spRight = Sprite::create("images/game/eave.png");
+    Sprite* spRight = Sprite::create("images/game/right.png");
     spRight->setAnchorPoint(Vec2::ANCHOR_BOTTOM_RIGHT);
     spRight->setPosition(DISPLAY_RIGHT,DISPLAY_BOTTOM);
     this->addChild(spRight,1);
@@ -108,16 +110,81 @@ void LayerGame::initUI()
     spTitleBg1->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
     spTitleBg1->setPosition(DISPLAY_WIDTH/2,DISPLAY_TOP + 10.0f);
     this->addChild(spTitleBg1,1000);
+    
+    //关卡字
+    Sprite* spTxtGuanKa = Sprite::create("images/game/txt_guanka.png");
+    spTxtGuanKa->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 30.0f);
+    this->addChild(spTxtGuanKa,1000);
+    
+    //金币icon背景
+    Sprite* spBgIconGold = Sprite::create("images/game/img_bg_gold.png");
+    spBgIconGold->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 200.0f);
+    this->addChild(spBgIconGold,1000);
+    
+    //金币icon
+    Sprite* spIconGold = Sprite::create("images/game/goldBig.png");
+    spIconGold->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 200.0f);
+    this->addChild(spIconGold,1000);
 }
 void LayerGame::initButton()
 {
-    
-}
+    //右侧
+    //go按钮
+    for (int i = 0; i < 5; i++)
+    {
+        ImageButton* imgBtnGo = ImageButton::create("images/game/btnGoBig_1.png", "images/game/btnGoBig_2.png");
+        imgBtnGo->setPosition(DISPLAY_RIGHT - 80,DISPLAY_BOTTOM + 120 * i + 60);
+        this->addChild(imgBtnGo,2,10 + i);
+        
+        imgBtnGo->addTouchEventListener(CALL_PRESS_FUNC_SELECTOR(LayerGame::onSheepGo), this);
+    }
 
-void LayerGame::onGameStart(Node* sender, Touch* touch, Event* e)
+}
+void LayerGame::initTest()
 {
-    DLog::d("game start !");
-    SceneManager::getInstance()->changeScene(SceneManager::en_GameScene);
+    SheepWhite* sheepWhite = SheepWhite::createWithFrameAnim("images/game/goldBig.png");
+    sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_CY);
+    this->addChild(sheepWhite);
+}
+void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
+{
+    DLog::d("sheep running");
+    //SceneManager::getInstance()->changeScene(SceneManager::en_GameScene);
+    ImageButton* imgBtnGo = (ImageButton*)sender;
+    int tag = imgBtnGo->getTag();
+    int line = tag - 10;
+    switch (tag) {
+        case 10:
+        {
+            DLog::d("run",line);
+        }
+            break;
+        case 11:
+        {
+            DLog::d("run",line);
+        }
+            break;
+        case 12:
+        {
+            DLog::d("run",line);
+        }
+            break;
+        case 13:
+        {
+            DLog::d("run",line);
+        }
+            break;
+        case 14:
+        {
+            
+            DLog::d("run",line);
+        }
+            break;
+        
+            
+        default:
+            break;
+    }
 }
 
 

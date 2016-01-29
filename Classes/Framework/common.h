@@ -5,6 +5,7 @@
 
 #define DISPLAY_SIZE (Director::getInstance()->getWinSize())
 
+
 #define DISPLAY_WIDTH (DISPLAY_SIZE.width)
 #define DISPLAY_HEIGHT (DISPLAY_SIZE.height)
 
@@ -15,6 +16,9 @@
 #define DISPLAY_RIGHT (DISPLAY_WIDTH)
 #define DISPLAY_TOP (DISPLAY_HEIGHT)
 #define DISPLAY_BOTTOM (0)
+
+
+#define DISPLAY_RECT (Rect(DISPLAY_LEFT,DISPLAY_BOTTOM,DISPLAY_WIDTH,DISPLAY_HEIGHT))
 
 #define ADD_SPRITE_FRAMES(plist, png) (SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist, png))
 

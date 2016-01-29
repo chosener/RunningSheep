@@ -33,7 +33,9 @@ private:
     ///按钮
     void initButton();
     
-    void onGameStart(Node* sender, Touch* touch, Event* e);
+    void initTest();
+    
+    void onSheepGo(Node* sender, Touch* touch, Event* e);
 };
 
 #endif /* defined(__MagicTouch__LayerGame__) */

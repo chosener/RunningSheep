@@ -80,3 +80,32 @@ Sprite* createFrameAnimOnce(const char* plist, const char*png,
 
 	return it;
 }
+
+Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, int count, float time)
+{
+    char name[128];
+    
+    if (count <= 0  || png == NULL) {
+        return NULL;
+    }
+    
+    Texture2D *texture = TextureCache::getInstance()->addImage(png);
+
+    int i = 0;
+    Vector<SpriteFrame*> animFrames;
+    
+    for (i = 0; i < count; i++)
+    {
+        SpriteFrame* frame = SpriteFrame::createWithTexture(texture, Rect(widthCell * i,0,widthCell,heightCell));
+        animFrames.pushBack(frame);
+    }
+    
+    Animation* animation = Animation::createWithSpriteFrames(animFrames, time);
+    Animate* anim = Animate::create(animation);
+    
+    Sprite* it = Sprite::create();
+    
+    it->runAction(RepeatForever::create(anim));
+    
+    return it;
+}
