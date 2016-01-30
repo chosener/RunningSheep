@@ -30,7 +30,9 @@
 //#include "../Scene/Store/LayerMagician.h"
 //#include "../Scene/Logo/DSLayerKengDie.h"
 
-#include "../../Framework/GameHeader.h"
+#include "../../Scene/Start/LayerStart.h"
+#include "../../Scene/MainMenu/LayerMainMenu.h"
+#include "../../Scene/Game/LayerGame.h"
 
 
 SceneManager* SceneManager::mSceneManager = NULL;

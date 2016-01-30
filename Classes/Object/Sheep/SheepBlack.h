@@ -13,6 +13,7 @@
 #include "../../Framework/CocosHead.h"
 #include "../../Framework/GameHeader.h"
 
+#include "Sheep.h"
 ///黑羊
 class SheepBlack : public Sheep
 {

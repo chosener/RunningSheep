@@ -94,6 +94,10 @@
 		FD8024611C5B4B7E00CF6729 /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024601C5B4B7E00CF6729 /* Sheep.cpp */; };
 		FD8024671C5B514D00CF6729 /* SheepBlack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024631C5B514D00CF6729 /* SheepBlack.cpp */; };
 		FD8024681C5B514D00CF6729 /* SheepWhite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024651C5B514D00CF6729 /* SheepWhite.cpp */; };
+		FD80246F1C5C6C0500CF6729 /* Header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD80246D1C5C6C0500CF6729 /* Header.cpp */; };
+		FD8024731C5C6DA100CF6729 /* HeaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024711C5C6DA100CF6729 /* HeaderManager.cpp */; };
+		FD8024761C5C6E6100CF6729 /* TestManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024741C5C6E6100CF6729 /* TestManager.cpp */; };
+		FD8024791C5C6E8600CF6729 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024771C5C6E8600CF6729 /* Test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +344,15 @@
 		FD8024641C5B514D00CF6729 /* SheepBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheepBlack.h; sourceTree = "<group>"; };
 		FD8024651C5B514D00CF6729 /* SheepWhite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SheepWhite.cpp; sourceTree = "<group>"; };
 		FD8024661C5B514D00CF6729 /* SheepWhite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheepWhite.h; sourceTree = "<group>"; };
+		FD80246D1C5C6C0500CF6729 /* Header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Header.cpp; sourceTree = "<group>"; };
+		FD80246E1C5C6C0500CF6729 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FD8024711C5C6DA100CF6729 /* HeaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeaderManager.cpp; sourceTree = "<group>"; };
+		FD8024721C5C6DA100CF6729 /* HeaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderManager.h; sourceTree = "<group>"; };
+		FD8024741C5C6E6100CF6729 /* TestManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestManager.cpp; sourceTree = "<group>"; };
+		FD8024751C5C6E6100CF6729 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
+		FD8024771C5C6E8600CF6729 /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
+		FD8024781C5C6E8600CF6729 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		FD80247B1C5C960900CF6729 /* GlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +580,7 @@
 				FD80241F1C5B188600CF6729 /* TouchSprite.cpp */,
 				FD8024201C5B188600CF6729 /* TouchSprite.h */,
 				FD8024621C5B4D5A00CF6729 /* GlobalEnum.h */,
+				FD80247B1C5C960900CF6729 /* GlobalDefine.h */,
 			);
 			name = Framework;
 			path = ../Classes/Framework;
@@ -624,6 +638,7 @@
 		FD80242B1C5B188600CF6729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				FD8024701C5C6C5C00CF6729 /* Header */,
 				FD80242C1C5B188600CF6729 /* Scene */,
 			);
 			name = Manager;
@@ -690,6 +705,7 @@
 		FD80245A1C5B448A00CF6729 /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				FD80246C1C5C6C0500CF6729 /* Header */,
 				FD80245B1C5B4B2800CF6729 /* Sheep */,
 			);
 			name = Object;
@@ -707,6 +723,28 @@
 				FD8024601C5B4B7E00CF6729 /* Sheep.cpp */,
 			);
 			path = Sheep;
+			sourceTree = "<group>";
+		};
+		FD80246C1C5C6C0500CF6729 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				FD8024771C5C6E8600CF6729 /* Test.cpp */,
+				FD8024781C5C6E8600CF6729 /* Test.h */,
+				FD80246D1C5C6C0500CF6729 /* Header.cpp */,
+				FD80246E1C5C6C0500CF6729 /* Header.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		FD8024701C5C6C5C00CF6729 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				FD8024741C5C6E6100CF6729 /* TestManager.cpp */,
+				FD8024751C5C6E6100CF6729 /* TestManager.h */,
+				FD8024711C5C6DA100CF6729 /* HeaderManager.cpp */,
+				FD8024721C5C6DA100CF6729 /* HeaderManager.h */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -919,12 +957,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD80244D1C5B188600CF6729 /* JniSms.cpp in Sources */,
+				FD8024791C5C6E8600CF6729 /* Test.cpp in Sources */,
 				FD8024441C5B188600CF6729 /* TiledMapLoader.cpp in Sources */,
 				FD8024421C5B188600CF6729 /* GameTouchNode.cpp in Sources */,
 				FD8024401C5B188600CF6729 /* GameJoyStick.cpp in Sources */,
+				FD80246F1C5C6C0500CF6729 /* Header.cpp in Sources */,
 				FD80243F1C5B188600CF6729 /* FrameAnim.cpp in Sources */,
 				FD8024461C5B188600CF6729 /* LayerGame.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				FD8024731C5C6DA100CF6729 /* HeaderManager.cpp in Sources */,
 				FD8024471C5B188600CF6729 /* LayerMainMenu.cpp in Sources */,
 				FD8024681C5B514D00CF6729 /* SheepWhite.cpp in Sources */,
 				FD8024481C5B188600CF6729 /* LayerStart.cpp in Sources */,
@@ -935,6 +976,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				FD80244C1C5B188600CF6729 /* AudioManager.cpp in Sources */,
 				FD8024451C5B188600CF6729 /* TouchSprite.cpp in Sources */,
+				FD8024761C5C6E6100CF6729 /* TestManager.cpp in Sources */,
 				FD80243C1C5B188600CF6729 /* BasicLayer.cpp in Sources */,
 				FD8024431C5B188600CF6729 /* ImageButton.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,

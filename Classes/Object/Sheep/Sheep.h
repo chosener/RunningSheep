@@ -13,6 +13,8 @@
 #include "../../Framework/CocosHead.h"
 #include "../../Framework/GameHeader.h"
 
+#include "../../Framework/GameTouchNode.h"
+
 ///羊的基类
 class Sheep : public GameTouchNode
 {

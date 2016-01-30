@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 #include "../../Framework/CocosHead.h"
-
 #include "../../Framework/GameHeader.h"
 #include "../../Framework/BasicLayer.h"
+#include "../../Manager/Scene/SceneManager.h"
 
 //游戏主菜单
 

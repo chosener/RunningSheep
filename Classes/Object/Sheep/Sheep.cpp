@@ -6,7 +6,7 @@
 //
 //
 
-#include "../../Framework/GameHeader.h"
+#include "Sheep.h"
 
 Sheep::Sheep()
 {

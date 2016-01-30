@@ -47,14 +47,45 @@ bool LayerGame::init()
     
     return true;
 }
+
+void LayerGame::onEnter()
+{
+    Layer::onEnter();
+
+}
+
+void LayerGame::onEnterTransitionDidFinish()
+{
+    Layer::onEnterTransitionDidFinish();
+    
+    this->initManager();
+}
+
+void LayerGame::onExit()
+{
+    Layer::onExit();
+}
+
 void LayerGame::initView()
 {
+    this->initVariables();
+    
     this->initBackGround();
     this->initButton();
     
     this->initUI();
     
     this->initTest();
+}
+void LayerGame::initVariables()
+{
+    
+}
+void LayerGame::initManager()
+{
+    this->m_HeaderMng = HeaderManager::getInstance();
+    this->m_HeaderMng->setLayer(this);
+    this->m_HeaderMng->addStartHeader();
 }
 void LayerGame::initBackGround()
 {
@@ -109,7 +140,7 @@ void LayerGame::initUI()
     Sprite* spTitleBg1 = Sprite::create("images/game/top.png");
     spTitleBg1->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
     spTitleBg1->setPosition(DISPLAY_WIDTH/2,DISPLAY_TOP + 10.0f);
-    this->addChild(spTitleBg1,1000);
+    //this->addChild(spTitleBg1,1002);
     
     //关卡字
     Sprite* spTxtGuanKa = Sprite::create("images/game/txt_guanka.png");
@@ -148,9 +179,14 @@ void LayerGame::initTest()
 }
 void LayerGame::addSheep(int line)
 {
+#if 0
     SheepWhite* sheepWhite = SheepWhite::createWithFrameAnim("images/game/goldBig.png");
     sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_BOTTOM + 120*line + 60);
     this->addChild(sheepWhite,5);
+#endif
+#if 0
+    this->m_HeaderMng->addHeader();
+#endif
 }
 void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
 {
@@ -198,5 +234,14 @@ void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
     }
 }
 
+void LayerGame::update(float dt)
+{
+    this->updateManagerHeader(dt);
+}
 
-
+///头像管理器更新
+void LayerGame::updateManagerHeader(float dt)
+{
+    
+    this->m_HeaderMng->update(dt);
+}

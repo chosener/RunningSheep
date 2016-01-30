@@ -27,10 +27,16 @@ LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Scene/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Header/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/Sheep/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/Header/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/*.cpp)

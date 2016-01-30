@@ -331,7 +331,8 @@
   jni/../../Classes/Scene/Game/../../Framework/../Manager/Scene/SceneManager.h \
   jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/Sheep.h \
   jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/SheepBlack.h \
-  jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/SheepWhite.h
+  jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/SheepWhite.h \
+  jni/../../Classes/Scene/Game/../../Framework/../Object/Header/Header.h
 
 jni/../../Classes/Scene/Game/LayerGame.h:
 
@@ -996,3 +997,5 @@ jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/Sheep.h:
 jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/SheepBlack.h:
 
 jni/../../Classes/Scene/Game/../../Framework/../Object/Sheep/SheepWhite.h:
+
+jni/../../Classes/Scene/Game/../../Framework/../Object/Header/Header.h:
