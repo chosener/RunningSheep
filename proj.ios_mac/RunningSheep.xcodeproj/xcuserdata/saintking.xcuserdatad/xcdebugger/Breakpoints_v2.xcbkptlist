@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Manager/Header/HeaderManager.cpp"
-            timestampString = "475833916.295129"
+            timestampString = "475838268.125024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "HeaderManager::addHeader(int camp,int num)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "HeaderManager::update(float dt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -46,30 +46,81 @@ Header* Header::createWithSpriteFrameName(const char* name)
 	CC_SAFE_DELETE(ret);
 	return NULL;
 }
-bool Header::initWithIndex(int index)
+bool Header::initWithIndex(int index,int camp)
 {
     if (this->GameTouchNode::init() == false) {
         return false;
     }
-    string name = getNamePng(index, En_Camp_Team);
+    
+    this->scheduleUpdate();
+    
+    this->setiIndex(index);
+    
+    this->setiCamp(camp);
+    
+    string name = getNamePng(index, camp);
     
     Sprite* icon = Sprite::create(name);
     
     this->addChild(icon);
-    
+
+    this->initVariables();
     return true;
 }
 
-Header* Header::create(int index)
+Header* Header::create(int index,int camp)
 {
     Header* ret = new Header();
-    if (ret->initWithIndex(index))
+    if (ret->initWithIndex(index,camp))
     {
         ret->autorelease();
         return ret;
     }
     CC_SAFE_DELETE(ret);
     return NULL;
+}
+void Header::initVariables()
+{
+    this->setiNum(0);
+    this->setiCDTime(40);
+    this->setbIsUse(false);
+    this->setbIsLocked(true);
+    bool isVisible = (this->m_iNum < 3) ? true : false;
+    this->setVisible(isVisible);
+}
+void Header::update(float dt)
+{
+    if(!this->m_bIsLocked)
+    {
+        this->setiCDTime(--this->m_iCDTime);
+        bool isZero = (this->m_iCDTime <= 0) ? true : false;
+        
+        if(isZero)
+        {
+            this->setbIsLocked(true);
+            
+            switch (this->m_iCamp)
+            {
+                case En_Camp_Team:
+                {
+                    
+                }
+                    break;
+                case En_Camp_Enemy:
+                {
+                    //敌方自动出兵
+                    this->setiCDTime(40);
+                    this->setbIsUse(true);
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+    
+
 }
 string Header::getNamePng(int index,int camp)
 {

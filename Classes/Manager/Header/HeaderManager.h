@@ -30,9 +30,11 @@ public:
     void update(float dt);
 
     void addStartHeader();
+    
+    void removeHeaderFront(int camp);
 private:
     void initVariables();
-    
+    ///添加头像(阵营,位置)
     void addHeader(int camp,int num);
     ///要生成哪一个头像
     int getHeaderIndex();
@@ -40,6 +42,13 @@ private:
     int getHeaderRate();
     ///头像位置
     Vec2 getPosHeader(int camp,int num);
+    
+    void setHeaderFrontOpen();
+    
+    void moveLeftHeader();
+    void moveRightHeader();
+    
+    void callBackMove(Node* node);
 private:
     ///左边头像组
     deque<Header*> m_dequeHeaderLeft;
