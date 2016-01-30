@@ -15,5 +15,5 @@ Sprite* createFrameAnimOnce(const char* plist, const char*png,
                          const char*name_format, int index,
 						 int count, float time, CallFunc* func = NULL);
 
-
+Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, int count, float time);
 #endif

@@ -12,6 +12,22 @@
 #include <stdio.h>
 #include <iostream>
 #include "cocos2d.h"
+
+#if 0
+#include "extensions/cocos-ext.h"
+#include "editor-support/cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/CCSGUIReader.h"
+#include "ui/CocosGUI.h"
+
+
+using namespace std;
+USING_NS_CC;
+USING_NS_CC_EXT;
+using namespace cocos2d::ui;
+using namespace cocos2d::extension;
+using namespace cocostudio;
+#endif
+
 //#include "extensions/cocos-ext.h"
 //#include "editor-support/cocostudio/CocoStudio.h"
 //#include "editor-support/cocostudio/CCSGUIReader.h"
@@ -24,7 +40,6 @@ using namespace CocosDenshion;
 using namespace cocos2d::ui;
 //using namespace cocos2d::extension;
 //using namespace cocostudio;
-
 
 
 #endif

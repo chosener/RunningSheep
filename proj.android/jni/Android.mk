@@ -21,10 +21,37 @@ LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Framework/GameComponents/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Scene/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Manager/Header/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/Sheep/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Object/Header/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/Game/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/MainMenu/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/Scene/Start/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../Classes/System/Debug/*.cpp)

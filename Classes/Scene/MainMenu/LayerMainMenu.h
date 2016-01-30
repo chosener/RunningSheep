@@ -13,8 +13,10 @@
 #include "../../Framework/CocosHead.h"
 #include "../../Framework/GameHeader.h"
 #include "../../Framework/BasicLayer.h"
+#include "../../Manager/Scene/SceneManager.h"
 
 //游戏主菜单
+
 class LayerMainMenu : public BasicLayer
 {
 public:
@@ -24,7 +26,7 @@ public:
     virtual bool init();
     
     CREATE_FUNC(LayerMainMenu);
-    
+
 private:
     void initView();
     ///背景
@@ -33,6 +35,7 @@ private:
     void initButton();
     
     void onGameStart(Node* sender, Touch* touch, Event* e);
+
 };
 
 #endif /* defined(__MagicTouch__LayerMainMenu__) */

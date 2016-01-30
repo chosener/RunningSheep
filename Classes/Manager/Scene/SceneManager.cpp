@@ -29,7 +29,11 @@
 //#include "../Scene/Gift/LayerGift.h"
 //#include "../Scene/Store/LayerMagician.h"
 //#include "../Scene/Logo/DSLayerKengDie.h"
-#include "../../Framework/GameHeader.h"
+
+#include "../../Scene/Start/LayerStart.h"
+#include "../../Scene/MainMenu/LayerMainMenu.h"
+#include "../../Scene/Game/LayerGame.h"
+
 
 SceneManager* SceneManager::mSceneManager = NULL;
 
@@ -65,6 +69,7 @@ void SceneManager::changeScene( EnumSceneType enScenType )
             break;
         case en_GameLogo:
             break;
+
         case en_GameStart:
         {
             pScene = LayerStart::createScene();
@@ -74,6 +79,7 @@ void SceneManager::changeScene( EnumSceneType enScenType )
         {
             pScene = LayerMainMenu::createScene();
         }
+
             break;
         case en_Loading:
             break;

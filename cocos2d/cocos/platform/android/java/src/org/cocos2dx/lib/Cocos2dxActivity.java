@@ -58,14 +58,16 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 		return sContext;
 	}
 	
-	protected void onLoadNativeLibraries() {
+	protected void onLoadNativeLibraries()
+	{
 		try {
 			ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
 			Bundle bundle = ai.metaData;
 			String libName = bundle.getString("android.app.lib_name");
-			
     		System.loadLibrary(libName);
-		} catch (Exception e) {
+		}
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
@@ -75,7 +77,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 	// ===========================================================
 	
 	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 
 		onLoadNativeLibraries();
@@ -137,7 +140,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 	}
 	
 	@Override
-	public void runOnGLThread(final Runnable pRunnable) {
+	public void runOnGLThread(final Runnable pRunnable)
+	{
 		this.mGLSurfaceView.queueEvent(pRunnable);
 	}
 	
@@ -184,15 +188,20 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         // Switch to supported OpenGL (ARGB888) mode on emulator
         if (isAndroidEmulator())
            this.mGLSurfaceView.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
+        
+        Cocos2dxRenderer mCocos2dxRenderer=new Cocos2dxRenderer(); 
 
-        this.mGLSurfaceView.setCocos2dxRenderer(new Cocos2dxRenderer());
+        this.mGLSurfaceView.setCocos2dxRenderer(mCocos2dxRenderer);
+
+        
         this.mGLSurfaceView.setCocos2dxEditText(edittext);
 
         // Set framelayout as the content view
 		setContentView(mFrameLayout);
 	}
 	
-    public Cocos2dxGLSurfaceView onCreateView() {
+    public Cocos2dxGLSurfaceView onCreateView() 
+    {
     	return new Cocos2dxGLSurfaceView(this);
     }
 

@@ -43,6 +43,7 @@ bool LayerMainMenu::init()
     
     this->addChild(label, 1);
     
+
     this->initView();
     
     return true;
@@ -79,6 +80,5 @@ void LayerMainMenu::onGameStart(Node* sender, Touch* touch, Event* e)
     DLog::d("game start !");
     SceneManager::getInstance()->changeScene(SceneManager::en_GameScene);
 }
-
 
 

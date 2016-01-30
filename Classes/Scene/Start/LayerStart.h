@@ -14,6 +14,8 @@
 #include "../../Framework/GameHeader.h"
 #include "../../Framework/BasicLayer.h"
 
+#include "../../Manager/Scene/SceneManager.h"
+
 //游戏主菜单
 class LayerStart : public BasicLayer
 {
