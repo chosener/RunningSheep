@@ -18,10 +18,18 @@ public:
     static Header* create(int index,int camp);
     
     void update(float dt);
+    
+public:
+    
+    void addChaZi();
 
 private:
 	static Header* create(const char* name);
 	static Header* createWithSpriteFrameName(const char* name);
+    
+    void addBarTime();
+
+    void callBackChaZie(Node* node);
     
 private:
     string getNamePng(int index,int camp);

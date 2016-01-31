@@ -60,9 +60,14 @@ void HeaderManager::update(float dt)
     if(sizeLeft > 0)
     {
         Header* headerFront = this->m_dequeHeaderLeft.front();
+        
         if(headerFront->getbIsUse())
         {
-            this->removeHeaderFront(headerFront->getiCamp());
+            //放一个出去
+            int line = CCRANDOM_0_1()*5.0f;
+            this->letEnemyGo(line);
+            
+            //this->removeHeaderFront(headerFront->getiCamp());
         }
     }
 }
@@ -131,6 +136,12 @@ void HeaderManager::removeHeaderFront(int camp)
     switch (camp) {
         case En_Camp_Team:
         {
+            //添加一个
+            this->addHeader(camp, 3);
+            
+            //移动头像
+            this->moveRightHeader();
+            
             Header* header = this->m_dequeHeaderRight.front();
             this->m_Layer->removeChild(header);
             this->m_dequeHeaderRight.pop_front();
@@ -138,7 +149,7 @@ void HeaderManager::removeHeaderFront(int camp)
             break;
         case En_Camp_Enemy:
         {
-            
+
             //添加一个
             this->addHeader(camp, 3);
             
@@ -150,6 +161,7 @@ void HeaderManager::removeHeaderFront(int camp)
             Header* header = this->m_dequeHeaderLeft.front();
             this->m_Layer->removeChild(header);
             this->m_dequeHeaderLeft.pop_front();
+            
 
 
         }
@@ -194,7 +206,36 @@ void HeaderManager::moveLeftHeader()
 }
 void HeaderManager::moveRightHeader()
 {
-    
+    int sizeLeft = (int)this->m_dequeHeaderRight.size();
+    if(sizeLeft > 0)
+    {
+        for (int i = 0; i < sizeLeft; i++)
+        {
+            Header* header = this->m_dequeHeaderRight.at(i);
+            
+            int num = header->getiNum();//哪一个位置
+            
+            num -= 1;
+            
+            num = (num <= 0) ? 0 : num;
+            
+            header->setiNum(num);//设置新的位置
+            
+            bool isVisible = (num < 3) ? true : false;
+            
+            header->setVisible(isVisible);
+            
+            Vec2 aimPos = this->getPosHeader(En_Camp_Team, num);
+            
+            MoveTo* moveTo = MoveTo::create(0.2f, aimPos);
+            
+            CallFuncN* callFunc = CallFuncN::create(CC_CALLBACK_1(HeaderManager::callBackMove,this));
+            
+            Sequence* seq = Sequence::create(moveTo,callFunc, NULL);
+            
+            header->runAction(seq);
+        }
+    }
 }
 
 void HeaderManager::callBackMove(Node* node)
@@ -220,14 +261,113 @@ void HeaderManager::callBackMove(Node* node)
     }
 
 }
-void HeaderManager::letGo(int line)
+void HeaderManager::letTeamGo(int line)
 {
-    Header* headerRight = this->m_dequeHeaderRight.front();
-    int index = headerRight->getiIndex();
     
-    SheepWhite* sheepWhite = SheepWhite::createWithFrameAnim("images/game/goldBig.png");
-    sheepWhite->setPosition(DISPLAY_LEFT,DISPLAY_BOTTOM + 120*line + 60);
-    this->getLayer()->addChild(sheepWhite,5);
+    Header* headerRight = this->m_dequeHeaderRight.front();
+    
+    bool isUse = headerRight->getbIsUse();
+    if(isUse)
+    {
+        DLog::d("放出一只白羊,line",line);
+        int index = headerRight->getiIndex();
+        int camp = headerRight->getiCamp();
+        
+        int xPos = 0;
+        
+        switch (camp) {
+            case En_Camp_Team:
+            {
+                xPos = DISPLAY_RIGHT;
+            }
+                break;
+            case En_Camp_Enemy:
+            {
+                xPos = DISPLAY_LEFT;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        SheepWhite* sheepWhite = SheepWhite::create(index, camp);
+        
+        sheepWhite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+        
+        sheepWhite->setPosition(xPos,DISPLAY_BOTTOM + 120*line + 20);
+        
+        this->getLayer()->addChild(sheepWhite,5);
+        
+        sheepWhite->setiLine(line);
+        
+        
+        int sizeLeft = (int)this->m_dequeHeaderRight.size();
+        if(sizeLeft > 0)
+        {
+            Header* headerFront = this->m_dequeHeaderRight.front();
+            if(headerFront->getbIsUse())
+            {
+                this->removeHeaderFront(headerFront->getiCamp());
+            }
+        }
+    }
+    else{
+        //显示大叉子
+        DLog::d("第1只羊还处于冷却状态.请等待...");
+        headerRight->addChaZi();
+    }
+    
+}
+
+void HeaderManager::letEnemyGo(int line)
+{
+    DLog::d("放出一只黑羊,line",line);
+    Header* headerRight = this->m_dequeHeaderLeft.front();
+    int index = headerRight->getiIndex();
+    int camp = headerRight->getiCamp();
+    
+    int xPos = 0;
+    
+    switch (camp) {
+        case En_Camp_Team:
+        {
+            xPos = DISPLAY_RIGHT;
+        }
+            break;
+        case En_Camp_Enemy:
+        {
+            xPos = DISPLAY_LEFT;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    ///创建一个敌人羊
+    
+    SheepBlack* sheepBlack = SheepBlack::create(index, camp);
+    
+    sheepBlack->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+    
+    sheepBlack->setPosition(xPos,DISPLAY_BOTTOM + 120*line + 20);
+    
+    this->getLayer()->addChild(sheepBlack,5);
+    
+    sheepBlack->setiLine(line);
+    
+    //-------------------------------
+    //移除一个头像
+    int sizeLeft = (int)this->m_dequeHeaderLeft.size();
+    if(sizeLeft > 0)
+    {
+        Header* headerFront = this->m_dequeHeaderLeft.front();
+        if(headerFront->getbIsUse())
+        {
+            this->removeHeaderFront(headerFront->getiCamp());
+        }
+    }
 }
 
 int HeaderManager::getHeaderIndex()
@@ -256,18 +396,18 @@ Vec2 HeaderManager::getPosHeader(int camp,int num)
 {
     Vec2 pos = Vec2::ZERO;
 
-    int yPos = DISPLAY_TOP - 48;
+    int yPos = DISPLAY_TOP - 50;
 
     switch (camp) {
         case En_Camp_Team:
         {
-            Vec2 originRight[4] = {Vec2(1116, yPos),Vec2(996, yPos),Vec2(890, yPos),Vec2(770, yPos)};
+            Vec2 originRight[4] = {Vec2(1114, yPos),Vec2(994, yPos),Vec2(888, yPos),Vec2(770, yPos)};
             pos = originRight[num];
         }
             break;
         case En_Camp_Enemy:
         {
-            Vec2 originLeft[4] = {Vec2(170, yPos),Vec2(285, yPos),Vec2(392, yPos),Vec2(511, yPos)};
+            Vec2 originLeft[4] = {Vec2(168, yPos),Vec2(285, yPos),Vec2(392, yPos),Vec2(511, yPos)};
             pos = originLeft[num];
         }
             break;
