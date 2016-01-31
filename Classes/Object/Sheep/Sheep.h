@@ -53,6 +53,8 @@ private:
     CC_SYNTHESIZE(bool, m_bIsCollide, bIsCollide);
     ///是不是死了
     CC_SYNTHESIZE(bool, m_bIsDead, bIsDead);
+    ///动作
+    CC_SYNTHESIZE(unsigned int, m_iAniState, iAniState);
 };
 
 #endif /* Sheep_h */

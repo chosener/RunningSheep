@@ -113,6 +113,8 @@ void Line::update(float dt)
                     bool isContainW = m_vecSheepCollide.contains(white);
                     bool isContainB = m_vecSheepCollide.contains(black);
                     
+                    white->playAction(En_Action_Hit);
+                    
                     if(!isContainW)
                     {
                         m_vecSheepCollide.pushBack(white);

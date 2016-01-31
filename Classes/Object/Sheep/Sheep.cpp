@@ -25,6 +25,8 @@ Sheep::Sheep()
     
     this->setbIsDead(false);
     
+    this->setiAniState(En_Action_None);
+    
     this->scheduleUpdate();
 }
 Sheep::~Sheep()
