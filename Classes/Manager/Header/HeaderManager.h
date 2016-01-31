@@ -17,6 +17,8 @@
 #include "../../Object/Sheep/SheepWhite.h"
 #include "../../Object/Sheep/SheepBlack.h"
 
+#include "../../Manager/Line/LineManager.h"
+
 ///头像管理
 class HeaderManager : public Ref
 {

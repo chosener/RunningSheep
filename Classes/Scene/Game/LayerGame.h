@@ -16,6 +16,7 @@
 
 #include "../../Object/Sheep/SheepWhite.h"
 #include "../../Manager/Header/HeaderManager.h"
+#include "../../Manager/Line/LineManager.h"
 
 //游戏主菜单
 class LayerGame : public BasicLayer
@@ -56,9 +57,12 @@ private:
 private:
     ///头像管理器更新
     void updateManagerHeader(float dt);
+    ///更新线路
+    void updateManagerLine(float dt);
     
 private:
     HeaderManager* m_HeaderMng;
+    LineManager* m_LineMng;
 };
 
 #endif /* defined(__MagicTouch__LayerGame__) */

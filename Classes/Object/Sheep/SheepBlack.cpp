@@ -26,6 +26,8 @@ bool SheepBlack::initWithIndex(int index,int camp)
     this->setiIndex(index);
     
     this->setiCamp(camp);
+
+    this->setSheepPower();
     
     string namePng = this->getNamePng(index, camp);
     

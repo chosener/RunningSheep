@@ -273,33 +273,17 @@ void HeaderManager::letTeamGo(int line)
         int index = headerRight->getiIndex();
         int camp = headerRight->getiCamp();
         
-        int xPos = 0;
-        
-        switch (camp) {
-            case En_Camp_Team:
-            {
-                xPos = DISPLAY_RIGHT;
-            }
-                break;
-            case En_Camp_Enemy:
-            {
-                xPos = DISPLAY_LEFT;
-            }
-                break;
-                
-            default:
-                break;
-        }
-        
         SheepWhite* sheepWhite = SheepWhite::create(index, camp);
         
         sheepWhite->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
         
-        sheepWhite->setPosition(xPos,DISPLAY_BOTTOM + 120*line + 20);
+        sheepWhite->setPosition(DISPLAY_RIGHT - 100,DISPLAY_BOTTOM + 120*line + 20);
         
         this->getLayer()->addChild(sheepWhite,5);
         
         sheepWhite->setiLine(line);
+        
+        LineManager::getInstance()->pushSheepIntoLine(line, sheepWhite);
         
         
         int sizeLeft = (int)this->m_dequeHeaderRight.size();
@@ -327,35 +311,19 @@ void HeaderManager::letEnemyGo(int line)
     int index = headerRight->getiIndex();
     int camp = headerRight->getiCamp();
     
-    int xPos = 0;
-    
-    switch (camp) {
-        case En_Camp_Team:
-        {
-            xPos = DISPLAY_RIGHT;
-        }
-            break;
-        case En_Camp_Enemy:
-        {
-            xPos = DISPLAY_LEFT;
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
     ///创建一个敌人羊
     
     SheepBlack* sheepBlack = SheepBlack::create(index, camp);
     
     sheepBlack->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
     
-    sheepBlack->setPosition(xPos,DISPLAY_BOTTOM + 120*line + 20);
+    sheepBlack->setPosition(DISPLAY_LEFT + 100,DISPLAY_BOTTOM + 120*line + 20);
     
     this->getLayer()->addChild(sheepBlack,5);
     
     sheepBlack->setiLine(line);
+    
+    LineManager::getInstance()->pushSheepIntoLine(line, sheepBlack);
     
     //-------------------------------
     //移除一个头像

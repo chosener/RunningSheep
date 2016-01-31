@@ -14,12 +14,16 @@ Sheep::Sheep()
     this->setiType(En_SheepType_None);
     this->setiIndex(0);
     this->setfPower(0.0f);
-    this->setiSpeed(0);
+    this->setfSpeed(0);
     this->setiDirection(En_Direction_None);
     
     this->setrectCollide(Rect::ZERO);
     
     this->setiLine(0);
+    
+    this->setbIsCollide(false);
+    
+    this->setbIsDead(false);
     
     this->scheduleUpdate();
 }
@@ -45,29 +49,23 @@ void Sheep::update(float dt)
     Vec2 pos = this->getPosition();
     
     float speed = 0.0f;
-    
-    switch (this->m_iCamp)
+
+    bool bIsCollide = this->getbIsCollide();
+    if(bIsCollide)
     {
-        case En_Camp_Team:
-        {
-            speed = -3.0f;
-        }
-            break;
-        case En_Camp_Enemy:
-        {
-            speed = 3.0f;
-        }
-            break;
-            
-        default:
-            break;
+        speed = this->getfSpeed();
+    }
+    else
+    {
+        speed = this->getfPower();
     }
     
     setPositionX(pos.x + speed);
     
     if(!DISPLAY_RECT.intersectsRect(this->m_rectCollide))
     {
-        this->release();
+        this->setbIsDead(true);
+        this->releaseSelf();
     }
     
 }
@@ -135,7 +133,7 @@ void Sheep::setSheepPower()
     this->setfPower(fPower);
 }
 
-void Sheep::release()
+void Sheep::releaseSelf()
 {
     this->removeFromParent();
 }

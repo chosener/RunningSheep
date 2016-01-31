@@ -88,6 +88,10 @@ void LayerGame::initManager()
     this->m_HeaderMng = HeaderManager::getInstance();
     this->m_HeaderMng->setLayer(this);
     this->m_HeaderMng->addStartHeader();
+    
+    this->m_LineMng = LineManager::getInstance();
+    this->m_LineMng->setLayer(this);
+    this->m_LineMng->addLineToLayer();
 }
 void LayerGame::initBackGround()
 {
@@ -244,6 +248,7 @@ void LayerGame::onSheepGo(Node* sender, Touch* touch, Event* e)
 void LayerGame::update(float dt)
 {
     this->updateManagerHeader(dt);
+    this->updateManagerLine(dt);
 }
 
 ///头像管理器更新
@@ -251,4 +256,10 @@ void LayerGame::updateManagerHeader(float dt)
 {
     
     this->m_HeaderMng->update(dt);
+}
+
+///更新线路
+void LayerGame::updateManagerLine(float dt)
+{
+    this->m_LineMng->update(dt);
 }

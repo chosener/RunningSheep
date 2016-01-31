@@ -12,7 +12,9 @@
 #include <stdio.h>
 #include "../../Framework/CocosHead.h"
 #include "../../Framework/GameHeader.h"
-
+#include "../../Object/Sheep/SheepWhite.h"
+#include "../../Object/Sheep/SheepBlack.h"
+#include "../../Object/Line/Line.h"
 
 class LineManager : public Ref
 {
@@ -25,10 +27,23 @@ public:
     static LineManager* getInstance();
     
     void update(float dt);
-
     
-private:
+    void addLineToLayer();
+    
+    void pushSheepIntoLine(int _line,SheepWhite* _sheep);
+    void pushSheepIntoLine(int _line,SheepBlack* _sheep);
+    
+    void eraseSheepIntoLine(int _line,SheepWhite* _sheep);
+    void eraseSheepIntoLine(int _line,SheepBlack* _sheep);
+    
+public:
+    Line* getLine(int index);
 
+private:
+    Vector<Line*> m_vecLine;
+
+    ///游戏层
+    CC_SYNTHESIZE(Layer*, m_Layer, Layer);
 };
 
 #endif /* defined(__MagicTouch__LineManager__) */
