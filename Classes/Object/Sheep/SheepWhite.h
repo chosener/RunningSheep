@@ -37,6 +37,10 @@ private:
 
     void initView();
     void callBackAni(Node* node);
+    
+    void releaseSelf();
+    
+    void update(float dt);
 private:
     string getNamePng(int index,int camp);
     string getNamePngHit(int index,int camp);

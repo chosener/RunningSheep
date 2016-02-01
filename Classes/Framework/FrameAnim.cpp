@@ -17,10 +17,15 @@ Sprite* createFrameAnimForever(const char* plist, const char*png,
 	frameCache->addSpriteFramesWithFile(plist, png);
 
 	int i = 0;
+    string strName = "";
 	Vector<SpriteFrame*> animFrames;
-	for (i = index; i < index + count; i++) {
-		sprintf(name, name_format, i);
-		SpriteFrame* frame = frameCache->getSpriteFrameByName(name);
+	for (i = index; i < index + count; i++)
+    {
+        sprintf(name, "%d.png", i);
+        
+        strName = StringUtils::format("%s%s",name_format,name);
+        
+		SpriteFrame* frame = frameCache->getSpriteFrameByName(strName);
 		animFrames.pushBack(frame);
 	}
 
@@ -29,8 +34,8 @@ Sprite* createFrameAnimForever(const char* plist, const char*png,
 
 	Sprite* it = Sprite::create();
 
-	sprintf(name, name_format, index);
-	SpriteFrame* frame = frameCache->getSpriteFrameByName(name);
+	//sprintf(name, name_format, index);
+	SpriteFrame* frame = frameCache->getSpriteFrameByName(strName);
 	it->setSpriteFrame(frame);
 
 	it->runAction(RepeatForever::create(anim));
@@ -107,5 +112,55 @@ Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, 
     
     it->runAction(RepeatForever::create(anim));
     
+    return it;
+}
+Sprite* createFrameAnimSingle(const char* path,const char* name,int count,int delay)
+{
+    
+#if 1
+    Vector<SpriteFrame*> animFrames;
+    
+    for (int i = 1; i<=count;i++)
+    {
+        char szName[100] = {0};
+        
+        sprintf(szName, "0%d.png", i);
+        
+        string strName = StringUtils::format("%s%s%s",path,name,szName);
+        
+        SpriteFrame* frame = SpriteFrame::create(strName, Rect(0, 0, 21, 30));
+        
+        animFrames.pushBack(frame);
+    }
+    
+    Animation* animation = Animation::createWithSpriteFrames(animFrames, delay);
+    
+    Animate* anim = Animate::create(animation);
+#endif
+    
+#if 0
+    auto animation = Animation::create();
+    for( int i=1;i<count;i++)
+    {
+        char szName[100] = {0};
+        sprintf(szName, "0%d.png", i);
+        
+        string strName = StringUtils::format("%s%s%s",path,name,szName);
+        
+        animation->addSpriteFrameWithFile(strName);
+
+    }
+
+    // should last 2.8 seconds. And there are 14 frames.
+    animation->setDelayPerUnit(delay);
+    animation->setRestoreOriginalFrame(true);
+    Animate* anim = Animate::create(animation);
+
+#endif
+    
+    Sprite* it = Sprite::create();
+    
+    it->runAction(RepeatForever::create(anim));
+
     return it;
 }

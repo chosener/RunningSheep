@@ -151,7 +151,7 @@ void LayerGame::initUI()
     //关卡字
     Sprite* spTxtGuanKa = Sprite::create("images/game/txt_guanka.png");
     spTxtGuanKa->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 30.0f);
-    this->addChild(spTxtGuanKa,1000);
+    this->addChild(spTxtGuanKa,1100);
     
     //金币icon背景
     Sprite* spBgIconGold = Sprite::create("images/game/img_bg_gold.png");
@@ -162,6 +162,10 @@ void LayerGame::initUI()
     Sprite* spIconGold = Sprite::create("images/game/goldBig.png");
     spIconGold->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 200.0f);
     this->addChild(spIconGold,100);
+    
+    ImageButton* imgBtnPause = ImageButton::create("images/game/btn_pause.png", "images/game/btn_pause_s.png");
+    imgBtnPause->setPosition(DISPLAY_RIGHT - 50,DISPLAY_TOP - 40.0f);
+    this->addChild(imgBtnPause,1100);
 }
 void LayerGame::initButton()
 {

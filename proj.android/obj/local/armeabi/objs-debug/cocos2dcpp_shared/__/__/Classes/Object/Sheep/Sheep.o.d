@@ -1,8 +1,6 @@
 ./obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/Object/Sheep/Sheep.o: \
   jni/../../Classes/Object/Sheep/Sheep.cpp \
-  jni/../../Classes/Object/Sheep/../../Framework/GameHeader.h \
-  jni/../../Classes/Object/Sheep/../../Framework/common.h \
-  jni/../../Classes/Object/Sheep/../../Framework/CocosHead.h \
+  jni/../../Classes/Object/Sheep/Sheep.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdio.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
@@ -31,6 +29,7 @@
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h \
+  jni/../../Classes/Object/Sheep/../../Framework/CocosHead.h \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/iostream \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/__config \
   /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/ios \
@@ -318,27 +317,17 @@
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
   jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
+  jni/../../Classes/Object/Sheep/../../Framework/GameHeader.h \
+  jni/../../Classes/Object/Sheep/../../Framework/common.h \
   jni/../../Classes/Object/Sheep/../../Framework/ImageButton.h \
   jni/../../Classes/Object/Sheep/../../Framework/GameTouchNode.h \
   jni/../../Classes/Object/Sheep/../../Framework/TouchSprite.h \
   jni/../../Classes/Object/Sheep/../../Framework/GlobalEnum.h \
+  jni/../../Classes/Object/Sheep/../../Framework/GlobalDefine.h \
   jni/../../Classes/Object/Sheep/../../Framework/FrameAnim.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../System/Debug/DLog.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/LayerStart.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Scene/MainMenu/LayerMainMenu.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Scene/Game/LayerGame.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Manager/Scene/SceneManager.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/Sheep.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/SheepBlack.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/SheepWhite.h \
-  jni/../../Classes/Object/Sheep/../../Framework/../Object/Header/Header.h
+  jni/../../Classes/Object/Sheep/../../Framework/../System/Debug/DLog.h
 
-jni/../../Classes/Object/Sheep/../../Framework/GameHeader.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/common.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/CocosHead.h:
+jni/../../Classes/Object/Sheep/Sheep.h:
 
 /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h:
 
@@ -395,6 +384,8 @@ jni/../../Classes/Object/Sheep/../../Framework/CocosHead.h:
 /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h:
 
 /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h:
+
+jni/../../Classes/Object/Sheep/../../Framework/CocosHead.h:
 
 /Users/saintking/Documents/ndk/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/iostream:
 
@@ -970,6 +961,10 @@ jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
 
+jni/../../Classes/Object/Sheep/../../Framework/GameHeader.h:
+
+jni/../../Classes/Object/Sheep/../../Framework/common.h:
+
 jni/../../Classes/Object/Sheep/../../Framework/ImageButton.h:
 
 jni/../../Classes/Object/Sheep/../../Framework/GameTouchNode.h:
@@ -978,24 +973,8 @@ jni/../../Classes/Object/Sheep/../../Framework/TouchSprite.h:
 
 jni/../../Classes/Object/Sheep/../../Framework/GlobalEnum.h:
 
+jni/../../Classes/Object/Sheep/../../Framework/GlobalDefine.h:
+
 jni/../../Classes/Object/Sheep/../../Framework/FrameAnim.h:
 
 jni/../../Classes/Object/Sheep/../../Framework/../System/Debug/DLog.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/LayerStart.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Scene/Start/../../Framework/BasicLayer.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Scene/MainMenu/LayerMainMenu.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Scene/Game/LayerGame.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Manager/Scene/SceneManager.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/Sheep.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/SheepBlack.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Object/Sheep/SheepWhite.h:
-
-jni/../../Classes/Object/Sheep/../../Framework/../Object/Header/Header.h:

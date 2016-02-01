@@ -2,6 +2,7 @@
 #define __FRAME_ANIM_H__
 
 #include "cocos2d.h"
+using namespace std;
 USING_NS_CC;
 
 /*
@@ -16,4 +17,6 @@ Sprite* createFrameAnimOnce(const char* plist, const char*png,
 						 int count, float time, CallFunc* func = NULL);
 
 Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, int count, float time);
+
+Sprite* createFrameAnimSingle(const char* path,const char* name,int count,int delay);
 #endif

@@ -29,6 +29,12 @@ public:
     void setSheepPower();
     void releaseSelf();
     
+    void addShadow();
+    
+    void addDust();
+    void removeDust();
+    
+    void addTears();
 private:
     void updateCollide(float dt);
 
