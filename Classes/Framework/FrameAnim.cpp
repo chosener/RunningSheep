@@ -113,6 +113,7 @@ Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, 
 Sprite* createFrameAnimSingle(const char* path,const char* name,int count,int delay)
 {
     
+#if 1
     Vector<SpriteFrame*> animFrames;
     
     for (int i = 1; i<=count;i++)
@@ -131,6 +132,27 @@ Sprite* createFrameAnimSingle(const char* path,const char* name,int count,int de
     Animation* animation = Animation::createWithSpriteFrames(animFrames, delay);
     
     Animate* anim = Animate::create(animation);
+#endif
+    
+#if 0
+    auto animation = Animation::create();
+    for( int i=1;i<count;i++)
+    {
+        char szName[100] = {0};
+        sprintf(szName, "0%d.png", i);
+        
+        string strName = StringUtils::format("%s%s%s",path,name,szName);
+        
+        animation->addSpriteFrameWithFile(strName);
+
+    }
+
+    // should last 2.8 seconds. And there are 14 frames.
+    animation->setDelayPerUnit(delay);
+    animation->setRestoreOriginalFrame(true);
+    Animate* anim = Animate::create(animation);
+
+#endif
     
     Sprite* it = Sprite::create();
     

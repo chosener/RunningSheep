@@ -118,6 +118,7 @@ void Sheep::addTears()
             break;
     }
     Sprite* spTear = createFrameAnimSingle("images/game/Effects/tears/", name.c_str(), 4, 0.2);
+    //Sprite* spTear = Sprite::create("images/game/Effects/tears/tearsFirst02.png");
     
     this->addChild(spTear,12,8);
 
