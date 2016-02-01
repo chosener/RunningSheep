@@ -323,17 +323,15 @@
   jni/../../Classes/Manager/Header/../../Framework/GameTouchNode.h \
   jni/../../Classes/Manager/Header/../../Framework/TouchSprite.h \
   jni/../../Classes/Manager/Header/../../Framework/GlobalEnum.h \
+  jni/../../Classes/Manager/Header/../../Framework/GlobalDefine.h \
   jni/../../Classes/Manager/Header/../../Framework/FrameAnim.h \
   jni/../../Classes/Manager/Header/../../Framework/../System/Debug/DLog.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Scene/Start/LayerStart.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Scene/Start/../../Framework/BasicLayer.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Scene/MainMenu/LayerMainMenu.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Scene/Game/LayerGame.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Manager/Scene/SceneManager.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/Sheep.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/SheepBlack.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/SheepWhite.h \
-  jni/../../Classes/Manager/Header/../../Framework/../Object/Header/Header.h
+  jni/../../Classes/Manager/Header/../../Object/Header/Header.h \
+  jni/../../Classes/Manager/Header/../../Object/Sheep/SheepWhite.h \
+  jni/../../Classes/Manager/Header/../../Object/Sheep/Sheep.h \
+  jni/../../Classes/Manager/Header/../../Object/Sheep/SheepBlack.h \
+  jni/../../Classes/Manager/Header/../../Manager/Line/LineManager.h \
+  jni/../../Classes/Manager/Header/../../Manager/Line/../../Object/Line/Line.h
 
 jni/../../Classes/Manager/Header/HeaderManager.h:
 
@@ -981,24 +979,20 @@ jni/../../Classes/Manager/Header/../../Framework/TouchSprite.h:
 
 jni/../../Classes/Manager/Header/../../Framework/GlobalEnum.h:
 
+jni/../../Classes/Manager/Header/../../Framework/GlobalDefine.h:
+
 jni/../../Classes/Manager/Header/../../Framework/FrameAnim.h:
 
 jni/../../Classes/Manager/Header/../../Framework/../System/Debug/DLog.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Scene/Start/LayerStart.h:
+jni/../../Classes/Manager/Header/../../Object/Header/Header.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Scene/Start/../../Framework/BasicLayer.h:
+jni/../../Classes/Manager/Header/../../Object/Sheep/SheepWhite.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Scene/MainMenu/LayerMainMenu.h:
+jni/../../Classes/Manager/Header/../../Object/Sheep/Sheep.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Scene/Game/LayerGame.h:
+jni/../../Classes/Manager/Header/../../Object/Sheep/SheepBlack.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Manager/Scene/SceneManager.h:
+jni/../../Classes/Manager/Header/../../Manager/Line/LineManager.h:
 
-jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/Sheep.h:
-
-jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/SheepBlack.h:
-
-jni/../../Classes/Manager/Header/../../Framework/../Object/Sheep/SheepWhite.h:
-
-jni/../../Classes/Manager/Header/../../Framework/../Object/Header/Header.h:
+jni/../../Classes/Manager/Header/../../Manager/Line/../../Object/Line/Line.h:

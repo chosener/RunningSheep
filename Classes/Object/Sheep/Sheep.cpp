@@ -10,24 +10,7 @@
 
 Sheep::Sheep()
 {
-    this->setiCamp(En_Camp_None);
-    this->setiType(En_SheepType_None);
-    this->setiIndex(0);
-    this->setfPower(0.0f);
-    this->setfSpeed(0);
-    this->setiDirection(En_Direction_None);
-    
-    this->setrectCollide(Rect::ZERO);
-    
-    this->setiLine(0);
-    
-    this->setbIsCollide(false);
-    
-    this->setbIsDead(false);
-    
-    this->setiAniState(En_Action_None);
-    
-    this->scheduleUpdate();
+
 }
 Sheep::~Sheep()
 {
@@ -40,8 +23,105 @@ bool Sheep::init()
         return false;
     }
 
-        
+    this->setiCamp(En_Camp_None);
+    this->setiType(En_SheepType_None);
+    this->setiIndex(0);
+    this->setfPower(0.0f);
+    this->setfSpeed(0);
+    this->setiDirection(En_Direction_None);
+    
+    this->setiLine(0);
+    
+    this->setbIsCollide(false);
+    
+    this->setbIsDead(false);
+    
+    this->setiAniState(En_Action_None);
+    
+    this->scheduleUpdate();
+    
     return true;
+}
+
+void Sheep::addShadow()
+{
+    string name = StringUtils::format("images/game/Effects/shadow%d.png",5 - this->m_iIndex);
+    Sprite* spShadow = Sprite::create(name.c_str());
+    Rect rect = this->getrectCollide();
+    //spShadow->setPosition(0,-rect.size.height/4);
+    this->addChild(spShadow,10);
+    bool isFlipX = false;
+    switch (this->m_iCamp) {
+        case En_Camp_Team:
+            isFlipX = true;
+            break;
+        case En_Camp_Enemy:
+            isFlipX = false;
+            break;
+            
+        default:
+            break;
+    }
+    spShadow->setFlippedX(isFlipX);
+}
+void Sheep::addDust()
+{
+    Sprite* spDust = createFrameRectAnimForever("images/game/Effects/Dust.png", 91, 22, 4, 0.2);
+
+    spDust->setFlippedX(true);
+    
+    this->addChild(spDust,10,5);
+    
+    bool isFlipX = false;
+    switch (this->m_iCamp) {
+        case En_Camp_Team:
+            isFlipX = true;
+            break;
+        case En_Camp_Enemy:
+            isFlipX = false;
+            break;
+            
+        default:
+            break;
+    }
+    spDust->setFlippedX(isFlipX);
+}
+
+void Sheep::removeDust()
+{
+    Sprite* spDust = (Sprite*)this->getChildByTag(5);
+    if(spDust)
+    {
+        spDust->removeFromParent();
+    }
+}
+
+void Sheep::addTears()
+{
+
+    string name = "";
+
+    switch (this->m_iCamp) {
+        case En_Camp_Team:
+        {
+            name = "tearsSecond";
+        }
+
+            break;
+        case En_Camp_Enemy:
+        {
+            name = "tearsFirst";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    Sprite* spTear = createFrameAnimSingle("images/game/Effects/tears/", name.c_str(), 4, 0.2);
+    
+    this->addChild(spTear,12,8);
+
+    spTear->setScale(3.0f);
 }
 
 void Sheep::update(float dt)
@@ -64,10 +144,11 @@ void Sheep::update(float dt)
     
     setPositionX(pos.x + speed);
     
-    if(!DISPLAY_RECT.intersectsRect(this->m_rectCollide))
+    Rect rectBattle = Rect(150, 0, DISPLAY_WIDTH - 150, DISPLAY_HEIGHT);
+    
+    if(!rectBattle.intersectsRect(this->m_rectCollide))
     {
         this->setbIsDead(true);
-        this->releaseSelf();
     }
     
 }
@@ -92,22 +173,22 @@ void Sheep::setSheepPower()
             break;
         case 1:
         {
-            fPower = 4.5f;
+            fPower = 4.0f;
         }
             break;
         case 2:
         {
-            fPower = 4.0f;
+            fPower = 3.0f;
         }
             break;
         case 3:
         {
-            fPower = 3.5f;
+            fPower = 2.5f;
         }
             break;
         case 4:
         {
-            fPower = 3.0f;
+            fPower = 2.0f;
         }
             break;
             

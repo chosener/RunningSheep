@@ -114,6 +114,7 @@ void Line::update(float dt)
                     bool isContainB = m_vecSheepCollide.contains(black);
                     
                     white->playAction(En_Action_Hit);
+                    black->playAction(En_Action_Hit);
                     
                     if(!isContainW)
                     {
@@ -154,21 +155,17 @@ void Line::update(float dt)
                 
                 if(sheep->getbIsDead())
                 {
-                    this->m_vecSheepCollide.eraseObject(sheep);
+                    //this->m_vecSheepCollide.eraseObject(sheep);
                     //sheep->releaseSelf();
                 }
             }
-            for (int i = 0; i<sizeSheep; i++)
-            {
 
-                
-            }
         }
 
 
     }
 
-    DLog::d("fSpeed", fSpeed);
+    //DLog::d("fSpeed", fSpeed);
 }
 
 

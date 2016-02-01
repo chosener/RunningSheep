@@ -54,7 +54,7 @@ void LineManager::addLineToLayer()
 
 void LineManager::update(float dt)
 {
-#if 1
+#if 0
     for (int i = 0; i < LINE_COUNT; i++)
     {
         Line* line = this->getLine(i);
@@ -65,29 +65,46 @@ void LineManager::update(float dt)
             if(white->getbIsDead())
             {
 
-                //white->releaseSelf();
                 this->eraseSheepIntoLine(i, white);
-                if(line->m_vecSheepCollide.contains(white))
+
+                if(!white->getbIsCollide())
                 {
-                    line->m_vecSheepCollide.eraseObject(white);
+                    white->releaseSelf();
                 }
+                
             }
             
         }
-        for(const auto &black : line->m_vecSheepBlack)
+        int sizeBlack = (int)line->m_vecSheepBlack.size();
+        //for(const auto &black : line->m_vecSheepBlack)
+        for (int i = 0; i<sizeBlack; i++)
         {
-            //SheepBlack* black = line->m_vecSheepBlack.at(j);
-            if(black->getbIsDead())
+            SheepBlack* black = line->m_vecSheepBlack.at(i);
+            bool isDead = black->getbIsDead();
+            if(isDead)
             {
 
-                //black->releaseSelf();
-                this->eraseSheepIntoLine(i, black);
-                if(line->m_vecSheepCollide.contains(black))
+                //this->eraseSheepIntoLine(i, black);
+                line->m_vecSheepBlack.eraseObject(black);
+                
+                if(!black->getbIsCollide())
                 {
-                    line->m_vecSheepCollide.eraseObject(black);
+                    black->releaseSelf();
                 }
+
             }
             
+        }
+        
+        for(const auto &sheep : line->m_vecSheepCollide)
+        {
+            //Sheep* sheep = this->m_vecSheepCollide.at(i);
+            
+            if(sheep->getbIsDead())
+            {
+                line->m_vecSheepCollide.eraseObject(sheep);
+                sheep->releaseSelf();
+            }
         }
         
     }

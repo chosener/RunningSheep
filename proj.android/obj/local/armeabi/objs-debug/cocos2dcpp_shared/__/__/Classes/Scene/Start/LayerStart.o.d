@@ -323,16 +323,11 @@
   jni/../../Classes/Scene/Start/../../Framework/GameTouchNode.h \
   jni/../../Classes/Scene/Start/../../Framework/TouchSprite.h \
   jni/../../Classes/Scene/Start/../../Framework/GlobalEnum.h \
+  jni/../../Classes/Scene/Start/../../Framework/GlobalDefine.h \
   jni/../../Classes/Scene/Start/../../Framework/FrameAnim.h \
   jni/../../Classes/Scene/Start/../../Framework/../System/Debug/DLog.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Scene/MainMenu/LayerMainMenu.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Scene/MainMenu/../../Framework/BasicLayer.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Scene/Game/LayerGame.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Manager/Scene/SceneManager.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/Sheep.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/SheepBlack.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/SheepWhite.h \
-  jni/../../Classes/Scene/Start/../../Framework/../Object/Header/Header.h
+  jni/../../Classes/Scene/Start/../../Framework/BasicLayer.h \
+  jni/../../Classes/Scene/Start/../../Manager/Scene/SceneManager.h
 
 jni/../../Classes/Scene/Start/LayerStart.h:
 
@@ -980,22 +975,12 @@ jni/../../Classes/Scene/Start/../../Framework/TouchSprite.h:
 
 jni/../../Classes/Scene/Start/../../Framework/GlobalEnum.h:
 
+jni/../../Classes/Scene/Start/../../Framework/GlobalDefine.h:
+
 jni/../../Classes/Scene/Start/../../Framework/FrameAnim.h:
 
 jni/../../Classes/Scene/Start/../../Framework/../System/Debug/DLog.h:
 
-jni/../../Classes/Scene/Start/../../Framework/../Scene/MainMenu/LayerMainMenu.h:
+jni/../../Classes/Scene/Start/../../Framework/BasicLayer.h:
 
-jni/../../Classes/Scene/Start/../../Framework/../Scene/MainMenu/../../Framework/BasicLayer.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Scene/Game/LayerGame.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Manager/Scene/SceneManager.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/Sheep.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/SheepBlack.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Object/Sheep/SheepWhite.h:
-
-jni/../../Classes/Scene/Start/../../Framework/../Object/Header/Header.h:
+jni/../../Classes/Scene/Start/../../Manager/Scene/SceneManager.h:

@@ -7,6 +7,7 @@
 //
 
 #include "SheepWhite.h"
+#include "../../Manager/Line/LineManager.h"
 
 SheepWhite::SheepWhite()
 {
@@ -27,6 +28,8 @@ bool SheepWhite::initWithIndex(int index,int camp)
     this->setiIndex(index);
     
     this->setiCamp(camp);
+
+    this->setrectCollide(Rect(DISPLAY_RIGHT, DISPLAY_BOTTOM, 10, 10));
     
     this->setSheepPower();
 
@@ -34,8 +37,9 @@ bool SheepWhite::initWithIndex(int index,int camp)
     
     //icon->setTexture("images/game/sheep/Sheep_Right/huge_rightSheep_hit.png");
     
-
     initView();
+    
+    this->addShadow();
     
     return true;
 }
@@ -131,8 +135,6 @@ void SheepWhite::initView()
     this->setrectCollide(Rect(0, 0, sizeCollide.width, sizeCollide.height));
 }
 
-
-
 void SheepWhite::playAction(int _indexAction)
 {
 
@@ -171,6 +173,9 @@ void SheepWhite::playAction(int _indexAction)
                 icon0->runAction(seq);
                 
             }
+            
+            this->removeDust();
+            
 
         }
             break;
@@ -200,6 +205,8 @@ void SheepWhite::playAction(int _indexAction)
                 
                 icon0->runAction(seq);
             }
+            
+            this->addDust();
 
         }
             break;
@@ -207,11 +214,30 @@ void SheepWhite::playAction(int _indexAction)
         default:
             break;
     }
+    Size sizeCollide = this->getCollideSize(this->m_iIndex,this->m_iAniState);
+    this->setrectCollide(Rect(0, 0, sizeCollide.width, sizeCollide.height));
 }
 void SheepWhite::callBackAni(Node* node)
 {
     node->removeFromParent();
 }
+void SheepWhite::releaseSelf()
+{
+    Sheep::releaseSelf();
+    
+    LineManager::getInstance()->eraseSheepIntoLine(this->m_iLine, this);
+}
+
+void SheepWhite::update(float dt)
+{
+    Sheep::update(dt);
+    
+    if(this->m_bIsDead)
+    {
+        this->releaseSelf();
+    }
+}
+
 Size SheepWhite::getAnimSize(int index,int _indexAction)
 {
     Size size = Size::ZERO;
