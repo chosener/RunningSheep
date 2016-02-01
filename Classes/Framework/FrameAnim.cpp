@@ -17,11 +17,15 @@ Sprite* createFrameAnimForever(const char* plist, const char*png,
 	frameCache->addSpriteFramesWithFile(plist, png);
 
 	int i = 0;
+    string strName = "";
 	Vector<SpriteFrame*> animFrames;
 	for (i = index; i < index + count; i++)
     {
-		sprintf(name, name_format, i);
-		SpriteFrame* frame = frameCache->getSpriteFrameByName(name);
+        sprintf(name, "%d.png", i);
+        
+        strName = StringUtils::format("%s%s",name_format,name);
+        
+		SpriteFrame* frame = frameCache->getSpriteFrameByName(strName);
 		animFrames.pushBack(frame);
 	}
 
@@ -30,8 +34,8 @@ Sprite* createFrameAnimForever(const char* plist, const char*png,
 
 	Sprite* it = Sprite::create();
 
-	sprintf(name, name_format, index);
-	SpriteFrame* frame = frameCache->getSpriteFrameByName(name);
+	//sprintf(name, name_format, index);
+	SpriteFrame* frame = frameCache->getSpriteFrameByName(strName);
 	it->setSpriteFrame(frame);
 
 	it->runAction(RepeatForever::create(anim));

@@ -207,6 +207,8 @@ void SheepWhite::playAction(int _indexAction)
             }
             
             this->addDust();
+            
+            this->addTears();
 
         }
             break;
