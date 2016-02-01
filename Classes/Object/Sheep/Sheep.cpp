@@ -104,25 +104,25 @@ void Sheep::addTears()
     Sprite* spTear = nullptr;
     
     switch (this->m_iCamp) {
-        case En_Camp_Team:
+        case En_Camp_Enemy:
         {
             name = "tearsSecond";
             spTear = createFrameAnimForever("images/game/Effects/tears/tearsSecond.plist","images/game/Effects/tears/tearsSecond.png","tearsSecond0",1,4,0.2f);
             
             Rect rest = this->getrectCollide();
             
-            spTear->setPosition(-rest.size.width/3,rest.size.height/3);
+            spTear->setPosition(rest.size.width/3.5,rest.size.height/3);
         }
 
             break;
-        case En_Camp_Enemy:
+        case En_Camp_Team:
         {
             name = "tearsFirst";
             spTear = createFrameAnimForever("images/game/Effects/tears/tears_First.plist","images/game/Effects/tears/tears_First.png","tearsFirst0",1,4,0.2f);
             
             Rect rest = this->getrectCollide();
             
-            spTear->setPosition(rest.size.width/3,rest.size.height/3);
+            spTear->setPosition(-rest.size.width/3.5,rest.size.height/3);
         }
             break;
             
@@ -132,7 +132,7 @@ void Sheep::addTears()
 
     this->addChild(spTear,12,8);
 
-    spTear->setScale(2.0f);
+    spTear->setScale(1.5f);
 }
 
 void Sheep::update(float dt)
