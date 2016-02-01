@@ -12,4 +12,7 @@
 ///羊的种类
 #define SHEEP_KIND 5
 
+///总线路数
+#define LINE_COUNT 5
+
 #endif /* GlobalDefine_h */

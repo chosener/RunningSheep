@@ -1,5 +1,5 @@
-#ifndef __TOUCH_SPRITE_H__
-#define __TOUCH_SPRITE_H__
+#ifndef __RunningSheep_Test_H__
+#define __RunningSheep_Test_H__
 
 #include <stdio.h>
 #include "../../Framework/CocosHead.h"

@@ -41,4 +41,12 @@ enum EnumSheepType
     En_SheepType_Max,
 };
 
+///动作
+enum EnumAction
+{
+    En_Action_None,
+    En_Action_Run,
+    En_Action_Hit,
+    En_Action_Max,
+};
 #endif /* GlobalEnum_h */

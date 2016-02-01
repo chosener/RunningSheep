@@ -14,7 +14,10 @@
 #include "../../Framework/GameHeader.h"
 
 #include "../../Object/Header/Header.h"
+#include "../../Object/Sheep/SheepWhite.h"
+#include "../../Object/Sheep/SheepBlack.h"
 
+#include "../../Manager/Line/LineManager.h"
 
 ///头像管理
 class HeaderManager : public Ref
@@ -32,6 +35,11 @@ public:
     void addStartHeader();
     
     void removeHeaderFront(int camp);
+    
+    ///放一个队友出去
+    void letTeamGo(int line);
+    ///放一个敌人出去
+    void letEnemyGo(int line);
 private:
     void initVariables();
     ///添加头像(阵营,位置)

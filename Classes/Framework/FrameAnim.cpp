@@ -83,13 +83,13 @@ Sprite* createFrameAnimOnce(const char* plist, const char*png,
 
 Sprite* createFrameRectAnimForever(const char*png,int widthCell,int heightCell, int count, float time)
 {
-    char name[128];
+    //char name[128];
     
     if (count <= 0  || png == NULL) {
         return NULL;
     }
     
-    Texture2D *texture = TextureCache::getInstance()->addImage(png);
+    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage(png);
 
     int i = 0;
     Vector<SpriteFrame*> animFrames;

@@ -69,6 +69,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		D6F38CDE1C5DF30700A97264 /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6F38CDC1C5DF30700A97264 /* Line.cpp */; };
+		D6F38CE21C5DF38200A97264 /* LineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6F38CE01C5DF38200A97264 /* LineManager.cpp */; };
 		FD80243C1C5B188600CF6729 /* BasicLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD80240A1C5B188600CF6729 /* BasicLayer.cpp */; };
 		FD80243E1C5B188600CF6729 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD80240F1C5B188600CF6729 /* common.cpp */; };
 		FD80243F1C5B188600CF6729 /* FrameAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8024111C5B188600CF6729 /* FrameAnim.cpp */; };
@@ -296,6 +298,10 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		D6F38CDC1C5DF30700A97264 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
+		D6F38CDD1C5DF30700A97264 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		D6F38CE01C5DF38200A97264 /* LineManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineManager.cpp; sourceTree = "<group>"; };
+		D6F38CE11C5DF38200A97264 /* LineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineManager.h; sourceTree = "<group>"; };
 		FD80240A1C5B188600CF6729 /* BasicLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicLayer.cpp; sourceTree = "<group>"; };
 		FD80240B1C5B188600CF6729 /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
 		FD80240E1C5B188600CF6729 /* CocosHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosHead.h; sourceTree = "<group>"; };
@@ -559,6 +565,24 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		D6F38CD81C5DF2CA00A97264 /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				D6F38CDC1C5DF30700A97264 /* Line.cpp */,
+				D6F38CDD1C5DF30700A97264 /* Line.h */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
+		D6F38CDF1C5DF38200A97264 /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				D6F38CE01C5DF38200A97264 /* LineManager.cpp */,
+				D6F38CE11C5DF38200A97264 /* LineManager.h */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
 		FD8024091C5B188600CF6729 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +662,7 @@
 		FD80242B1C5B188600CF6729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				D6F38CDF1C5DF38200A97264 /* Line */,
 				FD8024701C5C6C5C00CF6729 /* Header */,
 				FD80242C1C5B188600CF6729 /* Scene */,
 			);
@@ -705,6 +730,7 @@
 		FD80245A1C5B448A00CF6729 /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				D6F38CD81C5DF2CA00A97264 /* Line */,
 				FD80246C1C5C6C0500CF6729 /* Header */,
 				FD80245B1C5B4B2800CF6729 /* Sheep */,
 			);
@@ -965,6 +991,7 @@
 				FD80243F1C5B188600CF6729 /* FrameAnim.cpp in Sources */,
 				FD8024461C5B188600CF6729 /* LayerGame.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				D6F38CDE1C5DF30700A97264 /* Line.cpp in Sources */,
 				FD8024731C5C6DA100CF6729 /* HeaderManager.cpp in Sources */,
 				FD8024471C5B188600CF6729 /* LayerMainMenu.cpp in Sources */,
 				FD8024681C5B514D00CF6729 /* SheepWhite.cpp in Sources */,
@@ -983,6 +1010,7 @@
 				FD8024491C5B188600CF6729 /* SceneManager.cpp in Sources */,
 				FD80244B1C5B188600CF6729 /* ComboEffect.cpp in Sources */,
 				FD8024671C5B514D00CF6729 /* SheepBlack.cpp in Sources */,
+				D6F38CE21C5DF38200A97264 /* LineManager.cpp in Sources */,
 				FD80244A1C5B188600CF6729 /* DLog.cpp in Sources */,
 				FD8024611C5B4B7E00CF6729 /* Sheep.cpp in Sources */,
 			);
@@ -1058,8 +1086,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HOU FENG (FJQ38MG464)";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1089,8 +1118,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HOU FENG (FJQ38MG464)";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
