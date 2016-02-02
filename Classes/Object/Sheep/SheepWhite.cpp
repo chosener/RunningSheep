@@ -337,7 +337,7 @@ Size SheepWhite::getCollideSize(int index,int _indexAction)
 {
     Size size = Size::ZERO;
     
-    float rate = 0.7f;
+    float rate = 0.8f;
     
     switch (index) {
         case 0:
