@@ -151,7 +151,7 @@ void SheepBlack::playAction(int _indexAction)
             
             string namePng = this->getNamePng(this->m_iIndex, this->m_iCamp);
             
-            Size size = this->getAnimSize(this->m_iIndex);
+            Size size = this->getAnimSize(this->m_iIndex,_indexAction);
             
             Sprite* icon = createFrameRectAnimForever(namePng.c_str(), size.width, size.height, 8, 0.1);
             
@@ -179,7 +179,7 @@ void SheepBlack::playAction(int _indexAction)
             
             string namePng = this->getNamePngHit(this->m_iIndex, this->m_iCamp);
             
-            Size size = this->getAnimSize(this->m_iIndex,En_Action_Hit);
+            Size size = this->getAnimSize(this->m_iIndex,_indexAction);
             
             Sprite* icon = createFrameRectAnimForever(namePng.c_str(), size.width, size.height, 8, 0.1);
             
@@ -209,6 +209,8 @@ void SheepBlack::playAction(int _indexAction)
         default:
             break;
     }
+    Size sizeCollide = this->getCollideSize(this->m_iIndex,this->m_iAniState);
+    this->setrectCollide(Rect(0, 0, sizeCollide.width, sizeCollide.height));
 }
 void SheepBlack::callBackAni(Node* node)
 {
@@ -328,15 +330,17 @@ Size SheepBlack::getCollideSize(int index,int _indexAction)
 {
     Size size = Size::ZERO;
     
+    float rate = 0.7f;
+    
     switch (index) {
         case 0:
         {
             switch (_indexAction) {
                 case En_Action_Run:
-                    size = Size(141, 150);
+                    size = Size(141*rate, 150);
                     break;
                 case En_Action_Hit:
-                    size = Size(150, 131);
+                    size = Size(150*rate, 131);
                     break;
                     
                 default:
@@ -350,10 +354,10 @@ Size SheepBlack::getCollideSize(int index,int _indexAction)
             
             switch (_indexAction) {
                 case En_Action_Run:
-                    size = Size(116, 91);
+                    size = Size(116*rate, 91);
                     break;
                 case En_Action_Hit:
-                    size = Size(128, 88);
+                    size = Size(128*rate, 88);
                     break;
                     
                 default:
@@ -366,10 +370,10 @@ Size SheepBlack::getCollideSize(int index,int _indexAction)
             
             switch (_indexAction) {
                 case En_Action_Run:
-                    size = Size(108, 68);
+                    size = Size(108*rate, 68);
                     break;
                 case En_Action_Hit:
-                    size = Size(113, 69);
+                    size = Size(113*rate, 69);
                     break;
                     
                 default:
@@ -382,10 +386,10 @@ Size SheepBlack::getCollideSize(int index,int _indexAction)
             
             switch (_indexAction) {
                 case En_Action_Run:
-                    size = Size(79, 62);
+                    size = Size(79*rate, 62);
                     break;
                 case En_Action_Hit:
-                    size = Size(76, 58);
+                    size = Size(76*rate, 58);
                     break;
                     
                 default:
@@ -398,10 +402,10 @@ Size SheepBlack::getCollideSize(int index,int _indexAction)
             
             switch (_indexAction) {
                 case En_Action_Run:
-                    size = Size(54, 53);
+                    size = Size(54*rate, 53);
                     break;
                 case En_Action_Hit:
-                    size = Size(52, 50);
+                    size = Size(52*rate, 50);
                     break;
                     
                 default:

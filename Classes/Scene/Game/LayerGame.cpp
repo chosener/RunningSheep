@@ -163,6 +163,7 @@ void LayerGame::initUI()
     spIconGold->setPosition(DISPLAY_LEFT + 55,DISPLAY_TOP - 200.0f);
     this->addChild(spIconGold,100);
     
+    ///暂停按钮
     ImageButton* imgBtnPause = ImageButton::create("images/game/btn_pause.png", "images/game/btn_pause_s.png");
     imgBtnPause->setPosition(DISPLAY_RIGHT - 50,DISPLAY_TOP - 40.0f);
     this->addChild(imgBtnPause,1100);
